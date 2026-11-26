@@ -12,20 +12,48 @@ import csv, io, json, os, sys, time, urllib.request
 from datetime import datetime, timedelta, timezone
 
 CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")))
-TD_KEY = os.environ.get("TWELVEDATA_API_KEY", "")
+TD_KEY = os.environ.get("TWELVEDATA_API_KEY", "").strip()
+FRED_KEY = os.environ.get("FRED_API_KEY", "").strip()   # free key from fredaccount.stlouisfed.org; much more reliable than the CSV link
 THROTTLE = float(os.environ.get("TD_THROTTLE_SECONDS", "8"))   # free Twelve Data plan allows about 8 calls a minute
 
 
 def http_text(url, opener=urllib.request.urlopen):
     req = urllib.request.Request(url, headers={"User-Agent": "owl-hours/1.0 (personal research)"})
-    with opener(req, timeout=30) as r:
+    with opener(req, timeout=45) as r:
         data = r.read()
     return data.decode("utf-8") if isinstance(data, bytes) else data
 
 
 # ---------- sources ----------
-def fred_series(series_id, opener=urllib.request.urlopen, days=70):
+def fred_series(series_id, opener=urllib.request.urlopen, days=70, sleep=time.sleep):
     start = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
+    last = None
+    for attempt in range(3):
+        try:
+            if FRED_KEY:
+                return fred_api(series_id, start, opener)
+            return fred_csv(series_id, start, opener)
+        except Exception as e:
+            last = e; sleep(4 * (attempt + 1))
+    raise last
+
+
+def fred_api(series_id, start, opener=urllib.request.urlopen):
+    url = (f"https://api.stlouisfed.org/fred/series/observations?series_id={series_id}&api_key={FRED_KEY}"
+           f"&file_type=json&observation_start={start}")
+    d = json.loads(http_text(url, opener))
+    if "observations" not in d:
+        raise ValueError(d.get("error_message", "no observations"))
+    out = []
+    for o in d["observations"]:
+        try: out.append((o["date"], float(o["value"])))
+        except (ValueError, KeyError, TypeError): continue    # "." marks holidays
+    if not out:
+        raise ValueError(f"no data for {series_id}")
+    return out
+
+
+def fred_csv(series_id, start, opener=urllib.request.urlopen):
     text = http_text(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={start}", opener)
     out = []
     for row in csv.reader(io.StringIO(text)):
@@ -46,7 +74,7 @@ def twelve_history(symbol, opener=urllib.request.urlopen):
     url = f"https://api.twelvedata.com/time_series?symbol={symbol}&interval=1day&outputsize={CFG['history_bars']}&apikey={TD_KEY}"
     d = json.loads(http_text(url, opener))
     if d.get("status") == "error" or "values" not in d:
-        raise ValueError(f"{symbol}: {d.get('message', 'no values')}")
+        raise ValueError(f"{symbol}: {d.get('message', 'no values')}")   # a 401 here means the TWELVEDATA_API_KEY secret is wrong
     rows = [{"date": v["datetime"], "high": float(v["high"]), "low": float(v["low"]), "close": float(v["close"])} for v in d["values"]]
     rows.sort(key=lambda r: r["date"])           # oldest first
     return rows
