@@ -201,7 +201,9 @@ def backfill_history(hist_rows, days=90, path="history.json"):
     """First run only: rebuild the market's wheel reading for the last `days` trading days from price history."""
     if os.path.exists(path):
         try:
-            if len(json.load(open(path))) >= days // 2: return
+            old = json.load(open(path))
+            # keep it only if it is long enough and every day has all the sectors; otherwise rebuild it cleanly
+            if len(old) >= days // 2 and all(len(h.get("m", {})) >= len(CFG["sectors"]) for h in old[-days:]): return
         except Exception: pass
     bench = hist_rows.get(CFG["benchmark"])
     if not bench or len(bench) < days + 21: return
@@ -247,7 +249,13 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
     log(f"Twelve Data: {len(symbols)} symbols, one every {THROTTLE:.0f}s (free plan limit)")
     for i, sym in enumerate(symbols):
         try:
-            hist[sym] = twelve_history(sym, opener); log(f"  {sym}: ok ({len(hist[sym])} days)")
+            try:
+                hist[sym] = twelve_history(sym, opener)
+            except Exception as e:
+                if "429" not in str(e) and "credits" not in str(e).lower(): raise
+                log(f"  {sym}: rate limited, waiting a minute and trying again"); sleep(62)
+                hist[sym] = twelve_history(sym, opener)
+            log(f"  {sym}: ok ({len(hist[sym])} days)")
         except Exception as e:
             warnings.append(f"Twelve Data {sym}: {e}"); log(f"  {sym}: FAILED {e}")
             if i == 1 and not hist and ("401" in str(e) or "apikey" in str(e).lower()):
