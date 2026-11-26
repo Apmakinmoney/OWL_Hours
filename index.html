@@ -305,6 +305,43 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 
 
 
+/* ---- Layer 3.5 ---- */
+body[data-mode="customer"] .ownerOnly{display:none!important}
+body[data-mode="owner"] .customerOnly{display:none!important}
+body[data-mode="customer"][data-play="0"] .playOnly{display:none!important}
+body[data-mode="customer"] #mgrid .pips button{pointer-events:none}
+body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transparent}
+.ownIn{width:100%;padding:10px 12px;border-radius:12px;border:1px solid #2f3d6e;background:#0e1736;color:#e8ecf8;font:500 16px var(--sans);margin:0 0 10px}
+.owlCallCard{margin:0 0 14px}.owlCallCard small{display:block;color:#8d9ac0;font-size:12.5px;margin-top:3px}
+.playCard{margin:6px 0 16px}
+.termStrip{display:flex;flex-wrap:wrap;gap:4px 12px;margin:10px 8px 0;padding:8px 10px;border-radius:10px;background:#05080d;border:1px solid #1d2535;font:500 11.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:#d7e2ff}
+.termStrip b{color:#ff9f1c;font-weight:700;margin-right:2px}
+.treemap{width:100%;height:auto;display:block;background:#05080d;border-radius:10px;padding:4px;margin-top:6px;box-sizing:border-box}
+.tmC{cursor:pointer}
+.board{margin-top:12px;background:#05080d;border:1px solid #1d2535;border-radius:10px;padding:6px 6px 2px;overflow-x:auto}
+.board table{width:100%;border-collapse:collapse;font:500 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:#d7e2ff}
+.board th{color:#ff9f1c;font-weight:700;text-align:right;padding:4px 6px;border-bottom:1px solid #1d2535;font-size:11px}.board th:first-child,.board th:nth-child(2){text-align:left}
+.board td{padding:5px 6px;text-align:right;border-bottom:1px solid #121925;white-space:nowrap}.board td.nm{text-align:left;font-weight:700;color:#fff}.board td.dim{color:#6f7d9c;text-align:left}
+.board td.pos{color:#7dffc0}.board td.neg{color:#ff9a8a}.board tr{cursor:pointer}
+.boardN{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:#6f7d9c;margin:6px 4px}
+.tpulse{animation:tp 2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes tp{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.4);opacity:0}}
+@media (prefers-reduced-motion: reduce){.tpulse{animation:none}}
+.ownerDash{margin:4px 0 26px;padding:16px;border-radius:18px;border:1px solid #e0b25b;background:var(--panel)}
+.ownerDash h2{font:650 22px/1.2 var(--serif);margin:0 0 10px}.ownerDash h3{font:650 16px var(--serif);margin:16px 0 4px}
+.dash{display:grid;gap:6px}.dRow{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;background:var(--bg)}
+.dRow i{width:10px;height:10px;border-radius:50%;flex:0 0 10px}.dRow i.ok{background:#4fd1a5}.dRow i.warn{background:#e0b25b}
+.dRow b{display:block;font-size:14px}.dRow small{color:var(--muted);font-size:11.5px}.dRow span{margin-left:auto;font-size:12.5px;color:var(--muted)}
+.btnLink{display:inline-block;padding:7px 12px;border-radius:999px;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-size:13px}
+.fbBtn{position:fixed;right:14px;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:60;width:46px;height:46px;border-radius:50%;padding:0;background:#e0b25b;border:0;box-shadow:0 8px 22px -8px rgba(0,0,0,.6);display:grid;place-items:center}
+.fbBtn svg{width:22px;height:22px;fill:none;stroke:#0a1022;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+@media (min-width:980px){.fbBtn{bottom:24px}}
+.fbText{width:100%;box-sizing:border-box;margin:10px 0;padding:10px 12px;border-radius:12px;border:1px solid #2f3d6e;background:#0e1736;color:#e8ecf8;font:400 15px var(--sans)}
+.issueSec{margin:0 0 18px}.issueSec h3{font:650 18px var(--serif);margin:0 0 8px}
+.issueCard{display:block;text-decoration:none;color:#e8ecf8;padding:16px 18px;border-radius:20px;background:linear-gradient(135deg,#25305e,#141d3d);border:1px solid #2f3d6e}
+.issueCard small{color:#8d9ac0}.issueList{display:grid;gap:4px;margin-top:6px}.issueList a{color:var(--fg);font-size:14px}
+.sheet .presets button[aria-pressed="true"]{background:#e0b25b;color:#0a1022;border-color:#e0b25b}
+
 /* ---- Layer 3 ---- */
 .lcell{cursor:pointer}
 .lchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
@@ -677,9 +714,9 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   var viewing=null, history=[], selected=null, col=null, canSave=false;
   /* Live wheel: "market" is set from sector ETF data, "live" is your own calls. */
   var view="mine", market=null, mkt={}, marketHist=[];
-  function currentMap(){return viewing?viewing.m:(view==="market"&&market?market:live)}
-  function otherMap(){return view==="market"?live:market}
-  function curHist(){return view==="market"&&marketHist.length?marketHist.slice(-90):history}
+  function currentMap(){return viewing?viewing.m:(view==="market"&&market?market:view==="owl"&&owlCall?owlCall.m:live)}
+  function otherMap(){return view==="market"?(owlCall&&!(typeof playing==="function"&&playing())?owlCall.m:live):market}
+  function curHist(){return view!=="mine"&&marketHist.length?marketHist.slice(-90):history}
 
   function estimate(m){
     var sx=0,sy=0,tot=0;
@@ -819,7 +856,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   }
   function paintMini(e){
     var n=$("miniNeedle");if(!n)return;
-    var who=viewing?("Replay "+viewing.date):(view==="market"&&market?"Market":"My calls");
+    var who=viewing?("Replay "+viewing.date):(view==="market"&&market?"Market":view==="owl"&&owlCall?"Owl\u2019s call":"My calls");
     if(e.angle==null){$("miniPhase").textContent="No signal";$("miniSub").textContent=who+". Tap a pip to set a sector.";n.setAttribute("opacity","0")}
     else{
       var ph=phaseOf(e.angle);n.setAttribute("opacity","1");
@@ -868,7 +905,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
         b.setAttribute("aria-label",s.n+": "+(L[0]>0?"+"+L[0]:L[0]===0?"flat":"−"+Math.abs(L[0])));
         b.addEventListener("click",function(){
           if(viewing){viewing=null;syncScrub()}
-          if(view==="market")setView("mine",true);
+          if(view!=="mine")setView("mine",true);
           live[s.id]=L[0];selected=s.id;buzz(8);refresh();
         });
         seg.appendChild(b);
@@ -882,7 +919,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       b.addEventListener("click",function(){
         viewing=null;
         SECTORS.forEach(function(s){live[s.id]=p.m[s.id]||0});
-        if(view==="market")setView("mine",true);
+        if(view!=="mine")setView("mine",true);
         syncScrub();refresh();
       });
       pb.appendChild(b);
@@ -939,14 +976,18 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       var e=el("text",{x:(L+Rr)/2,y:T+H/2,"text-anchor":"middle","dominant-baseline":"central","font-size":"14",fill:"var(--muted)","font-family":"DM Sans, system-ui, sans-serif"},t);
       e.textContent="Save your first snapshot to start the record.";return;
     }
-    pts.forEach(function(h,i){
-      if(i===0)return;var q=pts[i-1];
-      if(Math.abs(h.angle-q.angle)>180)return;
-      el("line",{x1:xo(q.date),y1:yo(q.angle),x2:xo(h.date),y2:yo(h.angle),stroke:"var(--brass)","stroke-width":"1.8","stroke-opacity":"0.7"},t);
-    });
-    pts.forEach(function(h){
-      var on=viewing&&viewing.date===h.date;
-      var c=el("circle",{cx:xo(h.date),cy:yo(h.angle),r:on?6.5:4,fill:"var(--brass)",stroke:on?"var(--fg)":"none","stroke-width":"2",style:"cursor:pointer"},t);
+    var defs=el("defs",{},t),gf=el("filter",{id:"tglow",x:"-20%",y:"-50%",width:"140%",height:"200%"},defs);
+    el("feGaussianBlur",{stdDeviation:"3.2",result:"b"},gf);var fm=el("feMerge",{},gf);el("feMergeNode",{"in":"b"},fm);el("feMergeNode",{"in":"SourceGraphic"},fm);
+    var gr=el("linearGradient",{id:"tgrad",x1:"0",x2:"1",y1:"0",y2:"0"},defs);el("stop",{offset:"0","stop-color":"#e0b25b","stop-opacity":".25"},gr);el("stop",{offset:"1","stop-color":"#ffd27a","stop-opacity":"1"},gr);
+    for(var mm=0;mm<=90;mm+=15){var gx=L+mm/90*(Rr-L-6)+3;el("line",{x1:gx,x2:gx,y1:T,y2:T+H,stroke:"var(--muted)","stroke-opacity":".15","stroke-width":"1"},t)}
+    var dpath="",prevPt=null;
+    pts.forEach(function(h){var x=xo(h.date),y=yo(h.angle);if(prevPt&&Math.abs(h.angle-prevPt.angle)<=180){var mx=(prevPt.x+x)/2;dpath+=" C"+mx+","+prevPt.y+" "+mx+","+y+" "+x+","+y}else dpath+=" M"+x+","+y;prevPt={x:x,y:y,angle:h.angle}});
+    el("path",{d:dpath,fill:"none",stroke:"url(#tgrad)","stroke-width":"5","stroke-opacity":".35",filter:"url(#tglow)"},t);
+    el("path",{d:dpath,fill:"none",stroke:"url(#tgrad)","stroke-width":"2","stroke-linecap":"round"},t);
+    pts.forEach(function(h,ii){
+      var on=viewing&&viewing.date===h.date,last=ii===pts.length-1;
+      if(last){el("circle",{cx:xo(h.date),cy:yo(h.angle),r:6,fill:"none",stroke:"#ffd27a","stroke-width":"2","class":"tpulse"},t)}
+      var c=el("circle",{cx:xo(h.date),cy:yo(h.angle),r:on?6.5:last?4.5:2.6,fill:last?"#ffd27a":"#e0b25b",stroke:on?"var(--fg)":"none","stroke-width":"2",style:"cursor:pointer"},t);
       el("title",{},c).textContent=h.date+", "+phaseOf(h.angle);
       c.addEventListener("click",function(){showSnap(h)});
     });
@@ -2146,12 +2187,12 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   }
   function getJSON(u){return fetch(u+"?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})}
   function setView(v,quiet){
-    if(v==="market"&&!market)v="mine";
+    if(v==="market"&&!market)v=(owlCall?"owl":"mine");if(v==="owl"&&!owlCall)v="market";if(v==="mine"&&typeof playing==="function"&&!playing())v=owlCall?"owl":"market";
     view=v;lsSet("oh_view",v);
     document.querySelectorAll("#viewSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===v?"true":"false")});
-    $("viewNote").textContent=v==="market"?"Set by sector moves. Tap a pip to make your own call.":"Your calls. The dashed needle is the market.";
-    $("recSub").textContent=v==="market"?"Each dot is the market\u2019s own reading at a day\u2019s close, saved by the daily robot. Switch to My calls to see your saved snapshots.":"Each dot is a snapshot you saved, placed by date and by where the needle pointed.";
-    $("legendRing").textContent=v==="market"?"Inner ring: the market\u2019s daily readings":"Inner ring: your saved snapshots";
+    $("viewNote").textContent=v==="market"?"Set by real sector moves vs the S&P 500, updated all day.":v==="owl"?"The Owl\u2019s published call"+(owlCall&&owlCall.date?" from "+owlCall.date:"")+". The dashed needle is the market.":"Your calls. The dashed needle is the market.";
+    $("recSub").textContent=v!=="mine"?"Each dot is the market\u2019s own reading at a day\u2019s close, saved by the daily robot.":"Each dot is a snapshot you saved, placed by date and by where the needle pointed.";
+    $("legendRing").textContent=v!=="mine"?"Inner ring: the market\u2019s daily readings":"Inner ring: your saved snapshots";
     if(viewing){viewing=null;syncScrub()}
     if(!quiet){renderHistory();refresh()}else{paintTrail();paintDrift();renderTimeline()}
   }
@@ -2161,8 +2202,9 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     ml.hidden=false;ml.textContent="";
     var em=estimate(market),ey=estimate(live);
     function part(lbl,x){var sp=document.createElement("span");sp.appendChild(document.createTextNode(lbl+" "));var b=document.createElement("b");b.textContent=x.angle==null?"no signal":HOUR[phaseOf(x.angle)]+", "+Math.round(x.angle)+"\u00b0";sp.appendChild(b);return sp}
-    ml.appendChild(part("Market:",em));ml.appendChild(document.createTextNode(" \u00b7 "));ml.appendChild(part("Your calls:",ey));
-    if(em.angle!=null&&ey.angle!=null)ml.appendChild(document.createTextNode(" \u00b7 "+Math.round(Math.abs(((em.angle-ey.angle+540)%360)-180))+"\u00b0 apart"));
+    var showMine=typeof playing!=="function"||playing();if(!showMine&&owlCall)ey=estimate(owlCall.m);
+    ml.appendChild(part("Market:",em));if(showMine||owlCall){ml.appendChild(document.createTextNode(" \u00b7 "));ml.appendChild(part(showMine?"Your calls:":"Owl\u2019s call:",ey))}
+    if((showMine||owlCall)&&em.angle!=null&&ey.angle!=null)ml.appendChild(document.createTextNode(" \u00b7 "+Math.round(Math.abs(((em.angle-ey.angle+540)%360)-180))+"\u00b0 apart"));
     var info=[];
     if(mkt.asOf)info.push((/[Oo]pen/.test(session().state)?"Live as of ":"Last update ")+new Date(mkt.asOf).toLocaleString([],{weekday:"short",hour:"numeric",minute:"2-digit"}));
     info.push(mkt.hasTrend?(mkt.hasToday?"today\u2019s move blended with the 20-day trend":"20-day trend only"):"today\u2019s move only until the daily robot runs");
@@ -2206,7 +2248,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       if(n)mkt.macroFilled=n;
     }
     $("viewbar").hidden=false;var cb=$("copyMkt");if(cb)cb.hidden=false;
-    if(first){setView(lsGet("oh_view")==="mine"?"mine":"market")}else{renderHistory();refresh()}
+    if(first){var lv=lsGet("oh_view");setView(lv==="mine"&&playing()?"mine":(owlCall&&(lv==="owl"||(!lsGet("oh_view_set")&&!isOwner())))?"owl":"market")}else{renderHistory();refresh()}
     if(!first&&changed.length&&owlTopApi){
       var SYM={"2":"++","1":"+","0":"flat","-1":"\u2212","-2":"\u2212\u2212"},na=estimate(market).angle;
       var bits=changed.slice(0,2).map(function(id){var sd=SECTORS.filter(function(x){return x.id===id})[0];return sd.n+" flipped to "+SYM[String(market[id])]});
@@ -2478,7 +2520,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     paintLesson();
     if(lsGet("oh_tour")!=="1")setTimeout(startTour,1400);else setTimeout(sayLessonOnce,9800);
   }
-  function phaseB(){paintDrivers();paintTip();paintScore();if($("heatSec"))layer3Paint();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
+  function phaseB(){paintDrivers();paintTip();paintScore();if($("heatSec"))layer3Paint();if($("proG"))paintPro();if($("owlCallCard"))paintOwlCallCard();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
   /* ================= Phase B2: crypto strip, calendar, latest prints, weekly recap ================= */
   var calData=null,cryData=null;
   var CALKIND={fed:"Fed",cpi:"CPI",jobs:"Jobs",pce:"PCE",gdp:"GDP",retail:"Retail",earnings:"Earnings"};
@@ -2780,15 +2822,10 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     if(top){var sp=mkEl("div","spot");sp.appendChild(mkEl("div","lsHead","Sector of the week"));
       var h=mkEl("p","lsText",top.s.n+" "+fmtP(top.v));sp.appendChild(h);sp.appendChild(mkEl("small",null,"vs the S&P over the last 5 trading days · "+ETF[top.s.id]));
       var w=mkEl("p","rcL",SECWHY[top.s.id]||"");sp.appendChild(w);if(HOLD[top.s.id])sp.appendChild(mkEl("small",null,"Big names inside: "+HOLD[top.s.id]));b.appendChild(sp)}
-    var hd=mkEl("div","calHead");hd.appendChild(mkEl("h3",null,"Sector heatmap"));
+    var hd=mkEl("div","calHead");hd.appendChild(mkEl("h3",null,"Market map"));
     var seg=mkEl("span","seg");[["1","Today"],["5","5 days"],["20","20 days"]].forEach(function(o){var bt=mkEl("button",null,o[1]);bt.type="button";bt.setAttribute("aria-pressed",String(heatMode===o[0]));bt.addEventListener("click",function(){heatMode=o[0];paintHeat()});seg.appendChild(bt)});
     hd.appendChild(seg);b.appendChild(hd);
-    var rows=have.map(function(s){return {s:s,v:heatVal(s.id)}}).sort(function(a,c){return c.v-a.v});
-    var g=mkEl("div","heat");
-    rows.forEach(function(r,i){var t=mkEl("button","hTile"+(heatSel===r.s.id?" sel":""));t.type="button";t.style.background=heatColor(r.v);
-      t.appendChild(mkEl("span","hR","#"+(i+1)));t.appendChild(mkEl("b",null,r.s.s));t.appendChild(mkEl("span","hV",fmtP(r.v)));
-      t.addEventListener("click",function(){heatSel=heatSel===r.s.id?null:r.s.id;paintHeat()});g.appendChild(t)});
-    b.appendChild(g);
+    b.appendChild(treemapNode());
     if(heatSel){var s=SECTORS.filter(function(x){return x.id===heatSel})[0],d=mkEl("div","secTip");
       var th=mkEl("div","tipH");th.appendChild(mkEl("b",null,s.n));d.appendChild(th);
       var bits=[ETF[s.id]],r1=relToday(s.id),ls=latData&&latData.sectors&&latData.sectors[s.id];
@@ -2797,7 +2834,8 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       if(HOLD[s.id])d.appendChild(mkEl("small",null,"Big names inside: "+HOLD[s.id]+" (not ranked, weights change)"));
       var go=mkEl("button","small","Make my call on "+s.s);go.type="button";go.style.marginTop="8px";go.addEventListener("click",function(){if(rowEls[s.id]){rowEls[s.id].row.scrollIntoView({block:"center",behavior:"smooth"});select(s.id)}});d.appendChild(go);
       b.appendChild(d)}
-    b.appendChild(mkEl("p","ccN","Each tile is the sector ETF’s return minus the S&P 500’s over the window you pick. Green is beating the market, red is lagging."));
+    b.appendChild(mkEl("p","ccN","Box size is each sector\u2019s approximate weight in the S&P 500. Color is the sector ETF\u2019s return minus the S&P 500\u2019s over the window you pick: green beats the market, red lags. Themes are sub-groups shown separately."));
+    b.appendChild(boardNode());
   }
 
   /* learn */
@@ -2995,6 +3033,212 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   }
   function layer3Paint(){paintFear();paintDayWrap();paintMetals();paintHeat()}
 
+  /* ================= Layer 3.5: customer/owner modes, The Owl's call, terminal visuals, feedback, analytics ================= */
+  var REPO="Apmakinmoney/OWL_Hours",OWNER_HASH="8aa2f675dc1472569d6cc44c63671017b32ba9469b930659e066c34b2a4ec579";
+  var FEEDBACK_EMAIL="Apalmerbmb20@gmail.com";
+  var owlCall=null;
+  function isOwner(){return lsGet("oh_mode")==="owner"}
+  function playing(){return isOwner()||lsGet("oh_play")==="1"}
+  function applyMode(){document.body.dataset.mode=isOwner()?"owner":"customer";document.body.dataset.play=playing()?"1":"0";
+    var mb=document.querySelector('#viewSeg button[data-v="mine"]');if(mb)mb.textContent=isOwner()?"My calls":"My game";
+    if(!playing()&&view==="mine")setView(owlCall?"owl":"market");paintOwnerDash();paintPlayCard()}
+  async function sha256(t){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return Array.prototype.map.call(new Uint8Array(b),function(x){return ("0"+x.toString(16)).slice(-2)}).join("")}
+  var taps=[];
+  function ownerTap(){
+    var now=Date.now();taps=taps.filter(function(t){return now-t<5000});taps.push(now);if(taps.length<7)return;taps=[];
+    var box=mkEl("div");
+    if(isOwner()){box.appendChild(mkEl("p","sub","Owner mode is on for this phone."));var out=mkEl("button",null,"Switch to customer view");out.type="button";out.addEventListener("click",function(){lsSet("oh_mode","customer");applyMode();closeSheet();owlTopApi&&owlTopApi.say("Customer view. Tap me 7 times to come back.")});box.appendChild(out);openSheet("Owner mode",box);return}
+    var inp=mkEl("input");inp.type="password";inp.placeholder="Owner code";inp.autocomplete="off";inp.className="ownIn";
+    var go=mkEl("button",null,"Unlock");go.type="button";var msg=mkEl("p","sub","");
+    go.addEventListener("click",async function(){var h="";try{h=await sha256(inp.value.trim().toUpperCase())}catch(e){}
+      if(h===OWNER_HASH){lsSet("oh_mode","owner");applyMode();closeSheet();owlTopApi&&owlTopApi.say("Welcome back, boss. Owner tools are on.");location.hash="#record"}else msg.textContent="That code didn’t match."});
+    box.appendChild(inp);box.appendChild(go);box.appendChild(msg);openSheet("Owner mode",box);setTimeout(function(){inp.focus()},100);
+  }
+  function markOwnerOnly(){
+    function own(n){if(n)n.classList.add("ownerOnly")}
+    own($("autoPanel"));own($("presets"));["csvBtn","bkBtn","rsBtn"].forEach(function(id){own($(id))});
+    var mp=document.querySelector('.pane[data-pane="macro"]');
+    if(mp){var sec=$("mgrid")&&$("mgrid").parentNode;if(sec){var sub=sec.querySelector("p.sub");own(sub);
+      var cs=mkEl("p","sub customerOnly","Auto-filled by the daily robot after each close. Arrows show which way each signal moved. Tap Learn for what it means.");if(sub)sec.insertBefore(cs,sub.nextSibling);
+      var on=false;Array.prototype.forEach.call(sec.children,function(ch){if(ch.tagName==="H3"&&/AI spending/i.test(ch.textContent))on=true;if(on)own(ch)})}}
+    var lp=document.querySelector('.pane[data-pane="letter"]');
+    if(lp){var on2=false;Array.prototype.forEach.call(lp.children,function(ch){if(ch.classList.contains("paneHead")&&/Newsletter desk/.test(ch.textContent))on2=true;if(on2)own(ch)})}
+    var ctl=document.querySelector("section.controls");if(ctl)ctl.classList.add("playOnly");
+    var mb=document.querySelector('#viewSeg button[data-v="mine"]');if(mb)mb.classList.add("playOnly");
+  }
+  function paintPlayCard(){
+    var b=$("playCard");if(!b)return;b.textContent="";
+    if(isOwner()){b.hidden=true;return}b.hidden=false;
+    b.appendChild(mkEl("div","lsHead","Make your own calls"));
+    b.appendChild(mkEl("p","rcL",playing()?"Game on. Set your + and − below, save a snapshot, and the scoreboard grades you at the next close.":"Think you can read the market? Turn on the game to set your own + and − for each sector and get graded against the market."));
+    var t=mkEl("button",playing()?"small":null,playing()?"Turn the game off":"Start playing");t.type="button";
+    t.addEventListener("click",function(){lsSet("oh_play",playing()?"0":"1");applyMode();if(playing()){setView("mine");var c=document.querySelector("section.controls");if(c)c.scrollIntoView({block:"start",behavior:"smooth"})}});b.appendChild(t);
+  }
+
+  /* The Owl's call */
+  async function loadOwlCall(){
+    try{var d=await getJSON("owlcall.json");if(d&&d.m){owlCall=d}}catch(e){}
+    var ob=document.querySelector('#viewSeg button[data-v="owl"]');if(ob)ob.hidden=!owlCall;
+    if(owlCall&&!lsGet("oh_view_set")&&!isOwner()){setView("owl")}
+    else if(owlCall&&lsGet("oh_view")==="owl")setView("owl");
+    paintOwlCallCard();paintOwnerDash();
+  }
+  function paintOwlCallCard(){
+    var b=$("owlCallCard");if(!b)return;if(!owlCall){b.hidden=true;return}b.hidden=false;b.textContent="";
+    var e=estimate(owlCall.m);
+    b.appendChild(mkEl("div","lsHead","The Owl’s call · "+fmtDay(owlCall.date)));
+    b.appendChild(mkEl("p","lsText",e.angle==null?"No clear call.":HOUR[phaseOf(e.angle)]+" · "+phaseOf(e.angle).toLowerCase()+", "+Math.round(e.angle)+"°"));
+    if(owlCall.why)b.appendChild(mkEl("p","rcL","“"+owlCall.why+"”"));
+    var ups=SECTORS.filter(function(s){return (owlCall.m[s.id]||0)>0}).map(function(s){return s.s+" "+SYMV[String(owlCall.m[s.id])]}),dns=SECTORS.filter(function(s){return (owlCall.m[s.id]||0)<0}).map(function(s){return s.s+" "+SYMV[String(owlCall.m[s.id])]});
+    if(ups.length)b.appendChild(mkEl("small",null,"Favoring: "+ups.join(", ")));if(dns.length)b.appendChild(mkEl("small",null,"Avoiding: "+dns.join(", ")));
+    if(market){var em=estimate(market).angle;if(em!=null&&e.angle!=null){var dd=Math.round(Math.abs(((em-e.angle+540)%360)-180));b.appendChild(mkEl("small",null,dd<20?"In line with the market’s read right now.":"The market is reading "+dd+"° away ("+HOUR[phaseOf(em)]+")."))}}
+    var v=mkEl("button","small",view==="owl"?"Showing on the clock":"Show on the clock");v.type="button";v.style.marginTop="8px";v.addEventListener("click",function(){setView("owl");location.hash="#clock"});b.appendChild(v);
+    b.appendChild(mkEl("small",null,"An opinion for education, not a recommendation to buy or sell."));
+  }
+  function ghKey(){return lsGet("oh_gh")||""}
+  function b64(s){return btoa(unescape(encodeURIComponent(s)))}
+  async function publishOwlCall(){
+    var m={};SECTORS.forEach(function(s){m[s.id]=live[s.id]||0});var e=estimate(m);
+    var data={date:todayStr(),asOf:new Date().toISOString(),m:m,why:($("noteIn").value||"").trim().slice(0,200),angle:e.angle,clarity:e.clarity};
+    var txt=JSON.stringify(data,null,1);
+    if(!ghKey()){
+      var box=mkEl("div");box.appendChild(mkEl("p","sub","Publishing straight from the app needs your GitHub key (set it up in the Owner dashboard on the Record tab). For now, download the file and upload it to the main page of your repo."));
+      var dl=mkEl("button",null,"Download owlcall.json");dl.type="button";dl.addEventListener("click",function(){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/json"}));a.download="owlcall.json";document.body.appendChild(a);a.click();setTimeout(function(){a.remove()},800)});
+      box.appendChild(dl);openSheet("Publish The Owl’s call",box);return;
+    }
+    setStatus("Publishing The Owl’s call…");
+    try{
+      var h={"Authorization":"Bearer "+ghKey(),"Accept":"application/vnd.github+json"},sha=null;
+      var g=await fetch("https://api.github.com/repos/"+REPO+"/contents/owlcall.json",{headers:h});if(g.ok){sha=(await g.json()).sha}
+      var body={message:"The Owl's call "+data.date,content:b64(txt)};if(sha)body.sha=sha;
+      var p=await fetch("https://api.github.com/repos/"+REPO+"/contents/owlcall.json",{method:"PUT",headers:h,body:JSON.stringify(body)});
+      if(!p.ok)throw new Error("GitHub said "+p.status);
+      owlCall=data;paintOwlCallCard();var ob=document.querySelector('#viewSeg button[data-v="owl"]');if(ob)ob.hidden=false;
+      setStatus("Published. Customers see it within about 2 minutes.");owlTopApi&&owlTopApi.say("The Owl’s call is out.");
+    }catch(err){setStatus("Couldn’t publish ("+err.message+"). Check the key in the Owner dashboard.")}
+  }
+
+  /* owner dashboard */
+  var dashCache={};
+  function agoTxt(iso){if(!iso)return "never";var m=(Date.now()-new Date(iso).getTime())/60000;if(m<90)return Math.round(m)+" min ago";if(m<2880)return Math.round(m/60)+" hr ago";return Math.round(m/1440)+" days ago"}
+  async function paintOwnerDash(){
+    var b=$("ownerDash");if(!b)return;if(!isOwner()){b.hidden=true;return}b.hidden=false;
+    if(!dashCache.t||Date.now()-dashCache.t>60000){dashCache={t:Date.now()};
+      await Promise.all([["q","quotes.json"],["l","latest.json"],["c","crypto.json"],["k","calendar.json"]].map(function(x){return getJSON(x[1]).then(function(d){dashCache[x[0]]=d}).catch(function(){})}))}
+    b.textContent="";b.appendChild(mkEl("h2",null,"Owner dashboard"));
+    var rows=[["Quotes robot","every 15 min, market hours",dashCache.q&&dashCache.q.asOf,40],["Daily robot","weekdays after the close",dashCache.l&&dashCache.l.asOf,60*30],["Crypto robot","every hour",dashCache.c&&dashCache.c.asOf,130],["Calendar","with the daily robot",dashCache.k&&dashCache.k.asOf,60*30],["The Owl’s call","when you publish",owlCall&&owlCall.asOf,60*24*7]];
+    var t=mkEl("div","dash");
+    rows.forEach(function(r){var age=r[2]?(Date.now()-new Date(r[2]).getTime())/60000:1e9,ok=age<r[3]||(r[0]==="Quotes robot"&&!/[Oo]pen/.test(session().state));
+      var d=mkEl("div","dRow");d.appendChild(mkEl("i",ok?"ok":"warn"));var tx=mkEl("div");tx.appendChild(mkEl("b",null,r[0]));tx.appendChild(mkEl("small",null,r[1]));d.appendChild(tx);d.appendChild(mkEl("span",null,agoTxt(r[2])));t.appendChild(d)});
+    b.appendChild(t);
+    var W=[].concat((dashCache.l&&dashCache.l.warnings)||[],(dashCache.k&&dashCache.k.warnings)||[]);
+    b.appendChild(mkEl("p","sub",W.length?"Robot warnings: "+W.join(" · "):"No robot warnings."));
+    var lk=mkEl("div","presets");[["Open GitHub Actions","https://github.com/"+REPO+"/actions"],["Open the repo","https://github.com/"+REPO]].forEach(function(x){var a=mkEl("a","btnLink",x[0]);a.href=x[1];a.target="_blank";a.rel="noopener";lk.appendChild(a)});b.appendChild(lk);
+    b.appendChild(mkEl("h3",null,"Publishing key"));
+    b.appendChild(mkEl("p","sub",ghKey()?"A GitHub key is saved on this phone only. Publish The Owl’s call from the Sectors tab.":"Not set up. Until it is, “Publish” gives you a file to upload by hand."));
+    var ki=mkEl("input");ki.type="password";ki.placeholder="Paste GitHub key";ki.className="ownIn";var ks=mkEl("button","small",ghKey()?"Replace key":"Save key");ks.type="button";
+    ks.addEventListener("click",function(){if(ki.value.trim()){lsSet("oh_gh",ki.value.trim());paintOwnerDash()}});
+    var kr=mkEl("button","small","Forget key");kr.type="button";kr.addEventListener("click",function(){try{localStorage.removeItem("oh_gh")}catch(e){}paintOwnerDash()});
+    var kw=mkEl("div","presets");kw.appendChild(ki);kw.appendChild(ks);if(ghKey())kw.appendChild(kr);b.appendChild(kw);
+    var out=mkEl("button","small","Switch to customer view");out.type="button";out.style.marginTop="14px";out.addEventListener("click",function(){lsSet("oh_mode","customer");applyMode();owlTopApi&&owlTopApi.say("Customer view. Tap me 7 times to come back.")});b.appendChild(out);
+  }
+
+  /* terminal-style visuals */
+  var GICS=[["TECH","Tech",34],["FIN","Financials",13],["DISC","Discretionary",10.5],["COMM","Comm",10],["HLTH","Health",9],["IND","Industrials",8.5],["STPL","Staples",5],["ENGY","Energy",3],["UTIL","Utilities",2.5],["REIT","Real estate",2],["MAT","Materials",2]];
+  var THEMES=[["SEMI","Semis"],["CYB","Cyber"],["GOLD","Gold miners"]];
+  function squarify(items,x,y,w,h){
+    var out=[],total=items.reduce(function(a,b){return a+b.w},0),rest=items.slice();
+    function worst(row,len,scale){var s=row.reduce(function(a,b){return a+b.w*scale},0),mx=0,mn=1e9;row.forEach(function(r){var v=r.w*scale;mx=Math.max(mx,v);mn=Math.min(mn,v)});return Math.max(len*len*mx/(s*s),(s*s)/(len*len*mn))}
+    var scale=w*h/total;
+    while(rest.length){var len=Math.min(w,h),row=[rest[0]],i=1;
+      while(i<rest.length&&worst(row.concat([rest[i]]),len,scale)<=worst(row,len,scale)){row.push(rest[i]);i++}
+      var s=row.reduce(function(a,b){return a+b.w*scale},0),thick=s/len,off=0;
+      row.forEach(function(r){var l=r.w*scale/thick;if(w>=h)out.push({it:r,x:x,y:y+off,w:thick,h:l});else out.push({it:r,x:x+off,y:y,w:l,h:thick});off+=l});
+      if(w>=h){x+=thick;w-=thick}else{y+=thick;h-=thick}rest=rest.slice(row.length)}
+    return out;
+  }
+  function termColor(v){if(v==null)return "#14181f";var a=Math.min(1,Math.abs(v)/(heatMode==="1"?1.5:heatMode==="5"?4:8));return v>=0?"rgb("+Math.round(10+10*a)+","+Math.round(60+120*a)+","+Math.round(45+60*a)+")":"rgb("+Math.round(80+130*a)+","+Math.round(25+20*a)+","+Math.round(30+15*a)+")"}
+  function treemapNode(){
+    var W=340,H=230,svg=el("svg",{viewBox:"0 0 "+W+" "+(H+56),"class":"treemap"});
+    var items=GICS.map(function(g){return {id:g[0],n:g[1],w:g[2]}}),cells=squarify(items,0,0,W,H);
+    function cell(c,id,name,big){var v=heatVal(id),g=el("g",{"class":"tmC",tabindex:"0",role:"button"},svg);
+      el("rect",{x:c.x+1,y:c.y+1,width:Math.max(0,c.w-2),height:Math.max(0,c.h-2),fill:termColor(v),stroke:heatSel===id?"#ff9f1c":"#0a0d12","stroke-width":heatSel===id?2:1},g);
+      if(c.w>34&&c.h>22){var fs=big?Math.min(16,Math.max(10,c.w/6)):10;var t=el("text",{x:c.x+6,y:c.y+fs+4,fill:"#e9f0ff","font-size":fs,"font-weight":"700","font-family":"ui-monospace, SFMono-Regular, Menlo, monospace"},g);t.textContent=(c.w>90?name:SECTORS.filter(function(s){return s.id===id})[0].s).toUpperCase();
+        if(v!=null&&c.h>34){var t2=el("text",{x:c.x+6,y:c.y+fs+18,fill:v>=0?"#7dffc0":"#ff9a8a","font-size":Math.max(9,fs-3),"font-family":"ui-monospace, SFMono-Regular, Menlo, monospace"},g);t2.textContent=(v>=0?"+":"")+v.toFixed(2)+"%"}}
+      g.addEventListener("click",function(){heatSel=heatSel===id?null:id;paintHeat()});}
+    cells.forEach(function(c){cell(c,c.it.id,c.it.n,true)});
+    var tw=W/THEMES.length,lab=el("text",{x:0,y:H+14,fill:"#ff9f1c","font-size":"9.5","font-family":"ui-monospace, SFMono-Regular, Menlo, monospace"},svg);lab.textContent="THEMES";
+    THEMES.forEach(function(t,i){cell({x:i*tw,y:H+18,w:tw,h:38},t[0],t[1],false)});
+    return svg;
+  }
+  function boardNode(){
+    var wrap=mkEl("div","board");var tb=mkEl("table");var hr=mkEl("tr");["SECTOR","ETF","1D","5D","20D","OWL"].forEach(function(h){hr.appendChild(mkEl("th",null,h))});tb.appendChild(hr);
+    var rows=SECTORS.filter(function(s){return ETF[s.id]}).map(function(s){var ls=latData&&latData.sectors&&latData.sectors[s.id];return {s:s,d1:relToday(s.id),d5:ls&&ls.relReturnPct,d20:ls&&ls.rel20,o:owlCall?owlCall.m[s.id]:null}});
+    rows.sort(function(a,b){return (b.d5==null?-99:b.d5)-(a.d5==null?-99:a.d5)});
+    function c(v){var td=mkEl("td",v==null?"":v>=0?"pos":"neg",v==null?"—":(v>=0?"+":"")+v.toFixed(2));return td}
+    rows.forEach(function(r){var tr=mkEl("tr");tr.appendChild(mkEl("td","nm",r.s.s));tr.appendChild(mkEl("td","dim",ETF[r.s.id]));tr.appendChild(c(r.d1));tr.appendChild(c(r.d5));tr.appendChild(c(r.d20));
+      tr.appendChild(mkEl("td",r.o>0?"pos":r.o<0?"neg":"dim",r.o==null?"—":SYMV[String(r.o)]));tr.addEventListener("click",function(){heatSel=r.s.id;paintHeat()});tb.appendChild(tr)});
+    wrap.appendChild(tb);wrap.appendChild(mkEl("p","boardN","Returns vs the S&P 500, in %. Sorted by 5-day. OWL = The Owl’s published call."));return wrap;
+  }
+  function paintPro(){
+    var m=currentMap(),pg=$("proG");if(!pg)return;while(pg.firstChild)pg.removeChild(pg.firstChild);
+    var p=mkt&&mkt.pcts,showPct=view!=="mine"&&p&&typeof p.SPY==="number";
+    SECTORS.forEach(function(s){var n=nodeEls[s.id];if(!n)return;var v=m[s.id]||0;
+      n.c.style.filter=v?"drop-shadow(0 0 "+(4+Math.abs(v)*4)+"px "+(v>0?"rgba(79,209,165,.9)":"rgba(255,123,102,.9)")+")":"";
+      if(showPct){var r=relToday(s.id);if(r==null)return;var q=pt(s.a,204),t=el("text",{x:q[0],y:q[1],"text-anchor":"middle","dominant-baseline":"central","font-size":"12.5","font-weight":"700","font-family":"ui-monospace, SFMono-Regular, Menlo, monospace",fill:r>=0?"#7dffc0":"#ff9a8a"},pg);t.textContent=(r>=0?"+":"")+r.toFixed(1)}});
+    var ts=$("termStrip");if(ts){ts.textContent="";
+      var up=0,dn=0,fl=0;SECTORS.forEach(function(s){var v=m[s.id]||0;if(v>0)up++;else if(v<0)dn++;else fl++});
+      var e=estimate(m),bits=[["BREADTH",up+"▲ "+dn+"▼ "+fl+"="],["PULL",e.angle==null?"—":(e.clarity*100).toFixed(0)+"%"]];
+      if(showPct){var rr=SECTORS.filter(function(s){return relToday(s.id)!=null}).map(function(s){return {s:s,v:relToday(s.id)}}).sort(function(a,b){return b.v-a.v});
+        if(rr.length){bits.push(["TOP▲",rr[0].s.s+" "+fmtP(rr[0].v)]);bits.push(["TOP▼",rr[rr.length-1].s.s+" "+fmtP(rr[rr.length-1].v)])}}
+      if(p&&typeof p.SPY==="number")bits.unshift(["SPY",fmtP(p.SPY)]);
+      bits.forEach(function(b){var sp=mkEl("span");sp.appendChild(mkEl("b",null,b[0]));sp.appendChild(document.createTextNode(" "+b[1]));ts.appendChild(sp)})}
+  }
+
+  /* feedback + analytics */
+  function openFeedback(){
+    var box=mkEl("div"),kind="Idea",chips=mkEl("div","presets");
+    ["Bug","Idea","Love it"].forEach(function(k){var b=mkEl("button","small",k);b.type="button";b.setAttribute("aria-pressed",String(k===kind));b.addEventListener("click",function(){kind=k;Array.prototype.forEach.call(chips.children,function(x){x.setAttribute("aria-pressed",String(x.textContent===k))})});chips.appendChild(b)});
+    var ta=mkEl("textarea","fbText");ta.rows=5;ta.placeholder="What’s working, what’s confusing, what you’d add…";
+    var send=mkEl("button",null,"Send feedback");send.type="button";var msg=mkEl("p","sub","");
+    send.addEventListener("click",function(){var t=ta.value.trim();if(!t){msg.textContent="Type a few words first.";return}
+      var info="\n\n---\nTab: "+(document.body.dataset.tab||"")+" · "+navigator.userAgent.slice(0,120);
+      if(FEEDBACK_EMAIL){location.href="mailto:"+FEEDBACK_EMAIL+"?subject="+encodeURIComponent("Owl Hours feedback: "+kind)+"&body="+encodeURIComponent(t+info);msg.textContent="Opening your email app…"}
+      else{try{navigator.clipboard.writeText(t)}catch(e){}msg.textContent="Thanks! The feedback inbox isn’t connected yet, so your note was copied."}
+      try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:"feedback-"+kind,event:true})}catch(e){}});
+    box.appendChild(chips);box.appendChild(ta);box.appendChild(send);box.appendChild(msg);openSheet("Send feedback",box);
+  }
+  function track(path){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:path,title:path,event:true})}catch(e){}}
+
+  function layer35Init(){
+    var vs=$("viewSeg");if(vs&&!vs.querySelector('[data-v="owl"]')){var ob=mkEl("button",null,"Owl’s call");ob.type="button";ob.dataset.v="owl";ob.setAttribute("aria-pressed","false");ob.hidden=true;vs.insertBefore(ob,vs.children[1]);ob.addEventListener("click",function(){lsSet("oh_view_set","1");setView("owl")})}
+    document.querySelectorAll('#viewSeg button[data-v="market"],#viewSeg button[data-v="mine"]').forEach(function(b){b.addEventListener("click",function(){lsSet("oh_view_set","1")})});
+    markOwnerOnly();
+    var cp=document.querySelector('.pane[data-pane="clock"]');
+    if(cp&&!$("owlCallCard")){var oc=mkEl("div","recap owlCallCard");oc.id="owlCallCard";oc.hidden=true;var dial=cp.querySelector("section.dial");cp.insertBefore(oc,dial)}
+    var ro=document.querySelector(".readouts");if(ro&&!$("termStrip")){var ts=mkEl("div","termStrip");ts.id="termStrip";ro.parentNode.insertBefore(ts,ro.nextSibling)}
+    var wheel=$("wheel");if(wheel&&!$("proG")){var g=el("g",{id:"proG","pointer-events":"none"},wheel)}
+    if(typeof needleG!=="undefined"&&needleG)needleG.style.filter="drop-shadow(0 0 6px rgba(224,178,91,.75))";
+    var sp=document.querySelector('.pane[data-pane="sectors"]'),hs=$("heatSec");
+    if(sp&&!$("playCard")){var pc=mkEl("div","recap playCard");pc.id="playCard";var ctl=sp.querySelector("section.controls");sp.insertBefore(pc,ctl)}
+    var ctl2=document.querySelector("section.controls");if(ctl2&&!$("pubBtn")){var sb=$("saveBtn");var pb=mkEl("button","ownerOnly","Publish as The Owl’s call");pb.type="button";pb.id="pubBtn";pb.addEventListener("click",publishOwlCall);if(sb&&sb.parentNode)sb.parentNode.insertBefore(pb,sb.nextSibling)}
+    var rec=document.querySelector('.pane[data-pane="record"]');if(rec&&!$("ownerDash")){var od=mkEl("section","ownerDash ownerOnly");od.id="ownerDash";rec.insertBefore(od,rec.firstChild)}
+    var ls=$("learnSec");if(ls&&!$("issueSec")){var is=mkEl("section","issueSec");is.id="issueSec";ls.parentNode.insertBefore(is,ls);loadIssues()}
+    if(!$("fbBtn")){var fb=mkEl("button","fbBtn");fb.type="button";fb.id="fbBtn";fb.setAttribute("aria-label","Send feedback");fb.innerHTML='<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>';fb.addEventListener("click",openFeedback);document.body.appendChild(fb)}
+    var top=$("owlTop");if(top)top.addEventListener("click",ownerTap);
+    window.addEventListener("hashchange",function(){track("tab-"+location.hash.slice(1))});
+    applyMode();loadOwlCall();paintPro();
+  }
+  async function loadIssues(){
+    var b=$("issueSec");if(!b)return;var items=[];try{items=await getJSON("issues.json")}catch(e){}
+    b.textContent="";b.appendChild(mkEl("h3",null,"The Market Talks"));
+    if(!Array.isArray(items)||!items.length){b.appendChild(mkEl("p","sub","The first issue is on the way. It will show up here the day it’s published."));return}
+    items=items.slice().sort(function(a,c){return a.date<c.date?1:-1});
+    var L=items[0],card=mkEl("a","issueCard");card.href=L.pdf;card.target="_blank";card.rel="noopener";
+    card.appendChild(mkEl("div","lsHead","Latest issue · "+fmtDay(L.date)));card.appendChild(mkEl("p","lsText",L.headline||"The Market Talks"));if(L.dek)card.appendChild(mkEl("small",null,L.dek));b.appendChild(card);
+    if(items.length>1){var ar=mkEl("div","issueList");items.slice(1,13).forEach(function(i){var a=mkEl("a",null,fmtDay(i.date)+" · "+(i.headline||"Issue"));a.href=i.pdf;a.target="_blank";a.rel="noopener";ar.appendChild(a)});b.appendChild(mkEl("small","sub","Archive"));b.appendChild(ar)}
+  }
+
   function phaseB2Init(){
     var mp=document.querySelector('.pane[data-pane="macro"]');
     if(mp&&!$("calSec")){var h=mp.querySelector(".paneHead");
@@ -3023,7 +3267,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();paintRecap();
+  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();paintRecap();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */
