@@ -1,0 +1,26 @@
+name: Refresh quotes
+
+on:
+  schedule:
+    # Every 15 minutes, 13:00-21:59 UTC, Monday to Friday. This covers US market hours in both
+    # summer and winter time. GitHub treats schedules as best effort, so runs can arrive a few minutes late.
+    - cron: "*/15 13-21 * * 1-5"
+  workflow_dispatch:   # lets you press "Run workflow" to test
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch quotes
+        run: python fetch_quotes.py
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      - name: Save quotes.json
+        run: bash .github/push.sh "Update quotes" quotes.json
