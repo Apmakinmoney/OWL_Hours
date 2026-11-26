@@ -303,6 +303,30 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 @keyframes npulse{0%{stroke-width:3}35%{stroke-width:11;stroke-opacity:.45}100%{stroke-width:1.5;stroke-opacity:1}}
 @media (prefers-reduced-motion: reduce){.node.pulse circle{animation:none}}
 
+
+/* ---- Phase B2 ---- */
+.cryptoStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 6px}
+.cc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 10px}
+.ccS{display:block;font:600 12px var(--sans);color:var(--muted);letter-spacing:.05em}.cc b{display:block;font:650 17px/1.2 var(--serif)}
+.cc small{font-size:12px}.cc small.up{color:#2fae86}.cc small.dn{color:#e5604c}
+.ccN{grid-column:1/-1;font-size:12px;color:var(--muted);margin:2px 0 0}
+.calSec{margin:8px 0 18px}.calSec h3{font:650 18px/1.2 var(--serif);margin:18px 0 8px}
+.prTiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.prTiles div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center}
+.prTiles b{display:block;font:650 20px/1.1 var(--serif)}.prTiles span{display:block;font-size:11.5px;color:var(--muted);line-height:1.3}.prTiles small{font-size:10.5px;color:var(--muted)}
+.calHead{display:flex;align-items:center;justify-content:space-between;gap:8px}.calHead h3{margin:18px 0 8px}
+.calList{border-top:1px solid var(--line)}
+.calDay{display:grid;grid-template-columns:84px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--line)}
+.calDate{font:600 13px var(--sans);color:var(--muted);padding-top:2px}
+.calItem{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:2px 0}.calItem b{font-weight:600;font-size:14px}.calItem small{color:var(--muted);font-size:12px}
+.calTag{font:700 10.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:#1e2b55;color:#c9d3f0}
+.k-fed .calTag{background:#e0b25b;color:#0a1022}.k-cpi .calTag,.k-pce .calTag{background:#a14b47;color:#fff}.k-jobs .calTag{background:#2c8c73;color:#fff}.k-gdp .calTag,.k-retail .calTag{background:#5b8cff;color:#fff}
+.nextUp{display:flex;flex-wrap:wrap;align-items:center;gap:6px;width:100%;margin:14px 0 0;padding:11px 14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);color:var(--fg);font:400 13.5px var(--sans);text-align:left}
+.nextUp.k-fed .calTag{background:#e0b25b}
+.recap{margin:16px 0 0;padding:16px 18px;border-radius:20px;background:linear-gradient(135deg,#25305e,#141d3d);border:1px solid #e0b25b;color:#e8ecf8}
+.recap .rcL{margin:4px 0;font-size:14px}.recap small{color:#8d9ac0;font-size:12px}
+#recapRec{margin:-8px 0 22px}#recapRec .recap{margin-top:0}
+
 /* ---- Phase B ---- */
 .byline{font:500 12.5px var(--sans);color:var(--d-brass,#e0b25b);letter-spacing:.04em;margin-top:2px}
 .helpBtn i{font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e0b25b;color:#0a1022;font:700 11px var(--sans);margin-right:4px;vertical-align:-3px}
@@ -2268,7 +2292,112 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     paintLesson();
     if(lsGet("oh_tour")!=="1")setTimeout(startTour,1400);else setTimeout(sayLessonOnce,9800);
   }
-  function phaseB(){paintDrivers();paintTip();paintScore()}
+  function phaseB(){paintDrivers();paintTip();paintScore();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
+  /* ================= Phase B2: crypto strip, calendar, latest prints, weekly recap ================= */
+  var calData=null,cryData=null;
+  var KIND={fed:"Fed",cpi:"CPI",jobs:"Jobs",pce:"PCE",gdp:"GDP",retail:"Retail",earnings:"Earnings"};
+  function fmtDay(ymd){var p=ymd.split("-");var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2],12));return d.toLocaleDateString([],{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"})}
+  function money(v){return v>=1000?"$"+Math.round(v).toLocaleString():v>=1?"$"+v.toFixed(2):"$"+v.toFixed(4)}
+  function mkEl(t,cls,txt){var e=document.createElement(t);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  function paintCrypto(){
+    var b=$("cryptoStrip");if(!b)return;b.textContent="";
+    if(!cryData||!cryData.coins){b.hidden=true;return}b.hidden=false;
+    [["btc","BTC"],["eth","ETH"],["xrp","XRP"]].forEach(function(k){var c=cryData.coins[k[0]];if(!c)return;
+      var d=mkEl("div","cc");d.appendChild(mkEl("span","ccS",k[1]));d.appendChild(mkEl("b",null,money(c.price)));
+      if(typeof c.chg24==="number")d.appendChild(mkEl("small",c.chg24>=0?"up":"dn",(c.chg24>=0?"+":"−")+Math.abs(c.chg24).toFixed(2)+"% 24h"));
+      b.appendChild(d)});
+    var t=new Date(cryData.asOf);b.appendChild(mkEl("p","ccN","Crypto updates every hour, around the clock. Last: "+t.toLocaleString([],{weekday:"short",hour:"numeric",minute:"2-digit"})+"."));
+  }
+  var calDays=14;
+  function paintCalendar(){
+    var b=$("calSec");if(!b)return;b.textContent="";
+    if(!calData){b.hidden=true;return}b.hidden=false;
+    var pr=calData.prints||{},keys=["cpi","unrate","payrolls"].filter(function(k){return pr[k]});
+    if(keys.length){
+      b.appendChild(mkEl("h3",null,"Latest economic prints"));
+      var g=mkEl("div","prTiles");
+      keys.forEach(function(k){var p=pr[k],d=mkEl("div");
+        var v=k==="payrolls"?((p.value>=0?"+":"−")+Math.abs(p.value)+"k"):p.value+p.unit;
+        d.appendChild(mkEl("b",null,v));d.appendChild(mkEl("span",null,p.label));
+        var mo=new Date(p.date+"T12:00:00Z").toLocaleDateString([],{month:"short",year:"numeric",timeZone:"UTC"});
+        d.appendChild(mkEl("small",null,mo+(k==="unrate"&&p.prev!=null?" · prior "+p.prev+"%":"")));g.appendChild(d)});
+      b.appendChild(g);
+      b.appendChild(mkEl("p","mshort","CPI above about 3% keeps the Fed cautious. Rising unemployment and shrinking job gains point toward a slowdown."));
+    }
+    var hd=mkEl("div","calHead");hd.appendChild(mkEl("h3",null,"Coming up"));
+    var seg=mkEl("span","seg");[[14,"2 weeks"],[45,"6 weeks"]].forEach(function(o){var bt=mkEl("button",null,o[1]);bt.type="button";bt.setAttribute("aria-pressed",String(calDays===o[0]));bt.addEventListener("click",function(){calDays=o[0];paintCalendar()});seg.appendChild(bt)});
+    hd.appendChild(seg);b.appendChild(hd);
+    var today=etYMD(),lim=etDay(etNow(),calDays).ymd;
+    var ev=(calData.events||[]).filter(function(e){return e.date>=today&&e.date<=lim});
+    if(!ev.length){b.appendChild(mkEl("p","sub","Nothing big on the calendar in this window."));return}
+    var byDay={};ev.forEach(function(e){(byDay[e.date]=byDay[e.date]||[]).push(e)});
+    var list=mkEl("div","calList");
+    Object.keys(byDay).sort().forEach(function(d){
+      var day=mkEl("div","calDay");day.appendChild(mkEl("div","calDate",d===today?"Today":fmtDay(d)));
+      var items=mkEl("div","calItems");
+      var macro=byDay[d].filter(function(e){return e.kind!=="earnings"}),earn=byDay[d].filter(function(e){return e.kind==="earnings"});
+      macro.forEach(function(e){var r=mkEl("div","calItem k-"+e.kind);r.appendChild(mkEl("span","calTag",KIND[e.kind]||e.kind));r.appendChild(mkEl("b",null,e.title));if(e.time)r.appendChild(mkEl("small",null,e.time));items.appendChild(r)});
+      if(earn.length){var r=mkEl("div","calItem k-earnings");r.appendChild(mkEl("span","calTag","Earnings"));
+        r.appendChild(mkEl("b",null,earn.map(function(e){return e.symbol+(e.time==="before open"?" (am)":e.time==="after close"?" (pm)":"")}).join(", ")));items.appendChild(r)}
+      day.appendChild(items);list.appendChild(day)});
+    b.appendChild(list);
+    b.appendChild(mkEl("p","ccN","Fed dates from the Federal Reserve. Economic dates from FRED. Earnings from Finnhub, big names only. (am) = before the open, (pm) = after the close. Dates can shift, so double-check before you publish."));
+  }
+  function paintNextUp(){
+    var b=$("nextUp");if(!b)return;
+    var today=etYMD(),ev=(calData&&calData.events||[]).filter(function(e){return e.date>=today&&e.kind!=="earnings"});
+    if(!ev.length){b.hidden=true;return}var e=ev[0];b.hidden=false;b.textContent="";
+    b.appendChild(mkEl("span","calTag",KIND[e.kind]||e.kind));
+    b.appendChild(mkEl("span",null,"Next big event: "));b.appendChild(mkEl("b",null,e.title));
+    b.appendChild(mkEl("span",null," · "+(e.date===today?"today":fmtDay(e.date))+(e.time?", "+e.time:"")));
+    b.onclick=function(){location.hash="#macro"};
+  }
+  /* weekly recap */
+  function weekRange(){var t=etNow(),back=(t.dow+6)%7;if(t.dow===0||t.dow===6)back=t.dow===0?6:5;var mon=etDay(t,-((t.dow+6)%7)).ymd;var fri=etDay(t,4-((t.dow+6)%7)).ymd;return {mon:mon,fri:fri}}
+  function recapData(){
+    var w=weekRange(),wk=marketHist.filter(function(h){return h.date>=w.mon&&h.date<=w.fri&&h.angle!=null});
+    if(wk.length<2)return null;
+    var prev=marketHist.filter(function(h){return h.date<w.mon&&h.angle!=null}),a=prev.length?prev[prev.length-1]:wk[0],z=wk[wk.length-1];
+    var dd=((z.angle-a.angle+540)%360)-180,flips=[];
+    SECTORS.forEach(function(s){var x=a.m[s.id],y=z.m[s.id];if(x==null||y==null||x===y)return;flips.push({s:s,from:x,to:y,d:Math.abs(y-x)})});
+    flips.sort(function(p,q){return q.d-p.d});
+    var mine={right:0,total:0};grade().days.forEach(function(d){if(d.date>=w.mon&&d.date<=w.fri&&!d.pending){mine.right+=d.right;mine.total+=d.total}});
+    return {w:w,a:a,z:z,dd:dd,flips:flips.slice(0,3),mine:mine,days:wk.length};
+  }
+  function recapNode(r){
+    var b=mkEl("div","recap");b.appendChild(mkEl("div","lsHead","Weekly recap · "+fmtDay(r.w.mon).replace(/^\w+, /,"")+" to "+fmtDay(r.w.fri).replace(/^\w+, /,"")));
+    var pa=phaseOf(r.a.angle),pz=phaseOf(r.z.angle);
+    b.appendChild(mkEl("p","lsText",pa===pz?"The needle stayed in "+HOUR[pz]+" ("+pz.toLowerCase()+"), moving "+Math.abs(Math.round(r.dd))+"° "+(r.dd>=0?"forward":"back")+".":"The needle moved from "+HOUR[pa]+" to "+HOUR[pz]+": "+Math.abs(Math.round(r.dd))+"° "+(r.dd>=0?"forward":"back")+" through the cycle."));
+    if(r.flips.length)b.appendChild(mkEl("p","rcL","Biggest flips: "+r.flips.map(function(f){return f.s.s+" "+SYMV[String(f.from)]+" → "+SYMV[String(f.to)]}).join(", ")+"."));
+    b.appendChild(mkEl("p","rcL",r.mine.total?"Your calls this week: "+r.mine.right+" of "+r.mine.total+" right ("+Math.round(r.mine.right/r.mine.total*100)+"%).":"You didn’t have graded calls this week. Save a snapshot on Sectors to get on the board."));
+    b.appendChild(mkEl("small",null,"Based on "+r.days+" market closes this week."));
+    return b;
+  }
+  function showRecapOnClock(){var t=etNow(),m=t.mins;return t.dow===6||t.dow===0||(t.dow===5&&m>=960)||(t.dow===1&&m<570)}
+  function paintRecap(){
+    var r=recapData(),c=$("recapClock"),rr=$("recapRec");
+    if(c){c.textContent="";c.hidden=!(r&&showRecapOnClock());if(!c.hidden)c.appendChild(recapNode(r))}
+    if(rr){rr.textContent="";rr.hidden=!r;if(r)rr.appendChild(recapNode(r))}
+    if(r&&showRecapOnClock()&&owlTopApi&&lsGet("oh_recap")!==r.w.fri){lsSet("oh_recap",r.w.fri);setTimeout(function(){owlTopApi.say("Weekly recap is in. "+recapNode(r).querySelector(".lsText").textContent)},20000)}
+  }
+  async function loadExtras(){
+    try{cryData=await getJSON("crypto.json")}catch(e){}
+    try{calData=await getJSON("calendar.json")}catch(e){}
+    paintCrypto();paintCalendar();paintNextUp();
+  }
+  function phaseB2Init(){
+    var mp=document.querySelector('.pane[data-pane="macro"]');
+    if(mp&&!$("calSec")){var h=mp.querySelector(".paneHead");
+      var cs=mkEl("div","cryptoStrip");cs.id="cryptoStrip";cs.hidden=true;
+      var cal=mkEl("section","calSec");cal.id="calSec";cal.hidden=true;
+      if(h&&h.nextSibling){mp.insertBefore(cal,h.nextSibling);mp.insertBefore(cs,cal)}else{mp.appendChild(cs);mp.appendChild(cal)}}
+    var cp=document.querySelector('.pane[data-pane="clock"]'),ls=$("lesson");
+    if(cp&&!$("nextUp")){var n=mkEl("button","nextUp");n.type="button";n.id="nextUp";n.hidden=true;var rc=mkEl("div");rc.id="recapClock";rc.hidden=true;
+      cp.insertBefore(rc,ls);cp.insertBefore(n,ls)}
+    var sc=$("scoreSec");if(sc&&!$("recapRec")){var r2=mkEl("div");r2.id="recapRec";r2.hidden=true;sc.parentNode.insertBefore(r2,sc.nextSibling)}
+    loadExtras();setInterval(loadExtras,15*60000);
+  }
+
 
   /* ---------- init ---------- */
   buildWheel();buildRows();buildMacro();buildFacts();wireEvents();buildTech();buildAI();buildQQ();buildUpgrades();
@@ -2284,7 +2413,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();phaseBInit();
+  renderHistory();refresh();phaseBInit();phaseB2Init();paintRecap();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */
