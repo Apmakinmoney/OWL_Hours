@@ -1,0 +1,143 @@
+{
+ "asOf": "2026-11-26T21:40:41+00:00",
+ "events": [
+  {
+   "date": "2026-12-01",
+   "kind": "earnings",
+   "title": "CRWD earnings",
+   "symbol": "CRWD",
+   "time": "",
+   "eps": 0.3176
+  },
+  {
+   "date": "2026-12-01",
+   "kind": "earnings",
+   "title": "MRVL earnings",
+   "symbol": "MRVL",
+   "time": "after close",
+   "eps": 1.1133
+  },
+  {
+   "date": "2026-12-01",
+   "kind": "earnings",
+   "title": "OKTA earnings",
+   "symbol": "OKTA",
+   "time": "after close",
+   "eps": 0.9528
+  },
+  {
+   "date": "2026-12-02",
+   "kind": "earnings",
+   "title": "CRM earnings",
+   "symbol": "CRM",
+   "time": "after close",
+   "eps": 3.4717
+  },
+  {
+   "date": "2026-12-02",
+   "kind": "earnings",
+   "title": "SNOW earnings",
+   "symbol": "SNOW",
+   "time": "after close",
+   "eps": 0.6092
+  },
+  {
+   "date": "2026-12-02",
+   "kind": "earnings",
+   "title": "ZS earnings",
+   "symbol": "ZS",
+   "time": "",
+   "eps": 1.1944
+  },
+  {
+   "date": "2026-12-03",
+   "kind": "earnings",
+   "title": "S earnings",
+   "symbol": "S",
+   "time": "",
+   "eps": 0.0941
+  },
+  {
+   "date": "2026-12-04",
+   "kind": "jobs",
+   "title": "Jobs report",
+   "time": "8:30 am ET"
+  },
+  {
+   "date": "2026-12-09",
+   "kind": "fed",
+   "title": "Fed rate decision",
+   "time": "2:00 pm ET"
+  },
+  {
+   "date": "2026-12-09",
+   "kind": "earnings",
+   "title": "ADBE earnings",
+   "symbol": "ADBE",
+   "time": "after close",
+   "eps": 6.4551
+  },
+  {
+   "date": "2026-12-09",
+   "kind": "earnings",
+   "title": "AVGO earnings",
+   "symbol": "AVGO",
+   "time": "after close",
+   "eps": 3.8912
+  },
+  {
+   "date": "2026-12-10",
+   "kind": "cpi",
+   "title": "CPI inflation report",
+   "time": "8:30 am ET"
+  },
+  {
+   "date": "2026-12-10",
+   "kind": "earnings",
+   "title": "COST earnings",
+   "symbol": "COST",
+   "time": "",
+   "eps": 5.0204
+  },
+  {
+   "date": "2026-12-16",
+   "kind": "retail",
+   "title": "Retail sales",
+   "time": "8:30 am ET"
+  },
+  {
+   "date": "2026-12-23",
+   "kind": "gdp",
+   "title": "GDP",
+   "time": "8:30 am ET"
+  },
+  {
+   "date": "2026-12-23",
+   "kind": "pce",
+   "title": "PCE inflation (Fed's favorite)",
+   "time": "8:30 am ET"
+  }
+ ],
+ "prints": {
+  "cpi": {
+   "label": "CPI inflation, year over year",
+   "value": 4.1,
+   "unit": "%",
+   "date": "2026-10-01"
+  },
+  "unrate": {
+   "label": "Unemployment rate",
+   "value": 4.1,
+   "unit": "%",
+   "date": "2026-10-01",
+   "prev": 4.2
+  },
+  "payrolls": {
+   "label": "Jobs added last month",
+   "value": 165,
+   "unit": "k",
+   "date": "2026-10-01"
+  }
+ },
+ "warnings": []
+}

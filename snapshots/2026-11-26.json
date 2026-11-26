@@ -1,19 +1,19 @@
 {
-  "asOf": "2026-11-26T19:59:49+00:00",
+  "asOf": "2026-11-26T21:38:03+00:00",
   "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
   "macro": {
     "btc": {
-      "level": 60666,
+      "level": 60872,
       "dir": -1,
       "source": "CoinGecko"
     },
     "eth": {
-      "level": 1703.68,
+      "level": 1706.87,
       "dir": -1,
       "source": "CoinGecko"
     },
     "xrp": {
-      "level": 0.952488,
+      "level": 0.95421,
       "dir": 0,
       "source": "CoinGecko"
     },
@@ -246,19 +246,19 @@
   },
   "crypto": {
     "btc": {
-      "level": 60666,
+      "level": 60872,
       "dir": -1,
-      "chg7dPct": -3.59
+      "chg7dPct": -2.51
     },
     "eth": {
-      "level": 1703.68,
+      "level": 1706.87,
       "dir": -1,
-      "chg7dPct": -3.99
+      "chg7dPct": -3.67
     },
     "xrp": {
-      "level": 0.952488,
+      "level": 0.95421,
       "dir": 0,
-      "chg7dPct": -1.56
+      "chg7dPct": -1.46
     }
   },
   "warnings": []
