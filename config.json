@@ -1,0 +1,90 @@
+{
+  "etfs": [
+    "SPY",
+    "QQQ",
+    "DIA",
+    "IWM"
+  ],
+  "benchmark": "SPY",
+  "sectors": {
+    "FIN": "XLF",
+    "REIT": "XLRE",
+    "DISC": "XLY",
+    "TECH": "XLK",
+    "CYB": "CIBR",
+    "SEMI": "SMH",
+    "COMM": "XLC",
+    "IND": "XLI",
+    "MAT": "XLB",
+    "ENGY": "XLE",
+    "GOLD": "GDX",
+    "STPL": "XLP",
+    "HLTH": "XLV",
+    "UTIL": "XLU"
+  },
+  "metals": {
+    "gold": "GLD",
+    "silver": "SLV"
+  },
+  "momentum_days": 5,
+  "momentum_thresholds": [
+    -3,
+    -1,
+    1,
+    3
+  ],
+  "fred": {
+    "y10": "DGS10",
+    "y2": "DGS2",
+    "curve": "T10Y2Y",
+    "hy": "BAMLH0A0HYM2",
+    "oil": "DCOILWTICO",
+    "brent": "DCOILBRENTEU",
+    "vix": "VIXCLS"
+  },
+  "direction": {
+    "y10": [
+      "abs",
+      0.03
+    ],
+    "y2": [
+      "abs",
+      0.03
+    ],
+    "curve": [
+      "abs",
+      0.03
+    ],
+    "hy": [
+      "abs",
+      0.03
+    ],
+    "oil": [
+      "rel",
+      0.01
+    ],
+    "brent": [
+      "rel",
+      0.01
+    ],
+    "vix": [
+      "rel",
+      0.03
+    ]
+  },
+  "crypto": {
+    "btc": "bitcoin",
+    "eth": "ethereum",
+    "xrp": "ripple"
+  },
+  "crypto_dir_pct": 2.0,
+  "history_bars": 260,
+  "pivot_window": 4,
+  "cluster_pct": 0.6,
+  "brand": "Market Talks",
+  "tagline": "The market cycle, explained one issue at a time.",
+  "site_url": "",
+  "max_data_age_hours": 72,
+  "firm_disclosure": "",
+  "_help_firm_disclosure": "Paste the disclosure wording your firm's compliance team approves. It prints on page 4 of every letter and on the archive page. Leave blank only if you have no firm."
+}

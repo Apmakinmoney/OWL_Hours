@@ -1,0 +1,20 @@
+{
+  "quotes": [
+    { "text": "He who lives by the crystal ball will eat shattered glass.", "by": "Ray Dalio", "why": "Forecasts fail. Watch the signals, not the predictions." },
+    { "text": "Pain plus reflection equals progress.", "by": "Ray Dalio, Principles", "why": "Review your misses. They are where the learning is." },
+    { "text": "Be fearful when others are greedy, and greedy when others are fearful.", "by": "Warren Buffett", "why": "Sentiment swings are part of every cycle." }
+  ],
+  "facts": [
+    "All the gold ever mined would fit in a cube roughly 22 meters on each side, according to the World Gold Council.",
+    "The sector map isn't fixed: real estate became its own S&P 500 sector in 2016, and communication services was redefined in 2018.",
+    "The ISM manufacturing survey has been published since 1948, and 50 is the line between expansion and contraction.",
+    "Silver is both a precious metal and an industrial input, used in electronics and solar panels, so it can swing on growth fears and on safe-haven demand.",
+    "Gold pays no interest, so when real yields rise, holding it costs more in forgone income. That is why it often reacts to real yields."
+  ],
+  "questions": [
+    { "q": "What is a credit spread, and why do people watch it?", "a": "A credit spread is the extra yield riskier companies pay over the government. When lenders get nervous they demand more, so spreads widen. Credit markets often show stress before stocks do, which makes spreads a useful early warning, though not a perfect one." },
+    { "q": "What does hawkish mean?", "a": "Hawkish means leaning toward higher interest rates to fight inflation. Dovish means leaning toward lower rates. A central bank that holds rates but signals that hikes are possible is said to be holding hawkishly." },
+    { "q": "What is a real yield, and why does it matter for gold?", "a": "A real yield is a bond yield after subtracting expected inflation. Gold pays no interest, so when real yields rise, holding gold costs more in forgone income. That is why gold often falls when real yields climb." },
+    { "q": "How can I tell a rotation from a selloff?", "a": "In a selloff almost everything falls together, volatility jumps and credit spreads widen. In a rotation, some groups fall while others rise and the broad indexes move less. Check the VIX, credit spreads and whether small caps are rising." }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "_help": "Edit this file on GitHub (pencil icon) before the weekly draft builds, or edit it and re-run 'Weekly letter draft'. Leave any text blank to let the system write a mechanical version; the approval issue tells you which parts are machine-written. Keep the file valid JSON: straight quotes, commas between items, no comma after the last item.",
+  "_help_events": "Each event: {\"date\": \"2026-12-09\", \"kind\": \"Fed\", \"title\": \"Fed decision with updated projections\", \"note\": \"What the market expects, and what would surprise\"}. kind is Fed, Data, Earnings or Other. Confirm every date on the Fed, BLS or company site. Past events drop off automatically.",
+  "_help_change_my_mind": "Up to four short lines in your own words, for example: \"Credit spreads widen past 4%. That would turn a rotation into real risk-off.\" Leave the list empty to leave the section out.",
+  "_help_sector_overrides": "Your own call for a sector, -2 to 2, replacing the 5-day momentum reading. The letter marks these as (author). NEO (neo-cloud and data centers) has no ETF proxy, so it only appears if you set it here.",
+  "headline": "",
+  "dek": "",
+  "reads": [
+    "",
+    "",
+    ""
+  ],
+  "quote": {
+    "text": "",
+    "by": "",
+    "why": ""
+  },
+  "question": {
+    "q": "",
+    "a": ""
+  },
+  "fun_fact": "",
+  "next_issue": "",
+  "ai_notes": "",
+  "change_my_mind": [],
+  "sector_overrides": {},
+  "manual_macro": {
+    "ism": {
+      "level": null,
+      "dir": null
+    },
+    "usd": {
+      "level": null,
+      "dir": null
+    }
+  },
+  "events": []
+}
