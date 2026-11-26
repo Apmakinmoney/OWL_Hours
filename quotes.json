@@ -1,1 +1,46 @@
-{"asOf": null, "source": "Finnhub", "quotes": {}}
+{
+  "asOf": "2026-11-26T15:36:34+00:00",
+  "source": "Finnhub",
+  "quotes": {
+    "SPY": {
+      "price": 716.74,
+      "change": -2.04,
+      "pct": -0.28,
+      "prevClose": 718.78,
+      "high": 718.43,
+      "low": 695.45,
+      "t": 1795640400,
+      "stale": false
+    },
+    "QQQ": {
+      "price": 633.97,
+      "change": -4.13,
+      "pct": -0.65,
+      "prevClose": 638.1,
+      "high": 634.89,
+      "low": 607.74,
+      "t": 1795640400,
+      "stale": false
+    },
+    "DIA": {
+      "price": 501.31,
+      "change": 1.57,
+      "pct": 0.31,
+      "prevClose": 499.74,
+      "high": 503.39,
+      "low": 488.62,
+      "t": 1795640400,
+      "stale": false
+    },
+    "IWM": {
+      "price": 268.91,
+      "change": 1.77,
+      "pct": 0.66,
+      "prevClose": 267.14,
+      "high": 269.77,
+      "low": 260.84,
+      "t": 1795640400,
+      "stale": false
+    }
+  }
+}
