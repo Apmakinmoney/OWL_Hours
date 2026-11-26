@@ -17,9 +17,13 @@ FRED_KEY = os.environ.get("FRED_API_KEY", "").strip()   # free key from fredacco
 THROTTLE = float(os.environ.get("TD_THROTTLE_SECONDS", "8"))   # free Twelve Data plan allows about 8 calls a minute
 
 
-def http_text(url, opener=urllib.request.urlopen):
+def log(msg):
+    print(msg, flush=True)   # flush so the GitHub Actions log shows progress live
+
+
+def http_text(url, opener=urllib.request.urlopen, timeout=45):
     req = urllib.request.Request(url, headers={"User-Agent": "owl-hours/1.0 (personal research)"})
-    with opener(req, timeout=45) as r:
+    with opener(req, timeout=timeout) as r:
         data = r.read()
     return data.decode("utf-8") if isinstance(data, bytes) else data
 
@@ -28,20 +32,21 @@ def http_text(url, opener=urllib.request.urlopen):
 def fred_series(series_id, opener=urllib.request.urlopen, days=70, sleep=time.sleep):
     start = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
     last = None
-    for attempt in range(3):
+    for attempt in range(2):   # quick tries only: a slow FRED must never stall the whole job
         try:
             if FRED_KEY:
                 return fred_api(series_id, start, opener)
             return fred_csv(series_id, start, opener)
         except Exception as e:
-            last = e; sleep(4 * (attempt + 1))
+            last = e
+            if attempt == 0: sleep(2)
     raise last
 
 
 def fred_api(series_id, start, opener=urllib.request.urlopen):
     url = (f"https://api.stlouisfed.org/fred/series/observations?series_id={series_id}&api_key={FRED_KEY}"
            f"&file_type=json&observation_start={start}")
-    d = json.loads(http_text(url, opener))
+    d = json.loads(http_text(url, opener, timeout=15))
     if "observations" not in d:
         raise ValueError(d.get("error_message", "no observations"))
     out = []
@@ -54,7 +59,7 @@ def fred_api(series_id, start, opener=urllib.request.urlopen):
 
 
 def fred_csv(series_id, start, opener=urllib.request.urlopen):
-    text = http_text(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={start}", opener)
+    text = http_text(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={start}", opener, timeout=15)
     out = []
     for row in csv.reader(io.StringIO(text)):
         if len(row) < 2 or row[0].upper().startswith("DATE") or row[0].upper().startswith("OBSERVATION"):
@@ -229,17 +234,6 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
     warnings, out = [], {"asOf": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                          "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
                          "macro": {}, "etf": {}, "sectors": {}, "metals": {}, "crypto": {}}
-    # macro from FRED
-    fred = {}
-    for key, sid in CFG["fred"].items():
-        try:
-            fred[key] = fred_series(sid, opener)
-        except Exception as e:
-            warnings.append(f"FRED {sid}: {e}")
-    for key, series in fred.items():
-        vals = [v for _, v in series]
-        kind, tol = CFG["direction"][key]
-        out["macro"][key] = {"level": round(vals[-1], 3), "date": series[-1][0], "dir": direction(vals, kind, tol), "source": f"FRED {CFG['fred'][key]}"}
     # crypto
     try:
         for k, v in coingecko(opener).items():
@@ -250,11 +244,15 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
     # price history for ETFs, sectors and metals
     symbols = list(dict.fromkeys(CFG["etfs"] + list(CFG["sectors"].values()) + list(CFG["metals"].values())))
     hist = {}
+    log(f"Twelve Data: {len(symbols)} symbols, one every {THROTTLE:.0f}s (free plan limit)")
     for i, sym in enumerate(symbols):
         try:
-            hist[sym] = twelve_history(sym, opener)
+            hist[sym] = twelve_history(sym, opener); log(f"  {sym}: ok ({len(hist[sym])} days)")
         except Exception as e:
-            warnings.append(f"Twelve Data {sym}: {e}")
+            warnings.append(f"Twelve Data {sym}: {e}"); log(f"  {sym}: FAILED {e}")
+            if i == 1 and not hist and ("401" in str(e) or "apikey" in str(e).lower()):
+                warnings.append("Twelve Data rejected the key twice in a row, so the rest were skipped. Re-save the TWELVEDATA_API_KEY secret.")
+                log("  key rejected twice; skipping the rest"); break
         if i < len(symbols) - 1:
             sleep(THROTTLE)
     for sym in CFG["etfs"]:
@@ -286,6 +284,20 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
             out["metals"][key] = {"proxy": sym, "level": round(closes[-1], 2), "dir": direction(closes, "rel", 0.01),
                                   "note": "ETF price, not spot"}
             out["macro"].setdefault(key, {"level": None, "dir": out["metals"][key]["dir"], "source": f"{sym} 5-day direction"})
+    # macro from FRED, last and on a strict budget, so a slow FRED can never block the price data above
+    fred, fails, deadline = {}, 0, time.time() + 120
+    log("FRED: " + ("official API" if FRED_KEY else "CSV link (add a FRED_API_KEY secret for reliability)"))
+    for key, sid in CFG["fred"].items():
+        if time.time() > deadline or (fails >= 2 and not fred):
+            warnings.append(f"FRED {sid}: skipped (FRED was not answering)"); continue
+        try:
+            fred[key] = fred_series(sid, opener, sleep=sleep); log(f"  {sid}: ok")
+        except Exception as e:
+            fails += 1; warnings.append(f"FRED {sid}: {e}"); log(f"  {sid}: FAILED {e}")
+    for key, series in fred.items():
+        vals = [v for _, v in series]
+        kind, tol = CFG["direction"][key]
+        out["macro"][key] = {"level": round(vals[-1], 3), "date": series[-1][0], "dir": direction(vals, kind, tol), "source": f"FRED {CFG['fred'][key]}"}
     out["warnings"] = warnings
     if not out["macro"] and not out["etf"]:
         print("nothing fetched; leaving files unchanged", file=sys.stderr)
