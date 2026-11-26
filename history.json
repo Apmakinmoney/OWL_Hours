@@ -1,0 +1,1352 @@
+[
+ {
+  "date": "2026-07-22",
+  "m": {
+   "FIN": 1,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": 1
+  },
+  "angle": 300.7,
+  "clarity": 0.81
+ },
+ {
+  "date": "2026-07-23",
+  "m": {
+   "FIN": 1,
+   "REIT": 1,
+   "SEMI": -2,
+   "COMM": -2,
+   "IND": 2,
+   "MAT": 0,
+   "HLTH": 2,
+   "UTIL": 1
+  },
+  "angle": 300.1,
+  "clarity": 0.469
+ },
+ {
+  "date": "2026-07-24",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": 0
+  },
+  "angle": 334.8,
+  "clarity": 0.655
+ },
+ {
+  "date": "2026-07-27",
+  "m": {
+   "FIN": 2,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 351.5,
+  "clarity": 0.165
+ },
+ {
+  "date": "2026-07-28",
+  "m": {
+   "FIN": 2,
+   "REIT": 1,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": 0,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": -1
+  },
+  "angle": 284.7,
+  "clarity": 0.115
+ },
+ {
+  "date": "2026-07-29",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 0
+  },
+  "angle": 334.4,
+  "clarity": 0.303
+ },
+ {
+  "date": "2026-07-30",
+  "m": {
+   "FIN": 1,
+   "REIT": -1,
+   "SEMI": -1,
+   "COMM": -2,
+   "IND": -1,
+   "MAT": 0,
+   "HLTH": -1,
+   "UTIL": -1
+  },
+  "angle": 285.5,
+  "clarity": 0.286
+ },
+ {
+  "date": "2026-07-31",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 316.4,
+  "clarity": 0.179
+ },
+ {
+  "date": "2026-08-03",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": 0,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": -1
+  },
+  "angle": 124.8,
+  "clarity": 0.061
+ },
+ {
+  "date": "2026-08-04",
+  "m": {
+   "FIN": 0,
+   "REIT": -2,
+   "SEMI": 1,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": -2,
+   "UTIL": -2
+  },
+  "angle": 143.1,
+  "clarity": 0.536
+ },
+ {
+  "date": "2026-08-05",
+  "m": {
+   "FIN": 1,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 231.3,
+  "clarity": 0.227
+ },
+ {
+  "date": "2026-08-06",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 205.0,
+  "clarity": 0.512
+ },
+ {
+  "date": "2026-08-07",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 190.5,
+  "clarity": 0.418
+ },
+ {
+  "date": "2026-08-10",
+  "m": {
+   "FIN": 0,
+   "REIT": -2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": -2
+  },
+  "angle": 208.4,
+  "clarity": 0.574
+ },
+ {
+  "date": "2026-08-11",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": -1,
+   "COMM": -1,
+   "IND": 1,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": -1
+  },
+  "angle": 211.2,
+  "clarity": 0.453
+ },
+ {
+  "date": "2026-08-12",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": 0,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": -1
+  },
+  "angle": 274.1,
+  "clarity": 0.55
+ },
+ {
+  "date": "2026-08-13",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": -1,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 156.4,
+  "clarity": 0.407
+ },
+ {
+  "date": "2026-08-14",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 171.0,
+  "clarity": 0.857
+ },
+ {
+  "date": "2026-08-17",
+  "m": {
+   "FIN": -1,
+   "REIT": -2,
+   "SEMI": 1,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 200.6,
+  "clarity": 0.447
+ },
+ {
+  "date": "2026-08-18",
+  "m": {
+   "FIN": 1,
+   "REIT": -1,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 2,
+   "UTIL": -1
+  },
+  "angle": 266.5,
+  "clarity": 0.509
+ },
+ {
+  "date": "2026-08-19",
+  "m": {
+   "FIN": -1,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": -2
+  },
+  "angle": 234.8,
+  "clarity": 0.449
+ },
+ {
+  "date": "2026-08-20",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": 1,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 161.1,
+  "clarity": 0.376
+ },
+ {
+  "date": "2026-08-21",
+  "m": {
+   "FIN": 0,
+   "REIT": -2,
+   "SEMI": -1,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": -2
+  },
+  "angle": 209.3,
+  "clarity": 0.493
+ },
+ {
+  "date": "2026-08-24",
+  "m": {
+   "FIN": 1,
+   "REIT": -1,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": -2,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": -1
+  },
+  "angle": 280.4,
+  "clarity": 0.354
+ },
+ {
+  "date": "2026-08-25",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": 1,
+   "COMM": 0,
+   "IND": -2,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 172.6,
+  "clarity": 0.314
+ },
+ {
+  "date": "2026-08-26",
+  "m": {
+   "FIN": -1,
+   "REIT": -2,
+   "SEMI": 1,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 161.1,
+  "clarity": 0.561
+ },
+ {
+  "date": "2026-08-27",
+  "m": {
+   "FIN": -1,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": -2,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 160.7,
+  "clarity": 0.178
+ },
+ {
+  "date": "2026-08-28",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": -2
+  },
+  "angle": 210.0,
+  "clarity": 0.361
+ },
+ {
+  "date": "2026-08-31",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": 1,
+   "COMM": -1,
+   "IND": -2,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": -2
+  },
+  "angle": 246.7,
+  "clarity": 0.203
+ },
+ {
+  "date": "2026-09-01",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": -2,
+   "MAT": 0,
+   "HLTH": 2,
+   "UTIL": 0
+  },
+  "angle": 288.5,
+  "clarity": 0.958
+ },
+ {
+  "date": "2026-09-02",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": 1,
+   "IND": -2,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": -1
+  },
+  "angle": 236.0,
+  "clarity": 0.302
+ },
+ {
+  "date": "2026-09-03",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": 0,
+   "IND": -2,
+   "MAT": -1,
+   "HLTH": 1,
+   "UTIL": 0
+  },
+  "angle": 304.4,
+  "clarity": 0.903
+ },
+ {
+  "date": "2026-09-04",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": 1,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": 0
+  },
+  "angle": 262.1,
+  "clarity": 0.279
+ },
+ {
+  "date": "2026-09-08",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": 1,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": 1
+  },
+  "angle": 8.9,
+  "clarity": 0.437
+ },
+ {
+  "date": "2026-09-09",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": 1,
+   "COMM": 0,
+   "IND": -2,
+   "MAT": -1,
+   "HLTH": 0,
+   "UTIL": 0
+  },
+  "angle": 341.5,
+  "clarity": 0.589
+ },
+ {
+  "date": "2026-09-10",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": 1,
+   "IND": -2,
+   "MAT": -1,
+   "HLTH": 0,
+   "UTIL": 0
+  },
+  "angle": 317.8,
+  "clarity": 0.54
+ },
+ {
+  "date": "2026-09-11",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": 1,
+   "IND": -1,
+   "MAT": 0,
+   "HLTH": -1,
+   "UTIL": -1
+  },
+  "angle": 137.6,
+  "clarity": 0.426
+ },
+ {
+  "date": "2026-09-14",
+  "m": {
+   "FIN": 0,
+   "REIT": -1,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": -2,
+   "MAT": -1,
+   "HLTH": 2,
+   "UTIL": -1
+  },
+  "angle": 275.5,
+  "clarity": 0.328
+ },
+ {
+  "date": "2026-09-15",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": 1,
+   "IND": -2,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": -1
+  },
+  "angle": 283.1,
+  "clarity": 0.325
+ },
+ {
+  "date": "2026-09-16",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": 1,
+   "IND": -1,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 172.5,
+  "clarity": 0.482
+ },
+ {
+  "date": "2026-09-17",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": 1,
+   "COMM": 0,
+   "IND": -2,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": -1
+  },
+  "angle": 149.5,
+  "clarity": 0.09
+ },
+ {
+  "date": "2026-09-18",
+  "m": {
+   "FIN": 0,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 118.6,
+  "clarity": 0.138
+ },
+ {
+  "date": "2026-09-21",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": 2,
+   "IND": -2,
+   "MAT": -2,
+   "HLTH": -2,
+   "UTIL": -2
+  },
+  "angle": 129.3,
+  "clarity": 0.329
+ },
+ {
+  "date": "2026-09-22",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 160.4,
+  "clarity": 0.325
+ },
+ {
+  "date": "2026-09-23",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 151.1,
+  "clarity": 0.42
+ },
+ {
+  "date": "2026-09-24",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": 1,
+   "IND": -2,
+   "MAT": -2,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 155.7,
+  "clarity": 0.22
+ },
+ {
+  "date": "2026-09-25",
+  "m": {
+   "FIN": -1,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": 0,
+   "UTIL": -2
+  },
+  "angle": 149.4,
+  "clarity": 0.222
+ },
+ {
+  "date": "2026-09-28",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": 1,
+   "UTIL": -2
+  },
+  "angle": 201.3,
+  "clarity": 0.195
+ },
+ {
+  "date": "2026-09-29",
+  "m": {
+   "FIN": -2,
+   "REIT": -1,
+   "SEMI": 2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 149.1,
+  "clarity": 0.157
+ },
+ {
+  "date": "2026-09-30",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 147.3,
+  "clarity": 0.305
+ },
+ {
+  "date": "2026-10-01",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": -2,
+   "HLTH": -2,
+   "UTIL": -1
+  },
+  "angle": 142.5,
+  "clarity": 0.292
+ },
+ {
+  "date": "2026-10-02",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 158.8,
+  "clarity": 0.223
+ },
+ {
+  "date": "2026-10-05",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": -2
+  },
+  "angle": 151.1,
+  "clarity": 0.42
+ },
+ {
+  "date": "2026-10-06",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 2,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -2,
+   "HLTH": -1,
+   "UTIL": -1
+  },
+  "angle": 168.1,
+  "clarity": 0.165
+ },
+ {
+  "date": "2026-10-07",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 1,
+   "COMM": 0,
+   "IND": -2,
+   "MAT": -2,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 224.8,
+  "clarity": 0.197
+ },
+ {
+  "date": "2026-10-08",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": -1,
+   "HLTH": 0,
+   "UTIL": -1
+  },
+  "angle": 184.3,
+  "clarity": 0.431
+ },
+ {
+  "date": "2026-10-09",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": 0,
+   "COMM": -2,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": 1,
+   "UTIL": -1
+  },
+  "angle": 268.1,
+  "clarity": 0.464
+ },
+ {
+  "date": "2026-10-12",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": 1,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": 0,
+   "UTIL": 0
+  },
+  "angle": 270.9,
+  "clarity": 0.241
+ },
+ {
+  "date": "2026-10-13",
+  "m": {
+   "FIN": -2,
+   "REIT": -2,
+   "SEMI": 1,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": -1,
+   "HLTH": -1,
+   "UTIL": 0
+  },
+  "angle": 205.2,
+  "clarity": 0.254
+ },
+ {
+  "date": "2026-10-14",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": -1,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": 0,
+   "HLTH": 2,
+   "UTIL": 0
+  },
+  "angle": 264.9,
+  "clarity": 0.739
+ },
+ {
+  "date": "2026-10-15",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 2,
+   "UTIL": -1
+  },
+  "angle": 261.5,
+  "clarity": 0.588
+ },
+ {
+  "date": "2026-10-16",
+  "m": {
+   "FIN": 1,
+   "REIT": 0,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 292.7,
+  "clarity": 0.696
+ },
+ {
+  "date": "2026-10-19",
+  "m": {
+   "FIN": -1,
+   "REIT": -1,
+   "SEMI": -1,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": -1
+  },
+  "angle": 234.1,
+  "clarity": 0.504
+ },
+ {
+  "date": "2026-10-20",
+  "m": {
+   "FIN": 1,
+   "REIT": 1,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 1
+  },
+  "angle": 300.5,
+  "clarity": 0.639
+ },
+ {
+  "date": "2026-10-21",
+  "m": {
+   "FIN": 1,
+   "REIT": -1,
+   "SEMI": -1,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": 1
+  },
+  "angle": 291.1,
+  "clarity": 0.722
+ },
+ {
+  "date": "2026-10-22",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 312.8,
+  "clarity": 0.486
+ },
+ {
+  "date": "2026-10-23",
+  "m": {
+   "FIN": 0,
+   "REIT": 1,
+   "SEMI": -2,
+   "COMM": -2,
+   "IND": -1,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": 2
+  },
+  "angle": 297.4,
+  "clarity": 0.701
+ },
+ {
+  "date": "2026-10-26",
+  "m": {
+   "FIN": 1,
+   "REIT": 1,
+   "SEMI": -1,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": 2
+  },
+  "angle": 308.6,
+  "clarity": 0.619
+ },
+ {
+  "date": "2026-10-27",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": 2
+  },
+  "angle": 287.8,
+  "clarity": 0.73
+ },
+ {
+  "date": "2026-10-28",
+  "m": {
+   "FIN": 1,
+   "REIT": 0,
+   "SEMI": -1,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": 1
+  },
+  "angle": 293.6,
+  "clarity": 0.636
+ },
+ {
+  "date": "2026-10-29",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": -2,
+   "IND": 1,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 309.7,
+  "clarity": 0.417
+ },
+ {
+  "date": "2026-10-30",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": -2,
+   "IND": 0,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 310.0,
+  "clarity": 0.519
+ },
+ {
+  "date": "2026-11-02",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": 2,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 313.2,
+  "clarity": 0.288
+ },
+ {
+  "date": "2026-11-03",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": 1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 317.9,
+  "clarity": 0.476
+ },
+ {
+  "date": "2026-11-04",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": -1,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 1
+  },
+  "angle": 315.1,
+  "clarity": 0.45
+ },
+ {
+  "date": "2026-11-05",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": 1,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 336.1,
+  "clarity": 0.183
+ },
+ {
+  "date": "2026-11-06",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 0,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 316.6,
+  "clarity": 0.45
+ },
+ {
+  "date": "2026-11-09",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 2,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 319.3,
+  "clarity": 0.243
+ },
+ {
+  "date": "2026-11-10",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 1,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 317.7,
+  "clarity": 0.338
+ },
+ {
+  "date": "2026-11-11",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": 0,
+   "COMM": 0,
+   "IND": 1,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 1
+  },
+  "angle": 352.1,
+  "clarity": 0.237
+ },
+ {
+  "date": "2026-11-12",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": -1,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 317.1,
+  "clarity": 0.599
+ },
+ {
+  "date": "2026-11-13",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": 0,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 326.1,
+  "clarity": 0.453
+ },
+ {
+  "date": "2026-11-16",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 322.6,
+  "clarity": 0.442
+ },
+ {
+  "date": "2026-11-17",
+  "m": {
+   "FIN": 1,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 313.9,
+  "clarity": 0.424
+ },
+ {
+  "date": "2026-11-18",
+  "m": {
+   "FIN": 1,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 1,
+   "IND": 1,
+   "MAT": 1,
+   "HLTH": 1,
+   "UTIL": 2
+  },
+  "angle": 331.6,
+  "clarity": 0.277
+ },
+ {
+  "date": "2026-11-19",
+  "m": {
+   "FIN": 1,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 0,
+   "IND": 1,
+   "MAT": 0,
+   "HLTH": 1,
+   "UTIL": 2
+  },
+  "angle": 326.8,
+  "clarity": 0.534
+ },
+ {
+  "date": "2026-11-20",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": 1,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 336.1,
+  "clarity": 0.183
+ },
+ {
+  "date": "2026-11-23",
+  "m": {
+   "FIN": 0,
+   "REIT": 0,
+   "SEMI": 2,
+   "COMM": 1,
+   "IND": 0,
+   "MAT": 0,
+   "HLTH": 0,
+   "UTIL": 0
+  },
+  "angle": 100.0,
+  "clarity": 0.989
+ },
+ {
+  "date": "2026-11-24",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": 1,
+   "MAT": 1,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 338.5,
+  "clarity": 0.266
+ },
+ {
+  "date": "2026-11-25",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": 2,
+   "MAT": 2,
+   "HLTH": 2,
+   "UTIL": 2
+  },
+  "angle": 348.8,
+  "clarity": 0.117
+ }
+]

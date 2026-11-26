@@ -11,18 +11,35 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 3. What doesn't fit:
 
 ## Macro signals
-- Bitcoin ($): 60,560.00 (falling)
-- Ether ($): 1,698.08 (falling)
+- Bitcoin ($): 60,354.00 (falling)
+- Ether ($): 1,696.84 (falling)
 - XRP ($): 0.95 (flat)
+- Gold (GLD direction): n/a (falling)
+- Silver (SLV direction): n/a (falling)
 
 ## Suggested sector momentum (relative to the S&P 500 ETF over 5 days)
+- Financials (XLF): rising (+2.01 pts)
+- Real estate (XLRE): rising (+2.40 pts)
+- Semiconductors (SMH): falling hard (-6.22 pts)
+- Communication services (XLC): rising (+1.66 pts)
+- Industrials (XLI): flat (+0.81 pts)
+- Materials (XLB): rising hard (+3.34 pts)
+- Healthcare (XLV): rising hard (+3.23 pts)
+- Utilities (XLU): rising (+1.99 pts)
 
 ## ETF levels (suggestions to review)
+- SPY: close 716.70, 50-day 757.89, 200-day 733.16, support n/a / n/a, resistance 722.59 / 731.66
+- QQQ: close 633.93, 50-day 707.05, 200-day 683.50, support n/a / n/a, resistance 647.05 / 661.14
+- DIA: close 501.27, 50-day 515.25, 200-day 507.60, support 500.10 / n/a, resistance 506.99 / 514.60
+- IWM: close 268.87, 50-day 277.16, 200-day 279.59, support n/a / n/a, resistance 270.06 / 275.45
 
 ## Data warnings
-- Twelve Data SPY: HTTP Error 401: Unauthorized
-- Twelve Data QQQ: HTTP Error 401: Unauthorized
-- Twelve Data rejected the key twice in a row, so the rest were skipped. Re-save the TWELVEDATA_API_KEY secret.
+- Twelve Data XLY: HTTP Error 429: Too Many Requests
+- Twelve Data XLK: HTTP Error 429: Too Many Requests
+- Twelve Data CIBR: HTTP Error 429: Too Many Requests
+- Twelve Data XLE: HTTP Error 429: Too Many Requests
+- Twelve Data GDX: HTTP Error 429: Too Many Requests
+- Twelve Data XLP: HTTP Error 429: Too Many Requests
 - FRED DGS10: The read operation timed out
 - FRED DGS2: The read operation timed out
 - FRED T10Y2Y: skipped (FRED was not answering)

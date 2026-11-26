@@ -1,47 +1,183 @@
 {
-  "asOf": "2026-11-26T18:44:33+00:00",
+  "asOf": "2026-11-26T18:58:50+00:00",
   "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
   "macro": {
     "btc": {
-      "level": 60560,
+      "level": 60354,
       "dir": -1,
       "source": "CoinGecko"
     },
     "eth": {
-      "level": 1698.08,
+      "level": 1696.84,
       "dir": -1,
       "source": "CoinGecko"
     },
     "xrp": {
-      "level": 0.952835,
+      "level": 0.952637,
       "dir": 0,
       "source": "CoinGecko"
+    },
+    "gold": {
+      "level": null,
+      "dir": -1,
+      "source": "GLD 5-day direction"
+    },
+    "silver": {
+      "level": null,
+      "dir": -1,
+      "source": "SLV 5-day direction"
     }
   },
-  "etf": {},
-  "sectors": {},
-  "metals": {},
+  "etf": {
+    "SPY": {
+      "date": "2026-11-25",
+      "c": 716.7,
+      "m50": 757.89,
+      "m200": 733.16,
+      "chg5Pct": -1.85,
+      "s1": null,
+      "s2": null,
+      "r1": 722.59,
+      "r2": 731.66
+    },
+    "QQQ": {
+      "date": "2026-11-25",
+      "c": 633.93,
+      "m50": 707.05,
+      "m200": 683.5,
+      "chg5Pct": -3.88,
+      "s1": null,
+      "s2": null,
+      "r1": 647.05,
+      "r2": 661.14
+    },
+    "DIA": {
+      "date": "2026-11-25",
+      "c": 501.27,
+      "m50": 515.25,
+      "m200": 507.6,
+      "chg5Pct": -0.09,
+      "s1": 500.1,
+      "s2": null,
+      "r1": 506.99,
+      "r2": 514.6
+    },
+    "IWM": {
+      "date": "2026-11-25",
+      "c": 268.87,
+      "m50": 277.16,
+      "m200": 279.59,
+      "chg5Pct": -0.46,
+      "s1": null,
+      "s2": null,
+      "r1": 270.06,
+      "r2": 275.45
+    }
+  },
+  "sectors": {
+    "FIN": {
+      "proxy": "XLF",
+      "relReturnPct": 2.01,
+      "suggested": 1,
+      "rel1": 1.0,
+      "rel20": 7.88,
+      "blend": 2
+    },
+    "REIT": {
+      "proxy": "XLRE",
+      "relReturnPct": 2.4,
+      "suggested": 1,
+      "rel1": 1.21,
+      "rel20": 11.31,
+      "blend": 2
+    },
+    "SEMI": {
+      "proxy": "SMH",
+      "relReturnPct": -6.22,
+      "suggested": -2,
+      "rel1": -0.72,
+      "rel20": -18.38,
+      "blend": -2
+    },
+    "COMM": {
+      "proxy": "XLC",
+      "relReturnPct": 1.66,
+      "suggested": 1,
+      "rel1": 1.18,
+      "rel20": 9.37,
+      "blend": 2
+    },
+    "IND": {
+      "proxy": "XLI",
+      "relReturnPct": 0.81,
+      "suggested": 0,
+      "rel1": 1.12,
+      "rel20": 3.91,
+      "blend": 2
+    },
+    "MAT": {
+      "proxy": "XLB",
+      "relReturnPct": 3.34,
+      "suggested": 2,
+      "rel1": 2.36,
+      "rel20": 5.95,
+      "blend": 2
+    },
+    "HLTH": {
+      "proxy": "XLV",
+      "relReturnPct": 3.23,
+      "suggested": 2,
+      "rel1": -0.27,
+      "rel20": 9.4,
+      "blend": 2
+    },
+    "UTIL": {
+      "proxy": "XLU",
+      "relReturnPct": 1.99,
+      "suggested": 1,
+      "rel1": 0.77,
+      "rel20": 9.84,
+      "blend": 2
+    }
+  },
+  "metals": {
+    "gold": {
+      "proxy": "GLD",
+      "level": 327.45,
+      "dir": -1,
+      "note": "ETF price, not spot"
+    },
+    "silver": {
+      "proxy": "SLV",
+      "level": 37.1,
+      "dir": -1,
+      "note": "ETF price, not spot"
+    }
+  },
   "crypto": {
     "btc": {
-      "level": 60560,
+      "level": 60354,
       "dir": -1,
       "chg7dPct": -3.65
     },
     "eth": {
-      "level": 1698.08,
+      "level": 1696.84,
       "dir": -1,
       "chg7dPct": -4.32
     },
     "xrp": {
-      "level": 0.952835,
+      "level": 0.952637,
       "dir": 0,
       "chg7dPct": -1.89
     }
   },
   "warnings": [
-    "Twelve Data SPY: HTTP Error 401: Unauthorized",
-    "Twelve Data QQQ: HTTP Error 401: Unauthorized",
-    "Twelve Data rejected the key twice in a row, so the rest were skipped. Re-save the TWELVEDATA_API_KEY secret.",
+    "Twelve Data XLY: HTTP Error 429: Too Many Requests",
+    "Twelve Data XLK: HTTP Error 429: Too Many Requests",
+    "Twelve Data CIBR: HTTP Error 429: Too Many Requests",
+    "Twelve Data XLE: HTTP Error 429: Too Many Requests",
+    "Twelve Data GDX: HTTP Error 429: Too Many Requests",
+    "Twelve Data XLP: HTTP Error 429: Too Many Requests",
     "FRED DGS10: The read operation timed out",
     "FRED DGS2: The read operation timed out",
     "FRED T10Y2Y: skipped (FRED was not answering)",
