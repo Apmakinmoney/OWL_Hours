@@ -302,19 +302,57 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 .node.pulse circle{animation:npulse 1.6s ease-out 2}
 @keyframes npulse{0%{stroke-width:3}35%{stroke-width:11;stroke-opacity:.45}100%{stroke-width:1.5;stroke-opacity:1}}
 @media (prefers-reduced-motion: reduce){.node.pulse circle{animation:none}}
+
+/* ---- Phase B ---- */
+.byline{font:500 12.5px var(--sans);color:var(--d-brass,#e0b25b);letter-spacing:.04em;margin-top:2px}
+.helpBtn i{font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e0b25b;color:#0a1022;font:700 11px var(--sans);margin-right:4px;vertical-align:-3px}
+.drivers{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 8px 0}
+.drH{font-size:12.5px;color:var(--d-muted);margin-right:2px}
+.drC{border-radius:999px;padding:4px 11px;font:600 12.5px var(--sans);background:#16224a;border:1px solid #2f3d6e;color:#e8ecf8}
+.drC.up{border-color:#4fd1a5;color:#a8f0d6}.drC.dn{border-color:#ff7b66;color:#ffc2b6}
+.secTip{margin:12px 8px 0;padding:12px 14px;border-radius:16px;background:#0e1736;border:1px solid #2f3d6e}
+.secTip .tipH{display:flex;align-items:center;gap:8px}.secTip .tipH b{font:650 17px var(--serif)}
+.tipV{font:700 13px var(--sans);padding:2px 8px;border-radius:999px;background:#1e2b55;color:#8d9ac0}.tipV.up{background:#2c8c73;color:#f1fffa}.tipV.dn{background:#a14b47;color:#fff4f1}
+.tipX{margin-left:auto;background:none;border:0;color:#8d9ac0;font-size:22px;line-height:1;padding:0 4px}
+.secTip small{display:block;color:var(--d-muted);font-size:12px;margin-top:4px}.secTip p{margin:6px 0 0;font-size:14px;line-height:1.45}
+.shareRow{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 2px}
+.lesson{margin:16px 0 0;padding:16px 18px;border-radius:20px;background:linear-gradient(135deg,#1a2550,#111a36);border:1px solid #2f3d6e;color:#e8ecf8}
+.lsHead{font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#e0b25b}
+.lsText{font:500 19px/1.35 var(--serif);margin:6px 0 6px}.lesson small{color:#8d9ac0;font-size:12.5px}
+.mshort{margin:4px 0 2px;font-size:13px;color:var(--muted);line-height:1.4}
+.foot{text-align:center;font-size:12px;color:var(--muted);margin:28px 0 8px}
+.score{margin:6px 0 22px}.score h2{font:650 22px/1.2 var(--serif);margin:0 0 4px}
+.scTiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.scTiles div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center}
+.scTiles b{display:block;font:650 20px/1.1 var(--serif)}.scTiles span{font-size:11.5px;color:var(--muted)}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.bdg{border:1px dashed var(--line);border-radius:14px;padding:9px 8px;text-align:center;opacity:.55}
+.bdg.on{opacity:1;border-style:solid;border-color:#e0b25b;background:rgba(224,178,91,.08)}
+.bdg i{display:block;font-style:normal;font-size:18px;color:#e0b25b}.bdg b{display:block;font-size:12.5px}.bdg small{display:block;font-size:10.5px;color:var(--muted);line-height:1.3}
+.scList{font-size:13px;color:var(--muted)}
+@media (max-width:420px){.scTiles{grid-template-columns:repeat(2,1fr)}}
+.tour{position:fixed;inset:0;z-index:200}
+.tourHole{position:fixed;border-radius:22px;box-shadow:0 0 0 200vmax rgba(4,8,20,.78);transition:all .35s ease;pointer-events:auto}
+.tourCard{position:fixed;left:12px;right:12px;bottom:calc(92px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;background:#111a36;color:#e8ecf8;border:1px solid #2f3d6e;border-radius:20px;padding:12px 14px 12px;box-shadow:0 18px 50px -12px rgba(0,0,0,.6)}
+.tourCard.top{bottom:auto;top:calc(14px + env(safe-area-inset-top,0px))}
+.tourBars{display:flex;gap:4px;margin-bottom:10px}.tourBars i{flex:1;height:3px;border-radius:2px;background:#2f3d6e;overflow:hidden}.tourBars b{display:block;height:100%;width:0;background:#e0b25b}
+.tourRow{display:flex;gap:12px;align-items:center}.tourRow p{margin:0;font-size:15px;line-height:1.45}
+.tourOwl{flex:0 0 72px;width:72px}
+.tourBtns{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="hdrL"><div class="owlTop owlWrap" id="owlTop"></div><div>
-      <h1>Owl Hours</h1>
+      <h1>Owl Hours</h1><div class="byline">by The Market Talks</div>
       <p>Read the market like a clock. Set where each sector is heading and the needle swings to the hour the market is keeping: dawn, midday, dusk, or night. Every snapshot you save leaves a mark on the wheel.</p>
     </div></div>
     <div class="dayline" id="dayCount"></div>
   </header>
   <div class="live" id="liveStrip" aria-label="Live ETF prices"></div>
   <p class="lnote" id="liveNote">Live feed: waiting for first update.</p>
+  <div class="lesson" id="lesson" hidden></div>
   <div class="autop" id="autoPanel" hidden></div>
 
   <div class="grid">
@@ -327,6 +365,9 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
         <div><span>Needle</span><b id="angleVal">—</b></div>
         <div><span>Signal clarity</span><b id="clarityVal">—</b><div class="bar"><i id="clarityBar"></i></div></div>
       </div>
+      <div class="drivers" id="drivers" hidden></div>
+      <div class="secTip" id="secTip" hidden></div>
+      <div class="shareRow"><button type="button" class="small helpBtn" id="helpBtn" aria-label="How to read the clock"><i>?</i> How to read it</button><button type="button" class="small" id="shareBtn">Share today’s clock</button></div>
       <div class="viewbar" id="viewbar" hidden>
         <span class="seg" id="viewSeg"><button type="button" data-v="market" aria-pressed="false">Market</button><button type="button" data-v="mine" aria-pressed="true">My calls</button></span>
         <span class="vl" id="viewNote"></span>
@@ -475,7 +516,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       if(title){var h=document.createElement("h2");h.className="paneHead";h.textContent=title;d.appendChild(h)}wrap.appendChild(d);return d}
     var P={clock:pane("clock"),sectors:pane("sectors"),macro:pane("macro","Macro"),record:pane("record"),letter:pane("letter","Letter desk")};
     var grid=wrap.querySelector(".grid"),dial=wrap.querySelector("section.dial"),controls=wrap.querySelector("section.controls");
-    P.clock.appendChild(document.getElementById("liveStrip"));P.clock.appendChild(document.getElementById("liveNote"));P.clock.appendChild(dial);
+    P.clock.appendChild(document.getElementById("liveStrip"));P.clock.appendChild(document.getElementById("liveNote"));P.clock.appendChild(dial);P.clock.appendChild(document.getElementById("lesson"));
     var mini=document.createElement("div");mini.className="mini";mini.id="miniRead";
     mini.innerHTML='<svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23" fill="#121c40" stroke="#2f3d6e"/><path id="miniArc" d="" fill="none" stroke-width="4"/><line id="miniGhost" x1="26" y1="26" x2="26" y2="7" stroke="#e8ecf8" stroke-width="1.6" stroke-dasharray="3 3" opacity="0"/><line id="miniNeedle" x1="26" y1="26" x2="26" y2="6" stroke="#e0b25b" stroke-width="2.6" stroke-linecap="round"/><circle cx="26" cy="26" r="3" fill="#e0b25b"/></svg><div><b id="miniPhase">\u2014</b><span id="miniSub"></span></div>';
     P.sectors.appendChild(mini);P.sectors.appendChild(controls);
@@ -494,6 +535,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     var log=wrap.querySelector("section.logsec");P.record.appendChild(log);
     var op=document.createElement("div");op.innerHTML='<h3 style="font:650 18px/1.2 var(--serif);margin:28px 0 4px">Owl style</h3><p class="sub" style="margin:0">Pick the owl that keeps you company. More styles are on the way.</p><div class="owlPick" id="owlPick"></div>';
     P.record.appendChild(op);
+    var ft=document.createElement("footer");ft.className="foot";ft.textContent="by The Market Talks \u00b7 Educational tool, not investment advice.";wrap.appendChild(ft);
     function setTab(t,push){
       if(!P[t])t="clock";
       Object.keys(P).forEach(function(k){P[k].hidden=k!==t});
@@ -747,7 +789,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
         b.addEventListener("click",function(){
           if(viewing){viewing=null;syncScrub()}
           if(view==="market")setView("mine",true);
-          live[s.id]=L[0];selected=s.id;refresh();
+          live[s.id]=L[0];selected=s.id;buzz(8);refresh();
         });
         seg.appendChild(b);
       });
@@ -771,7 +813,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   }
   function select(id){
     selected=(selected===id)?null:id;
-    paintRows();paintNodes();
+    paintRows();paintNodes();paintTip();
     if(selected)rowEls[selected].row.scrollIntoView({block:"nearest",behavior:"smooth"});
   }
   function paintRows(){
@@ -782,7 +824,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       for(var i=0;i<r.btns.length;i++)r.btns[i].classList.toggle("on",Number(r.btns[i].getAttribute("data-v"))===v);
     });
   }
-  function refresh(){paintRows();paintNodes();updateReadout();renderTimeline();paintMacro();renderRead();renderEvents();paintTech();renderTechRead();renderQuad();paintAI();paintQQ();updateOwls();paintIntra()}
+  function refresh(){paintRows();paintNodes();updateReadout();renderTimeline();paintMacro();renderRead();renderEvents();paintTech();renderTechRead();renderQuad();paintAI();paintQQ();updateOwls();paintIntra();phaseB()}
 
   /* ---------- history ---------- */
   function todayStr(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
@@ -1052,7 +1094,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       });
       lb.addEventListener("click",function(){learn.hidden=!learn.hidden;lb.setAttribute("aria-expanded",String(!learn.hidden));lb.textContent=learn.hidden?"Learn":"Hide"});
       head.appendChild(nm);head.appendChild(pips);head.appendChild(inp);head.appendChild(lb);
-      row.appendChild(head);row.appendChild(learn);g.appendChild(row);
+      row.appendChild(head);if(MSHORT[M.id]){var ms=document.createElement("p");ms.className="mshort";ms.textContent=MSHORT[M.id];row.appendChild(ms)}row.appendChild(learn);g.appendChild(row);
       macroEls[M.id]={btns:pips.children,inp:inp};
     });
   }
@@ -1942,8 +1984,8 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     if(!nm)return;
     var first=!market,changed=[],pa=market?estimate(market).angle:null;
     if(market)SECTORS.forEach(function(s){if(market[s.id]!==nm[s.id])changed.push(s.id)});
-    market=nm;
-    mkt={asOf:q&&q.asOf,hasToday:typeof pcts.SPY==="number",hasTrend:!!(lat&&lat.sectors&&Object.keys(lat.sectors).some(function(k){return typeof lat.sectors[k].rel20==="number"})),macroFilled:mkt.macroFilled,trail:[]};
+    market=nm;latData=lat;
+    mkt={asOf:q&&q.asOf,hasToday:typeof pcts.SPY==="number",hasTrend:!!(lat&&lat.sectors&&Object.keys(lat.sectors).some(function(k){return typeof lat.sectors[k].rel20==="number"})),macroFilled:mkt.macroFilled,trail:[],pcts:pcts};
     if(q&&Array.isArray(q.trail))q.trail.forEach(function(p){var mm=mapFrom(p.p,p.p&&p.p.SPY,lat),e=mm?estimate(mm):null;if(e&&e.angle!=null)mkt.trail.push({t:p.t,a:e.angle})});
     if(lat&&lat.macro&&!macroAuto){
       macroAuto=true;var n=0;
@@ -1962,11 +2004,271 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       var bits=changed.slice(0,2).map(function(id){var sd=SECTORS.filter(function(x){return x.id===id})[0];return sd.n+" flipped to "+SYM[String(market[id])]});
       var msg=bits.join(", ")+(changed.length>2?" and "+(changed.length-2)+" more":"")+".";
       if(pa!=null&&na!=null){var dd=((na-pa+540)%360)-180;if(Math.abs(dd)>=3)msg+=" Needle moved "+Math.abs(Math.round(dd))+"\u00b0 toward "+HOUR[phaseOf(na)]+"."}
-      owlTopApi.say(msg);
+      owlTopApi.say(msg);buzz([12,60,12]);
     }
     changed.forEach(function(id){var g=nodeEls[id]&&nodeEls[id].g;if(!g)return;g.classList.remove("pulse");void g.getBoundingClientRect();g.classList.add("pulse");setTimeout(function(){g.classList.remove("pulse")},3400)});
   }
   document.querySelectorAll("#viewSeg button").forEach(function(b){b.addEventListener("click",function(){setView(b.dataset.v)})});
+
+  /* ================= Phase B: drivers, sector tips, lesson, share, scoreboard, tour ================= */
+  var latData=null;
+  var SECWHY={
+    FIN:"Banks earn more when the economy reopens and the yield curve steepens, so they often lead out of a downturn.",
+    REIT:"Real estate is rate-sensitive. It tends to rally when rates start falling early in a recovery.",
+    DISC:"People spend on wants before needs once confidence returns, so discretionary often leads early.",
+    TECH:"Software loves falling rates and rising confidence. It often carries the recovery into expansion.",
+    CYB:"Security budgets grow with IT spending, so cyber rides the same wave as software.",
+    NEO:"Cloud and data-center builders win when companies spend big on AI and capacity mid-expansion.",
+    SEMI:"Chips sit at the heart of the spending cycle. Strength here says expansion is in full swing.",
+    COMM:"Ads and media follow business confidence and tend to peak mid-expansion.",
+    IND:"Factories, transport and equipment boom when companies build out capacity late in expansion.",
+    MAT:"Metals and chemicals firm up as demand runs hot and inflation creeps in.",
+    ENGY:"Oil and gas tend to lead late in the cycle, when demand peaks and prices push inflation.",
+    GOLD:"Gold and miners shine when real rates fall or fear rises, often as the cycle rolls over.",
+    STPL:"People keep buying food and toothpaste in a slowdown, so staples hold up when growth fades.",
+    HLTH:"Healthcare demand ignores the economy, which makes it a classic hiding spot.",
+    UTIL:"Steady dividends and regulated earnings make utilities a safe harbor deep in a downturn."
+  };
+  var MSHORT={
+    oil:"Rising = inflation pressure and a squeeze on consumers. Falling = relief, unless demand is cracking.",
+    y10:"Rising = pressure on growth stocks and housing. Falling = relief for rate-sensitive sectors.",
+    curve:"Below zero (inverted) has come before most recessions. Re-steepening often marks the turn.",
+    hy:"Widening = lenders are nervous, risk-off. Tightening = confidence and easy money.",
+    usd:"Strong dollar = headwind for commodities and multinationals. Weak dollar = tailwind.",
+    btc:"A 24/7 gauge of risk appetite and liquidity. Often moves with the Nasdaq.",
+    eth:"Risk appetite plus network demand. Watch fund flows.",
+    xrp:"A smaller, more speculative risk gauge that also moves on regulatory news.",
+    gold:"Rises with fear, falling real yields or a weaker dollar.",
+    silver:"Half precious metal, half industrial. Rises with gold and with factory demand.",
+    ism:"Above 50 = factories growing. Below 50 = shrinking. An early read on the cycle."
+  };
+  var LESSONS=[
+    ["Cut losers early and let winners run. Most damage comes from refusing to admit a trade is wrong.","Jesse Livermore"],
+    ["The big money is made by sitting, not by trading. Patience is a position.","Jesse Livermore"],
+    ["The market moves when it is ready, not when you are. Wait for your setup.","Jesse Livermore"],
+    ["Don't fight the Fed. When policy turns, the cycle follows.","Marty Zweig"],
+    ["Know your risk before your reward. Size so one bad trade can't knock you out.","Paul Tudor Jones"],
+    ["Play defense first. Opportunities come back. Lost capital doesn't.","Paul Tudor Jones"],
+    ["Never add to a position that's going against you. Losers average losers.","Paul Tudor Jones"],
+    ["The market can stay 'wrong' far longer than your account can wait. Leverage shortens your runway.","John Maynard Keynes"],
+    ["When the crowd is euphoric, get careful. When it's panicking, get curious.","Warren Buffett"],
+    ["What you pay and what you get are two different numbers. Know both.","Warren Buffett"],
+    ["Avoiding the big loss matters more than catching the big win.","Warren Buffett"],
+    ["Know what you own and why you own it. If you can't explain it simply, you don't.","Peter Lynch"],
+    ["Behind every ticker is a business. Go find out what it's actually doing.","Peter Lynch"],
+    ["Being right isn't the goal. Making a lot when right and losing little when wrong is.","George Soros"],
+    ["When conviction is high and the odds are with you, size up. Most people bet small on their best ideas.","Stan Druckenmiller"],
+    ["Look 12 to 18 months out. The market prices the future, not today's headlines.","Stan Druckenmiller"],
+    ["In the short run, liquidity moves markets more than earnings. Watch the Fed and credit.","Stan Druckenmiller"],
+    ["Every trader takes losses. The winners keep them small and boring.","Ed Seykota"],
+    ["Everybody gets what they want from the market. Check whether your habits want profits or excitement.","Ed Seykota"],
+    ["Accept the risk before you take it. If you can't stand to lose, you can't win.","Mark Douglas"],
+    ["Think in probabilities. One trade means nothing. Your edge shows up over many.","Mark Douglas"],
+    ["Bull markets start when everyone's gloomy and end when everyone's thrilled. Read the mood.","John Templeton"],
+    ["Whenever you hear 'this time is different,' go check the history books.","John Templeton"],
+    ["Volume confirms. A breakout on light volume is a rumor. On heavy volume it's news.","Richard Wyckoff"],
+    ["Have your plan before the open. Pick entry, stop and target while you're calm.","Market Wizards"],
+    ["Missing a trade costs nothing. Forcing one can cost a lot.","Market Wizards"],
+    ["Your thesis is a hypothesis. Test it every day and don't marry it.","Market Wizards"],
+    ["High prices cure high prices. They kill demand and invite new supply.","Commodity pits"],
+    ["Bulls make money, bears make money, pigs get slaughtered. Take profit when it's handed to you.","Wall Street saying"],
+    ["Sector rotation is the market's heartbeat. Leadership changes before the headlines do.","The Owl"],
+    ["Credit cracks before stocks do. When spreads widen, listen.","The Owl"],
+    ["The yield curve is a slow clock. It tells you the season, not the hour.","The Owl"],
+    ["When defensive sectors lead in a rising market, someone is quietly buying insurance.","The Owl"],
+    ["Journal every call. Your own record teaches more than any guru.","The Owl"],
+    ["A clear needle beats a busy one. When clarity is low, the market hasn't made up its mind. Neither should you.","The Owl"],
+    ["Dawn comes while it still looks dark. Recoveries begin when the news is at its worst.","The Owl"]
+  ];
+  function etYMD(){var t=etNow();return etDay(t,0).ymd}
+  function dayHash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+  function lessonToday(){return LESSONS[dayHash("owl"+etYMD())%LESSONS.length]}
+  function paintLesson(){
+    var b=$("lesson");if(!b)return;var L=lessonToday();b.hidden=false;b.textContent="";
+    var h=document.createElement("div");h.className="lsHead";h.textContent="Owl’s lesson of the day";
+    var p=document.createElement("p");p.className="lsText";p.textContent=L[0];
+    var s=document.createElement("small");s.textContent=L[1]==="The Owl"?"From the Owl":"Idea from "+L[1];
+    b.appendChild(h);b.appendChild(p);b.appendChild(s);
+  }
+  function sayLessonOnce(){
+    var d=etYMD();if(lsGet("oh_lesson")===d||!owlTopApi)return;lsSet("oh_lesson",d);
+    owlTopApi.say("Today’s lesson: "+lessonToday()[0]);
+  }
+  function drivers(m){
+    var e=estimate(m);if(e.angle==null)return [];
+    var out=[];
+    SECTORS.forEach(function(s){var v=m[s.id]||0;if(!v)return;
+      var c=v*Math.cos((s.a-e.angle)*Math.PI/180);if(c>0.05)out.push({s:s,v:v,c:c})});
+    out.sort(function(a,b){return b.c-a.c});return out.slice(0,3);
+  }
+  var SYMV={"2":"++","1":"+","0":"flat","-1":"−","-2":"−−"};
+  function relToday(id){var e=ETF[id],p=mkt&&mkt.pcts;if(!p||!e||typeof p[e]!=="number"||typeof p.SPY!=="number")return null;return p[e]-p.SPY}
+  function fmtP(x){return (x>=0?"+":"−")+Math.abs(x).toFixed(2)+"%"}
+  function paintDrivers(){
+    var b=$("drivers");if(!b)return;var D=drivers(currentMap());b.textContent="";
+    if(!D.length){b.hidden=true;return}b.hidden=false;
+    var h=document.createElement("span");h.className="drH";h.textContent="Pulling the needle";b.appendChild(h);
+    D.forEach(function(d){var c=document.createElement("button");c.type="button";c.className="drC "+(d.v>0?"up":"dn");
+      var r=relToday(d.s.id);c.textContent=d.s.s+" "+SYMV[String(d.v)]+(r!=null&&view==="market"?"  "+fmtP(r):"");
+      c.addEventListener("click",function(){select(d.s.id)});b.appendChild(c)});
+  }
+  function paintTip(){
+    var b=$("secTip");if(!b)return;
+    if(!selected){b.hidden=true;return}
+    var s=SECTORS.filter(function(x){return x.id===selected})[0],m=currentMap(),v=m[s.id]||0;b.hidden=false;b.textContent="";
+    var h=document.createElement("div");h.className="tipH";
+    var nm=document.createElement("b");nm.textContent=s.n;h.appendChild(nm);
+    var tag=document.createElement("span");tag.className="tipV "+(v>0?"up":v<0?"dn":"");tag.textContent=SYMV[String(v)];h.appendChild(tag);
+    var x=document.createElement("button");x.type="button";x.className="tipX";x.setAttribute("aria-label","Close");x.textContent="×";x.addEventListener("click",function(){select(s.id)});h.appendChild(x);
+    b.appendChild(h);
+    var bits=[],r=relToday(s.id),ls=latData&&latData.sectors&&latData.sectors[s.id];
+    if(ETF[s.id])bits.push(ETF[s.id]);
+    if(r!=null)bits.push("today "+fmtP(r)+" vs S&P");
+    if(ls&&typeof ls.rel20==="number")bits.push("20 days "+fmtP(ls.rel20)+" vs S&P");
+    if(!ETF[s.id])bits.push("no live feed yet, set by your calls");
+    var n=document.createElement("small");n.textContent=bits.join(" · ");b.appendChild(n);
+    var p=document.createElement("p");p.textContent=SECWHY[s.id]||"";b.appendChild(p);
+    var g=document.createElement("small");g.textContent="Usually leads in: "+s.g.toLowerCase();b.appendChild(g);
+  }
+  function buzz(ms){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
+
+  /* ---- scoreboard ---- */
+  function sgn(x){return x>0?1:x<0?-1:0}
+  function tradingYMDs(back){var t=etNow(),out=[];for(var d=0;out.length<back&&d>-400;d--){var x=etDay(t,d);if(isTradingDay(x))out.push(x.ymd)}return out}
+  function grade(){
+    var mh=marketHist.slice().sort(function(a,b){return a.date<b.date?-1:1});
+    var days=[],right=0,total=0,phaseHits=0;
+    history.forEach(function(h){
+      if(!h||!h.m)return;
+      var nx=null;for(var i=0;i<mh.length;i++){if(mh[i].date>h.date){nx=mh[i];break}}
+      var d={date:h.date,right:0,total:0,pending:!nx};
+      if(nx)SECTORS.forEach(function(s){var v=h.m[s.id]||0,mv=nx.m[s.id];if(!v||mv==null||mv===0)return;d.total++;if(sgn(v)===sgn(mv))d.right++});
+      if(nx&&h.angle!=null&&nx.angle!=null&&phaseOf(h.angle)===phaseOf(nx.angle))phaseHits++;
+      right+=d.right;total+=d.total;days.push(d);
+    });
+    var have={};history.forEach(function(h){if(h&&h.date)have[h.date]=1});
+    var T=tradingYMDs(260),cur=0,best=0,run=0,i0=0;
+    if(T.length&&!have[T[0]])i0=1;
+    for(var k=i0;k<T.length;k++){if(have[T[k]])cur++;else break}
+    for(var j=T.length-1;j>=0;j--){if(have[T[j]]){run++;if(run>best)best=run}else run=0}
+    return {days:days,right:right,total:total,cur:cur,best:Math.max(best,cur),saved:history.length,phaseHits:phaseHits};
+  }
+  var BADGES=[
+    {id:"first",n:"First call",d:"Save your first snapshot",ok:function(g){return g.saved>=1}},
+    {id:"s3",n:"3-day streak",d:"Save calls 3 trading days in a row",ok:function(g){return g.best>=3}},
+    {id:"s7",n:"7-day caller",d:"Save calls 7 trading days in a row",ok:function(g){return g.best>=7}},
+    {id:"g10",n:"On the board",d:"Get 10 sector calls graded",ok:function(g){return g.total>=10}},
+    {id:"sharp",n:"Sharp eye",d:"Hit 60%+ on at least 20 graded calls",ok:function(g){return g.total>=20&&g.right/g.total>=0.6}},
+    {id:"phase",n:"Phase spotter",d:"Match the market’s phase 3 times",ok:function(g){return g.phaseHits>=3}}
+  ];
+  function paintScore(){
+    var b=$("scoreSec");if(!b)return;var g=grade();b.textContent="";
+    var h=document.createElement("h2");h.textContent="Scoreboard";b.appendChild(h);
+    var sub=document.createElement("p");sub.className="sub";sub.textContent="Each saved snapshot is graded against the market’s reading at the next close. A + or ++ call is right if the market had that sector rising, a − call if falling. Flat market readings don’t count.";b.appendChild(sub);
+    var tiles=document.createElement("div");tiles.className="scTiles";
+    [[g.total?Math.round(g.right/g.total*100)+"%":"—","Hit rate"],[g.right+"/"+g.total,"Calls right"],[g.cur+(g.cur===1?" day":" days"),"Streak"],[g.best+(g.best===1?" day":" days"),"Best streak"]].forEach(function(t){
+      var d=document.createElement("div");var bb=document.createElement("b");bb.textContent=t[0];var s=document.createElement("span");s.textContent=t[1];d.appendChild(bb);d.appendChild(s);tiles.appendChild(d)});
+    b.appendChild(tiles);
+    var bd=document.createElement("div");bd.className="badges";
+    BADGES.forEach(function(x){var on=x.ok(g),d=document.createElement("div");d.className="bdg"+(on?" on":"");
+      var i=document.createElement("i");i.textContent=on?"★":"☆";var n=document.createElement("b");n.textContent=x.n;var s=document.createElement("small");s.textContent=x.d;
+      d.appendChild(i);d.appendChild(n);d.appendChild(s);bd.appendChild(d)});
+    b.appendChild(bd);
+    var recent=g.days.slice(-5).reverse();
+    var l=document.createElement("p");l.className="scList";
+    if(!recent.length)l.textContent="No calls yet. Go to Sectors, set your + and −, then tap Save snapshot. Your first grade shows up after the next close.";
+    else l.textContent="Recent: "+recent.map(function(d){return d.date.slice(5)+" "+(d.pending?"waiting for close":d.total?d.right+"/"+d.total+" right":"no graded calls")}).join(" · ");
+    b.appendChild(l);
+  }
+
+  /* ---- share card ---- */
+  function shareCard(){
+    var m=currentMap(),e=estimate(m),W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");
+    var bg=x.createRadialGradient(W/2,560,60,W/2,600,900);bg.addColorStop(0,"#223566");bg.addColorStop(.55,"#121c40");bg.addColorStop(1,"#0a1022");x.fillStyle=bg;x.fillRect(0,0,W,H);
+    var serif="650 64px Fraunces, Georgia, serif",sans="DM Sans, system-ui, sans-serif";
+    x.fillStyle="#e0b25b";x.font=serif;x.textAlign="left";x.fillText("Owl Hours",80,130);
+    x.fillStyle="#8d9ac0";x.font="500 30px "+sans;
+    var who=view==="market"&&market?"The market’s read":"My call";
+    x.fillText(who+" · "+new Date().toLocaleDateString([],{weekday:"short",month:"short",day:"numeric",year:"numeric"}),80,180);
+    var cx=W/2,cy=640,R=330;
+    PHASES.forEach(function(p){x.beginPath();x.strokeStyle=p.c;x.globalAlpha=.85;x.lineWidth=22;x.arc(cx,cy,R,(p.from-90+1)*Math.PI/180,(p.to-90-1)*Math.PI/180);x.stroke()});x.globalAlpha=1;
+    x.beginPath();x.fillStyle="#0e1736";x.arc(cx,cy,R-24,0,Math.PI*2);x.fill();
+    x.font="600 26px "+sans;x.textAlign="center";
+    [["Dawn",45],["Midday",135],["Dusk",225],["Night",315]].forEach(function(q){var t=q[1]*Math.PI/180;x.fillStyle="#8d9ac0";x.fillText(q[0],cx+(R+52)*Math.sin(t),cy-(R+52)*Math.cos(t)+9)});
+    SECTORS.forEach(function(s){var v=m[s.id]||0,t=s.a*Math.PI/180,px=cx+(R-80)*Math.sin(t),py=cy-(R-80)*Math.cos(t);
+      x.beginPath();x.fillStyle=v===2?"#4fd1a5":v===1?"#2c8c73":v===-1?"#a14b47":v===-2?"#ff7b66":"#1e2b55";x.arc(px,py,30+Math.abs(v)*3,0,Math.PI*2);x.fill();
+      x.strokeStyle="#3a4772";x.lineWidth=2;x.stroke();x.fillStyle=Math.abs(v)===2?"#0a1022":"#e8ecf8";x.font="700 17px "+sans;x.fillText(s.s,px,py+6)});
+    if(e.angle!=null){var t=e.angle*Math.PI/180;x.strokeStyle="#e0b25b";x.lineWidth=10;x.lineCap="round";x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+(R-130)*Math.sin(t),cy-(R-130)*Math.cos(t));x.stroke()}
+    x.beginPath();x.fillStyle="#e0b25b";x.arc(cx,cy,16,0,Math.PI*2);x.fill();
+    var ph=e.angle==null?"No signal":phaseOf(e.angle);
+    x.fillStyle="#e8ecf8";x.font="650 76px Fraunces, Georgia, serif";x.fillText(e.angle==null?"No signal":ph+" · "+HOUR[ph],cx,1100);
+    x.fillStyle="#8d9ac0";x.font="500 32px "+sans;
+    if(e.angle!=null)x.fillText("Needle "+Math.round(e.angle)+"° · clarity "+Math.round(e.clarity*100)+"%",cx,1155);
+    var D=drivers(m);if(D.length){x.fillStyle="#e8ecf8";x.font="600 30px "+sans;x.fillText("Pulling the needle: "+D.map(function(d){return d.s.s+" "+SYMV[String(d.v)]}).join("   "),cx,1215)}
+    x.fillStyle="#8d9ac0";x.font="500 24px "+sans;x.fillText("by The Market Talks · educational tool, not investment advice",cx,1295);
+    function finish(){c.toBlob(function(blob){if(!blob)return;
+      var f;try{f=new File([blob],"owl-hours-"+todayStr()+".png",{type:"image/png"})}catch(err){f=null}
+      if(f&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:"Owl Hours"}).catch(function(){})}
+      else{var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="owl-hours-"+todayStr()+".png";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1500)}
+    },"image/png")}
+    var img=new Image();img.onload=function(){x.save();x.beginPath();x.arc(W-150,120,72,0,Math.PI*2);x.clip();x.drawImage(img,W-222,48,144,144);x.restore();finish()};img.onerror=finish;img.src="icon-192.png";
+  }
+
+  /* ---- tour ---- */
+  var TOUR=[
+    {t:"#wheel",s:"Hoot! I’m your guide. This wheel is the market’s clock: Dawn is recovery, Midday is expansion, Dusk is late cycle, Night is contraction."},
+    {t:"#wheel",s:"Each dot is a sector. Green means it’s beating the S&P 500, red means it’s lagging. The brighter the glow, the stronger the move."},
+    {t:".readouts",s:"The gold needle points to the hour the market is keeping. Clarity tells you how much the sectors agree with each other."},
+    {t:"#drivers",s:"These are the sectors pulling the needle hardest right now. Tap one to see why it matters."},
+    {t:"#viewbar",s:"Market is my read from real prices, updated all day. My calls is yours. Tap any dot to make your own call."},
+    {t:"#tabbar",s:"Sectors to make calls, Macro for rates and crypto, Record for your scoreboard, Letter for the newsletter. Tap ? on the clock anytime to replay this."}
+  ];
+  var tourOn=false;
+  function startTour(){
+    if(tourOn)return;tourOn=true;location.hash="#clock";
+    var ov=document.createElement("div");ov.className="tour";
+    var hole=document.createElement("div");hole.className="tourHole";ov.appendChild(hole);
+    var card=document.createElement("div");card.className="tourCard";
+    var bars=document.createElement("div");bars.className="tourBars";TOUR.forEach(function(){var i=document.createElement("i");i.appendChild(document.createElement("b"));bars.appendChild(i)});
+    var row=document.createElement("div");row.className="tourRow";
+    var oh=document.createElement("div");oh.className="tourOwl owlWrap";oh.dataset.sky="night";
+    var tx=document.createElement("p");row.appendChild(oh);row.appendChild(tx);
+    var btns=document.createElement("div");btns.className="tourBtns";
+    var sk=document.createElement("button");sk.type="button";sk.className="small";sk.textContent="Skip";
+    var nx=document.createElement("button");nx.type="button";nx.textContent="Next";
+    btns.appendChild(sk);btns.appendChild(nx);card.appendChild(bars);card.appendChild(row);card.appendChild(btns);ov.appendChild(card);document.body.appendChild(ov);
+    var st=OWL_STYLES[owlStyle];oh.classList.add(st.cls);var os=el("svg",{viewBox:"0 0 140 150","class":"owl"},oh);var OP=st.draw(os,++owlSeq);
+    var i=-1,tm=null,DUR=reduce?9000:6500;
+    function place(){
+      var s=TOUR[i],t=document.querySelector(s.t);if(!t||t.hidden||!t.getBoundingClientRect().height)t=$("wheel");
+      var r=t.getBoundingClientRect(),pad=8;
+      hole.style.left=(r.left-pad)+"px";hole.style.top=(r.top-pad)+"px";hole.style.width=(r.width+pad*2)+"px";hole.style.height=(r.height+pad*2)+"px";
+      var low=(r.top+r.height/2)>innerHeight*0.55;card.classList.toggle("top",low);
+    }
+    function go(n){
+      i=n;if(i>=TOUR.length){end();return}
+      var s=TOUR[i],t=document.querySelector(s.t);if(t&&s.t!=="#tabbar")t.scrollIntoView({block:"center",behavior:reduce?"auto":"smooth"});
+      tx.textContent=s.s;nx.textContent=i===TOUR.length-1?"Done":"Next";
+      Array.prototype.forEach.call(bars.children,function(b,k){var f=b.firstChild;f.style.transition="none";f.style.width=k<i?"100%":"0%"});
+      var cur=bars.children[i].firstChild;void cur.offsetWidth;cur.style.transition="width "+DUR+"ms linear";cur.style.width="100%";
+      os.classList.remove("hoot");void os.getBoundingClientRect();os.classList.add("hoot");
+      place();setTimeout(place,450);clearTimeout(tm);tm=setTimeout(function(){go(i+1)},DUR);
+    }
+    function end(){clearTimeout(tm);lsSet("oh_tour","1");tourOn=false;ov.remove();removeEventListener("resize",place);removeEventListener("scroll",place)}
+    sk.addEventListener("click",end);nx.addEventListener("click",function(){go(i+1)});
+    hole.addEventListener("click",function(){go(i+1)});
+    addEventListener("resize",place);addEventListener("scroll",place,{passive:true});
+    go(0);
+  }
+  function phaseBInit(){
+    var rec=document.querySelector('.pane[data-pane="record"]');
+    if(rec&&!$("scoreSec")){var s=document.createElement("section");s.className="score";s.id="scoreSec";rec.insertBefore(s,rec.firstChild)}
+    $("helpBtn").addEventListener("click",startTour);
+    $("shareBtn").addEventListener("click",shareCard);
+    paintLesson();
+    if(lsGet("oh_tour")!=="1")setTimeout(startTour,1400);else setTimeout(sayLessonOnce,9800);
+  }
+  function phaseB(){paintDrivers();paintTip();paintScore()}
 
   /* ---------- init ---------- */
   buildWheel();buildRows();buildMacro();buildFacts();wireEvents();buildTech();buildAI();buildQQ();buildUpgrades();
@@ -1982,7 +2284,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();
+  renderHistory();refresh();phaseBInit();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */
