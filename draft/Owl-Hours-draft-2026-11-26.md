@@ -11,10 +11,10 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 3. What doesn't fit:
 
 ## Macro signals
-- Bitcoin ($): 60,542.00 (falling)
-- Ether ($): 1,695.99 (falling)
-- XRP ($): 0.95 (flat)
-- Gold (GLD direction): 3,567.53 (falling)
+- Bitcoin ($): 60,452.00 (flat)
+- Ether ($): 1,689.95 (falling)
+- XRP ($): 0.94 (flat)
+- Gold (GLD direction): 3,565.49 (falling)
 - Silver (SLV direction): n/a (falling)
 - platinum: n/a (falling)
 - palladium: n/a (falling)

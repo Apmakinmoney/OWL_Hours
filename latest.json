@@ -1,24 +1,24 @@
 {
-  "asOf": "2026-11-26T22:17:18+00:00",
+  "asOf": "2026-11-26T23:07:02+00:00",
   "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
   "macro": {
     "btc": {
-      "level": 60542,
-      "dir": -1,
+      "level": 60452,
+      "dir": 0,
       "source": "CoinGecko"
     },
     "eth": {
-      "level": 1695.99,
+      "level": 1689.95,
       "dir": -1,
       "source": "CoinGecko"
     },
     "xrp": {
-      "level": 0.949118,
+      "level": 0.944307,
       "dir": 0,
       "source": "CoinGecko"
     },
     "gold": {
-      "level": 3567.53,
+      "level": 3565.49,
       "dir": -1,
       "source": "XAU/USD spot"
     },
@@ -1316,31 +1316,31 @@
   },
   "crypto": {
     "btc": {
-      "level": 60542,
-      "dir": -1,
-      "chg7dPct": -2.05
+      "level": 60452,
+      "dir": 0,
+      "chg7dPct": -1.68
     },
     "eth": {
-      "level": 1695.99,
+      "level": 1689.95,
       "dir": -1,
-      "chg7dPct": -3.14
+      "chg7dPct": -2.8
     },
     "xrp": {
-      "level": 0.949118,
+      "level": 0.944307,
       "dir": 0,
-      "chg7dPct": -0.91
+      "chg7dPct": -0.72
     }
   },
   "metals2": {
     "gold": {
       "src": "spot",
       "sym": "XAU/USD",
-      "price": 3567.53,
+      "price": 3565.49,
       "date": "2026-11-27",
-      "chg1": 0.0,
-      "chg20": -12.26,
-      "m50": 3944.3,
-      "m200": 4295.43,
+      "chg1": -0.06,
+      "chg20": -12.31,
+      "m50": 3944.26,
+      "m200": 4295.42,
       "h": [
         [
           "2026-09-16",
@@ -1600,7 +1600,7 @@
         ],
         [
           "2026-11-27",
-          3567.53
+          3565.49
         ]
       ]
     },
@@ -2423,7 +2423,7 @@
     "miners": {
       "sym": "GDX",
       "chg20": -11.98,
-      "vsGold20": 0.28
+      "vsGold20": 0.33
     }
   },
   "warnings": [
