@@ -24,7 +24,9 @@
   },
   "metals": {
     "gold": "GLD",
-    "silver": "SLV"
+    "silver": "SLV",
+    "platinum": "PPLT",
+    "palladium": "PALL"
   },
   "momentum_days": 5,
   "momentum_thresholds": [
@@ -86,5 +88,11 @@
   "site_url": "",
   "max_data_age_hours": 72,
   "firm_disclosure": "",
-  "_help_firm_disclosure": "Paste the disclosure wording your firm's compliance team approves. It prints on page 4 of every letter and on the archive page. Leave blank only if you have no firm."
+  "_help_firm_disclosure": "Paste the disclosure wording your firm's compliance team approves. It prints on page 4 of every letter and on the archive page. Leave blank only if you have no firm.",
+  "spot": {
+    "gold": "XAU/USD",
+    "silver": "XAG/USD",
+    "platinum": "XPT/USD",
+    "palladium": "XPD/USD"
+  }
 }

@@ -188,7 +188,7 @@ textarea:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 .owlWrap[data-sky="dawn"]{--sky1:#ffd9a8;--sky2:#f09a7a;--sky3:#4a3a6e;--orb:#fff1c9;--stars:.15}
 .owlWrap[data-sky="day"]{--sky1:#e2f4ff;--sky2:#8fc6f3;--sky3:#3f6fb8;--orb:#fff3c4;--stars:0}
 .owlWrap[data-sky="dusk"]{--sky1:#f6b27a;--sky2:#b05c8e;--sky3:#2e2a63;--orb:#ffd29a;--stars:.35}
-.owlWrap.st-scholar::before{display:none}
+.owlWrap.st-scholar::before,.owlWrap.st-wallst::before,.owlWrap.st-gold::before,.owlWrap.st-hero::before{display:none}
 .owl .stars{opacity:var(--stars);transition:opacity 1.2s}
 .owl .sky stop{transition:stop-color 1.2s}
 .owl .tuft{transform-box:fill-box;transition:transform .35s ease}
@@ -303,6 +303,62 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 @keyframes npulse{0%{stroke-width:3}35%{stroke-width:11;stroke-opacity:.45}100%{stroke-width:1.5;stroke-opacity:1}}
 @media (prefers-reduced-motion: reduce){.node.pulse circle{animation:none}}
 
+
+
+/* ---- Layer 3 ---- */
+.lcell{cursor:pointer}
+.lchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.lchip{font:600 10.5px var(--sans);padding:2px 7px;border-radius:999px;background:#1e2b55;color:#c9d3f0;border:1px solid #2f3d6e;white-space:nowrap}
+.lchip.up{color:#a8f0d6;border-color:#2c8c73}.lchip.dn{color:#ffc2b6;border-color:#a14b47}.lchip.wn{color:#f3d9a0;border-color:#8a6a2a}
+.sheet{position:fixed;inset:0;z-index:220;background:rgba(4,8,20,.66);display:flex;align-items:flex-end;justify-content:center}
+.sheetCard{width:100%;max-width:560px;max-height:86vh;overflow:auto;background:#111a36;color:#e8ecf8;border:1px solid #2f3d6e;border-radius:22px 22px 0 0;padding:14px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+@media (min-width:700px){.sheet{align-items:center}.sheetCard{border-radius:22px}}
+.sheetHd{display:flex;align-items:center;gap:8px;margin-bottom:10px}.sheetHd b{font:650 19px var(--serif)}
+.sheetCard .mshort{color:#a9b4d6}
+.lchart{width:100%;height:auto;display:block}
+.chartBox .lchips{margin:10px 0 4px}
+.gl{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-decoration:underline dotted #e0b25b;text-underline-offset:3px;cursor:help;display:inline;line-height:inherit;border-radius:0;width:auto;height:auto}
+.glPop p{margin:0 0 12px;font-size:15px;line-height:1.5}
+.fearMeter{display:flex;align-items:center;gap:12px;width:100%;margin:10px 0 14px;padding:10px 14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);color:var(--fg);text-align:left;font:400 14px var(--sans)}
+.fearG{width:84px;flex:0 0 84px}.fearT b{font-weight:600}.fearT small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.dayWrap{margin:0 0 14px}
+.metals h3{margin-top:14px}
+.metList{display:grid;gap:8px}
+.metRow{display:grid;grid-template-columns:1fr auto;gap:2px 10px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 12px;color:var(--fg);font:400 14px var(--sans)}
+.metA b{font:650 16px var(--serif)}.metA small{display:block;color:var(--muted);font-size:11.5px}
+.metP{text-align:right}.metP b{display:block;font:650 17px var(--serif)}.metP small{font-size:12px}.metP .up{color:#2fae86}.metP .dn{color:#e5604c}
+.metRow .lchips{grid-column:1/-1;margin-top:4px}
+.metInfo{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.metInfo div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.metInfo b{display:block;font:650 20px var(--serif)}.metInfo span{display:block;font-size:11.5px;color:var(--muted)}.metInfo small{display:block;font-size:11px;margin-top:3px}
+.calHead .seg button[aria-pressed="true"]{background:var(--d-brass,#e0b25b);color:#0a1022;border-color:#e0b25b}.heatSec{margin:10px 0 22px}.heatSec .calHead{flex-wrap:wrap}.seg button{white-space:nowrap}.heatSec h3{font:650 18px/1.2 var(--serif)}
+.spot{padding:14px 16px;border-radius:18px;background:linear-gradient(135deg,#1a2550,#111a36);border:1px solid #2f3d6e;color:#e8ecf8}
+.spot small{display:block;color:#8d9ac0;font-size:12px;margin-top:2px}.spot .rcL{margin:8px 0 4px;font-size:14px}
+.heat{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.hTile{position:relative;border-radius:12px;padding:10px 8px 8px;text-align:left;color:#f1f4fb;border:1px solid rgba(255,255,255,.08);font:400 13px var(--sans)}
+.hTile.sel{outline:2px solid #e0b25b}.hTile b{display:block;font:700 14px var(--sans)}.hV{font:600 12.5px var(--sans)}.hR{position:absolute;top:6px;right:8px;font-size:10.5px;opacity:.7}
+.heatSec .secTip{background:var(--panel);border-color:var(--line);color:var(--fg)}
+.learnSec{margin-bottom:10px}
+.modList{display:grid;gap:8px;margin:12px 0}
+.modCard{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 14px;color:var(--fg);font:400 14px var(--sans)}
+.modCard b{display:block;font:650 16px var(--serif)}.modCard small{color:var(--muted);font-size:12px}
+.modN{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#1e2b55;color:#e0b25b;font:700 14px var(--sans)}
+.modCard.done .modN{background:#e0b25b;color:#0a1022}.modGo{margin-left:auto;color:#e0b25b;font-size:16px}
+.glList{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.glChip{text-decoration:none!important;border:1px solid var(--line)!important;border-radius:999px!important;padding:4px 10px!important;font-size:12.5px!important;background:var(--panel)!important}
+.lesson-ov{position:fixed;inset:0;z-index:230;background:radial-gradient(120% 90% at 50% 30%,#223566 0%,#0e1736 60%,#070c1c 100%);display:flex;align-items:stretch;justify-content:center;color:#e8ecf8}
+.lpCard{width:100%;max-width:560px;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0px)) 18px calc(18px + env(safe-area-inset-bottom,0px))}
+.lpTop{display:flex;align-items:center;gap:8px;margin-bottom:10px}.lpTop b{font:650 18px var(--serif);margin-right:auto}
+.lpStage{flex:1;display:flex;flex-direction:column;justify-content:center;overflow:auto}
+.lpRow{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:18px}
+.lpOwl{width:120px;flex:0 0 120px}.lpVis .lsClock{width:130px}
+.lsNeedle{transform-origin:60px 60px;transition:transform 1.2s cubic-bezier(.3,1.4,.5,1)}
+.lpText{font:500 22px/1.4 var(--serif);margin:0;min-height:5.6em}
+.lpQ{font:600 20px/1.35 var(--serif);margin:6px 0 14px}
+.lpOpts{display:grid;gap:8px}.lpOpt{text-align:left;padding:12px 14px;border-radius:14px;background:#16224a;border:1px solid #2f3d6e;color:#e8ecf8;font:500 15px var(--sans)}
+.lpOpt.ok{background:#1f6f5a;border-color:#4fd1a5}.lpOpt.no{background:#7a2f2b;border-color:#ff7b66}
+.lpFb{min-height:3em;font-size:15px;color:#c9d3f0;margin:12px 0 0}
+.lesson-ov .tourBtns button:disabled{opacity:.4}
 
 /* ---- Phase B2 ---- */
 .cryptoStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 6px}
@@ -1228,6 +1284,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     if(tl.length){L.push("");L.push("## Technical levels");tl.forEach(function(x){L.push(x)});L.push("These are zones to watch, not instructions to trade.")}
     var evs=currentEvents().filter(function(ev){return ev.date>=date}).sort(byDate).slice(0,8);
     if(evs.length){L.push("");L.push("## What I’m watching");evs.forEach(function(ev){L.push("- "+ev.date+" ("+KIND[ev.kind]+"): "+ev.title+(ev.note?". "+ev.note:""))})}
+    if(!viewing)draftExtras(L);
     var fact=viewing?(viewing.fact||""):$("factIn").value.trim();
     if(fact){L.push("");L.push("## Fun fact");L.push(fact)}
     var qqn=currentQQ();
@@ -1661,9 +1718,136 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     el("path",{d:"M54 73 L66 73 L60 87 Z",fill:"#e0b25b",stroke:"#8a6212","stroke-width":1,"stroke-linejoin":"round"},head);
     return {head:head,pup:pup,lid:lid,iris:iris,irisR:[11.5,13]};
   }
+  /* ---------- more owl styles: shared base, then each style adds its outfit ---------- */
+  function owlBase(s,id,P){
+    var defs=el("defs",{},s),C=70;
+    var sky=el("radialGradient",{id:"sky"+id,cx:"50%",cy:"38%",r:"70%"},defs);
+    [["0","--sky1"],["0.6","--sky2"],["1","--sky3"]].forEach(function(x){var st=el("stop",{offset:x[0]},sky);st.style.stopColor="var("+x[1]+")"});
+    var bd=el("linearGradient",{id:"bd"+id,x1:"0",y1:"0",x2:"0",y2:"1"},defs);
+    el("stop",{offset:"0","stop-color":P.body1},bd);el("stop",{offset:"1","stop-color":P.body2},bd);
+    var cp=el("clipPath",{id:"bg"+id},defs);el("circle",{cx:C,cy:72,r:63},cp);
+    var cl=el("clipPath",{id:"cl"+id},defs);el("circle",{cx:57,cy:57,r:11},cl);
+    var cr=el("clipPath",{id:"cr"+id},defs);el("circle",{cx:83,cy:57,r:11},cr);
+    var bgG=el("g",{"clip-path":"url(#bg"+id+")"},s);
+    el("rect",{x:0,y:0,width:140,height:150,fill:"url(#sky"+id+")"},bgG);
+    var stars=el("g",{"class":"stars",fill:"#fff"},bgG);
+    [[30,52,1.1],[44,24,.9],[102,22,1.2],[118,48,.9],[24,82,.8],[112,86,1]].forEach(function(p){el("circle",{cx:p[0],cy:p[1],r:p[2]},stars)});
+    var orb=el("circle",{cx:31,cy:33,r:7.5},bgG);orb.style.fill="var(--orb)";
+    if(P.backdrop)P.backdrop(bgG,id);
+    el("circle",{cx:C,cy:72,r:65,fill:"none",stroke:P.ring,"stroke-width":3.5},s);
+    el("circle",{cx:C,cy:72,r:60.5,fill:"none",stroke:P.ring,"stroke-opacity":".35","stroke-width":1},s);
+    for(var k=0;k<12;k++){var t=k*Math.PI/6,r0=k%3===0?57.5:59.5;
+      el("line",{x1:C+r0*Math.sin(t),y1:72-r0*Math.cos(t),x2:C+63*Math.sin(t),y2:72-63*Math.cos(t),stroke:P.ring,"stroke-width":k%3===0?2:1.1,"stroke-opacity":k%3===0?".9":".55","stroke-linecap":"round"},s)}
+    var bob=el("g",{"class":"bob"},s);
+    if(P.behind)P.behind(bob,id);
+    el("path",{d:"M62 118 L70 134 L78 118 Z",fill:P.wing,stroke:P.line,"stroke-width":1.2,"stroke-linejoin":"round"},bob);
+    el("ellipse",{cx:C,cy:98,rx:28,ry:29,fill:"url(#bd"+id+")",stroke:P.line,"stroke-width":1.8},bob);
+    el("ellipse",{cx:C,cy:104,rx:18,ry:20,fill:P.belly},bob);
+    if(P.feathers!==false)[[94,[62,70,78]],[101,[58,66,74,82]],[108,[62,70,78]],[115,[66,74]]].forEach(function(row){
+      row[1].forEach(function(x){el("path",{d:"M"+(x-3.5)+" "+row[0]+" q3.5 4 7 0",fill:"none",stroke:P.line,"stroke-opacity":".55","stroke-width":1.2,"stroke-linecap":"round"},bob)})});
+    if(P.chest)P.chest(bob,id);
+    el("path",{d:"M43 84 q-13 17 -3 39 q11 -5 15 -19 q-1 -13 -12 -20 z",fill:P.wing,stroke:P.line,"stroke-width":1.4,"stroke-linejoin":"round"},bob);
+    el("path",{d:"M97 84 q13 17 3 39 q-11 -5 -15 -19 q1 -13 12 -20 z",fill:P.wing,stroke:P.line,"stroke-width":1.4,"stroke-linejoin":"round"},bob);
+    if(P.front)P.front(bob,id);
+    var head=el("g",{"class":"head"},bob);head.style.transformOrigin="70px 80px";
+    el("path",{d:"M46 46 L37 24 L58 38 Z",fill:"url(#bd"+id+")",stroke:P.line,"stroke-width":1.6,"stroke-linejoin":"round","class":"tuft l"},head);
+    el("path",{d:"M94 46 L103 24 L82 38 Z",fill:"url(#bd"+id+")",stroke:P.line,"stroke-width":1.6,"stroke-linejoin":"round","class":"tuft r"},head);
+    el("ellipse",{cx:C,cy:58,rx:31,ry:25,fill:"url(#bd"+id+")",stroke:P.line,"stroke-width":1.8},head);
+    el("circle",{cx:57,cy:58,r:14.5,fill:P.disc},head);el("circle",{cx:83,cy:58,r:14.5,fill:P.disc},head);
+    if(P.mask)P.mask(head,id);
+    el("path",{d:"M45 43 q11 -6 21 0",fill:"none",stroke:P.line,"stroke-width":2,"stroke-linecap":"round","class":"brow l"},head);
+    el("path",{d:"M74 43 q10 -6 21 0",fill:"none",stroke:P.line,"stroke-width":2,"stroke-linecap":"round","class":"brow r"},head);
+    var pup=[],lid=[],iris=[];
+    [[57,"cl"],[83,"cr"]].forEach(function(E){
+      var x=E[0];
+      el("circle",{cx:x,cy:57,r:11.2,fill:"#f3ebd3",stroke:P.line,"stroke-width":1.2},head);
+      var ir=el("circle",{cx:x,cy:57,r:7.2,fill:P.iris},head);
+      var pg=el("g",{"class":"pupil"},head);
+      el("circle",{cx:x,cy:57,r:3.9,fill:"#0c1430"},pg);el("circle",{cx:x-1.5,cy:55.3,r:1.4,fill:"#fff"},pg);
+      var cg=el("g",{"clip-path":"url(#"+E[1]+id+")"},head);
+      var ld=el("rect",{x:x-12,y:45,width:24,height:24,fill:P.lid||P.disc,"class":"lid"},cg);
+      pup.push(pg);lid.push(ld);iris.push(ir);
+    });
+    el("path",{d:"M65 66 L75 66 L70 76 Z",fill:P.beak||"#e0b25b",stroke:"#8a6212","stroke-width":1,"stroke-linejoin":"round"},head);
+    if(P.glasses)P.glasses(head,id);
+    if(P.hat)P.hat(head,id);
+    if(P.perch!==false){
+      el("path",{d:"M2 134 Q38 122 70 128 T138 122",fill:"none",stroke:"#6b4a2b","stroke-width":6,"stroke-linecap":"round"},s);
+      el("path",{d:"M2 134 Q38 122 70 128 T138 122",fill:"none",stroke:"#8b6640","stroke-width":2,"stroke-linecap":"round","stroke-opacity":".7"},s);
+    }else if(P.base)P.base(s,id);
+    [61,79].forEach(function(x){[-3,0,3].forEach(function(o){el("ellipse",{cx:x+o,cy:128,rx:1.6,ry:3,fill:P.talon||"#e0b25b"},s)})});
+    var z=el("g",{"class":"zzz","font-family":"Fraunces, Georgia, serif","font-weight":"650",fill:"#e8ecf8"},s);
+    [[101,34,9],[109,25,11],[118,15,13]].forEach(function(p){var tx=el("text",{x:p[0],y:p[1],"font-size":p[2]},z);tx.textContent="z"});
+    return {head:head,pup:pup,lid:lid,iris:iris,irisR:[7.2,8.4]};
+  }
+  function drawWallSt(s,id){
+    return owlBase(s,id,{ring:"#cfd6e6",body1:"#5a6478",body2:"#252b3a",belly:"#3a4255",wing:"#1c2130",line:"#cfd6e6",disc:"#46506a",iris:"#7fd6a8",feathers:false,
+      chest:function(g){
+        el("path",{d:"M56 76 L70 112 L84 76 Z",fill:"#f4f6fb",stroke:"#cfd6e6","stroke-width":.8},g);
+        el("path",{d:"M67 79 L73 79 L71.5 84 L74 104 L70 109 L66 104 L68.5 84 Z",fill:"#2e9e6b",stroke:"#14563a","stroke-width":.8,"stroke-linejoin":"round"},g);
+        el("path",{d:"M64 94 l3 -3 m-1 7 l3 -3",stroke:"#e8f7ef","stroke-width":.8,"stroke-opacity":".6"},g);
+        el("path",{d:"M56 76 L48 86 L60 92 L64 88 Z",fill:"#2b3142",stroke:"#cfd6e6","stroke-width":1,"stroke-linejoin":"round"},g);
+        el("path",{d:"M84 76 L92 86 L80 92 L76 88 Z",fill:"#2b3142",stroke:"#cfd6e6","stroke-width":1,"stroke-linejoin":"round"},g);
+        el("path",{d:"M80 96 l6 0 l-1 4 l-4 0 z",fill:"#e0b25b"},g);
+        [52,58,82,88].forEach(function(x){el("line",{x1:x,y1:96,x2:x+(x<70?2:-2),y2:122,stroke:"#cfd6e6","stroke-opacity":".22","stroke-width":.8},g)});
+      },
+      front:function(g){
+        el("rect",{x:91,y:108,width:22,height:16,rx:2.5,fill:"#6b3e1f",stroke:"#cfd6e6","stroke-width":1.1},g);
+        el("path",{d:"M98 108 v-3 h8 v3",fill:"none",stroke:"#cfd6e6","stroke-width":1.4},g);
+        el("line",{x1:91,y1:114,x2:113,y2:114,stroke:"#3d2311","stroke-width":1},g);
+        el("rect",{x:100,y:112.5,width:4,height:3,fill:"#e0b25b"},g);
+      },
+      glasses:function(h){
+        [57,83].forEach(function(x){el("rect",{x:x-13,y:48,width:26,height:19,rx:4,fill:"none",stroke:"#11151f","stroke-width":2.2},h)});
+        el("path",{d:"M66 56 q4 -3 8 0",fill:"none",stroke:"#11151f","stroke-width":2},h);
+      },
+      backdrop:function(g){
+        var tk=el("g",{"font-family":"DM Sans, system-ui, sans-serif","font-weight":"700","font-size":"7.5"},g);
+        [["▲ SPY",18,108,"#7fd6a8"],["▲ QQQ",96,104,"#7fd6a8"],["▼ VIX",100,40,"#ff9b88"]].forEach(function(t){var x=el("text",{x:t[1],y:t[2],fill:t[3],"fill-opacity":".8"},tk);x.textContent=t[0]});
+      }});
+  }
+  function drawGoldBar(s,id){
+    return owlBase(s,id,{ring:"#f2cf6b",body1:"#f6dc8a",body2:"#a8761f",belly:"#fbe7a6",wing:"#b8862b",line:"#7a5512",disc:"#f9e3a0",iris:"#2b6fd6",lid:"#e9c766",beak:"#c0392b",talon:"#7a5512",perch:false,
+      chest:function(g){
+        var tx=el("text",{x:70,y:110,"text-anchor":"middle","font-family":"Fraunces, Georgia, serif","font-weight":"650","font-size":"8.5",fill:"#7a5512"},g);tx.textContent="999.9";
+      },
+      hat:function(h){
+        el("path",{d:"M55 36 L58 22 L64 31 L70 18 L76 31 L82 22 L85 36 Z",fill:"#f2cf6b",stroke:"#7a5512","stroke-width":1.2,"stroke-linejoin":"round"},h);
+        [[58,22],[70,18],[82,22]].forEach(function(p){el("circle",{cx:p[0],cy:p[1],r:2,fill:"#e74c6f",stroke:"#7a5512","stroke-width":.6},h)});
+      },
+      base:function(s2){
+        var bars=[[38,128,30],[72,128,30],[55,138,30]];
+        bars.forEach(function(b){var x=b[0],y=b[1],w=b[2];
+          el("path",{d:"M"+x+" "+(y+8)+" L"+(x+4)+" "+y+" L"+(x+w-4)+" "+y+" L"+(x+w)+" "+(y+8)+" Z",fill:"#e8b73a",stroke:"#7a5512","stroke-width":1.1,"stroke-linejoin":"round"},s2);
+          el("path",{d:"M"+(x+4)+" "+y+" L"+(x+w-4)+" "+y+" L"+(x+w-7)+" "+(y+3)+" L"+(x+7)+" "+(y+3)+" Z",fill:"#fbe39a"},s2)});
+        [[24,40],[116,38],[112,96]].forEach(function(p){el("path",{d:"M"+p[0]+" "+(p[1]-5)+" l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 z",fill:"#fff4c4"},s2)});
+      }});
+  }
+  function drawHero(s,id){
+    return owlBase(s,id,{ring:"#ff5d73",body1:"#2fc4a5",body2:"#0f6b5c",belly:"#1b8f78",wing:"#0d574b",line:"#ffd166",disc:"#3fd3b3",iris:"#ffd166",lid:"#2fb79a",feathers:false,
+      behind:function(g){
+        el("path",{d:"M48 78 Q30 110 26 136 Q48 126 70 132 Q92 126 114 136 Q110 110 92 78 Z",fill:"#d62d4b",stroke:"#7a1124","stroke-width":1.3,"stroke-linejoin":"round"},g);
+        el("path",{d:"M40 120 q8 -4 14 0 M86 120 q8 -4 14 0",fill:"none",stroke:"#7a1124","stroke-width":1,"stroke-opacity":".6"},g);
+      },
+      chest:function(g){
+        el("path",{d:"M70 90 L82 94 L80 108 Q76 116 70 119 Q64 116 60 108 L58 94 Z",fill:"#ffd166",stroke:"#7a5512","stroke-width":1.2,"stroke-linejoin":"round"},g);
+        el("path",{d:"M62 110 L67 104 L71 107 L78 97",fill:"none",stroke:"#d62d4b","stroke-width":2.4,"stroke-linecap":"round","stroke-linejoin":"round"},g);
+        el("path",{d:"M74 97 L78 97 L78 101",fill:"none",stroke:"#d62d4b","stroke-width":2.2,"stroke-linecap":"round","stroke-linejoin":"round"},g);
+        el("rect",{x:46,y:113,width:48,height:5,rx:2,fill:"#ffd166",stroke:"#7a5512","stroke-width":.8},g);
+      },
+      mask:function(h){
+        el("path",{d:"M38 54 Q44 44 57 45 Q66 46 70 52 Q74 46 83 45 Q96 44 102 54 Q98 68 84 70 Q74 69 70 62 Q66 69 56 70 Q42 68 38 54 Z",fill:"#3b1d5e",stroke:"#1d0d33","stroke-width":1},h);
+      },
+      backdrop:function(g){
+        el("path",{d:"M100 20 L106 34 L120 30 L110 42 L122 50 L106 50 L104 64 L96 52 L84 58 L90 44 L78 36 L94 36 Z",fill:"#ffd166","fill-opacity":".25"},g);
+      }});
+  }
   var OWL_STYLES={
     scholar:{label:"Scholar",draw:drawScholar,cls:"st-scholar"},
-    night:{label:"Night owl",draw:drawClassic,cls:"st-night"}
+    night:{label:"Night owl",draw:drawClassic,cls:"st-night"},
+    wallst:{label:"Wall St",draw:drawWallSt,cls:"st-wallst"},
+    gold:{label:"Gold bar",draw:drawGoldBar,cls:"st-gold"},
+    hero:{label:"Super owl",draw:drawHero,cls:"st-hero"}
   };
   var owlStyle=(function(){var k=lsGet("oh_owl");return OWL_STYLES[k]?k:"scholar"})();
   function makeOwl(host,opts){
@@ -1679,7 +1863,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     api.tilt=function(deg){head.style.transform="rotate("+deg.toFixed(1)+"deg)"};
     api.mood=function(m){s.setAttribute("data-mood",m);rest=(m==="sleepy")?0.6:0;lids(rest);iris.forEach(function(i2){i2.setAttribute("r",m==="alert"?P.irisR[1]:P.irisR[0])});api.tilt(m==="curious"?-6:0)};
     api.blink=function(){lids(1);setTimeout(function(){lids(rest)},110)};
-    api.say=function(t){bub.textContent=t;bub.hidden=false;clearTimeout(tmr);tmr=setTimeout(function(){bub.hidden=true},8000);s.classList.remove("hoot");void s.getBoundingClientRect();s.classList.add("hoot")};
+    api.say=function(t){if(host===(owlTopApi&&owlTopApi.host)||!owlTopApi)owlSpeak(t);bub.textContent=t;bub.hidden=false;clearTimeout(tmr);tmr=setTimeout(function(){bub.hidden=true},8000);s.classList.remove("hoot");void s.getBoundingClientRect();s.classList.add("hoot")};
     host.onclick=function(){api.say((owlExtra||OWLSAY[owlMood])+sessionSay())};
     owls.push(api);return api;
   }
@@ -2153,6 +2337,8 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     var n=document.createElement("small");n.textContent=bits.join(" · ");b.appendChild(n);
     var p=document.createElement("p");p.textContent=SECWHY[s.id]||"";b.appendChild(p);
     var g=document.createElement("small");g.textContent="Usually leads in: "+s.g.toLowerCase();b.appendChild(g);
+    if(HOLD[s.id]){var hh=document.createElement("small");hh.textContent="Big names inside: "+HOLD[s.id];b.appendChild(hh)}
+    glossify(p);
   }
   function buzz(ms){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
 
@@ -2245,7 +2431,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     {t:".readouts",s:"The gold needle points to the hour the market is keeping. Clarity tells you how much the sectors agree with each other."},
     {t:"#drivers",s:"These are the sectors pulling the needle hardest right now. Tap one to see why it matters."},
     {t:"#viewbar",s:"Market is my read from real prices, updated all day. My calls is yours. Tap any dot to make your own call."},
-    {t:"#tabbar",s:"Sectors to make calls, Macro for rates and crypto, Record for your scoreboard, Letter for the newsletter. Tap ? on the clock anytime to replay this."}
+    {t:"#tabbar",s:"Sectors to make calls, Macro for rates, metals and crypto, Record for your scoreboard, Learn for lessons and the newsletter. Tap ? on the clock anytime to replay this."}
   ];
   var tourOn=false;
   function startTour(){
@@ -2292,10 +2478,10 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     paintLesson();
     if(lsGet("oh_tour")!=="1")setTimeout(startTour,1400);else setTimeout(sayLessonOnce,9800);
   }
-  function phaseB(){paintDrivers();paintTip();paintScore();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
+  function phaseB(){paintDrivers();paintTip();paintScore();if($("heatSec"))layer3Paint();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
   /* ================= Phase B2: crypto strip, calendar, latest prints, weekly recap ================= */
   var calData=null,cryData=null;
-  var KIND={fed:"Fed",cpi:"CPI",jobs:"Jobs",pce:"PCE",gdp:"GDP",retail:"Retail",earnings:"Earnings"};
+  var CALKIND={fed:"Fed",cpi:"CPI",jobs:"Jobs",pce:"PCE",gdp:"GDP",retail:"Retail",earnings:"Earnings"};
   function fmtDay(ymd){var p=ymd.split("-");var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2],12));return d.toLocaleDateString([],{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"})}
   function money(v){return v>=1000?"$"+Math.round(v).toLocaleString():v>=1?"$"+v.toFixed(2):"$"+v.toFixed(4)}
   function mkEl(t,cls,txt){var e=document.createElement(t);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
@@ -2336,7 +2522,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       var day=mkEl("div","calDay");day.appendChild(mkEl("div","calDate",d===today?"Today":fmtDay(d)));
       var items=mkEl("div","calItems");
       var macro=byDay[d].filter(function(e){return e.kind!=="earnings"}),earn=byDay[d].filter(function(e){return e.kind==="earnings"});
-      macro.forEach(function(e){var r=mkEl("div","calItem k-"+e.kind);r.appendChild(mkEl("span","calTag",KIND[e.kind]||e.kind));r.appendChild(mkEl("b",null,e.title));if(e.time)r.appendChild(mkEl("small",null,e.time));items.appendChild(r)});
+      macro.forEach(function(e){var r=mkEl("div","calItem k-"+e.kind);r.appendChild(mkEl("span","calTag",CALKIND[e.kind]||e.kind));r.appendChild(mkEl("b",null,e.title));if(e.time)r.appendChild(mkEl("small",null,e.time));items.appendChild(r)});
       if(earn.length){var r=mkEl("div","calItem k-earnings");r.appendChild(mkEl("span","calTag","Earnings"));
         r.appendChild(mkEl("b",null,earn.map(function(e){return e.symbol+(e.time==="before open"?" (am)":e.time==="after close"?" (pm)":"")}).join(", ")));items.appendChild(r)}
       day.appendChild(items);list.appendChild(day)});
@@ -2347,7 +2533,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     var b=$("nextUp");if(!b)return;
     var today=etYMD(),ev=(calData&&calData.events||[]).filter(function(e){return e.date>=today&&e.kind!=="earnings"});
     if(!ev.length){b.hidden=true;return}var e=ev[0];b.hidden=false;b.textContent="";
-    b.appendChild(mkEl("span","calTag",KIND[e.kind]||e.kind));
+    b.appendChild(mkEl("span","calTag",CALKIND[e.kind]||e.kind));
     b.appendChild(mkEl("span",null,"Next big event: "));b.appendChild(mkEl("b",null,e.title));
     b.appendChild(mkEl("span",null," · "+(e.date===today?"today":fmtDay(e.date))+(e.time?", "+e.time:"")));
     b.onclick=function(){location.hash="#macro"};
@@ -2371,6 +2557,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     if(r.flips.length)b.appendChild(mkEl("p","rcL","Biggest flips: "+r.flips.map(function(f){return f.s.s+" "+SYMV[String(f.from)]+" → "+SYMV[String(f.to)]}).join(", ")+"."));
     b.appendChild(mkEl("p","rcL",r.mine.total?"Your calls this week: "+r.mine.right+" of "+r.mine.total+" right ("+Math.round(r.mine.right/r.mine.total*100)+"%).":"You didn’t have graded calls this week. Save a snapshot on Sectors to get on the board."));
     b.appendChild(mkEl("small",null,"Based on "+r.days+" market closes this week."));
+    var sh=mkEl("button","small","Share recap");sh.type="button";sh.style.marginTop="10px";sh.style.display="block";sh.addEventListener("click",function(){recapCard(r)});b.appendChild(sh);
     return b;
   }
   function showRecapOnClock(){var t=etNow(),m=t.mins;return t.dow===6||t.dow===0||(t.dow===5&&m>=960)||(t.dow===1&&m<570)}
@@ -2385,6 +2572,429 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     try{calData=await getJSON("calendar.json")}catch(e){}
     paintCrypto();paintCalendar();paintNextUp();
   }
+  /* ================= Layer 3: levels, charts, fear meter, day wrap, metals, heatmap, learn, glossary, voice ================= */
+  var HOLD={FIN:"BRK.B, JPM, V, MA, BAC",REIT:"PLD, AMT, WELL, EQIX, SPG",DISC:"AMZN, TSLA, HD, MCD, BKNG",TECH:"NVDA, AAPL, MSFT, AVGO, ORCL",
+    CYB:"AVGO, CSCO, CRWD, PANW, FTNT",SEMI:"NVDA, TSM, AVGO, AMD, ASML",COMM:"META, GOOGL, NFLX, TMUS, DIS",IND:"GE, CAT, RTX, UBER, HON",
+    MAT:"LIN, SHW, ECL, APD, NEM",ENGY:"XOM, CVX, COP, EOG, WMB",GOLD:"NEM, AEM, WPM, FNV, GOLD",STPL:"COST, WMT, PG, KO, PM",
+    HLTH:"LLY, JNJ, ABBV, UNH, MRK",UTIL:"NEE, SO, DUK, CEG, VST"};
+  var GLOSS={
+    "sector rotation":"Money moving from one group of stocks to another as the economy changes. It's what makes the Owl Hours needle move.",
+    "market cycle":"The loop economies go through: recovery, expansion, late cycle, contraction.",
+    "ETF":"Exchange-traded fund. A basket of stocks that trades like one stock, like XLK for tech.",
+    "S&P 500":"An index of 500 large US companies. SPY is the ETF that tracks it.",
+    "10-year yield":"The interest rate the US government pays to borrow for 10 years. The benchmark for mortgages and stock valuations.",
+    "yield curve":"The 10-year Treasury yield minus the 2-year. Negative means inverted.",
+    "inverted":"When short-term rates are higher than long-term rates. An inverted yield curve has come before most US recessions.",
+    "real yield":"A bond yield minus expected inflation. Gold tends to rise when real yields fall.",
+    "credit spread":"The extra yield risky company bonds pay over Treasuries. Wider spreads mean lenders are nervous.",
+    "high-yield":"Bonds from companies with weaker credit ratings, also called junk bonds. They pay more because they're riskier.",
+    "CPI":"Consumer Price Index. The main monthly measure of inflation for everyday goods and services.",
+    "PCE":"Personal consumption expenditures price index. The inflation measure the Fed watches most closely.",
+    "FOMC":"Federal Open Market Committee. The Fed group that votes on interest rates.",
+    "Fed":"The Federal Reserve, the US central bank. It sets short-term interest rates.",
+    "VIX":"A measure of how much volatility options traders expect in the S&P 500 over the next 30 days. Often called the fear gauge.",
+    "moving average":"The average closing price over a set number of days. It smooths out noise to show the trend.",
+    "50-day":"The 50-day moving average. A medium-term trend line.",
+    "200-day":"The 200-day moving average. The long-term trend line many big funds watch.",
+    "support":"A price area where buyers have stepped in before.",
+    "resistance":"A price area where sellers have shown up before.",
+    "breakout":"When price pushes through resistance. Stronger when volume is heavy.",
+    "spot price":"The price for metal delivered right now.",
+    "futures":"Contracts to buy or sell at a set price on a future date. COMEX gold futures are the main US gold market.",
+    "COMEX":"The CME Group exchange where US gold and silver futures trade.",
+    "gold/silver ratio":"Ounces of silver needed to buy one ounce of gold. High means silver is cheap compared with gold.",
+    "miners":"Companies that dig up gold and silver. Their stocks usually move more than the metal itself.",
+    "liquidity":"How much money is flowing through markets. Easy liquidity tends to lift risky assets.",
+    "clarity":"In Owl Hours, how much the sectors agree. High clarity means a clear story. Low means mixed signals."
+  };
+  var GLOSS_KEYS=Object.keys(GLOSS).sort(function(a,b){return b.length-a.length});
+  function reEsc(t){return t.replace(/[.*+?^${}()|[\]\\\/]/g,"\\$&")}
+  function glossify(node){
+    if(!node)return;var used={};
+    var walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT,null),texts=[],n;
+    while((n=walker.nextNode())){if(n.parentNode&&n.parentNode.closest&&!n.parentNode.closest(".gl,button,a,input,textarea"))texts.push(n)}
+    texts.forEach(function(tn){
+      var txt=tn.nodeValue,best=null;
+      GLOSS_KEYS.forEach(function(k){if(used[k])return;var m=new RegExp("(^|[^\\w/-])("+reEsc(k)+")(?![\\w-])","i").exec(txt);if(m&&(!best||m.index<best.i))best={k:k,i:m.index+m[1].length,len:m[2].length}});
+      if(!best)return;used[best.k]=1;
+      var before=document.createTextNode(txt.slice(0,best.i)),b=document.createElement("button");b.type="button";b.className="gl";b.dataset.term=best.k;b.textContent=txt.substr(best.i,best.len);
+      var after=document.createTextNode(txt.slice(best.i+best.len));
+      tn.parentNode.insertBefore(before,tn);tn.parentNode.insertBefore(b,tn);tn.parentNode.insertBefore(after,tn);tn.parentNode.removeChild(tn);
+    });
+  }
+  document.addEventListener("click",function(ev){var g=ev.target.closest&&ev.target.closest(".gl");if(!g)return;ev.preventDefault();ev.stopPropagation();
+    var k=g.dataset.term,box=mkEl("div","glPop");box.appendChild(mkEl("p",null,GLOSS[k]||""));
+    var mod=termModule(k);if(mod){var lb=mkEl("button","small","Open the "+mod.t+" lesson");lb.type="button";lb.addEventListener("click",function(){closeSheet();openLesson(mod.id)});box.appendChild(lb)}
+    openSheet(k.charAt(0).toUpperCase()+k.slice(1),box)},true);
+
+  /* sheets */
+  var sheetEl=null;
+  function closeSheet(){if(sheetEl){sheetEl.remove();sheetEl=null}}
+  function openSheet(title,node){
+    closeSheet();var ov=mkEl("div","sheet"),card=mkEl("div","sheetCard"),hd=mkEl("div","sheetHd");
+    hd.appendChild(mkEl("b",null,title));var x=mkEl("button","tipX","×");x.type="button";x.setAttribute("aria-label","Close");x.addEventListener("click",closeSheet);hd.appendChild(x);
+    card.appendChild(hd);card.appendChild(node);ov.appendChild(card);ov.addEventListener("click",function(e){if(e.target===ov)closeSheet()});
+    document.body.appendChild(ov);sheetEl=ov;return ov;
+  }
+
+  /* voice */
+  function voiceOn(){return lsGet("oh_voice")==="1"}
+  var pickedVoice=null;
+  function owlVoice(){if(pickedVoice)return pickedVoice;try{var v=speechSynthesis.getVoices()||[];pickedVoice=v.filter(function(x){return /en[-_]US/i.test(x.lang)&&/Samantha|Alex|Daniel|Google US|Aaron|Nicky/i.test(x.name)})[0]||v.filter(function(x){return /^en/i.test(x.lang)})[0]||null}catch(e){}return pickedVoice}
+  function owlSpeak(t,force,onend){
+    if(!(force||voiceOn())||!window.speechSynthesis||!t){if(onend)onend(false);return}
+    try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(String(t).replace(/−/g,"minus ").replace(/\+\+/g," strong up ").replace(/°/g," degrees"));
+      var v=owlVoice();if(v)u.voice=v;u.rate=1.02;u.pitch=1.08;if(onend){u.onend=function(){onend(true)};u.onerror=function(){onend(false)}}speechSynthesis.speak(u)}catch(e){if(onend)onend(false)}
+  }
+
+  /* charts */
+  function lineChart(rows,levels,opts){
+    opts=opts||{};var W=340,H=190,L=8,R=74,T=10,B=22,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"lchart",role:"img"});
+    var ys=rows.map(function(r){return r[1]}),lo=Math.min.apply(null,ys),hi=Math.max.apply(null,ys),span=hi-lo||hi*0.02;
+    var lv=levels.filter(function(l){return typeof l.v==="number"&&l.v>lo-span*0.6&&l.v<hi+span*0.6});
+    lv.forEach(function(l){lo=Math.min(lo,l.v);hi=Math.max(hi,l.v)});var pad=(hi-lo)*0.08||1;lo-=pad;hi+=pad;
+    function X(i){return L+i*(W-L-R)/Math.max(1,rows.length-1)}function Y(v){return T+(hi-v)*(H-T-B)/(hi-lo)}
+    el("rect",{x:0,y:0,width:W,height:H,rx:12,fill:"#0e1736"},svg);
+    var lastY=[];
+    lv.forEach(function(l){var y=Y(l.v);el("line",{x1:L,x2:W-R+4,y1:y,y2:y,stroke:l.c,"stroke-width":1.2,"stroke-dasharray":"4 3","stroke-opacity":".9"},svg);
+      var ty=y+3.5;lastY.forEach(function(p){if(Math.abs(p-ty)<10)ty=p+10});lastY.push(ty);
+      var t=el("text",{x:W-R+8,y:ty,fill:l.c,"font-size":"9.5","font-family":"DM Sans, system-ui, sans-serif","font-weight":"600"},svg);t.textContent=l.n+" "+fmtNum(l.v)});
+    var d="";rows.forEach(function(r,i){d+=(i?"L":"M")+X(i).toFixed(1)+","+Y(r[1]).toFixed(1)});
+    var area=d+"L"+X(rows.length-1)+","+(H-B)+"L"+X(0)+","+(H-B)+"Z";
+    el("path",{d:area,fill:"#e0b25b","fill-opacity":".08"},svg);
+    el("path",{d:d,fill:"none",stroke:"#e0b25b","stroke-width":2,"stroke-linejoin":"round"},svg);
+    var lx=X(rows.length-1),ly=Y(opts.price!=null?opts.price:ys[ys.length-1]);el("circle",{cx:lx,cy:ly,r:3.5,fill:"#e8ecf8"},svg);
+    [0,Math.floor(rows.length/2),rows.length-1].forEach(function(i){var t=el("text",{x:X(i),y:H-7,fill:"#8d9ac0","font-size":"9","text-anchor":i===0?"start":i===rows.length-1?"end":"middle","font-family":"DM Sans, system-ui, sans-serif"},svg);
+      t.textContent=new Date(rows[i][0]+"T12:00:00Z").toLocaleDateString([],{month:"short",day:"numeric",timeZone:"UTC"})});
+    return svg;
+  }
+  function fmtNum(v){return v>=1000?Math.round(v).toLocaleString():v>=100?v.toFixed(1):v.toFixed(2)}
+  function levelInfo(price,e){
+    var out=[];if(typeof price!=="number"||!e)return out;
+    if(typeof e.m200==="number")out.push(price>=e.m200?{t:"Above 200-day",c:"up",k:"a200"}:{t:"Below 200-day",c:"dn",k:"b200"});
+    if(typeof e.m50==="number")out.push(price>=e.m50?{t:"Above 50-day",c:"up",k:"a50"}:{t:"Below 50-day",c:"dn",k:"b50"});
+    if(typeof e.r1==="number"&&price>e.r1)out.push({t:"Broke resistance",c:"up",k:"br"});
+    else if(typeof e.s1==="number"&&price<e.s1)out.push({t:"Broke support",c:"dn",k:"bs"});
+    else if(typeof e.r1==="number"&&(e.r1-price)/price<0.01)out.push({t:"Near resistance",c:"wn",k:"nr"});
+    else if(typeof e.s1==="number"&&(price-e.s1)/price<0.01)out.push({t:"Near support",c:"wn",k:"ns"});
+    return out;
+  }
+  function openChart(sym,label,e,price){
+    if(!e||!e.h||e.h.length<5){openSheet(sym,mkEl("p","sub","Chart data shows up after the next daily robot run."));return}
+    var box=mkEl("div","chartBox");
+    box.appendChild(lineChart(e.h,[{n:"200d",v:e.m200,c:"#a58bff"},{n:"50d",v:e.m50,c:"#5b8cff"},{n:"Res",v:e.r1,c:"#ff7b66"},{n:"Sup",v:e.s1,c:"#4fd1a5"}],{price:price}));
+    var chips=mkEl("div","lchips");levelInfo(price!=null?price:e.h[e.h.length-1][1],e).forEach(function(c){chips.appendChild(mkEl("span","lchip "+c.c,c.t))});box.appendChild(chips);
+    var p=mkEl("p","mshort","Three months of daily closes. Dashed lines: the 200-day and 50-day moving averages, plus the nearest resistance and support. Levels are zones to watch, not instructions to trade.");box.appendChild(p);glossify(p);
+    var lb=mkEl("button","small","Learn: Technicals 101");lb.type="button";lb.addEventListener("click",function(){closeSheet();openLesson("tech")});box.appendChild(lb);
+    openSheet(sym+(label?" · "+label:""),box);
+  }
+  window.OH_chart=function(sym,label,price){
+    var go=function(){openChart(sym,label,latData&&latData.etf&&latData.etf[sym],price)};
+    if(latData)go();else getJSON("latest.json").then(function(d){latData=d;go()}).catch(go);
+  };
+  window.OH_say=function(t){if(owlTopApi)owlTopApi.say(t)};
+  window.OH_levels=levelInfo;
+
+  /* fear meter */
+  function fearScore(){
+    var M=latData&&latData.macro;if(!M)return null;
+    var vix=M.vix&&typeof M.vix.level==="number"?M.vix.level:null,hy=M.hy&&typeof M.hy.level==="number"?M.hy.level:null;
+    function sc(v,a){if(v==null)return null;if(v<a[0])return v/a[0];if(v<a[1])return 1+(v-a[0])/(a[1]-a[0]);if(v<a[2])return 2+(v-a[1])/(a[2]-a[1]);return Math.min(4,3+(v-a[2])/a[2])}
+    var a=sc(vix,[15,20,30]),b=sc(hy,[3.5,5,7]);if(a==null&&b==null)return null;
+    var s=a!=null&&b!=null?(a*0.6+b*0.4):(a!=null?a:b);return {s:Math.min(3.99,s),vix:vix,hy:hy};
+  }
+  function paintFear(){
+    var b=$("fearMeter");if(!b)return;var f=fearScore();if(!f){b.hidden=true;return}b.hidden=false;b.textContent="";
+    var lab=["Calm","Normal","Nervous","Fear"][Math.floor(f.s)],col=["#4fd1a5","#5b8cff","#e0b25b","#ff7b66"][Math.floor(f.s)];
+    var svg=el("svg",{viewBox:"0 0 100 56","class":"fearG"},b);
+    ["#4fd1a5","#5b8cff","#e0b25b","#ff7b66"].forEach(function(c,i){var a0=Math.PI*(1-i/4),a1=Math.PI*(1-(i+1)/4)+0.04;
+      el("path",{d:"M"+(50+40*Math.cos(a0))+","+(50-40*Math.sin(a0))+" A40,40 0 0 1 "+(50+40*Math.cos(a1))+","+(50-40*Math.sin(a1)),fill:"none",stroke:c,"stroke-width":8,"stroke-opacity":".85"},svg)});
+    var an=Math.PI*(1-f.s/4);el("line",{x1:50,y1:50,x2:50+30*Math.cos(an),y2:50-30*Math.sin(an),stroke:"#e8ecf8","stroke-width":2.6,"stroke-linecap":"round"},svg);el("circle",{cx:50,cy:50,r:3.5,fill:"#e8ecf8"},svg);
+    var t=mkEl("div","fearT");var h=mkEl("b",null,"Fear meter: ");var s=mkEl("span",null,lab);s.style.color=col;h.appendChild(s);t.appendChild(h);
+    var p=mkEl("small",null,(f.vix!=null?"VIX "+f.vix.toFixed(1):"")+(f.vix!=null&&f.hy!=null?" · ":"")+(f.hy!=null?"credit spread "+f.hy.toFixed(2)+"%":"")+". Updated after each close. Tap for the Macro lesson.");t.appendChild(p);
+    b.appendChild(t);
+  }
+
+  /* after-close day wrap */
+  function paintDayWrap(){
+    var b=$("dayWrap");if(!b)return;var r=session(),open=/^Market open|^Open,/.test(r.state);
+    var p=mkt&&mkt.pcts;if(open||!p||typeof p.SPY!=="number"||!market){b.hidden=true;return}
+    var rel=SECTORS.filter(function(s){return ETF[s.id]&&typeof p[ETF[s.id]]==="number"}).map(function(s){return {s:s,v:p[ETF[s.id]]-p.SPY}}).sort(function(a,c){return c.v-a.v});
+    if(rel.length<4){b.hidden=true;return}
+    var day="latest session";
+    var na=estimate(market).angle,prev=null,qd=mkt.asOf?new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(new Date(mkt.asOf)):null;
+    marketHist.forEach(function(h){if(qd&&h.date<qd&&h.angle!=null)prev=h});
+    var idx=["SPY","QQQ","IWM"].filter(function(k){return typeof p[k]==="number"}).map(function(k){return k+" "+fmtP(p[k])}).join(", ");
+    var lines=[];
+    lines.push("The S&P ETF closed "+fmtP(p.SPY)+(idx?" ("+idx+").":"."));
+    if(na!=null&&prev){var dd=((na-prev.angle+540)%360)-180;lines.push(Math.abs(dd)<3?"The needle held steady in "+HOUR[phaseOf(na)]+".":"The needle moved "+Math.abs(Math.round(dd))+"° "+(dd>0?"forward":"back")+" to "+HOUR[phaseOf(na)]+" ("+phaseOf(na).toLowerCase()+").")}
+    lines.push("Leaders: "+rel.slice(0,2).map(function(x){return x.s.n+" "+fmtP(x.v)}).join(", ")+". Laggards: "+rel.slice(-2).reverse().map(function(x){return x.s.n+" "+fmtP(x.v)}).join(", ")+" (vs the S&P).");
+    b.hidden=false;b.textContent="";b.appendChild(mkEl("div","lsHead","Owl’s wrap · "+day));
+    lines.forEach(function(l,i){b.appendChild(mkEl("p",i===0?"lsText":"rcL",l))});
+    var key="oh_wrap",stamp=qd||day;if(lsGet(key)!==stamp&&owlTopApi){lsSet(key,stamp);setTimeout(function(){owlTopApi.say("Day wrap: "+lines.join(" "))},12000)}
+  }
+
+  /* metals card */
+  var MET=[["gold","Gold"],["silver","Silver"],["platinum","Platinum"],["palladium","Palladium"]];
+  function paintMetals(){
+    var b=$("metalsCard");if(!b)return;var M=latData&&latData.metals2;if(!M||!M.gold){b.hidden=true;return}b.hidden=false;b.textContent="";
+    b.appendChild(mkEl("h3",null,"Precious metals"));
+    var list=mkEl("div","metList");
+    MET.forEach(function(k){var m=M[k[0]];if(!m)return;var r=mkEl("button","metRow");r.type="button";
+      var a=mkEl("div","metA");a.appendChild(mkEl("b",null,k[1]));a.appendChild(mkEl("small",null,m.src==="spot"?"Spot, per oz":m.sym+" ETF (spot unavailable)"));r.appendChild(a);
+      var pr=mkEl("div","metP");pr.appendChild(mkEl("b",null,(m.src==="spot"?"$":"")+fmtNum(m.price)));
+      if(typeof m.chg1==="number")pr.appendChild(mkEl("small",m.chg1>=0?"up":"dn",fmtP(m.chg1)+" day"));r.appendChild(pr);
+      var ch=mkEl("div","lchips");levelInfo(m.price,m).slice(0,2).forEach(function(c){ch.appendChild(mkEl("span","lchip "+c.c,c.t))});
+      if(typeof m.chg20==="number")ch.appendChild(mkEl("span","lchip",fmtP(m.chg20)+" 20d"));r.appendChild(ch);
+      r.addEventListener("click",function(){var box=mkEl("div","chartBox");box.appendChild(lineChart(m.h||[],[{n:"200d",v:m.m200,c:"#a58bff"},{n:"50d",v:m.m50,c:"#5b8cff"}]));
+        var p=mkEl("p","mshort",k[1]+" "+(m.src==="spot"?"spot price":"through the "+m.sym+" ETF")+", last three months. Spot tracks COMEX front-month futures closely, but futures usually sit a few dollars higher because they include the cost of carry.");box.appendChild(p);glossify(p);
+        var lb=mkEl("button","small","Learn: Metals 101");lb.type="button";lb.addEventListener("click",function(){closeSheet();openLesson("metals")});box.appendChild(lb);
+        openSheet(k[1],box)});
+      list.appendChild(r)});
+    b.appendChild(list);
+    var g=M.gold,s=M.silver,info=mkEl("div","metInfo");
+    if(g&&s&&g.src==="spot"&&s.src==="spot"){var ratio=g.price/s.price,d=mkEl("div");d.appendChild(mkEl("b",null,ratio.toFixed(1)));d.appendChild(mkEl("span",null,"Gold/silver ratio"));
+      d.appendChild(mkEl("small",null,ratio>=80?"High: silver is cheap vs gold":ratio<=60?"Low: silver is pricey vs gold":"Middle of its usual range"));info.appendChild(d)}
+    var mn=M.miners;if(mn&&typeof mn.vsGold20==="number"){var d2=mkEl("div");d2.appendChild(mkEl("b",null,(mn.vsGold20>=0?"+":"−")+Math.abs(mn.vsGold20).toFixed(1)+"%"));d2.appendChild(mkEl("span",null,"Miners (GDX) vs gold, 20 days"));
+      d2.appendChild(mkEl("small",null,mn.vsGold20>=2?"Miners leading: confirms the move":mn.vsGold20<=-2?"Miners lagging: a warning sign":"Moving in step"));info.appendChild(d2)}
+    if(info.childNodes.length)b.appendChild(info);
+    var n=mkEl("p","ccN","Prices are daily closes from Twelve Data, updated after each market close. Tap a metal for its chart.");b.appendChild(n);
+    glossify(info);
+  }
+
+  /* sectors: heatmap, spotlight, holdings */
+  var heatMode="5";
+  function heatVal(id){
+    if(heatMode==="1")return relToday(id);
+    var ls=latData&&latData.sectors&&latData.sectors[id];if(!ls)return null;
+    return heatMode==="5"?ls.relReturnPct:ls.rel20;
+  }
+  function heatColor(v){if(v==null)return "#1e2b55";var a=Math.min(1,Math.abs(v)/(heatMode==="1"?1.5:heatMode==="5"?4:8));
+    return v>=0?"rgba(79,209,165,"+(0.18+0.7*a).toFixed(2)+")":"rgba(255,123,102,"+(0.18+0.7*a).toFixed(2)+")"}
+  var heatSel=null;
+  function paintHeat(){
+    var b=$("heatSec");if(!b)return;b.textContent="";
+    var have=SECTORS.filter(function(s){return ETF[s.id]&&heatVal(s.id)!=null});
+    if(!have.length){b.hidden=true;return}b.hidden=false;
+    var top=null;if(latData&&latData.sectors)SECTORS.forEach(function(s){var ls=latData.sectors[s.id];if(ls&&typeof ls.relReturnPct==="number"&&(!top||ls.relReturnPct>top.v))top={s:s,v:ls.relReturnPct}});
+    if(top){var sp=mkEl("div","spot");sp.appendChild(mkEl("div","lsHead","Sector of the week"));
+      var h=mkEl("p","lsText",top.s.n+" "+fmtP(top.v));sp.appendChild(h);sp.appendChild(mkEl("small",null,"vs the S&P over the last 5 trading days · "+ETF[top.s.id]));
+      var w=mkEl("p","rcL",SECWHY[top.s.id]||"");sp.appendChild(w);if(HOLD[top.s.id])sp.appendChild(mkEl("small",null,"Big names inside: "+HOLD[top.s.id]));b.appendChild(sp)}
+    var hd=mkEl("div","calHead");hd.appendChild(mkEl("h3",null,"Sector heatmap"));
+    var seg=mkEl("span","seg");[["1","Today"],["5","5 days"],["20","20 days"]].forEach(function(o){var bt=mkEl("button",null,o[1]);bt.type="button";bt.setAttribute("aria-pressed",String(heatMode===o[0]));bt.addEventListener("click",function(){heatMode=o[0];paintHeat()});seg.appendChild(bt)});
+    hd.appendChild(seg);b.appendChild(hd);
+    var rows=have.map(function(s){return {s:s,v:heatVal(s.id)}}).sort(function(a,c){return c.v-a.v});
+    var g=mkEl("div","heat");
+    rows.forEach(function(r,i){var t=mkEl("button","hTile"+(heatSel===r.s.id?" sel":""));t.type="button";t.style.background=heatColor(r.v);
+      t.appendChild(mkEl("span","hR","#"+(i+1)));t.appendChild(mkEl("b",null,r.s.s));t.appendChild(mkEl("span","hV",fmtP(r.v)));
+      t.addEventListener("click",function(){heatSel=heatSel===r.s.id?null:r.s.id;paintHeat()});g.appendChild(t)});
+    b.appendChild(g);
+    if(heatSel){var s=SECTORS.filter(function(x){return x.id===heatSel})[0],d=mkEl("div","secTip");
+      var th=mkEl("div","tipH");th.appendChild(mkEl("b",null,s.n));d.appendChild(th);
+      var bits=[ETF[s.id]],r1=relToday(s.id),ls=latData&&latData.sectors&&latData.sectors[s.id];
+      if(r1!=null)bits.push("today "+fmtP(r1));if(ls&&ls.relReturnPct!=null)bits.push("5d "+fmtP(ls.relReturnPct));if(ls&&ls.rel20!=null)bits.push("20d "+fmtP(ls.rel20));
+      d.appendChild(mkEl("small",null,bits.join(" · ")+" (vs S&P)"));var pp=mkEl("p",null,SECWHY[s.id]||"");d.appendChild(pp);
+      if(HOLD[s.id])d.appendChild(mkEl("small",null,"Big names inside: "+HOLD[s.id]+" (not ranked, weights change)"));
+      var go=mkEl("button","small","Make my call on "+s.s);go.type="button";go.style.marginTop="8px";go.addEventListener("click",function(){if(rowEls[s.id]){rowEls[s.id].row.scrollIntoView({block:"center",behavior:"smooth"});select(s.id)}});d.appendChild(go);
+      b.appendChild(d)}
+    b.appendChild(mkEl("p","ccN","Each tile is the sector ETF’s return minus the S&P 500’s over the window you pick. Green is beating the market, red is lagging."));
+  }
+
+  /* learn */
+  var MODS=[
+    {id:"cycle",t:"The market cycle",lvl:"Beginner",slides:[
+      ["The economy moves in a loop: recovery, expansion, late cycle and contraction. Owl Hours draws that loop as a clock.",45],
+      ["Dawn is recovery. Rates are low and confidence is coming back. Banks, real estate and consumer discretionary tend to lead.",25],
+      ["Midday is expansion. Earnings grow and companies spend. Tech, chips and industrials usually take over.",115],
+      ["Dusk is late cycle. Demand runs hot and inflation creeps in. Energy and materials often shine.",205],
+      ["Night is contraction. Growth slows, and money hides in staples, healthcare and utilities: things people buy no matter what.",300],
+      ["Leadership rotates before the headlines change. That's why we watch sector rotation, not just the S&P 500.",null]],
+     quiz:[["Which phase is Dawn on the clock?",["Recovery","Expansion","Late cycle","Contraction"],0,"Dawn is recovery, the start of the loop."],
+       ["Which sectors usually hold up best in a contraction?",["Staples, healthcare, utilities","Chips and tech","Energy and materials","Banks and real estate"],0,"People keep buying essentials and medicine, and utilities pay steady dividends."],
+       ["Energy and materials leading is a classic sign of…",["Late cycle","Recovery","Early expansion","A market bottom"],0,"Hot demand and rising prices favor commodity producers late in the cycle."]]},
+    {id:"clock",t:"Reading the clock",lvl:"Beginner",slides:[
+      ["Each dot is a sector ETF. Green means it's beating the S&P 500. Red means it's lagging. A bigger glow means a stronger move.",null],
+      ["The gold needle is the average pull of all the dots. Strong sectors on one side drag the needle toward their hour.",130],
+      ["Clarity tells you how much the sectors agree. High clarity is a clear story. Low clarity means mixed signals, so hold your view loosely.",null],
+      ["Market mode is my read from real prices: today's move blended with the last 20 days. My calls mode is your own read.",null],
+      ["Save a snapshot when you make calls. The scoreboard grades you against the market at the next close.",null]],
+     quiz:[["A red dot means the sector is…",["Lagging the S&P 500","Sure to lose money","Closed today","About to bounce"],0,"Colors compare each sector with the S&P 500."],
+       ["Signal clarity of 20% means…",["The sectors disagree; the picture is mixed","The needle is 20° off","There's a 20% recession chance","The market fell 20%"],0,"Low clarity means the dots pull in different directions."],
+       ["In Market mode, the dots are set by…",["Real sector prices vs the S&P","Your own calls","News headlines","A random draw"],0,"The robot scores each sector ETF against SPY."]]},
+    {id:"macro",t:"Macro 101",lvl:"Intermediate",slides:[
+      ["The 10-year yield is the price of money. When it rises, future profits are worth less today, which hits growth stocks hardest.",null],
+      ["The yield curve is the 10-year yield minus the 2-year. When it turns negative it's inverted, and that has come before most US recessions.",null],
+      ["A credit spread shows how nervous lenders are. When high-yield spreads widen, stress is building, often before stocks crack.",null],
+      ["CPI measures inflation. Hot inflation keeps the Fed from cutting rates. Cooling inflation gives it room.",null],
+      ["The FOMC meets about eight times a year to set short-term rates. Don't fight the Fed: when policy turns, the cycle usually follows.",null]],
+     quiz:[["An inverted yield curve means…",["2-year yields are above 10-year yields","Stocks are falling","The Fed is cutting","Bonds pay nothing"],0,"Short rates above long rates is an inversion."],
+       ["Widening high-yield credit spreads usually signal…",["Rising stress and risk-off","Strong growth","Falling inflation","A weaker dollar"],0,"Lenders demand more pay when they worry about defaults."],
+       ["Rising 10-year yields tend to hurt which stocks most?",["Long-duration growth stocks","Banks","Energy producers","Gold miners"],0,"Their value sits far in the future, so higher discount rates bite hardest."]]},
+    {id:"tech",t:"Technicals 101",lvl:"Intermediate",slides:[
+      ["A moving average smooths out price. The 50-day shows the medium-term trend. The 200-day shows the long-term trend.",null],
+      ["Price above the 200-day signals a long-term uptrend. Below it, be careful. Big funds watch this line closely.",null],
+      ["Support is a price where buyers have stepped in before. Resistance is where sellers have shown up.",null],
+      ["After a breakout through resistance, that old ceiling often becomes the new floor. Breakouts on heavy volume count more.",null],
+      ["Levels are zones, not walls. Use them to plan where you'd be wrong, not to predict the future.",null]],
+     quiz:[["SPY trading above its 200-day average suggests…",["A long-term uptrend","A guaranteed rally","A bear market","Low volatility"],0,"It's a trend read, not a promise."],
+       ["Support is…",["A level where buyers have stepped in before","The highest price this year","A Fed program","A type of order"],0,"Buyers defended that zone in the past."],
+       ["After price breaks above resistance, that level often…",["Acts as new support","Disappears","Becomes the 200-day","Triggers a trading halt"],0,"Old ceilings often turn into floors."]]},
+    {id:"metals",t:"Metals 101",lvl:"Intermediate",slides:[
+      ["Spot price is the price for metal delivered now. COMEX futures are contracts for later delivery, so they usually sit a few dollars above spot.",null],
+      ["Gold pays no interest, so it shines when real yields fall, the dollar weakens or fear rises.",null],
+      ["Silver is half precious metal, half industrial. It swings harder than gold in both directions.",null],
+      ["The gold/silver ratio tells you how many ounces of silver buy one ounce of gold. A high ratio means silver is cheap compared with gold, by historical standards.",null],
+      ["Miners are leveraged to the metal. When gold rises, GDX often rises faster. When miners lag the metal, treat it as a warning sign.",null]],
+     quiz:[["Why do gold futures usually trade above spot?",["They include the cost of carrying metal until delivery","Futures are always wrong","Spot includes sales tax","Futures trade only at night"],0,"Storage, insurance and interest add up to the carry."],
+       ["A gold/silver ratio of 90 means…",["90 oz of silver buys 1 oz of gold","Gold costs $90","Silver rose 90%","90% of buyers own gold"],0,"It's a price ratio, not a percent."],
+       ["Gold miners rising slower than gold is often read as…",["A warning sign for the rally","Very bullish","Meaningless","Proof silver will fall"],0,"Miners usually amplify the metal, so lagging is a tell."]]},
+    {id:"pro",t:"Putting it together",lvl:"Pro",slides:[
+      ["Start with the backdrop. Is the Fed easing or tightening? Is the yield curve steepening? Are credit spreads calm?",null],
+      ["Then check the clock. Which hour is the needle keeping, and is clarity high enough to trust?",null],
+      ["Look for agreement. When macro, sectors and levels tell the same story, conviction can rise. When they disagree, size down.",null],
+      ["Watch for turns. Defensive sectors leading while indexes rise, or miners lagging gold, are early hints the story is changing.",null],
+      ["Write it down. Save a snapshot with a one-line why. Your scoreboard shows which signals you read well.",null]],
+     quiz:[["The S&P is making highs, but utilities, staples and healthcare lead. A pro reads this as…",["Defensive rotation under the surface, a possible late-cycle tell","A clear new recovery","Proof of a melt-up","Nothing important"],0,"Leadership from defensives while the index rises is a quiet warning."],
+       ["Sectors point to expansion, but credit spreads are widening fast. Best response?",["Lower conviction and watch for a turn","Add risk; sectors are right","Ignore credit","Sell everything immediately"],0,"When signals disagree, size down and watch."],
+       ["The curve re-steepens after an inversion because the Fed is cutting into weakness. Historically that has often come…",["Near the start of a downturn","In the middle of a boom","Only during wars","Right as rate hikes begin"],0,"A bull steepener from weakness has often lined up with recessions starting."]]}
+  ];
+  var TERM_MOD={"market cycle":"cycle","sector rotation":"cycle","clarity":"clock","10-year yield":"macro","yield curve":"macro","inverted":"macro","credit spread":"macro","high-yield":"macro","CPI":"macro","PCE":"macro","Fed":"macro","FOMC":"macro","real yield":"metals",
+    "moving average":"tech","50-day":"tech","200-day":"tech","support":"tech","resistance":"tech","breakout":"tech","spot price":"metals","futures":"metals","COMEX":"metals","gold/silver ratio":"metals","miners":"metals"};
+  function termModule(k){var id=TERM_MOD[k];return id?MODS.filter(function(m){return m.id===id})[0]:null}
+  function learnScore(id){var v=lsGet("oh_learn_"+id);return v==null?null:+v}
+  function learnDone(){return MODS.filter(function(m){return learnScore(m.id)!=null}).length}
+  function paintLearn(){
+    var b=$("learnSec");if(!b)return;b.textContent="";
+    var done=learnDone();
+    b.appendChild(mkEl("p","sub","Short lessons the owl reads to you, each with a 3-question quiz. "+done+" of "+MODS.length+" done."));
+    var vb=mkEl("button","small",voiceOn()?"🔊 Owl voice on":"🔇 Owl voice off");vb.type="button";vb.addEventListener("click",function(){lsSet("oh_voice",voiceOn()?"0":"1");if(voiceOn())owlSpeak("Hoot! I'll read lessons out loud.",true);paintLearn();paintVoiceBtn()});b.appendChild(vb);
+    var g=mkEl("div","modList");
+    MODS.forEach(function(m,i){var sc=learnScore(m.id),c=mkEl("button","modCard"+(sc!=null?" done":""));c.type="button";
+      c.appendChild(mkEl("span","modN",String(i+1)));var tx=mkEl("div");tx.appendChild(mkEl("b",null,m.t));tx.appendChild(mkEl("small",null,m.lvl+" · "+m.slides.length+" cards + quiz"+(sc!=null?" · best "+sc+"/3":"")));c.appendChild(tx);
+      c.appendChild(mkEl("span","modGo",sc!=null?"✓":"▶"));c.addEventListener("click",function(){openLesson(m.id)});g.appendChild(c)});
+    b.appendChild(g);
+    var gh=mkEl("h3",null,"Glossary");b.appendChild(gh);
+    var gl=mkEl("div","glList");Object.keys(GLOSS).sort(function(a,c){return a.toLowerCase()<c.toLowerCase()?-1:1}).forEach(function(k){var d=mkEl("button","gl glChip",k);d.type="button";d.dataset.term=k;gl.appendChild(d)});
+    b.appendChild(gl);
+  }
+  function miniClock(angle){
+    var svg=el("svg",{viewBox:"0 0 120 120","class":"lsClock"});
+    PHASES.forEach(function(p){var a0=(p.from+2)*Math.PI/180,a1=(p.to-2)*Math.PI/180;el("path",{d:"M"+(60+48*Math.sin(a0))+","+(60-48*Math.cos(a0))+" A48,48 0 0 1 "+(60+48*Math.sin(a1))+","+(60-48*Math.cos(a1)),fill:"none",stroke:p.c,"stroke-width":9,"stroke-opacity":".85"},svg)});
+    [["Dawn",45],["Midday",135],["Dusk",225],["Night",315]].forEach(function(q){var t=q[1]*Math.PI/180,x=el("text",{x:60+30*Math.sin(t),y:60-30*Math.cos(t)+3,"text-anchor":"middle","font-size":"8.5",fill:"#8d9ac0","font-family":"DM Sans, system-ui, sans-serif"},svg);x.textContent=q[0]});
+    var nd=el("g",{"class":"lsNeedle"},svg);el("line",{x1:60,y1:60,x2:60,y2:20,stroke:"#e0b25b","stroke-width":3.2,"stroke-linecap":"round"},nd);el("circle",{cx:60,cy:60,r:4.5,fill:"#e0b25b"},svg);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){nd.style.transform="rotate("+angle+"deg)"})});
+    return svg;
+  }
+  function openLesson(id){
+    var m=MODS.filter(function(x){return x.id===id})[0];if(!m)return;closeSheet();
+    var ov=mkEl("div","lesson-ov"),card=mkEl("div","lpCard");ov.appendChild(card);document.body.appendChild(ov);
+    var top=mkEl("div","lpTop");top.appendChild(mkEl("b",null,m.t));
+    var vt=mkEl("button","small",voiceOn()?"🔊":"🔇");vt.type="button";vt.setAttribute("aria-label","Owl voice");
+    var xb=mkEl("button","tipX","×");xb.type="button";xb.setAttribute("aria-label","Close");top.appendChild(vt);top.appendChild(xb);card.appendChild(top);
+    var bars=mkEl("div","tourBars");m.slides.concat([0]).forEach(function(){var i=mkEl("i");i.appendChild(mkEl("b"));bars.appendChild(i)});card.appendChild(bars);
+    var stage=mkEl("div","lpStage");card.appendChild(stage);
+    var nav=mkEl("div","tourBtns"),bk=mkEl("button","small","Back"),nx=mkEl("button",null,"Next");bk.type="button";nx.type="button";nav.appendChild(bk);nav.appendChild(nx);card.appendChild(nav);
+    var i=-1,tm=null,owlHost=mkEl("div","lpOwl owlWrap");owlHost.dataset.sky="night";var st=OWL_STYLES[owlStyle];owlHost.classList.add(st.cls);var os=el("svg",{viewBox:"0 0 140 150","class":"owl"},owlHost);var OP=st.draw(os,++owlSeq);
+    function end(){clearTimeout(tm);try{speechSynthesis.cancel()}catch(e){}ov.remove();paintLearn();paintScore()}
+    function setBars(k,dur){Array.prototype.forEach.call(bars.children,function(b,j){var f=b.firstChild;f.style.transition="none";f.style.width=j<k?"100%":"0%"});
+      if(k<bars.children.length){var cur=bars.children[k].firstChild;void cur.offsetWidth;if(dur){cur.style.transition="width "+dur+"ms linear"}cur.style.width="100%"}}
+    function show(k){
+      clearTimeout(tm);i=k;if(i<0)i=0;
+      if(i>=m.slides.length){quiz(0,0);return}
+      var sl=m.slides[i];stage.textContent="";
+      var row=mkEl("div","lpRow");row.appendChild(owlHost);var vis=mkEl("div","lpVis");if(sl[1]!=null)vis.appendChild(miniClock(sl[1]));if(vis.childNodes.length)row.appendChild(vis);stage.appendChild(row);
+      var p=mkEl("p","lpText");stage.appendChild(p);
+      var words=sl[0].split(" "),w=0;
+      (function type(){if(i!==k)return;w++;p.textContent=words.slice(0,w).join(" ");if(w<words.length)setTimeout(type,reduce?0:55);else glossify(p)})();
+      os.classList.remove("hoot");void os.getBoundingClientRect();os.classList.add("hoot");
+      bk.disabled=i===0;nx.textContent="Next";
+      var dur=Math.max(5200,sl[0].length*62);setBars(i,voiceOn()?0:dur);
+      if(voiceOn()){tm=setTimeout(function(){if(i===k)show(k+1)},dur*1.8);owlSpeak(sl[0],true,function(ok){if(i===k&&ok){clearTimeout(tm);tm=setTimeout(function(){show(k+1)},700)}})}
+      else tm=setTimeout(function(){show(k+1)},dur);
+    }
+    function quiz(q,score){
+      clearTimeout(tm);try{speechSynthesis.cancel()}catch(e){}i=m.slides.length;setBars(m.slides.length,0);
+      stage.textContent="";bk.disabled=true;
+      if(q>=m.quiz.length){
+        var best=Math.max(score,learnScore(m.id)||0);lsSet("oh_learn_"+m.id,String(best));
+        var row=mkEl("div","lpRow");row.appendChild(owlHost);stage.appendChild(row);
+        stage.appendChild(mkEl("p","lpText",score===3?"Perfect! 3 for 3. Hoot hoot!":score===2?"Nice work: 2 of 3. You've got this.":"You got "+score+" of 3. Run it back anytime."));
+        owlSpeak(stage.lastChild.textContent);
+        var nxt=MODS[MODS.indexOf(m)+1];nx.textContent=nxt?"Next lesson":"Done";nx.onclick=function(){if(nxt){ov.remove();openLesson(nxt.id)}else end()};bk.disabled=false;bk.textContent="Replay";bk.onclick=function(){bk.textContent="Back";bk.onclick=function(){show(i-1)};nx.onclick=function(){show(i+1)};show(0)};
+        return;
+      }
+      var Q=m.quiz[q],order=[0,1,2,3].sort(function(){return Math.random()-0.5});
+      stage.appendChild(mkEl("div","lsHead","Quiz · question "+(q+1)+" of "+m.quiz.length+" · "+m.lvl));
+      stage.appendChild(mkEl("p","lpQ",Q[0]));owlSpeak(Q[0]);
+      var opts=mkEl("div","lpOpts"),fb=mkEl("p","lpFb");
+      order.forEach(function(oi){var b=mkEl("button","lpOpt",Q[1][oi]);b.type="button";b.addEventListener("click",function(){
+        if(opts.dataset.done)return;opts.dataset.done="1";var right=oi===Q[2];if(right)score++;
+        b.classList.add(right?"ok":"no");if(!right)Array.prototype.forEach.call(opts.children,function(x,j){if(order[j]===Q[2])x.classList.add("ok")});
+        fb.textContent=(right?"Right. ":"Not quite. ")+Q[3];glossify(fb);owlSpeak((right?"Right. ":"Not quite. ")+Q[3]);buzz(right?10:[20,40,20]);
+        nx.textContent=q+1<m.quiz.length?"Next question":"See score";nx.onclick=function(){quiz(q+1,score)}});opts.appendChild(b)});
+      stage.appendChild(opts);stage.appendChild(fb);nx.textContent="Skip";nx.onclick=function(){quiz(q+1,score)};
+    }
+    xb.addEventListener("click",end);bk.onclick=function(){show(i-1)};nx.onclick=function(){show(i+1)};
+    vt.addEventListener("click",function(){lsSet("oh_voice",voiceOn()?"0":"1");vt.textContent=voiceOn()?"🔊":"🔇";paintVoiceBtn();if(i<m.slides.length)show(i);else try{speechSynthesis.cancel()}catch(e){}});
+    show(0);
+  }
+  function paintVoiceBtn(){var b=$("voiceBtn");if(b)b.textContent=voiceOn()?"🔊 Owl voice: on":"🔇 Owl voice: off"}
+
+  /* recap share image */
+  function recapCard(r){
+    var W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");
+    var bg=x.createLinearGradient(0,0,W,H);bg.addColorStop(0,"#25305e");bg.addColorStop(1,"#0a1022");x.fillStyle=bg;x.fillRect(0,0,W,H);
+    var sans="DM Sans, system-ui, sans-serif";x.textAlign="left";
+    x.fillStyle="#e0b25b";x.font="650 64px Fraunces, Georgia, serif";x.fillText("Owl Hours",80,140);
+    x.fillStyle="#8d9ac0";x.font="600 30px "+sans;x.fillText("WEEKLY RECAP · "+fmtDay(r.w.mon).replace(/^\w+, /,"").toUpperCase()+" – "+fmtDay(r.w.fri).replace(/^\w+, /,"").toUpperCase(),80,195);
+    function wrap(t,y,font,col,lh){x.font=font;x.fillStyle=col;var ws=t.split(" "),line="";ws.forEach(function(w){var tl=line?line+" "+w:w;if(x.measureText(tl).width>W-160){x.fillText(line,80,y);y+=lh;line=w}else line=tl});if(line){x.fillText(line,80,y);y+=lh}return y}
+    var node=recapNode(r),txt=node.querySelector(".lsText").textContent,ls=node.querySelectorAll(".rcL");
+    var y=wrap(txt,330,"650 60px Fraunces, Georgia, serif","#e8ecf8",76);y+=30;
+    Array.prototype.forEach.call(ls,function(l){y=wrap(l.textContent,y,"500 38px "+sans,"#c9d3f0",54)+24});
+    var cx=W/2,cy=1010,R=150;PHASES.forEach(function(p){x.beginPath();x.strokeStyle=p.c;x.lineWidth=16;x.arc(cx,cy,R,(p.from-90+1)*Math.PI/180,(p.to-90-1)*Math.PI/180);x.stroke()});
+    [[r.a.angle,"#8d9ac0",6],[r.z.angle,"#e0b25b",10]].forEach(function(n){var t=n[0]*Math.PI/180;x.strokeStyle=n[1];x.lineWidth=n[2];x.lineCap="round";x.beginPath();x.moveTo(cx,cy);x.lineTo(cx+(R-30)*Math.sin(t),cy-(R-30)*Math.cos(t));x.stroke()});
+    x.beginPath();x.fillStyle="#e0b25b";x.arc(cx,cy,12,0,Math.PI*2);x.fill();
+    x.textAlign="center";x.fillStyle="#8d9ac0";x.font="500 26px "+sans;x.fillText("Grey: last week’s close · Gold: this week’s close",cx,1215);
+    x.font="500 24px "+sans;x.fillText("by The Market Talks · educational tool, not investment advice",cx,1295);
+    c.toBlob(function(blob){if(!blob)return;var f;try{f=new File([blob],"owl-recap-"+r.w.fri+".png",{type:"image/png"})}catch(e){f=null}
+      if(f&&navigator.canShare&&navigator.canShare({files:[f]}))navigator.share({files:[f],title:"Owl Hours weekly recap"}).catch(function(){});
+      else{var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="owl-recap-"+r.w.fri+".png";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1500)}},"image/png");
+  }
+
+  /* newsletter auto-draft additions */
+  function draftExtras(L){
+    var r=recapData();
+    if(r){var n=recapNode(r);L.push("");L.push("## This week on the clock");L.push(n.querySelector(".lsText").textContent);Array.prototype.forEach.call(n.querySelectorAll(".rcL"),function(x){if(!/Your calls|You didn/.test(x.textContent))L.push(x.textContent)})}
+    var today=etYMD(),ev=(calData&&calData.events||[]).filter(function(e){return e.date>=today}).slice(0,10);
+    if(ev.length){L.push("");L.push("## On the calendar");ev.forEach(function(e){L.push("- "+fmtDay(e.date)+": "+(e.kind==="earnings"?e.symbol+" earnings":e.title)+(e.time?" ("+e.time+")":""))})}
+    var M=latData&&latData.metals2;if(M&&M.gold){L.push("");L.push("## Metals");MET.forEach(function(k){var m=M[k[0]];if(m)L.push("- "+k[1]+": "+(m.src==="spot"?"$":"")+fmtNum(m.price)+(typeof m.chg20==="number"?" ("+fmtP(m.chg20)+" over 20 days)":""))})}
+    var Ls=lessonToday();L.push("");L.push("## Lesson of the day");L.push(Ls[0]+(Ls[1]==="The Owl"?"":" (idea from "+Ls[1]+")"));
+  }
+
+  function layer3Init(){
+    var cp=document.querySelector('.pane[data-pane="clock"]');
+    if(cp&&!$("fearMeter")){var fm=mkEl("button","fearMeter");fm.type="button";fm.id="fearMeter";fm.hidden=true;fm.addEventListener("click",function(ev){if(ev.target.closest(".gl"))return;openLesson("macro")});
+      var dial=cp.querySelector("section.dial");cp.insertBefore(fm,dial);
+      var dw=mkEl("div","recap dayWrap");dw.id="dayWrap";dw.hidden=true;cp.insertBefore(dw,cp.firstChild)}
+    var mp=document.querySelector('.pane[data-pane="macro"]');
+    if(mp&&!$("metalsCard")){var mc=mkEl("section","calSec metals");mc.id="metalsCard";mc.hidden=true;var cs=$("cryptoStrip");if(cs&&cs.nextSibling)mp.insertBefore(mc,cs.nextSibling);else mp.appendChild(mc)}
+    var sp=document.querySelector('.pane[data-pane="sectors"]');
+    if(sp&&!$("heatSec")){var hs=mkEl("section","heatSec");hs.id="heatSec";hs.hidden=true;var mr=$("miniRead");if(mr&&mr.nextSibling)sp.insertBefore(hs,mr.nextSibling);else sp.insertBefore(hs,sp.firstChild)}
+    var lp=document.querySelector('.pane[data-pane="letter"]');
+    if(lp&&!$("learnSec")){var hd=lp.querySelector(".paneHead");if(hd)hd.textContent="Learn";
+      var ls=mkEl("section","learnSec");ls.id="learnSec";var nd=mkEl("h2","paneHead","Newsletter desk");nd.style.marginTop="30px";
+      if(hd&&hd.nextSibling){lp.insertBefore(ls,hd.nextSibling);lp.insertBefore(nd,ls.nextSibling)}else{lp.appendChild(ls);lp.appendChild(nd)}}
+    var tb=document.querySelector('#tabbar button[data-tab="letter"]');if(tb)tb.innerHTML='<svg viewBox="0 0 24 24"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg>Learn';
+    var op=$("owlPick");if(op&&!$("voiceBtn")){var vb=mkEl("button","small");vb.type="button";vb.id="voiceBtn";vb.style.marginTop="10px";vb.addEventListener("click",function(){lsSet("oh_voice",voiceOn()?"0":"1");paintVoiceBtn();paintLearn();if(voiceOn())owlSpeak("Hoot! Voice is on.",true)});op.parentNode.appendChild(vb);paintVoiceBtn()}
+    var ni=$("noteIn");if(ni){ni.placeholder="Why this call? (optional) e.g. oil breaking out, yields falling";ni.setAttribute("aria-label","Why this call (optional)")}
+    BADGES.push({id:"learn1",n:"Student",d:"Finish your first lesson",ok:function(){return learnDone()>=1}});
+    BADGES.push({id:"learnAll",n:"Professor",d:"Finish all 6 lessons",ok:function(){return learnDone()>=MODS.length}});
+    BADGES.push({id:"perfect",n:"Straight A",d:"Score 3/3 on any quiz",ok:function(){return MODS.some(function(m){return learnScore(m.id)===3})}});
+    Array.prototype.forEach.call(document.querySelectorAll(".mshort"),glossify);
+    paintLearn();layer3Paint();
+  }
+  function layer3Paint(){paintFear();paintDayWrap();paintMetals();paintHeat()}
+
   function phaseB2Init(){
     var mp=document.querySelector('.pane[data-pane="macro"]');
     if(mp&&!$("calSec")){var h=mp.querySelector(".paneHead");
@@ -2413,7 +3023,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();phaseBInit();phaseB2Init();paintRecap();
+  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();paintRecap();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */
@@ -2505,7 +3115,14 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
       var p=document.createElement("div");p.className="lp";p.textContent=q&&typeof q.price==="number"?fmt(q.price):"\u2014";
       var ch=document.createElement("div");ch.className="lc fl";
       if(q&&typeof q.pct==="number"){ch.className="lc "+(q.pct>0?"up":q.pct<0?"dn":"fl");ch.textContent=(q.pct>0?"+":"")+q.pct.toFixed(2)+"%"}else ch.textContent="";
-      c.appendChild(a);c.appendChild(b);c.appendChild(p);c.appendChild(ch);box.appendChild(c);
+      c.appendChild(a);c.appendChild(b);c.appendChild(p);c.appendChild(ch);
+      var lv=(q&&typeof q.price==="number"&&window.OH_levels&&LAT&&LAT.etf)?window.OH_levels(q.price,LAT.etf[s[0]]):[];
+      if(lv.length){var pick=[lv[0]],ex=lv.filter(function(x){return /^(br|bs|nr|ns)$/.test(x.k)})[0];pick.push(ex||lv[1]);
+        var cw=document.createElement("div");cw.className="lchips";pick.forEach(function(x){if(!x)return;var sp=document.createElement("span");sp.className="lchip "+x.c;sp.textContent=x.t;cw.appendChild(sp)});c.appendChild(cw)}
+      c.setAttribute("role","button");c.tabIndex=0;c.title="Tap for a 3-month chart";
+      (function(sym,lab,qq){c.addEventListener("click",function(){if(window.OH_chart)window.OH_chart(sym,lab,qq&&qq.price)})})(s[0],s[1],q);
+      if(q&&typeof q.price==="number"&&LAT&&LAT.etf&&LAT.etf[s[0]])crossCheck(s[0],q.price,LAT.etf[s[0]]);
+      box.appendChild(c);
     });
     if(failed)note.textContent="Live feed not connected. It works when this page is hosted next to a quotes.json file (see the README). Showing manual entries below.";
     else if(!asOf)note.textContent="Live feed: waiting for the first update.";
@@ -2520,8 +3137,24 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
     var ymd=new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(new Date());
     return ["Mon","Tue","Wed","Thu","Fri"].indexOf(o.weekday)>=0&&!hol[ymd]&&m>=570&&m<=965;
   }
+  var LAT=null,said=false;
+  function crossCheck(sym,price,e){
+    if(!marketHours())return;
+    var ymd=new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(new Date()),st={};
+    try{st=JSON.parse(localStorage.getItem("oh_lv")||"{}")}catch(x){}
+    if(st.d!==ymd)st={d:ymd};
+    var now={a50:typeof e.m50==="number"?price>=e.m50:null,a200:typeof e.m200==="number"?price>=e.m200:null},was=st[sym];
+    if(was&&!said&&window.OH_say){
+      if(now.a200!=null&&was.a200!=null&&now.a200!==was.a200){said=true;window.OH_say("Hoot! "+sym+" just "+(now.a200?"climbed back above":"slipped below")+" its 200-day average ("+fmt(e.m200)+"). That's the long-term trend line.")}
+      else if(now.a50!=null&&was.a50!=null&&now.a50!==was.a50){said=true;window.OH_say(sym+" just "+(now.a50?"reclaimed":"lost")+" its 50-day average ("+fmt(e.m50)+").")}
+    }
+    st[sym]=now;try{localStorage.setItem("oh_lv",JSON.stringify(st))}catch(x){}
+  }
   function load(){
-    fetch("quotes.json?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("http "+r.status);return r.json()}).then(function(d){render(d,false)}).catch(function(){render(null,true)});
+    said=false;
+    var lat=fetch("latest.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){if(d&&d.etf)LAT=d}).catch(function(){});
+    var qp=fetch("quotes.json?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("http "+r.status);return r.json()});
+    Promise.all([lat,qp]).then(function(v){render(v[1],false)}).catch(function(){render(null,true)});
   }
 
   /* Inside Claude: prices come from the viewer's Alpha Vantage connector.
@@ -2624,6 +3257,9 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
   }
   fetch("latest.json?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){if(d&&d.asOf)render(d)}).catch(function(){});
 })();
+</script>
+<script>
+if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
 </script>
 </body>
 </html>

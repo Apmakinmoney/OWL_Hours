@@ -8,7 +8,7 @@ Reads config.json and writes:
 Keys: TWELVEDATA_API_KEY (free key from twelvedata.com). FRED and CoinGecko need no key.
 Only the Python standard library is used. If one source fails, the rest still run and the failure is listed under "warnings".
 """
-import csv, io, json, os, sys, time, urllib.request
+import csv, io, json, os, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 
 CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")))
@@ -76,7 +76,7 @@ def fred_csv(series_id, start, opener=urllib.request.urlopen):
 def twelve_history(symbol, opener=urllib.request.urlopen):
     if not TD_KEY:
         raise ValueError("TWELVEDATA_API_KEY is not set")
-    url = f"https://api.twelvedata.com/time_series?symbol={symbol}&interval=1day&outputsize={CFG['history_bars']}&apikey={TD_KEY}"
+    url = f"https://api.twelvedata.com/time_series?symbol={urllib.parse.quote(symbol)}&interval=1day&outputsize={CFG['history_bars']}&apikey={TD_KEY}"
     d = json.loads(http_text(url, opener))
     if d.get("status") == "error" or "values" not in d:
         raise ValueError(f"{symbol}: {d.get('message', 'no values')}")   # a 401 here means the TWELVEDATA_API_KEY secret is wrong
@@ -103,6 +103,31 @@ def coingecko(opener=urllib.request.urlopen):
 
 
 # ---------- calculations ----------
+def r2(x):
+    return None if x is None else round(x, 2)
+
+
+def metals_card(hist):
+    card = {}
+    for key, etf in CFG["metals"].items():
+        spot = CFG.get("spot", {}).get(key)
+        rows, src, sym = (hist.get(spot), "spot", spot) if spot and hist.get(spot) else (hist.get(etf), "etf", etf)
+        if not rows:
+            continue
+        closes = [r["close"] for r in rows]
+        card[key] = {"src": src, "sym": sym, "price": round(closes[-1], 2), "date": rows[-1]["date"],
+                     "chg1": r2(pct_return(rows, 1)), "chg20": r2(pct_return(rows, 20)),
+                     "m50": sma(closes, 50), "m200": sma(closes, 200),
+                     "h": [[r["date"], round(r["close"], 2)] for r in rows[-65:]]}
+    gdx = hist.get(CFG["sectors"].get("GOLD", "GDX"))
+    if gdx and "gold" in card:
+        g20 = pct_return(gdx, 20)
+        card["miners"] = {"sym": CFG["sectors"].get("GOLD", "GDX"), "chg20": r2(g20),
+                          "vsGold20": None if g20 is None or card["gold"]["chg20"] is None else round(g20 - card["gold"]["chg20"], 2)}
+    return card
+
+
+
 def sma(values, n):
     return round(sum(values[-n:]) / n, 2) if len(values) >= n else None
 
@@ -244,7 +269,7 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
     except Exception as e:
         warnings.append(f"CoinGecko: {e}")
     # price history for ETFs, sectors and metals
-    symbols = list(dict.fromkeys(CFG["etfs"] + list(CFG["sectors"].values()) + list(CFG["metals"].values())))
+    symbols = list(dict.fromkeys(CFG["etfs"] + list(CFG["sectors"].values()) + list(CFG["metals"].values()) + list(CFG.get("spot", {}).values())))
     hist = {}
     log(f"Twelve Data: {len(symbols)} symbols, one every {THROTTLE:.0f}s (free plan limit)")
     for i, sym in enumerate(symbols):
@@ -270,7 +295,8 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
         closes = [r["close"] for r in rows]
         lv = suggest_levels(rows)
         out["etf"][sym] = {"date": rows[-1]["date"], "c": round(closes[-1], 2), "m50": sma(closes, 50), "m200": sma(closes, 200),
-                           "chg5Pct": None if pct_return(rows, 5) is None else round(pct_return(rows, 5), 2), **lv}
+                           "chg5Pct": None if pct_return(rows, 5) is None else round(pct_return(rows, 5), 2), **lv,
+                           "h": [[r["date"], round(r["close"], 2)] for r in rows[-65:]]}
     bench = hist.get(CFG["benchmark"])
     if bench:
         b = pct_return(bench, CFG["momentum_days"]); b1 = pct_return(bench, 1); b20 = pct_return(bench, 20)
@@ -292,6 +318,12 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
             out["metals"][key] = {"proxy": sym, "level": round(closes[-1], 2), "dir": direction(closes, "rel", 0.01),
                                   "note": "ETF price, not spot"}
             out["macro"].setdefault(key, {"level": None, "dir": out["metals"][key]["dir"], "source": f"{sym} 5-day direction"})
+    # precious metals card: spot prices when Twelve Data has them, the ETF otherwise
+    out["metals2"] = metals_card(hist)
+    for key in ("gold", "silver"):
+        m = out["metals2"].get(key)
+        if m and m["src"] == "spot":
+            out["macro"][key] = {"level": m["price"], "dir": out["macro"].get(key, {}).get("dir"), "source": f"{m['sym']} spot"}
     # macro from FRED, last and on a strict budget, so a slow FRED can never block the price data above
     fred, fails, deadline = {}, 0, time.time() + 120
     log("FRED: " + ("official API" if FRED_KEY else "CSV link (add a FRED_API_KEY secret for reliability)"))
