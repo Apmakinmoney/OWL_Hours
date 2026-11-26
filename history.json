@@ -1339,14 +1339,20 @@
   "m": {
    "FIN": 2,
    "REIT": 2,
+   "DISC": 2,
+   "TECH": -2,
+   "CYB": -1,
    "SEMI": -2,
    "COMM": 2,
    "IND": 2,
    "MAT": 2,
+   "ENGY": 0,
+   "GOLD": 1,
+   "STPL": 2,
    "HLTH": 2,
    "UTIL": 2
   },
-  "angle": 348.8,
-  "clarity": 0.117
+  "angle": 271.0,
+  "clarity": 0.17
  }
 ]

@@ -11,8 +11,8 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 3. What doesn't fit:
 
 ## Macro signals
-- Bitcoin ($): 60,354.00 (falling)
-- Ether ($): 1,696.84 (falling)
+- Bitcoin ($): 60,466.00 (falling)
+- Ether ($): 1,699.78 (falling)
 - XRP ($): 0.95 (flat)
 - Gold (GLD direction): n/a (falling)
 - Silver (SLV direction): n/a (falling)
@@ -20,10 +20,16 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 ## Suggested sector momentum (relative to the S&P 500 ETF over 5 days)
 - Financials (XLF): rising (+2.01 pts)
 - Real estate (XLRE): rising (+2.40 pts)
+- Consumer discretionary (XLY): flat (+0.41 pts)
+- Tech and software (XLK): falling hard (-3.05 pts)
+- Cybersecurity (CIBR): flat (+0.57 pts)
 - Semiconductors (SMH): falling hard (-6.22 pts)
 - Communication services (XLC): rising (+1.66 pts)
 - Industrials (XLI): flat (+0.81 pts)
 - Materials (XLB): rising hard (+3.34 pts)
+- Energy (XLE): rising (+1.21 pts)
+- Gold miners (GDX): flat (+0.61 pts)
+- Consumer staples (XLP): rising hard (+3.08 pts)
 - Healthcare (XLV): rising hard (+3.23 pts)
 - Utilities (XLU): rising (+1.99 pts)
 
@@ -34,12 +40,6 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 - IWM: close 268.87, 50-day 277.16, 200-day 279.59, support n/a / n/a, resistance 270.06 / 275.45
 
 ## Data warnings
-- Twelve Data XLY: HTTP Error 429: Too Many Requests
-- Twelve Data XLK: HTTP Error 429: Too Many Requests
-- Twelve Data CIBR: HTTP Error 429: Too Many Requests
-- Twelve Data XLE: HTTP Error 429: Too Many Requests
-- Twelve Data GDX: HTTP Error 429: Too Many Requests
-- Twelve Data XLP: HTTP Error 429: Too Many Requests
 - FRED DGS10: The read operation timed out
 - FRED DGS2: The read operation timed out
 - FRED T10Y2Y: skipped (FRED was not answering)

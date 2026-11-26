@@ -1,19 +1,19 @@
 {
-  "asOf": "2026-11-26T18:58:50+00:00",
+  "asOf": "2026-11-26T19:05:47+00:00",
   "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
   "macro": {
     "btc": {
-      "level": 60354,
+      "level": 60466,
       "dir": -1,
       "source": "CoinGecko"
     },
     "eth": {
-      "level": 1696.84,
+      "level": 1699.78,
       "dir": -1,
       "source": "CoinGecko"
     },
     "xrp": {
-      "level": 0.952637,
+      "level": 0.953092,
       "dir": 0,
       "source": "CoinGecko"
     },
@@ -91,6 +91,30 @@
       "rel20": 11.31,
       "blend": 2
     },
+    "DISC": {
+      "proxy": "XLY",
+      "relReturnPct": 0.41,
+      "suggested": 0,
+      "rel1": 0.09,
+      "rel20": 9.07,
+      "blend": 2
+    },
+    "TECH": {
+      "proxy": "XLK",
+      "relReturnPct": -3.05,
+      "suggested": -2,
+      "rel1": -0.54,
+      "rel20": -11.23,
+      "blend": -2
+    },
+    "CYB": {
+      "proxy": "CIBR",
+      "relReturnPct": 0.57,
+      "suggested": 0,
+      "rel1": 0.79,
+      "rel20": -4.93,
+      "blend": -1
+    },
     "SEMI": {
       "proxy": "SMH",
       "relReturnPct": -6.22,
@@ -121,6 +145,30 @@
       "suggested": 2,
       "rel1": 2.36,
       "rel20": 5.95,
+      "blend": 2
+    },
+    "ENGY": {
+      "proxy": "XLE",
+      "relReturnPct": 1.21,
+      "suggested": 1,
+      "rel1": 1.03,
+      "rel20": -3.83,
+      "blend": 0
+    },
+    "GOLD": {
+      "proxy": "GDX",
+      "relReturnPct": 0.61,
+      "suggested": 0,
+      "rel1": 3.82,
+      "rel20": -4.78,
+      "blend": 1
+    },
+    "STPL": {
+      "proxy": "XLP",
+      "relReturnPct": 3.08,
+      "suggested": 2,
+      "rel1": 0.75,
+      "rel20": 13.49,
       "blend": 2
     },
     "HLTH": {
@@ -156,28 +204,22 @@
   },
   "crypto": {
     "btc": {
-      "level": 60354,
+      "level": 60466,
       "dir": -1,
-      "chg7dPct": -3.65
+      "chg7dPct": -3.59
     },
     "eth": {
-      "level": 1696.84,
+      "level": 1699.78,
       "dir": -1,
-      "chg7dPct": -4.32
+      "chg7dPct": -3.99
     },
     "xrp": {
-      "level": 0.952637,
+      "level": 0.953092,
       "dir": 0,
-      "chg7dPct": -1.89
+      "chg7dPct": -1.56
     }
   },
   "warnings": [
-    "Twelve Data XLY: HTTP Error 429: Too Many Requests",
-    "Twelve Data XLK: HTTP Error 429: Too Many Requests",
-    "Twelve Data CIBR: HTTP Error 429: Too Many Requests",
-    "Twelve Data XLE: HTTP Error 429: Too Many Requests",
-    "Twelve Data GDX: HTTP Error 429: Too Many Requests",
-    "Twelve Data XLP: HTTP Error 429: Too Many Requests",
     "FRED DGS10: The read operation timed out",
     "FRED DGS2: The read operation timed out",
     "FRED T10Y2Y: skipped (FRED was not answering)",
