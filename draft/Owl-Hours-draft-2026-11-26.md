@@ -11,8 +11,8 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 3. What doesn't fit:
 
 ## Macro signals
-- Bitcoin ($): 60,466.00 (falling)
-- Ether ($): 1,692.43 (falling)
+- Bitcoin ($): 60,560.00 (falling)
+- Ether ($): 1,698.08 (falling)
 - XRP ($): 0.95 (flat)
 
 ## Suggested sector momentum (relative to the S&P 500 ETF over 5 days)
@@ -20,33 +20,16 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 ## ETF levels (suggestions to review)
 
 ## Data warnings
-- FRED DGS10: The read operation timed out
-- FRED DGS2: The read operation timed out
-- FRED T10Y2Y: The read operation timed out
-- FRED BAMLH0A0HYM2: The read operation timed out
-- FRED DCOILWTICO: The read operation timed out
-- FRED DCOILBRENTEU: The read operation timed out
-- FRED VIXCLS: The read operation timed out
 - Twelve Data SPY: HTTP Error 401: Unauthorized
 - Twelve Data QQQ: HTTP Error 401: Unauthorized
-- Twelve Data DIA: HTTP Error 401: Unauthorized
-- Twelve Data IWM: HTTP Error 401: Unauthorized
-- Twelve Data XLF: HTTP Error 401: Unauthorized
-- Twelve Data XLRE: HTTP Error 401: Unauthorized
-- Twelve Data XLY: HTTP Error 401: Unauthorized
-- Twelve Data XLK: HTTP Error 401: Unauthorized
-- Twelve Data CIBR: HTTP Error 401: Unauthorized
-- Twelve Data SMH: HTTP Error 401: Unauthorized
-- Twelve Data XLC: HTTP Error 401: Unauthorized
-- Twelve Data XLI: HTTP Error 401: Unauthorized
-- Twelve Data XLB: HTTP Error 401: Unauthorized
-- Twelve Data XLE: HTTP Error 401: Unauthorized
-- Twelve Data GDX: HTTP Error 401: Unauthorized
-- Twelve Data XLP: HTTP Error 401: Unauthorized
-- Twelve Data XLV: HTTP Error 401: Unauthorized
-- Twelve Data XLU: HTTP Error 401: Unauthorized
-- Twelve Data GLD: HTTP Error 401: Unauthorized
-- Twelve Data SLV: HTTP Error 401: Unauthorized
+- Twelve Data rejected the key twice in a row, so the rest were skipped. Re-save the TWELVEDATA_API_KEY secret.
+- FRED DGS10: The read operation timed out
+- FRED DGS2: The read operation timed out
+- FRED T10Y2Y: skipped (FRED was not answering)
+- FRED BAMLH0A0HYM2: skipped (FRED was not answering)
+- FRED DCOILWTICO: skipped (FRED was not answering)
+- FRED DCOILBRENTEU: skipped (FRED was not answering)
+- FRED VIXCLS: skipped (FRED was not answering)
 
 ## Before publishing
 - Which sector calls do I disagree with, and why?

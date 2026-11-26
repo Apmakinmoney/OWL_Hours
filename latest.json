@@ -1,19 +1,19 @@
 {
-  "asOf": "2026-11-26T17:51:20+00:00",
+  "asOf": "2026-11-26T18:44:33+00:00",
   "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
   "macro": {
     "btc": {
-      "level": 60466,
+      "level": 60560,
       "dir": -1,
       "source": "CoinGecko"
     },
     "eth": {
-      "level": 1692.43,
+      "level": 1698.08,
       "dir": -1,
       "source": "CoinGecko"
     },
     "xrp": {
-      "level": 0.949641,
+      "level": 0.952835,
       "dir": 0,
       "source": "CoinGecko"
     }
@@ -23,48 +23,31 @@
   "metals": {},
   "crypto": {
     "btc": {
-      "level": 60466,
+      "level": 60560,
       "dir": -1,
-      "chg7dPct": -4.08
+      "chg7dPct": -3.65
     },
     "eth": {
-      "level": 1692.43,
+      "level": 1698.08,
       "dir": -1,
-      "chg7dPct": -5.0
+      "chg7dPct": -4.32
     },
     "xrp": {
-      "level": 0.949641,
+      "level": 0.952835,
       "dir": 0,
-      "chg7dPct": -1.99
+      "chg7dPct": -1.89
     }
   },
   "warnings": [
-    "FRED DGS10: The read operation timed out",
-    "FRED DGS2: The read operation timed out",
-    "FRED T10Y2Y: The read operation timed out",
-    "FRED BAMLH0A0HYM2: The read operation timed out",
-    "FRED DCOILWTICO: The read operation timed out",
-    "FRED DCOILBRENTEU: The read operation timed out",
-    "FRED VIXCLS: The read operation timed out",
     "Twelve Data SPY: HTTP Error 401: Unauthorized",
     "Twelve Data QQQ: HTTP Error 401: Unauthorized",
-    "Twelve Data DIA: HTTP Error 401: Unauthorized",
-    "Twelve Data IWM: HTTP Error 401: Unauthorized",
-    "Twelve Data XLF: HTTP Error 401: Unauthorized",
-    "Twelve Data XLRE: HTTP Error 401: Unauthorized",
-    "Twelve Data XLY: HTTP Error 401: Unauthorized",
-    "Twelve Data XLK: HTTP Error 401: Unauthorized",
-    "Twelve Data CIBR: HTTP Error 401: Unauthorized",
-    "Twelve Data SMH: HTTP Error 401: Unauthorized",
-    "Twelve Data XLC: HTTP Error 401: Unauthorized",
-    "Twelve Data XLI: HTTP Error 401: Unauthorized",
-    "Twelve Data XLB: HTTP Error 401: Unauthorized",
-    "Twelve Data XLE: HTTP Error 401: Unauthorized",
-    "Twelve Data GDX: HTTP Error 401: Unauthorized",
-    "Twelve Data XLP: HTTP Error 401: Unauthorized",
-    "Twelve Data XLV: HTTP Error 401: Unauthorized",
-    "Twelve Data XLU: HTTP Error 401: Unauthorized",
-    "Twelve Data GLD: HTTP Error 401: Unauthorized",
-    "Twelve Data SLV: HTTP Error 401: Unauthorized"
+    "Twelve Data rejected the key twice in a row, so the rest were skipped. Re-save the TWELVEDATA_API_KEY secret.",
+    "FRED DGS10: The read operation timed out",
+    "FRED DGS2: The read operation timed out",
+    "FRED T10Y2Y: skipped (FRED was not answering)",
+    "FRED BAMLH0A0HYM2: skipped (FRED was not answering)",
+    "FRED DCOILWTICO: skipped (FRED was not answering)",
+    "FRED DCOILBRENTEU: skipped (FRED was not answering)",
+    "FRED VIXCLS: skipped (FRED was not answering)"
   ]
 }
