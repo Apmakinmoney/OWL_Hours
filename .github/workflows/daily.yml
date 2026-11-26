@@ -1,0 +1,29 @@
+name: Daily data and draft
+
+on:
+  schedule:
+    # 22:15 UTC, Monday to Friday: after the US close in both summer and winter time.
+    - cron: "15 22 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install reportlab
+      - name: Pull data and compute suggestions
+        run: python daily_job.py
+        env:
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      - name: Build the draft files
+        run: python build_draft.py
+      - name: Save results
+        run: bash .github/push.sh "Daily data and draft" latest.json history.json snapshots draft
