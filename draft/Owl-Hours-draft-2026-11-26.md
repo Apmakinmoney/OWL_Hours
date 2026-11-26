@@ -11,11 +11,18 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 3. What doesn't fit:
 
 ## Macro signals
-- Bitcoin ($): 60,466.00 (falling)
-- Ether ($): 1,699.78 (falling)
+- Bitcoin ($): 60,666.00 (falling)
+- Ether ($): 1,703.68 (falling)
 - XRP ($): 0.95 (flat)
 - Gold (GLD direction): n/a (falling)
 - Silver (SLV direction): n/a (falling)
+- 10-year Treasury yield (%): 4.91 (falling)
+- 2-year Treasury yield (%): 4.63 (falling)
+- Yield curve, 10y minus 2y (pts): 0.24 (falling)
+- High-yield credit spread (%): 3.72 (rising)
+- Oil, WTI ($): 82.24 (falling)
+- Oil, Brent ($): 91.80 (falling)
+- VIX: 26.36 (rising)
 
 ## Suggested sector momentum (relative to the S&P 500 ETF over 5 days)
 - Financials (XLF): rising (+2.01 pts)
@@ -38,15 +45,6 @@ _Auto-generated from public data. Write the headline and the read yourself, chec
 - QQQ: close 633.93, 50-day 707.05, 200-day 683.50, support n/a / n/a, resistance 647.05 / 661.14
 - DIA: close 501.27, 50-day 515.25, 200-day 507.60, support 500.10 / n/a, resistance 506.99 / 514.60
 - IWM: close 268.87, 50-day 277.16, 200-day 279.59, support n/a / n/a, resistance 270.06 / 275.45
-
-## Data warnings
-- FRED DGS10: The read operation timed out
-- FRED DGS2: The read operation timed out
-- FRED T10Y2Y: skipped (FRED was not answering)
-- FRED BAMLH0A0HYM2: skipped (FRED was not answering)
-- FRED DCOILWTICO: skipped (FRED was not answering)
-- FRED DCOILBRENTEU: skipped (FRED was not answering)
-- FRED VIXCLS: skipped (FRED was not answering)
 
 ## Before publishing
 - Which sector calls do I disagree with, and why?

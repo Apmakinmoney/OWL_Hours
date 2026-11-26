@@ -1,19 +1,19 @@
 {
-  "asOf": "2026-11-26T19:05:47+00:00",
+  "asOf": "2026-11-26T19:59:49+00:00",
   "note": "Auto-generated suggestions. The author reviews and approves everything before publishing.",
   "macro": {
     "btc": {
-      "level": 60466,
+      "level": 60666,
       "dir": -1,
       "source": "CoinGecko"
     },
     "eth": {
-      "level": 1699.78,
+      "level": 1703.68,
       "dir": -1,
       "source": "CoinGecko"
     },
     "xrp": {
-      "level": 0.953092,
+      "level": 0.952488,
       "dir": 0,
       "source": "CoinGecko"
     },
@@ -26,6 +26,48 @@
       "level": null,
       "dir": -1,
       "source": "SLV 5-day direction"
+    },
+    "y10": {
+      "level": 4.91,
+      "date": "2026-11-24",
+      "dir": -1,
+      "source": "FRED DGS10"
+    },
+    "y2": {
+      "level": 4.63,
+      "date": "2026-11-24",
+      "dir": -1,
+      "source": "FRED DGS2"
+    },
+    "curve": {
+      "level": 0.24,
+      "date": "2026-11-25",
+      "dir": -1,
+      "source": "FRED T10Y2Y"
+    },
+    "hy": {
+      "level": 3.72,
+      "date": "2026-11-24",
+      "dir": 1,
+      "source": "FRED BAMLH0A0HYM2"
+    },
+    "oil": {
+      "level": 82.24,
+      "date": "2026-11-24",
+      "dir": -1,
+      "source": "FRED DCOILWTICO"
+    },
+    "brent": {
+      "level": 91.8,
+      "date": "2026-11-24",
+      "dir": -1,
+      "source": "FRED DCOILBRENTEU"
+    },
+    "vix": {
+      "level": 26.36,
+      "date": "2026-11-24",
+      "dir": 1,
+      "source": "FRED VIXCLS"
     }
   },
   "etf": {
@@ -204,28 +246,20 @@
   },
   "crypto": {
     "btc": {
-      "level": 60466,
+      "level": 60666,
       "dir": -1,
       "chg7dPct": -3.59
     },
     "eth": {
-      "level": 1699.78,
+      "level": 1703.68,
       "dir": -1,
       "chg7dPct": -3.99
     },
     "xrp": {
-      "level": 0.953092,
+      "level": 0.952488,
       "dir": 0,
       "chg7dPct": -1.56
     }
   },
-  "warnings": [
-    "FRED DGS10: The read operation timed out",
-    "FRED DGS2: The read operation timed out",
-    "FRED T10Y2Y: skipped (FRED was not answering)",
-    "FRED BAMLH0A0HYM2: skipped (FRED was not answering)",
-    "FRED DCOILWTICO: skipped (FRED was not answering)",
-    "FRED DCOILBRENTEU: skipped (FRED was not answering)",
-    "FRED VIXCLS: skipped (FRED was not answering)"
-  ]
+  "warnings": []
 }
