@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-27T19:14:36+00:00",
+ "asOf": "2026-11-27T20:12:22+00:00",
  "detailDate": "2026-11-27",
  "featured": [
   "NVDA",
@@ -2377,22 +2377,22 @@
    ],
    "news": [
     {
-     "title": "Stock Market Midday, Nov. 27: Tech Stocks Recover and Amazon Posts Black Friday Gains",
+     "title": "Amazon\u2019s AWS Profit Rose 55%. Can It Absorb a $220 Billion Capex Bill?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=54c1cab48fe1922ec9576bf605c27235e9d5eb2402335d5232b4d38fd477d885",
-     "t": "2026-11-27T17:31+00:00"
+     "url": "https://finnhub.io/api/news?id=67220fba4fdf78ca107db2fd963b605d7d1d72851bf5de1d0ac28c5cfa22c77e",
+     "t": "2026-11-27T19:18+00:00"
     },
     {
-     "title": "Does Amazon's Profit Hang On One Business?",
+     "title": "Amazon Stocks Climb 2.96% as Thanksgiving Online Spending Hits $7.1 Billion",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=bd6a2f26de157f0e99ca6f483a33d9172b9ae4cd8bfc5bc3fac1b2e4e3e8597d",
-     "t": "2026-11-27T17:31+00:00"
+     "url": "https://finnhub.io/api/news?id=874e6051410d724886c815fd1c0fdb6b4cbe8bbb5d334d4bed15e7d0e222b358",
+     "t": "2026-11-27T19:09+00:00"
     },
     {
-     "title": "Amazon.com (AMZN) Is Negotiating Muse AI Access To Its Shopping Platform",
+     "title": "Jeff Bezos makes a $200 million move involving Amazon stock",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=46975ac3facf2352ffc5146b4cd8b4741c9e27285462d633133042d72b0c039b",
-     "t": "2026-11-27T16:12+00:00"
+     "url": "https://finnhub.io/api/news?id=bd39d2b1f9ee4be651d573db133622aa8410e006a3c5db91bbeb715b75da08b5",
+     "t": "2026-11-27T19:03+00:00"
     }
    ]
   },
@@ -3741,6 +3741,12 @@
    ],
    "news": [
     {
+     "title": "AMD Stocks Rise Despite Erste Group Downgrade on Valuation",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=098ee2c774d0732b0376ef4eca591c1e8716eb3a65f85b006d31879eb25ce692",
+     "t": "2026-11-27T19:18+00:00"
+    },
+    {
      "title": "Dual AI Growth Catalysts Position Advanced Micro Devices (AMD) for Revenue Acceleration",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=932f666baded5992c9e98478621fe9d26efbfcefb1ce1a5a57f18c5161532a85",
@@ -3751,12 +3757,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=316c0b78816efbd995197d8176953e20ca3dc099fc465421f8c048f2c048972f",
      "t": "2026-11-27T16:46+00:00"
-    },
-    {
-     "title": "Here\u2019s Why I\u2019d Still Buy Nvidia Over AMD With or Without Jensen Huang at CEO.",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=0dd9d02acc0d1d3213998dace302c4006afed9eb6d9a4dfabf6ff11c3f2e2971",
-     "t": "2026-11-27T16:05+00:00"
     }
    ]
   },
@@ -7157,16 +7157,16 @@
      "t": "2026-11-27T13:35+00:00"
     },
     {
+     "title": "Costco Wholesale Corporation Stock: Is COST Outperforming the Consumer Staples Sector?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=2521af4c80465866fd57bac2e51ceef96914ca419c7baec1cb3b6e394c8f7ac8",
+     "t": "2026-11-27T12:34+00:00"
+    },
+    {
      "title": "Costco: A Sector Rotation Is At Play, But Upside Remains Limited",
      "source": "SeekingAlpha",
      "url": "https://finnhub.io/api/news?id=acf297941de9bdd30dcacaf627e3a6a8ce15ec2242519bda2c5473185034b478",
      "t": "2026-11-27T11:29+00:00"
-    },
-    {
-     "title": "ETFs Bought $98.7 Million of Costco (COST) on Wednesday",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=eccef452538a1173a165570b80802140d50b0260612c3b0ddba58008057b1305",
-     "t": "2026-11-27T11:01+00:00"
     }
    ]
   },
@@ -8173,22 +8173,22 @@
    ],
    "news": [
     {
+     "title": "Caterpillar is quietly making plans for a bigger 2027",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=f176bfb1e3fa3861cfb8d5c80be74d6bb0c337a4a099eabd34c8c95c6bbc9549",
+     "t": "2026-11-27T19:47+00:00"
+    },
+    {
+     "title": "Caterpillar (CAT) Stock May Be 44% Below Fair Value Despite AI Sell Off",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=9433d566b50bc47bd123b072d2a21a70f4b0ad475d340c279d98a7dad4506c6d",
+     "t": "2026-11-27T18:10+00:00"
+    },
+    {
      "title": "How Record Backlog Will Impact Caterpillar Stock Investors",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=26ccac3f82aea897e0937f474da6c20802495002efa6f87cc46cb4924f2233f1",
      "t": "2026-11-27T17:11+00:00"
-    },
-    {
-     "title": "Here is What to Know Beyond Why Caterpillar Inc. (CAT) is a Trending Stock",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6c2bc6b9c1b07a7058ec5bf1aaa1abd1e75d48acbd4e0e70fdb14f6dd638ae73",
-     "t": "2026-11-27T13:00+00:00"
-    },
-    {
-     "title": "How Bad Would A Data Center Slowdown Be For Caterpillar Stock?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b455e84e1c9dacc0b9bf8d815675acfb6c7a7eb69ff7c35e8577c025fe0852ee",
-     "t": "2026-11-27T12:32+00:00"
     }
    ]
   },
@@ -9878,6 +9878,12 @@
    ],
    "news": [
     {
+     "title": "Coinbase CEO issues bullish Bitcoin prediction as inflation fears grow",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=675f4eaee78c0f1691ae76de333aa65a84b38974e8356593a8cbba49d2498579",
+     "t": "2026-11-27T18:14+00:00"
+    },
+    {
      "title": "Coinbase Global vs. Upstart: Which Financial Stock Is a Better Buy for 2027?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=6a7c681898304c16a8a8e14f3261b982c80aec2812805ab43de1a8f7c16106d7",
@@ -9888,12 +9894,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=44666a6f778d56642a82ade09871d9523580dd6efcd01d2d2330f25b71142aeb",
      "t": "2026-11-27T16:00+00:00"
-    },
-    {
-     "title": "Coinbase CEO Says Bitcoin Investors Would Return After IPO Frenzy Fades",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=eeaab9edde8ce3f90eb270c49834a08e5c7b621ea6377e3550f3fc213ad27789",
-     "t": "2026-11-27T15:57+00:00"
     }
    ]
   },
@@ -11581,6 +11581,12 @@
  ],
  "mergers": [
   {
+   "title": "Verizon in talks to buy Fidium in $6B deal \u2014 FT",
+   "source": "SeekingAlpha",
+   "url": "https://seekingalpha.com/news/4677076-verizon-in-talks-to-buy-fidium-in-6b-deal-ft?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+   "t": "2026-11-27T17:55+00:00"
+  },
+  {
    "title": "Advantage Energy holder to vote against sale to Canadian Natural Resources",
    "source": "SeekingAlpha",
    "url": "https://seekingalpha.com/news/4677073-advantage-energy-holder-to-vote-against-sale-to-canadian-natural-resources?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
@@ -11633,12 +11639,6 @@
    "source": "SeekingAlpha",
    "url": "https://seekingalpha.com/news/4676581-expedia-group-to-acquire-kiwi-com?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
    "t": "2026-11-25T14:29+00:00"
-  },
-  {
-   "title": "SpaceX, Tesla appoint five directors to negotiate on possible deal - FT",
-   "source": "SeekingAlpha",
-   "url": "https://seekingalpha.com/news/4676337-spacex-tesla-appoint-five-directors-to-negotiate-on-possible-deal---ft?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-   "t": "2026-11-24T20:27+00:00"
   }
  ],
  "warnings": []
