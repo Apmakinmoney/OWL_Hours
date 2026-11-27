@@ -59,6 +59,19 @@ def td_history(sym, opener, sleep):
     return [[v["datetime"][:10], round(float(v["close"]), 2)] for v in reversed(d["values"])]
 
 
+ALIASES = {"GOOGL": ["google", "youtube", "waymo"], "META": ["facebook", "instagram", "whatsapp", "zuckerberg"],
+           "SPCX": ["spacex", "starlink", "starship", "xai"], "TSLA": ["tesla", "robotaxi", "cybertruck"],
+           "LLY": ["lilly", "zepbound", "mounjaro", "orforglipron"], "NVDA": ["nvidia", "blackwell"], "MSFT": ["microsoft", "azure", "copilot"],
+           "AAPL": ["apple", "iphone"], "AMZN": ["amazon", "aws"], "BRK.B": ["berkshire", "buffett"], "XOM": ["exxon"],
+           "MCD": ["mcdonald"], "JPM": ["jpmorgan", "jp morgan", "dimon"], "GS": ["goldman"], "UNH": ["unitedhealth", "optum"],
+           "KO": ["coca-cola", "coke"], "COIN": ["coinbase"], "NEM": ["newmont"], "AVGO": ["broadcom"], "PLTR": ["palantir"]}
+
+
+def keywords(sym, name):
+    base = [w.lower().strip(".,'") for w in name.replace("'s", "").split() if len(w) >= 4]
+    return list(dict.fromkeys([sym.lower() + " ", "(" + sym.lower() + ")", "$" + sym.lower()] + base + ALIASES.get(sym, [])))
+
+
 def daily_detail(sym, opener, sleep):
     out = {}
     m = (fh(f"stock/metric?symbol={sym}&metric=all", opener, sleep) or {}).get("metric", {}) or {}
@@ -97,18 +110,20 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, now=None):
         prev = oldU.get(sym, {})
         row = {k: v for k, v in prev.items() if k not in ("news",)}
         row.update(sym=sym, name=names.get(sym, sym), sector=secs.get(sym), kind="etf" if sym in etfs else "stock")
-        if daily and sym in companies:
+        if sym in companies and (daily or prev.get("mcap") is None):
             try: row.update(daily_detail(sym, opener, sleep))
             except Exception as e: warnings.append(f"{sym} detail: {e}")
-        if daily and TD:
+        if TD and (daily or not prev.get("h")):
             try: row["h"] = td_history(sym, opener, sleep)
             except Exception as e: warnings.append(f"{sym} chart: {e}")
         if sym in companies:
             try:
                 news = fh(f"company-news?symbol={sym}&from={frm}&to={to}", opener, sleep) or []
                 seen, keep = set(), []
+                kws = keywords(sym, names.get(sym, sym))
                 for h in (headline(n) for n in sorted(news, key=lambda n: -n.get("datetime", 0))):
                     if not h: continue
+                    if not any(k in h["title"].lower() for k in kws): continue
                     k = h["title"].lower()[:60]
                     if k in seen: continue
                     seen.add(k); keep.append(h)
