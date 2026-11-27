@@ -1,10 +1,844 @@
 {
- "asOf": "2026-11-27T17:22:43+00:00",
+ "asOf": "2026-11-27T18:13:41+00:00",
  "detailDate": "2026-11-27",
- "featured": [],
- "customerDefault": [],
- "universe": [],
+ "featured": [
+  "NVDA",
+  "SPCX",
+  "TSLA",
+  "LLY",
+  "MSFT"
+ ],
+ "customerDefault": [
+  "SPY",
+  "QQQ",
+  "VIX",
+  "UUP",
+  "GLD",
+  "SLV",
+  "AAPL",
+  "MSFT",
+  "AMZN",
+  "NVDA"
+ ],
+ "universe": [
+  {
+   "sym": "NVDA",
+   "name": "NVIDIA",
+   "sector": "SEMI",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Jensen Huang Said Nvidia\u2019s Blackwell Chips Were Too Big to Smuggle. Bloomberg Just Found Them in China.",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=4669238e816f612b1aacf906fd70e91e75887c9b69683e5d2214ee957eeb6dca",
+     "t": "2026-11-27T15:50+00:00"
+    },
+    {
+     "title": "Trump Is Heading to Arizona to Break Ground on TSMC\u2019s Newest Chip Plant",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=8db6e9b01db8817051b91eba57b1215fdb2ba12475adde1981b1aba4cff54dbd",
+     "t": "2026-11-27T15:48+00:00"
+    },
+    {
+     "title": "Is Walmart Stock Priced Like 1999 Again?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=092383f556f3411e880d17b1e723e4530ec155faaea31473e4d120e69f47efc0",
+     "t": "2026-11-27T15:42+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "SPCX",
+   "name": "SpaceX",
+   "sector": "IND",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Charles River Laboratories International (CRL) Positioned to Benefit as AI Accelerates Drug Discovery Pipelines",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6496d93d186fca77f7f7b8b76090191e8620f8f419da4c4f2060d3cf5f7a0c92",
+     "t": "2026-11-27T15:26+00:00"
+    },
+    {
+     "title": "Anthropic vs. SpaceX: Which Is the Better Giant IPO Buy?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=94db069098a12e5b04fcb2404684a6917840ee2579d14311741e695c1b486579",
+     "t": "2026-11-27T15:25+00:00"
+    },
+    {
+     "title": "Stocks snap from a $6 trillion washout to a $3 trillion surge as Nvidia, Micron, and SpaceX bounce back",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b289b06743e04f1d728d84a10ccdbd0bc51991f75c73f198db98ae5a914e2268",
+     "t": "2026-11-27T15:12+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "TSLA",
+   "name": "Tesla",
+   "sector": "DISC",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Stock Market Today: Dow Futures Jump 650 Points As Nvidia Rebounds; Anthropic, SpaceX, Tesla Rally (Live Coverage)",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=e206df7544718b056a5e99d8e050d010dfc2d88868d799a6dfbd9243c514c74b",
+     "t": "2026-11-27T15:31+00:00"
+    },
+    {
+     "title": "XPENG Maps Out 2027 Robotaxi Launch and Mass Production of IRON Humanoid Robot",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=dfec6a72fda3a1b4da62d7550839b4fbd1e5a8b57f61e10610668001ccfdcc25",
+     "t": "2026-11-27T15:12+00:00"
+    },
+    {
+     "title": "Nvidia halts sales to SE Asia, SpaceX surges on Musk's share promise",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=43da0964029d77102411084c83e5f6c9fbe131452284e7dc7f80f74b2ccbe2c5",
+     "t": "2026-11-27T15:10+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "LLY",
+   "name": "Eli Lilly",
+   "sector": "HLTH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Mental Health Clinical Trials - Global Strategic Business Report 2026: Capitalize on the $5.2 Billion Market with IQVIA, ICON, Eli Lilly, and COMPASS Pathways",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b9ee6dba4e0a6604c36d379115e3b9f53415922a447ef5ae0d65f7ad32333fa1",
+     "t": "2026-11-27T14:42+00:00"
+    },
+    {
+     "title": "Prediction: Eli Lilly\u2019s $92 Billion Revenue Outlook Could Be Just the Beginning",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=01de780c7f5d57531e6c17622092814bbfabc311f0ced4f80b3d210d147a7823",
+     "t": "2026-11-27T13:03+00:00"
+    },
+    {
+     "title": "Is Most-Watched Stock Eli Lilly and Company (LLY) Worth Betting on Now?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b69ec5ee1d167f3fdeab184686c4b62fa66cfd474346e7c6ceefd5b9abba17a5",
+     "t": "2026-11-27T13:00+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "MSFT",
+   "name": "Microsoft",
+   "sector": "TECH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Anthropic Just Hit an $81 Billion Run Rate\u2014Why Wall Street\u2019s Post-IPO Jitters Are a Gift",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=8bc3485ead99f56f5aeb92454c330b9b1e251167d229e12f3b53dd142c6ebaa5",
+     "t": "2026-11-27T15:45+00:00"
+    },
+    {
+     "title": "SoFi\u2019s 500-Stock ETF Doesn\u2019t Weight Strictly by Size. SFY Tilts America\u2019s Biggest Companies Toward Growth",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b057dae842804fff90c7166b0a3dd9b6f991d2b4f3c67bd7df2621ef22b2390b",
+     "t": "2026-11-27T15:32+00:00"
+    },
+    {
+     "title": "What you should expect from the November jobs report",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=9563f0a0ec466c9b3d6139df740e8057fa33b072e3dc7a4f716bc3ba5ed3cd4a",
+     "t": "2026-11-27T14:39+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple",
+   "sector": "TECH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "New $799 smart glasses challenge Apple, but with a major catch",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=df3420d27b98f5d43714b8aae10b4aad058833a88850c06784ee14ab7c50ec45",
+     "t": "2026-11-27T17:17+00:00"
+    },
+    {
+     "title": "Qualcomm Is Betting Big on a $5 Billion Opportunity. Here\u2019s What It Could Mean for the Stock",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=23dd762e1192b8cae4f0eb2d778ea6622816b9920d368cfc3f7dc4fcbba65ce0",
+     "t": "2026-11-27T16:33+00:00"
+    },
+    {
+     "title": "Is Walmart Stock Priced Like 1999 Again?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=092383f556f3411e880d17b1e723e4530ec155faaea31473e4d120e69f47efc0",
+     "t": "2026-11-27T15:42+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "AMZN",
+   "name": "Amazon",
+   "sector": "DISC",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Oracle Has Frustrated Me, but Even With Zero AI Revenue the Stock Is Worth $133\u2014So I\u2019m Buying at $104",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=3f399fcf14a2962c86a6bd2df47d240a7e43b501d9610241b203ea886a39f926",
+     "t": "2026-11-27T17:45+00:00"
+    },
+    {
+     "title": "Sector Update: Energy Stocks Rise Friday Afternoon",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b59c85cc0dd16b1c9893d1569ad901efb3ce27956eeec186986fc2cfd657c58d",
+     "t": "2026-11-27T17:44+00:00"
+    },
+    {
+     "title": "Stock Market Midday, Nov. 27: Tech Stocks Recover and Amazon Posts Black Friday Gains",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=54c1cab48fe1922ec9576bf605c27235e9d5eb2402335d5232b4d38fd477d885",
+     "t": "2026-11-27T17:31+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "GOOGL",
+   "name": "Alphabet",
+   "sector": "COMM",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Anthropic Just Hit an $81 Billion Run Rate\u2014Why Wall Street\u2019s Post-IPO Jitters Are a Gift",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=8bc3485ead99f56f5aeb92454c330b9b1e251167d229e12f3b53dd142c6ebaa5",
+     "t": "2026-11-27T15:45+00:00"
+    },
+    {
+     "title": "Is Alphabet No Longer Telling You Something?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=ed629f3d2d83d5e6208389cd12d8bfe3763133bb768da46e83574b2cbc6448b0",
+     "t": "2026-11-27T15:36+00:00"
+    },
+    {
+     "title": "The Nuclear Stock AI Investors Loved Is Down 33% This Year. Is Constellation Energy a Buy Now?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=a20f0686aa2ae7c9328e0a948abc5dce5cd463affd93ef02e7f8b9471a779479",
+     "t": "2026-11-27T15:28+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "META",
+   "name": "Meta",
+   "sector": "COMM",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Anthropic Stock Jumps to Reveal Its True Place in the AI Trade",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=48f1860bf2ce95add277d431064487c3e8dd64fbefee27c68f2eea72cb800446",
+     "t": "2026-11-27T15:09+00:00"
+    },
+    {
+     "title": "Meta Disrupts AI-Driven Commerce",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=834500f279a7797fa2f6fa101fa79781f2555a53cb4ff30792325eff1b01d6a8",
+     "t": "2026-11-27T14:49+00:00"
+    },
+    {
+     "title": "Anthropic, Meta and Microsoft Join AI Data Center Talks in Japan",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=ba01b0ff64b71265f52428d8931446d3a8f7be248e469e0d459841c9e4f146d4",
+     "t": "2026-11-27T14:38+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "AVGO",
+   "name": "Broadcom",
+   "sector": "SEMI",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Skyworks (SWKS) Stock Is Up 6.5% Today Along With Chip Rally",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=c8df959a07ed1f5343283db2befe0af7dea3ba07e9069186bc9f604c0c4e09fa",
+     "t": "2026-11-27T16:45+00:00"
+    },
+    {
+     "title": "Qualcomm Is Betting Big on a $5 Billion Opportunity. Here\u2019s What It Could Mean for the Stock",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=23dd762e1192b8cae4f0eb2d778ea6622816b9920d368cfc3f7dc4fcbba65ce0",
+     "t": "2026-11-27T16:33+00:00"
+    },
+    {
+     "title": "SEALSQ (LAES) Stock Is Up 22.0% Today Without Company News",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=f2ffddf9a9f6e68b25ad688144c6a9d8c77c083e25689d781243349a6195a6b5",
+     "t": "2026-11-27T16:30+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "AMD",
+   "name": "AMD",
+   "sector": "SEMI",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Not AMD. This Is the 1 Company Nvidia Should Worry About Most.",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6f2097fac680351b4ce1c65f00d9185bf46a5849bfd117b281efa732e51b436c",
+     "t": "2026-11-27T17:35+00:00"
+    },
+    {
+     "title": "Dual AI Growth Catalysts Position Advanced Micro Devices (AMD) for Revenue Acceleration",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=932f666baded5992c9e98478621fe9d26efbfcefb1ce1a5a57f18c5161532a85",
+     "t": "2026-11-27T16:49+00:00"
+    },
+    {
+     "title": "AMD vs. ASML: As Wall Street Questions the AI Boom, Which Chip Stock Wins in 2027?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=316c0b78816efbd995197d8176953e20ca3dc099fc465421f8c048f2c048972f",
+     "t": "2026-11-27T16:46+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "PLTR",
+   "name": "Palantir",
+   "sector": "TECH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Palantir Stock Jumps. It Could Land a Major Poland Defense Deal",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=fa99471e77ffdeab40bebdc7204452ef9e64687485be2bc16a4051fdf1454abf",
+     "t": "2026-11-27T14:39+00:00"
+    },
+    {
+     "title": "Palantir\u2019s 17% Month Long Downturn: An Entry Opportunity According to This Wall Street Desk That Sees 67% Gains Ahead",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=4009b81ee5c89003ee6cae183270c2f7a9c393fb2ff040d25ac59d992e4f5435",
+     "t": "2026-11-27T13:45+00:00"
+    },
+    {
+     "title": "Palantir Nears AI Defense Deal With Poland's Defense Ministry",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b55134f66b56bf9b71d0e457e91e3272482658a40bad9d1bba90f239e1223830",
+     "t": "2026-11-27T11:32+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "ORCL",
+   "name": "Oracle",
+   "sector": "TECH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "5 Cheap Stocks that Will Explode in 2027",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=094668dfc011fc745461a7c708463e0a56a74d6572ba1321f2971153f08472f2",
+     "t": "2026-11-27T15:13+00:00"
+    },
+    {
+     "title": "What you should expect from the November jobs report",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=9563f0a0ec466c9b3d6139df740e8057fa33b072e3dc7a4f716bc3ba5ed3cd4a",
+     "t": "2026-11-27T14:39+00:00"
+    },
+    {
+     "title": "Privacy-Enhancing Computation Market to Reach $16.49 Billion by 2030 as Data Protection Demand Accelerates - Microsoft, IBM, Cisco, and Oracle Accelerate AI, FHE, and Cloud Securit",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=eb9d9066d9a3db6a399429683ce0a97745760627727005ec4f0cc60049fd28cf",
+     "t": "2026-11-27T14:36+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "CRM",
+   "name": "Salesforce",
+   "sector": "TECH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Amazon Stock Gets Black Friday Boost As Analysts Size Up Holiday Spending",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=cfd44421766e49fea92a2e8ee741ba0397dc7177dcf80826a66523cc7e6a8056",
+     "t": "2026-11-27T16:09+00:00"
+    },
+    {
+     "title": "EverCommerce (EVCM) Stock Is Up 9.1% Today Without Company News",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=5640f4b4cabd6c8e74eea43a83eec456a524562df1e2ecfb71da4827f469a97e",
+     "t": "2026-11-27T15:30+00:00"
+    },
+    {
+     "title": "Earnings Calendar and Analysis for This Week (June 8-12)",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=216d128b83f71d76e6bce40b8b46e11723d78dea2fbe2da4a9c9e36d4bf5b412",
+     "t": "2026-11-27T14:18+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "NFLX",
+   "name": "Netflix",
+   "sector": "COMM",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Is Netflix Stock Underperforming the Nasdaq?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b35d62160c600360790ef06d981e9dce48f998bcaf8337ee97b3b208041472af",
+     "t": "2026-11-27T08:51+00:00"
+    },
+    {
+     "title": "NFL games spread over different services unlikely to impact viewing: Lightshed Partner's Greenfield",
+     "source": "CNBC",
+     "url": "https://finnhub.io/api/news?id=49cb8cf709e799e8751dc6cdfdd278f707e4bfeee645ea16126872352e716f3f",
+     "t": "2026-11-27T08:42+00:00"
+    },
+    {
+     "title": "Here's What Would Prove Me Wrong About Netflix Stock",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=5ec4e519a6d12a15cd7067504bb9247e4facdc94f515506016e6d34380f8c574",
+     "t": "2026-11-26T18:01+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "JPM",
+   "name": "JPMorgan",
+   "sector": "FIN",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "JPMorgan Says Bitcoin \u2018Capitulation\u2019 Has Been Reached",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=c3ccabc6323d7889c64b69f508fba429329edf7d000565563d55c9c2afe013b7",
+     "t": "2026-11-27T15:01+00:00"
+    },
+    {
+     "title": "The Dividend Portfolio It Takes to Pay $85,000 a Year",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=133cabdd5fa1f5d6ea1954138600194577d6084fbce4ee3714bc97096a1f15af",
+     "t": "2026-11-27T14:47+00:00"
+    },
+    {
+     "title": "JPMorgan Flags Major Turning Point for AI Stocks",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=27173e75c5dbb8a189b5d70fa0412467d6fb0db4e54ccff9d2b3cbe5c8267e76",
+     "t": "2026-11-27T14:33+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "GS",
+   "name": "Goldman Sachs",
+   "sector": "FIN",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Goldman Sachs Drops Stark Take on Year-End Stock Rally",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=00cf23372120481047f38b197ced9461d2828d7af25f609ce12f6189276c7914",
+     "t": "2026-11-27T14:36+00:00"
+    },
+    {
+     "title": "SpaceX Wants AI Data Centers in Space. What Happens if They Go Bankrupt?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=503f006f0ef92a0107401134f36a3b8624c71d9d2b4cd786856ac62b5d7c789f",
+     "t": "2026-11-27T13:54+00:00"
+    },
+    {
+     "title": "Implied Volatility Surging for Goldman Sachs BDC Stock Options",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=203f471a336cf95e397d42d448d580c9b3bb55b53dec812a1e135a50b455f667",
+     "t": "2026-11-27T12:21+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "V",
+   "name": "Visa",
+   "sector": "FIN",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "10 Best Strong Buy Stocks to Buy and Hold For the Next 5 Years",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=eef881198030e52fb9f50458b101534094e5dd3c80daeedb194d970ab21e8f00",
+     "t": "2026-11-27T14:30+00:00"
+    },
+    {
+     "title": "Can Holiday Bargain Hunting Boost Visa's Cross-Border Business?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=dff47fe5de14739f6882595a6e8d8ace6fcaac0d8b34342a734e54298b3284c0",
+     "t": "2026-11-27T12:56+00:00"
+    },
+    {
+     "title": "Can American Express Deliver Mid-Teens EPS Growth in 2027?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=63df2a7832c282d7d08bc1ec549cadc3b6caad5266755fe8682a3d4fb80adbd7",
+     "t": "2026-11-27T12:54+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "BRK.B",
+   "name": "Berkshire Hathaway",
+   "sector": "FIN",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "The Oracle Of OMAH Likely Beats Berkshire Hathaway In Round 3",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=9be3ac4a57f62bb93bb6da64aa77d3ba36da392d760352b38674f0897fafbf80",
+     "t": "2026-11-27T11:27+00:00"
+    },
+    {
+     "title": "Constellation Software: A 42% Selloff In One Of The World's Greatest Serial Acquirers",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=c817d99eec3b23fca78dc4fae31f14e96d87410359b0b8c19bd78b0ac1e2221d",
+     "t": "2026-11-27T10:25+00:00"
+    },
+    {
+     "title": "Warren Buffett\u2019s Thanksgiving Message Names a Teacher Most Investors Have Never Heard Of. At 63 He Bought 300 Berkshire Shares That Would Be Worth $260 Million Today",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=695cee44a9134f254aab18158b5dbfe74d6c6f67fc4dfe8bb2d8e471300143ea",
+     "t": "2026-11-26T19:52+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "WMT",
+   "name": "Walmart",
+   "sector": "STPL",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "How AI is driving record holiday spending",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b355065936f1cfde620ef5822b44b41d03b31ac1edbf30cab6162d978c6d7b58",
+     "t": "2026-11-27T15:48+00:00"
+    },
+    {
+     "title": "Is Walmart Stock Priced Like 1999 Again?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=092383f556f3411e880d17b1e723e4530ec155faaea31473e4d120e69f47efc0",
+     "t": "2026-11-27T15:42+00:00"
+    },
+    {
+     "title": "Walmart (WMT) Could Be 15% Undervalued Following Defensive Rotation And Holiday Momentum",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6fbc180d9e370eb7d2ea667b8d067fd2aa0d6943da1ba1ca27b2918218c04d84",
+     "t": "2026-11-27T15:10+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "COST",
+   "name": "Costco",
+   "sector": "STPL",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "American Eagle Gears Up for Q3 Earnings: What Should Investors Expect?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=3e2786f446650333c510e20127d251168bf8882f2e6c6fbabbee955e90434e24",
+     "t": "2026-11-27T14:08+00:00"
+    },
+    {
+     "title": "12 Big Funds Bought Costco Wholesale Last Quarter, While 7 Sold. Who\u2019s Right?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=e983bf3282cc2e8799b9bd8b54ad23ac3a279b088e41883dea7993ad0a187017",
+     "t": "2026-11-27T13:35+00:00"
+    },
+    {
+     "title": "Dogness Showcases New AI-Powered Pet Products at CIPS 2026, Highlighting Global Market Expansion",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=308ce35db96eefcac95a9b923466f0dc1949599388a98cb4ccf469303cac5786",
+     "t": "2026-11-27T13:30+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "XOM",
+   "name": "Exxon Mobil",
+   "sector": "ENGY",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Oil Prices Remain High: Boon for BP's Energy Operations?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=735f41e8841aca1b4afc55d80b886afd1a2cac0a8e0eb1ca492531c847d3cd16",
+     "t": "2026-11-27T13:43+00:00"
+    },
+    {
+     "title": "ExxonMobil Holdings Corporation (XOM) is Attracting Investor Attention: Here is What You Should Know",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=4f9bf4e12b8485bb5efea6dfacbf7e642dd772c69cb32e9a4112b5b0358bb813",
+     "t": "2026-11-27T13:00+00:00"
+    },
+    {
+     "title": "3 Great Dividend Stocks To Own In November 2026",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=49f83afc4fc20a2b009339fa63227328468afb2db85afc6182905162ad87675e",
+     "t": "2026-11-27T11:09+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "UNH",
+   "name": "UnitedHealth",
+   "sector": "HLTH",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "UnitedHealth Keeps Raising Guidance. Here's What a $10,000 Investment Could Be Worth If the Turnaround Sticks.",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=384d789d2b747983e8e6622ff991788bad1440d74c52164973b62bf6e5ce5154",
+     "t": "2026-11-27T13:15+00:00"
+    },
+    {
+     "title": "UnitedHealth: 2 New Headaches, 1 Buying Opportunity",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=f4c61045575c50117a1215d86774c1a8d14ff6dca48116fbdd844997277bacfa",
+     "t": "2026-11-26T19:54+00:00"
+    },
+    {
+     "title": "Could CMS' Proposed Star Ratings Changes Slow ELV's MA Recovery?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=428726356a9305dca141345a877dcec0d625d7d743c532a893d355dbd193855b",
+     "t": "2026-11-26T11:06+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "CAT",
+   "name": "Caterpillar",
+   "sector": "IND",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Columbus McKinnon (CMCO) Stock Is Up 8.6% Today in Broad Market Rally",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=fa333dde37532e0b1e4b38a34299787c298560115411b627996d31982ac65c56",
+     "t": "2026-11-27T17:15+00:00"
+    },
+    {
+     "title": "How Record Backlog Will Impact Caterpillar Stock Investors",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=26ccac3f82aea897e0937f474da6c20802495002efa6f87cc46cb4924f2233f1",
+     "t": "2026-11-27T17:11+00:00"
+    },
+    {
+     "title": "Alamo Group (ALG) Stock Is Up 5.0% Today Without Company News",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=d6ea45d4c31a88aed6ed5fd58e45d8a9dc58ffb160ac145cebf1a056282a005e",
+     "t": "2026-11-27T15:45+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "BA",
+   "name": "Boeing",
+   "sector": "IND",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Archer Aviation Is Still Down 18% in a Month. Was $3 the Permanent Floor for ACHR Stock?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b3286cd1150fba9b9193d7c1116ff9dc1b8c45da6f530b5d484de1986583bb5d",
+     "t": "2026-11-27T17:57+00:00"
+    },
+    {
+     "title": "Global Hypersonic Defense Market Report 2026: Trends and Forecast to 2030 | Capitalize on 17.9% CAGR as Lockheed Martin, RTX, Northrop Grumman, and Boeing Scale AI Defense",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=3a29ff2a91c9898cea1011160b8f4949858eaf85b093e8946b82fcf68e280bdb",
+     "t": "2026-11-27T14:45+00:00"
+    },
+    {
+     "title": "Global Directed Energy Weapons Market Opportunities and Strategies to 2035 | Capitalize on $57.04 Billion Demand with Lockheed Martin, RTX, Northrop Grumman and Boeing",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=69c8d1e3eac3fc2b3c10285c3b2be9d01600f60616480bbd26233d5085c83773",
+     "t": "2026-11-27T14:30+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "DIS",
+   "name": "Disney",
+   "sector": "COMM",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Should One Cash Number Scare Walt Disney Holders?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=65a31bf4febad5d530c1136ba7d0dc4e16989c9a67ca4b3e27bf8a8d52e6a048",
+     "t": "2026-11-27T17:18+00:00"
+    },
+    {
+     "title": "Disney Is Up 10% in 2026 and Just Hit a 52-Week High: Take Profits, or Buy More?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=2aec7f2489bd2ef9965867ce55bd7785357a1df9e2fcd6b7773209788a9f4527",
+     "t": "2026-11-27T12:44+00:00"
+    },
+    {
+     "title": "Watch CNBC\u2019s full interview with FCC Chairman Brendan Carr",
+     "source": "CNBC",
+     "url": "https://finnhub.io/api/news?id=10e68aa97ded2bfe746f3b6427fbd92341d1f62240f3ad1be65e0e48990d9a9e",
+     "t": "2026-11-27T10:38+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "KO",
+   "name": "Coca-Cola",
+   "sector": "STPL",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "The Dividend Portfolio It Takes to Pay $85,000 a Year",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=133cabdd5fa1f5d6ea1954138600194577d6084fbce4ee3714bc97096a1f15af",
+     "t": "2026-11-27T14:47+00:00"
+    },
+    {
+     "title": "Coca-Cola Completes Major $2.6 Billion Africa Deal",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=2843cc69439779cab2243de0db6fbe97dae6ec250ac00ae64f26bc8c1b84d27b",
+     "t": "2026-11-27T14:27+00:00"
+    },
+    {
+     "title": "S&P 500 Investors Make Surprising Shift as Tech Stocks Sink",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=54cc95c14fbdd6d19b6a652cd28edc60ce2214802ac4b3ef20f16d3ece39c7c5",
+     "t": "2026-11-27T14:23+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "MCD",
+   "name": "McDonald's",
+   "sector": "DISC",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Can McDonald's (MCD) Command A Premium Despite Its Costly Makeover Plan?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=03619b0b7980d399fd3d29a89ce1c8465511ed4aca71846a59f1bf2c5e0a1cea",
+     "t": "2026-11-27T14:09+00:00"
+    },
+    {
+     "title": "McDonald\u2019s Joined the Dividend Kings in September, but These 4 Have Been Kings for Decades",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6084e6adc33adf99b31d2150fae5929a0435ca36fd39f17e810a4547d4d1c742",
+     "t": "2026-11-27T14:03+00:00"
+    },
+    {
+     "title": "Forget Yield Chasing. These 5 Dividend Stocks Have Raised Payouts Through Every Recession Since the 1970s",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=f0247d5ae6d10def906e28f4a771ab1984d56ff2b5923aa0773afecb9afd2f30",
+     "t": "2026-11-27T14:03+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "COIN",
+   "name": "Coinbase",
+   "sector": "FIN",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Coinbase Global vs. Upstart: Which Financial Stock Is a Better Buy for 2027?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6a7c681898304c16a8a8e14f3261b982c80aec2812805ab43de1a8f7c16106d7",
+     "t": "2026-11-27T17:18+00:00"
+    },
+    {
+     "title": "Blockaid CEO Ido Ben-Natan at Money2020 Cybercrime Becoming \u2018Extremely Quick\u2019",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=a75f94ba20646bc14ba0252fd2d68dc206d4f2e7c1bdae2becc46b5f8fdbd5d3",
+     "t": "2026-11-27T16:23+00:00"
+    },
+    {
+     "title": "Before the bell: Wall Street goes Black Friday shopping. Is Bitcoin on the list?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=44666a6f778d56642a82ade09871d9523580dd6efcd01d2d2330f25b71142aeb",
+     "t": "2026-11-27T16:00+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "NEM",
+   "name": "Newmont",
+   "sector": "GOLD",
+   "kind": "stock",
+   "news": [
+    {
+     "title": "Gold Doesn\u2019t Pay Dividends, but These 3 Gold Mining Stocks Do",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=5e675cb00495168ee64af999cde2ecf19ef7e5169c94a8976f59705fcccb19dc",
+     "t": "2026-11-27T13:47+00:00"
+    },
+    {
+     "title": "Bullish Signals Appear Across The Precious Metals Sector",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=18937a343ccd59c831df982683418b38b25c0d9716fdb9c953aebb8854dfa58d",
+     "t": "2026-11-27T11:45+00:00"
+    },
+    {
+     "title": "What To Expect From November 2026's Job Report",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=1477a1141141434681f03409dc8c281f2fa12b6af8e14d602be4a52ab29721c7",
+     "t": "2026-11-27T09:00+00:00"
+    }
+   ]
+  },
+  {
+   "sym": "SPY",
+   "name": "S&P 500 ETF",
+   "sector": null,
+   "kind": "etf"
+  },
+  {
+   "sym": "QQQ",
+   "name": "Nasdaq 100 ETF",
+   "sector": null,
+   "kind": "etf"
+  },
+  {
+   "sym": "GLD",
+   "name": "Gold ETF",
+   "sector": null,
+   "kind": "etf"
+  },
+  {
+   "sym": "SLV",
+   "name": "Silver ETF",
+   "sector": null,
+   "kind": "etf"
+  },
+  {
+   "sym": "UUP",
+   "name": "US Dollar ETF",
+   "sector": null,
+   "kind": "etf"
+  }
+ ],
  "mergers": [
+  {
+   "title": "Advantage Energy holder to vote against sale to Canadian Natural Resources",
+   "source": "SeekingAlpha",
+   "url": "https://seekingalpha.com/news/4677073-advantage-energy-holder-to-vote-against-sale-to-canadian-natural-resources?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+   "t": "2026-11-27T17:39+00:00"
+  },
   {
    "title": "Faraday Future Highlights Expected FFR Equity Position Valued at Approximately $41 Million, Offering FFAI Stockholders Participation in FFR\u2019s Potential Long-Term Value Creation",
    "source": "BusinessWire",
@@ -58,12 +892,6 @@
    "source": "SeekingAlpha",
    "url": "https://seekingalpha.com/news/4676337-spacex-tesla-appoint-five-directors-to-negotiate-on-possible-deal---ft?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
    "t": "2026-11-24T20:27+00:00"
-  },
-  {
-   "title": "Sanofi nears 19-month high after $41B Insmed deal",
-   "source": "SeekingAlpha",
-   "url": "https://seekingalpha.com/news/4676291-sanofi-stock-jumps-41b-insmed-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-   "t": "2026-11-24T17:58+00:00"
   }
  ],
  "warnings": []
