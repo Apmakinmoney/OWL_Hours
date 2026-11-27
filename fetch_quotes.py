@@ -17,6 +17,8 @@ INDEX = CFG.get("etfs", ["SPY", "QQQ", "DIA", "IWM"])
 SECTOR_ETFS = list(CFG.get("sectors", {}).values())
 METALS = list(CFG.get("metals", {}).values())
 SYMBOLS = list(dict.fromkeys(INDEX + SECTOR_ETFS + METALS))
+# watchlist names (top companies + a few market ETFs): fetched after the ETFs, a little slower, to stay under 60 calls a minute
+WATCH = [s for s in dict.fromkeys(CFG.get("featured", []) + CFG.get("universe", []) + CFG.get("watch_etfs", [])) if s not in SYMBOLS]
 BENCH = CFG.get("benchmark", "SPY")
 OUT = os.path.join(HERE, "quotes.json")
 KEY = os.environ.get("FINNHUB_API_KEY", "")
@@ -50,6 +52,14 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, now=None):
             if s in old.get("quotes", {}):
                 quotes[s] = dict(old["quotes"][s], stale=True)   # keep the last good value, marked stale
         sleep(0.4)   # stays well under the free plan's 60 calls a minute
+    for s in WATCH:
+        try:
+            quotes[s] = fetch(s, opener)
+        except Exception as e:
+            print(f"warning: {s} failed: {e}", file=sys.stderr)
+            if s in old.get("quotes", {}):
+                quotes[s] = dict(old["quotes"][s], stale=True)
+        sleep(0.9)
     if ok == 0:
         print("no quotes fetched; leaving the file unchanged", file=sys.stderr)
         sys.exit(1)

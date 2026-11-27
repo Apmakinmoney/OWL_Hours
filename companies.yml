@@ -1,0 +1,31 @@
+name: Top companies and deal news
+
+on:
+  schedule:
+    # Hourly on weekdays from before the open to after the close (UTC), plus once a day on weekends.
+    - cron: "20 12-22 * * 1-5"
+    - cron: "20 15 * * 0,6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  companies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: companies
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch headlines, valuation and charts
+        run: python companies_job.py
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      - name: Save companies.json
+        run: bash .github/push.sh "Update companies" companies.json
