@@ -370,13 +370,25 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
              ("t6", "Conservative", 0.3, 0.08, lambda i: sleeve(i), {"AGG": 0.4, "SHY": 0.2, "GLD": 0.1}),
              ("t7", "Retirement income", 0.15, 0.10, lambda i: model_defensive(px, i, "base"), {"AGG": 0.4, "SHY": 0.1, "_DIV": 0.35})]
     for tid, nm, sl, guard, sfn, rest in tiers:
-        def tf(k, i, st, sl=sl, guard=guard, sfn=sfn, rest=rest):
-            s = sfn(i)
-            if guard and st["dd"] > guard: s = {"SHY": 1.0}
+        def build(i, s, sl=sl, rest=rest):
             parts = [(sl, s)]
             for a, x in rest.items(): parts.append((x, div(i) if a == "_DIV" else {a: 1.0}))
             return mix(parts)
-        add(tid, nm, "Risk tier", tf, f"{int(sl * 100)}% clock sleeve" + (f", drawdown guard {int(guard * 100)}%" if guard else "") +
+        # the guard watches the UNGUARDED version of the tier ("shadow"), so it can switch back on when that recovers
+        shadow, _ = run(px, rebal, lambda k, i, st, sfn=sfn, build=build: build(i, sfn(i)))
+        sdd, eq, peak = {}, 1.0, 1.0
+        for d, r in shadow:
+            eq *= 1 + r; peak = max(peak, eq); sdd[d] = 1 - eq / peak
+        gstate = {"on": False}
+        def tf(k, i, st, guard=guard, sfn=sfn, build=build, gstate=gstate):
+            s = sfn(i)
+            if guard:
+                dd = sdd.get(px.dates[i], 0.0)
+                if dd > guard: gstate["on"] = True
+                elif dd < guard / 2: gstate["on"] = False
+                if gstate["on"]: s = {"SHY": 1.0}
+            return build(i, s)
+        add(tid, nm, "Risk tier", tf, f"{int(sl * 100)}% clock sleeve" + (f", sleeve to short Treasuries while the tier is down more than {int(guard * 100)}% from its high (back on below {int(guard * 50)}%)" if guard else "") +
             "; " + ", ".join(f"{int(x * 100)}% {'dividend ETFs' if a == '_DIV' else a}" for a, x in rest.items()))
     # hard assets
     MIXES = {"Recovery": (0.40, 0.35, 0.25), "Expansion": (0.35, 0.35, 0.30), "Late cycle": (0.60, 0.25, 0.15), "Contraction": (0.70, 0.20, 0.10)}

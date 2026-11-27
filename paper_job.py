@@ -89,9 +89,19 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, now=None):
         if missing:
             log(f"  {mid}: no price for {missing}; skipping today"); continue
         P["peak"] = max(P.get("peak", value), value)
+        # shadow = the same model without the guard; the guard watches its drawdown so it can switch back on
+        sv = sum(u * px.get(s, 0) for s, u in P.get("sunits", {}).items()) + P.get("scash", 0) if P.get("sunits") else value
+        P["speak"] = max(P.get("speak", sv), sv)
+        sdd = 1 - sv / P["speak"] if P["speak"] else 0
+        if guard:
+            if sdd > guard: P["guardOn"] = True
+            elif sdd < guard / 2: P["guardOn"] = False
         if P["lastRebal"] is None or P["lastRebal"][:7] != day[:7]:
+            sw = {k: x for k, x in w.items() if k in px and x > 1e-6}; st = sum(sw.values()) or 1
+            P["sunits"] = {k: round(sv * x / st / px[k], 6) for k, x in sw.items()}
+            P["scash"] = round(sv - sum(u * px[k] for k, u in P["sunits"].items()), 2)
             tw = dict(w)
-            if guard and value < P["peak"] * (1 - guard):
+            if guard and P.get("guardOn"):
                 tw = {k: x for k, x in w.items() if k in ("AGG", "SHY", "GLD", "SCHD", "VIG")}
                 rest = 1 - sum(tw.values()); tw["SHY"] = tw.get("SHY", 0) + rest
                 P["guard"] = f"Drawdown guard on since {day}"
