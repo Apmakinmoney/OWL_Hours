@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-26T23:10:29+00:00",
+ "asOf": "2026-11-27T23:09:37+00:00",
  "events": [
   {
    "date": "2026-12-01",
@@ -54,7 +54,7 @@
    "kind": "earnings",
    "title": "S earnings",
    "symbol": "S",
-   "time": "",
+   "time": "after close",
    "eps": 0.0941
   },
   {

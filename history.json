@@ -1888,5 +1888,26 @@
   },
   "angle": 271.0,
   "clarity": 0.17
+ },
+ {
+  "date": "2026-11-27",
+  "m": {
+   "FIN": 2,
+   "REIT": 2,
+   "DISC": 2,
+   "TECH": -2,
+   "CYB": 0,
+   "SEMI": -2,
+   "COMM": 2,
+   "IND": 1,
+   "MAT": 2,
+   "ENGY": -2,
+   "GOLD": 2,
+   "STPL": 2,
+   "HLTH": 1,
+   "UTIL": 2
+  },
+  "angle": 305.9,
+  "clarity": 0.15
  }
 ]
