@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-27T20:12:22+00:00",
+ "asOf": "2026-11-27T21:11:37+00:00",
  "detailDate": "2026-11-27",
  "featured": [
   "NVDA",
@@ -343,22 +343,22 @@
    ],
    "news": [
     {
-     "title": "Stock Market Today: Dow, Nasdaq Pop In Post-Holiday Trade; Nvidia Falls, Sandisk Vaults Higher (Live Coverage)",
+     "title": "Should You Buy Nvidia Stock Before CEO Jensen Huang Testifies in Front of Congress on Dec. 1 and Dec. 3?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=c335d18e483e64abcdfa61937ecdf88ead5edc41399356ccc709f0c587c186cd",
-     "t": "2026-11-27T17:47+00:00"
+     "url": "https://finnhub.io/api/news?id=6485c9afc0ccda7c8349157b048306d43cc7dfa4db44f087308da73de51263b5",
+     "t": "2026-11-27T19:48+00:00"
     },
     {
-     "title": "Not AMD. This Is the 1 Company Nvidia Should Worry About Most.",
+     "title": "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6f2097fac680351b4ce1c65f00d9185bf46a5849bfd117b281efa732e51b436c",
-     "t": "2026-11-27T17:35+00:00"
+     "url": "https://finnhub.io/api/news?id=daa551d96a3a7a3a1f9668075bf933140959befbc52062dc93c5be0e73509c6f",
+     "t": "2026-11-27T18:48+00:00"
     },
     {
-     "title": "Nvidia, CoreWeave Face New U.S. Restrictions on China AI Chip Access",
+     "title": "US Equity Indexes Rise as Jensen Huang's Return to Nvidia Guardrails AI Trade While Investors Slice Growth Exposure This Week",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=ef8add2c8729be56bbdaec444af4581a54a166d17a1a0a1f284c1f9852f6db03",
-     "t": "2026-11-27T17:23+00:00"
+     "url": "https://finnhub.io/api/news?id=66986135b4c9b220e8424e7e29a498a77e30ab6eba64cf17c5162d5d5eeee730",
+     "t": "2026-11-27T18:39+00:00"
     }
    ]
   },
@@ -672,6 +672,12 @@
    ],
    "news": [
     {
+     "title": "SpaceX Stocks Climb 2.74% as FCC Clears One Million AI Satellites",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=ec36f66bfc106e89b0bcc4e6941d5f6963c5e43eb790bab6f2c551fe14fe7abb",
+     "t": "2026-11-27T19:22+00:00"
+    },
+    {
      "title": "ATEX Stock Jumps After SpaceX Reportedly Eyes 900 MHz Spectrum For Direct-To-Device Expansion; Alternative Target NN Climbs Double Digits",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=083b6874f1482b3f84e0ecb686567f71315bfb3910ed6e081d26f3381c281815",
@@ -682,12 +688,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=9394e1b1429a001afe8e25cf755abf84132814c7e8bde1f08b5b1e8a61765e69",
      "t": "2026-11-27T17:46+00:00"
-    },
-    {
-     "title": "Elon Musk\u2019s SpaceX stock giveaway hides a surprise for shareholders",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=80e92a8f4085fd7f169396542cf94ce6a56ee485e8ad1be6725a534b065ea0f0",
-     "t": "2026-11-27T17:33+00:00"
     }
    ]
   },
@@ -1013,22 +1013,22 @@
    ],
    "news": [
     {
-     "title": "Tesla Rallies 5% Amid SpaceX Merger Speculation; Rivian and SpaceX Rise 3%: Is Tesla\u2019s 439x P/E a Warning Sign?",
+     "title": "TSLA Stock Clocks Best Week In 18 Months: Tesla Reportedly Eyes Buying German Toolmaker Amid Cybercab, Optimus Scaling Plans",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=e66e2bd13401d071f7a6e6a8c4a9c368376b58a1a7df8027e2dd9cc0174a87e2",
-     "t": "2026-11-27T17:04+00:00"
+     "url": "https://finnhub.io/api/news?id=ca84633dd52240b00db7b72a75d92570875cda4eec12ac7da9ffc80aa5298d64",
+     "t": "2026-11-27T19:55+00:00"
     },
     {
-     "title": "Stock Market Today: Dow Futures Jump 650 Points As Nvidia Rebounds; Anthropic, SpaceX, Tesla Rally (Live Coverage)",
+     "title": "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=e206df7544718b056a5e99d8e050d010dfc2d88868d799a6dfbd9243c514c74b",
-     "t": "2026-11-27T15:31+00:00"
+     "url": "https://finnhub.io/api/news?id=daa551d96a3a7a3a1f9668075bf933140959befbc52062dc93c5be0e73509c6f",
+     "t": "2026-11-27T18:48+00:00"
     },
     {
-     "title": "XPENG Maps Out 2027 Robotaxi Launch and Mass Production of IRON Humanoid Robot",
+     "title": "Tesla Takes 1.2M SF at Houston\u2019s Cedar Port Industrial Park",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=dfec6a72fda3a1b4da62d7550839b4fbd1e5a8b57f61e10610668001ccfdcc25",
-     "t": "2026-11-27T15:12+00:00"
+     "url": "https://finnhub.io/api/news?id=7fd8c6e6ffe50a23e4ca0f5932edfd10af5f0440eaba43b41f1d32c515f970df",
+     "t": "2026-11-27T18:11+00:00"
     }
    ]
   },
@@ -1354,6 +1354,12 @@
    ],
    "news": [
     {
+     "title": "What Is The Biggest Threat To Eli Lilly Stock?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=7c6e935c04fe45e8c5885a8e711001a03b5a4c54f552865d1059e601984354cd",
+     "t": "2026-11-27T19:26+00:00"
+    },
+    {
      "title": "Mental Health Clinical Trials - Global Strategic Business Report 2026: Capitalize on the $5.2 Billion Market with IQVIA, ICON, Eli Lilly, and COMPASS Pathways",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=b9ee6dba4e0a6604c36d379115e3b9f53415922a447ef5ae0d65f7ad32333fa1",
@@ -1364,12 +1370,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=01de780c7f5d57531e6c17622092814bbfabc311f0ced4f80b3d210d147a7823",
      "t": "2026-11-27T13:03+00:00"
-    },
-    {
-     "title": "Is Most-Watched Stock Eli Lilly and Company (LLY) Worth Betting on Now?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b69ec5ee1d167f3fdeab184686c4b62fa66cfd474346e7c6ceefd5b9abba17a5",
-     "t": "2026-11-27T13:00+00:00"
     }
    ]
   },
@@ -1695,6 +1695,12 @@
    ],
    "news": [
     {
+     "title": "Microsoft Stocks Rise 0.26% as Code Red Targets One-Hour Outage Recovery",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b01b1b43c7fc14689e5ddc05cc999caaff5b4b4626020bab18fff3a3bd53b140",
+     "t": "2026-11-27T18:23+00:00"
+    },
+    {
      "title": "Did Billionaire Bill Ackman Lose Confidence in Microsoft? The Answer Might Surprise You",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=fefd8703a835750e1ae202000348b3d630500860da28d5fe5011b3cbce6e6a59",
@@ -1705,12 +1711,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=8f52c70b73f08cb454719b95fd279412df328ddc109d1544b92bb26c9eec2dbd",
      "t": "2026-11-27T15:30+00:00"
-    },
-    {
-     "title": "Anthropic, Meta and Microsoft Join AI Data Center Talks in Japan",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=ba01b0ff64b71265f52428d8931446d3a8f7be248e469e0d459841c9e4f146d4",
-     "t": "2026-11-27T14:38+00:00"
     }
    ]
   },
@@ -2718,22 +2718,22 @@
    ],
    "news": [
     {
-     "title": "Tech Stock Sell-Off: Down 32%, Is Alphabet a Buy Now?",
+     "title": "Alphabet Stocks Move Lower as Record Credit Spreads Shadow AI Spending",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=bcb79eaa7bb684ea0edd2e5bf2061e709cd034e5f3399a3b76ce828a444d8c47",
-     "t": "2026-11-27T17:51+00:00"
+     "url": "https://finnhub.io/api/news?id=c4f248232a08a6eeada46dedfc8efb6cc06860300056a0f6da493d69ad558f9f",
+     "t": "2026-11-27T19:18+00:00"
     },
     {
-     "title": "3 Ways To Own Alphabet In ETFs When Each Fund Holds It Differently",
+     "title": "Top Stock Reports for Alphabet, Meta & Bank of America",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=7f251576c4942efe03824aa9fec843dd61b309d265c217d81c946e9639b26b41",
-     "t": "2026-11-27T17:12+00:00"
+     "url": "https://finnhub.io/api/news?id=f91b2d3ba76cb8fb0419b65518914d1a60d5f0a1610c8c71cda29eab59fb8c9a",
+     "t": "2026-11-27T18:41+00:00"
     },
     {
-     "title": "How much GOOGL stock does Alphabet CEO Sundar Pichai own?",
+     "title": "What Does Alphabet (GOOGL) Need To Prove After The Air Force Cloud Breach?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=850ffd68a6bfe970cfea24365da807637d5bc70aba284132dd39d71baa95b87f",
-     "t": "2026-11-27T16:57+00:00"
+     "url": "https://finnhub.io/api/news?id=09420bdb8738b20d8df31ee16ba375a402049e78b854c752e3203a8091b3651f",
+     "t": "2026-11-27T18:10+00:00"
     }
    ]
   },
@@ -3059,6 +3059,12 @@
    ],
    "news": [
     {
+     "title": "Top Stock Reports for Alphabet, Meta & Bank of America",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=f91b2d3ba76cb8fb0419b65518914d1a60d5f0a1610c8c71cda29eab59fb8c9a",
+     "t": "2026-11-27T18:41+00:00"
+    },
+    {
      "title": "What Is Meta Platforms (META) Up Against With Australia And EU AI Rules?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=b037b9e29cbf5524ff7543f693b7884973d6912b2a0db4b8d19d7eaf03b4242f",
@@ -3069,12 +3075,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=70739c7fb3a3a00b96a3f72bc76d09bdd583d1666368b27fd95fe90cd0add5ab",
      "t": "2026-11-27T17:09+00:00"
-    },
-    {
-     "title": "Tech Stock Sell-Off: Down 23%, Is Meta a Buy Now?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=79b23f394e21acacdf4a7dbbf234cffe13053428bc5f008f5713468eff79a2c6",
-     "t": "2026-11-27T16:43+00:00"
     }
    ]
   },
@@ -4082,22 +4082,22 @@
    ],
    "news": [
     {
-     "title": "Palantir Raised Its 2026 Growth Outlook to 91%. Could the Stock Have More Room to Run?",
+     "title": "Palantir Stocks Climb 3.72% on $300 Million Poland Defense AI Deal",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b6fc544dd60fd5b0a7d7ad749c53b5d8215a032fbff490bb9b05fa05e1968222",
-     "t": "2026-11-27T17:33+00:00"
+     "url": "https://finnhub.io/api/news?id=7f713f76ed3f459f7a733b1f06414f6728a646a5d99604592097787e65720be4",
+     "t": "2026-11-27T19:23+00:00"
     },
     {
-     "title": "PLTR vs. ARM: Which AI-Tech Stock is Better Positioned Now?",
+     "title": "PLTR Stock Sees Best Week In 4 Months: Palantir Bags Reported $300M Defense Deal With Poland",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=9f462ce194c77a6fb712ba32b926b3f7937a573a58d9220621cc0829f742d8e1",
-     "t": "2026-11-27T16:52+00:00"
+     "url": "https://finnhub.io/api/news?id=4858721cd24be67d2629e6726ffad93affc6023211e6f054cf2c35f7ecf81c32",
+     "t": "2026-11-27T18:41+00:00"
     },
     {
-     "title": "Why Palantir Popped on Friday",
+     "title": "Peter Thiel Takes $122M of Palantir Off the Market",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=ac7e967abd2060ad54d39f4fefe9b552f531e95761c46902ee59cd86590bcf24",
-     "t": "2026-11-27T16:31+00:00"
+     "url": "https://finnhub.io/api/news?id=d3f877c40f153d11ecae3739e51ae6ae1973154b099236a96e1e002422fdc4a1",
+     "t": "2026-11-27T18:29+00:00"
     }
    ]
   },
@@ -6128,6 +6128,12 @@
    ],
    "news": [
     {
+     "title": "What Is The One Risk Facing Visa Stock Now?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=87304f024c423d81cdb00666b19120d6f4300abb1b19f7e9a5c08273de0364ff",
+     "t": "2026-11-27T19:41+00:00"
+    },
+    {
      "title": "Can Holiday Bargain Hunting Boost Visa's Cross-Border Business?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=dff47fe5de14739f6882595a6e8d8ace6fcaac0d8b34342a734e54298b3284c0",
@@ -6138,12 +6144,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=b9b3c3d5bc0b0d486d665343d0f3e458b05408b49b1f1083901ab32106dd63f1",
      "t": "2026-11-27T12:09+00:00"
-    },
-    {
-     "title": "Visa and NBX plan stablecoin-linked payment card",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=450afd184b3add9822247ad30495fcc6c4940b7adea77fae4e2372a241101ec2",
-     "t": "2026-11-27T06:45+00:00"
     }
    ]
   },
@@ -7151,6 +7151,12 @@
    ],
    "news": [
     {
+     "title": "Costco: I'd Rather Spend $1,000 On Black Friday Than Buy Its Stock",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=d3682ec94adce090d0e1245ef139e2e0814086c96e7c5d92bea035820c08001e",
+     "t": "2026-11-27T15:04+00:00"
+    },
+    {
      "title": "12 Big Funds Bought Costco Wholesale Last Quarter, While 7 Sold. Who\u2019s Right?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=e983bf3282cc2e8799b9bd8b54ad23ac3a279b088e41883dea7993ad0a187017",
@@ -7161,12 +7167,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=2521af4c80465866fd57bac2e51ceef96914ca419c7baec1cb3b6e394c8f7ac8",
      "t": "2026-11-27T12:34+00:00"
-    },
-    {
-     "title": "Costco: A Sector Rotation Is At Play, But Upside Remains Limited",
-     "source": "SeekingAlpha",
-     "url": "https://finnhub.io/api/news?id=acf297941de9bdd30dcacaf627e3a6a8ce15ec2242519bda2c5473185034b478",
-     "t": "2026-11-27T11:29+00:00"
     }
    ]
   },
@@ -7491,6 +7491,12 @@
    ],
    "news": [
     {
+     "title": "XOM Boosts Angola Prospects With Kizomba Redevelopment & New Discovery",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=c347c096376d5bb5d78fd73ae51a142171448bb6440af9dc3dae1f58533a2d2d",
+     "t": "2026-11-27T17:16+00:00"
+    },
+    {
      "title": "ExxonMobil Holdings Corporation (XOM) is Attracting Investor Attention: Here is What You Should Know",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=4f9bf4e12b8485bb5efea6dfacbf7e642dd772c69cb32e9a4112b5b0358bb813",
@@ -7501,12 +7507,6 @@
      "source": "Benzinga",
      "url": "https://finnhub.io/api/news?id=3bc1cc96134c37cc28f44d6f12180461ef7ec19149adab2cde74edca4cd3d061",
      "t": "2026-11-27T10:00+00:00"
-    },
-    {
-     "title": "Exxon Mobil Stocks Edge Lower as Brent Jumps 3.5% on Refinery Attack",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=0ff71629a627658c5bb84ee2682f5f380ec345af946cecb773e8f47314732275",
-     "t": "2026-11-26T19:01+00:00"
     }
    ]
   },
