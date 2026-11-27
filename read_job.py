@@ -75,7 +75,7 @@ def email(read):
     rcpt = [a.strip() for a in to.split(",") if a.strip()]
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"Owl's daily read: {read['title']}"
-    msg["From"] = f"Owl Hours <{user}>"; msg["To"] = user
+    msg["From"] = f"Owl Hours <{user}>"; msg["To"] = user; msg["X-Owl-Office"] = "1"
     body = [read["title"], ""] + read["lines"] + ["", "What to watch:"] + ["- " + w for w in read["watch"]]
     if read["events"]: body += ["", "On the calendar today:"] + ["- " + e for e in read["events"]]
     if read["crypto"]: body += ["", "Crypto (24h): " + read["crypto"]]
