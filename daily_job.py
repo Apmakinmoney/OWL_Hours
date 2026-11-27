@@ -196,7 +196,7 @@ def blend_score(today, trend):
         return 0
     if trend is None: z = today / 1.0
     elif today is None: z = trend / 3.0
-    else: z = 0.4 * today / 1.0 + 0.6 * trend / 3.0
+    else: z = 0.2 * today / 1.0 + 0.8 * trend / 3.0   # 20% today, 80% 20-day trend (3.95b, from the backtest)
     return 2 if z >= 1.2 else 1 if z >= 0.4 else -2 if z <= -1.2 else -1 if z <= -0.4 else 0
 
 
@@ -337,7 +337,8 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep):
     for key, series in fred.items():
         vals = [v for _, v in series]
         kind, tol = CFG["direction"][key]
-        out["macro"][key] = {"level": round(vals[-1], 3), "date": series[-1][0], "dir": direction(vals, kind, tol), "source": f"FRED {CFG['fred'][key]}"}
+        out["macro"][key] = {"level": round(vals[-1], 3), "date": series[-1][0], "dir": direction(vals, kind, tol), "source": f"FRED {CFG['fred'][key]}",
+                             "spark": [[d, round(v, 3)] for d, v in series[-60:]]}
     out["warnings"] = warnings
     if not out["macro"] and not out["etf"]:
         print("nothing fetched; leaving files unchanged", file=sys.stderr)

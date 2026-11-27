@@ -20,7 +20,7 @@ def score_z(z):
     return 2 if z >= 1.2 else 1 if z >= 0.4 else -2 if z <= -1.2 else -1 if z <= -0.4 else 0
 
 
-def from_latest(latest, wt=0.4, wr=0.6):
+def from_latest(latest, wt=0.2, wr=0.8):
     """z and scores per sector from latest.json (rel1 and rel20 are % vs SPY)."""
     z = {}
     for sid, s in (latest.get("sectors") or {}).items():

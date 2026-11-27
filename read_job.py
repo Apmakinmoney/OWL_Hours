@@ -43,6 +43,8 @@ def build(now):
     if by_phase:
         lines.append("Strongest vs the S&P: " + "; ".join(f"{', '.join(v)} ({HOUR[k]})" for k, v in by_phase.items()) + ".")
     if weak: lines.append("Weakest: " + ", ".join(cm.NAMES[s] for s in weak) + ".")
+    if ph[0] == "Contraction":
+        lines.append("Night means fear is high: money is crowding into the safest sectors. Watch for the turn. In our 2017\u20132026 test, the month after a Night reading was often a good one for the S&P, so Night has been more of an early warning of a bounce than a signal to hide. Past patterns can break.")
     if word == "mixed":
         lines.append("The sectors are pulling in different directions, so the needle is a low-conviction read. Wait for agreement before trusting one strong day.")
     elif word == "clear":

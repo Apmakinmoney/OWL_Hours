@@ -33,6 +33,7 @@ NAMES = {"FIN": "Financials", "REIT": "Real estate", "DISC": "Discretionary", "T
          "HLTH": "Health", "UTIL": "Utilities"}
 PHASES = [("Recovery", "Dawn", 0, 90), ("Expansion", "Midday", 90, 180), ("Late cycle", "Dusk", 180, 270), ("Contraction", "Night", 270, 360)]
 BLENDS = {"base": (0.4, 0.6), "trend": (0.2, 0.8), "pure20": (0.0, 1.0)}
+DEF = "trend"   # the app's clock uses 20% today / 80% 20-day trend since 3.95b
 EXTRA = ["SPY", "AGG", "SHY", "BIL", "GLD", "SLV", "GDX", "SCHD", "VIG"]
 DEFENSIVE = ["STPL", "HLTH", "UTIL"]
 
@@ -47,18 +48,59 @@ def phase_of(a):
 
 
 # ---------------- data ----------------
-def fetch(sym, opener=urllib.request.urlopen, sleep=time.sleep, bars=2700):
-    base = f"https://api.twelvedata.com/time_series?symbol={urllib.parse.quote(sym)}&interval=1day&outputsize={bars}&apikey={TD}"
+FRED = os.environ.get("FRED_API_KEY", "").strip()
+WINDOWS = (("1999-01-01", "2012-12-31"), ("2013-01-01", None))
+
+
+def fetch_window(sym, start, end, opener, sleep):
+    base = (f"https://api.twelvedata.com/time_series?symbol={urllib.parse.quote(sym)}&interval=1day&outputsize=5000"
+            f"&start_date={start}" + (f"&end_date={end}" if end else "") + f"&apikey={TD}")
+    last = {}
     for url, label in ((base + "&adjust=all", "adjusted"), (base, "split-adjusted")):
-        req = urllib.request.Request(url, headers={"User-Agent": "owl-hours/1.0 (personal research)"})
-        with opener(req, timeout=60) as r:
-            d = json.loads(r.read())
-        sleep(8)
+        for attempt in range(2):
+            req = urllib.request.Request(url, headers={"User-Agent": "owl-hours/1.0 (personal research)"})
+            with opener(req, timeout=60) as r:
+                d = json.loads(r.read())
+            sleep(8)
+            if "credits" in str(d.get("message", "")).lower(): sleep(62); continue
+            break
+        last = d
         if d.get("status") != "error" and d.get("values"):
             return {v["datetime"][:10]: float(v["close"]) for v in d["values"]}, label
-        if "credits" in str(d.get("message", "")).lower():
-            sleep(62)
-    raise ValueError(str(d.get("message", "no data"))[:120])
+        if "no data" in str(d.get("message", "")).lower(): return {}, label
+    raise ValueError(str(last.get("message", "no data"))[:120])
+
+
+def fetch(sym, opener=urllib.request.urlopen, sleep=time.sleep):
+    out, label = {}, "adjusted"
+    for start, end in WINDOWS:
+        part, label = fetch_window(sym, start, end, opener, sleep)
+        out.update(part)
+    if not out: raise ValueError("no data")
+    return out, label
+
+
+def fred(series, opener=urllib.request.urlopen):
+    url = f"https://api.stlouisfed.org/fred/series/observations?series_id={series}&api_key={FRED}&file_type=json&observation_start=1999-01-01"
+    with opener(urllib.request.Request(url, headers={"User-Agent": "owl-hours/1.0"}), timeout=60) as r:
+        d = json.loads(r.read())
+    out = {}
+    for o in d.get("observations", []):
+        try: out[o["date"]] = float(o["value"])
+        except (ValueError, KeyError): pass
+    return out
+
+
+class Macro:
+    """FRED series looked up on or before a date (no look-ahead)."""
+    def __init__(self, raw):
+        self.k = {s: sorted(m) for s, m in raw.items()}; self.m = raw
+    def at(self, s, d, back=0):
+        ks = self.k.get(s)
+        if not ks: return None
+        import bisect
+        j = bisect.bisect_right(ks, d) - 1 - back
+        return self.m[s][ks[j]] if j >= 0 else None
 
 
 class Px:
@@ -276,8 +318,16 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
                 log(f"  {s}: {len(raw[s])} bars from {min(raw[s])} ({how})")
             except Exception as e:
                 warnings.append(f"{s}: {e}"); log(f"  {s} failed: {e}")
+        mraw = {}
+        if FRED:
+            for sid in ("T10Y2Y", "BAMLH0A0HYM2", "VIXCLS", "DFII10", "DTWEXBGS"):
+                try: mraw[sid] = fred(sid, opener); log(f"  FRED {sid}: {len(mraw[sid])} days"); sleep(1)
+                except Exception as e: warnings.append(f"FRED {sid}: {e}")
+        else: warnings.append("No FRED_API_KEY: macro test rows skipped")
     else:
         data_info = {s: {"from": min(m), "bars": len(m), "adjust": "test"} for s, m in raw.items() if m}
+        mraw = raw.pop("_macro", {})
+    MAC = Macro(mraw)
     if "SPY" not in raw or len(raw["SPY"]) < 600:
         log("Not enough SPY history; stopping."); return 0
     px = Px(raw)
@@ -334,10 +384,12 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
             return fns[key](i, best, None)
         add(f"{key}-wf", f"Owl {key}: {labels[key]} (walk-forward blend)", "Owl model", wf, "Each month uses the blend that had the best Sharpe over the prior 36 months.")
     # phase study: does the needle's phase tell us anything about next month?
-    study = {p[0]: {"n": 0, "spy": [], "edge": []} for p in PHASES}
+    study = {p[0]: {"n": 0, "spy": [], "edge": [], "spy3": [], "edge3": []} for p in PHASES}
+    dirs = {"Forward": [], "Stalled": [], "Back": []}
+    prev_ang = None
     for k, i in enumerate(rebal[:-1]):
-        z, m, ang, cl = clock(px, i, "base")
-        if ang is None: continue
+        z, m, ang, cl = clock(px, i, DEF)
+        if ang is None: prev_ang = None; continue
         ph = phase_of(ang); a, b = i + 1, rebal[k + 1] + 1
         if b >= len(px.dates): continue
         sp = period_ret(px, "SPY", a, b)
@@ -346,6 +398,16 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
         hr = [x for x in hr if x is not None]
         study[ph]["n"] += 1; study[ph]["spy"].append(sp)
         if hr: study[ph]["edge"].append(sum(hr) / len(hr) - sp)
+        if k + 3 < len(rebal):
+            b3 = min(rebal[k + 3] + 1, len(px.dates) - 1); s3 = period_ret(px, "SPY", a, b3)
+            h3 = [x for x in (period_ret(px, e, a, b3) for e in home) if x is not None]
+            if s3 is not None:
+                study[ph]["spy3"].append(s3)
+                if h3: study[ph]["edge3"].append(sum(h3) / len(h3) - s3)
+        if prev_ang is not None:
+            dd = ((ang - prev_ang + 540) % 360) - 180
+            dirs["Forward" if dd > 15 else "Back" if dd < -15 else "Stalled"].append(sp)
+        prev_ang = ang
     phase_study = []
     for p in PHASES:
         s = study[p[0]]
@@ -353,22 +415,58 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
         phase_study.append({"phase": p[0], "hour": p[1], "months": s["n"], "spyNext": round(100 * sum(s["spy"]) / len(s["spy"]), 2),
                             "spyUp": round(100 * sum(1 for x in s["spy"] if x > 0) / len(s["spy"]), 0),
                             "homeEdge": round(100 * sum(s["edge"]) / len(s["edge"]), 2) if s["edge"] else None,
-                            "homeWin": round(100 * sum(1 for x in s["edge"] if x > 0) / len(s["edge"]), 0) if s["edge"] else None})
-    # risk tiers: Model A sleeve (base blend) + building blocks, with a drawdown guard on the sleeve
-    def sleeve(i, n=3): return model_top(px, i, "base", n)
+                            "homeWin": round(100 * sum(1 for x in s["edge"] if x > 0) / len(s["edge"]), 0) if s["edge"] else None,
+                            "spyNext3": round(100 * sum(s["spy3"]) / len(s["spy3"]), 2) if s["spy3"] else None,
+                            "homeEdge3": round(100 * sum(s["edge3"]) / len(s["edge3"]), 2) if s["edge3"] else None})
+    direction_study = [{"dir": k, "months": len(v), "spyNext": round(100 * sum(v) / len(v), 2) if v else None,
+                        "spyUp": round(100 * sum(1 for x in v if x > 0) / len(v)) if v else None} for k, v in dirs.items()]
+    # needle direction: when the needle moved forward >15 degrees last month, lean into the NEXT phase's sectors
+    NEXTP = {"Recovery": "Expansion", "Expansion": "Late cycle", "Late cycle": "Contraction", "Contraction": "Recovery"}
+    dstate = {"prev": None}
+    def model_dir(k, i, st):
+        z, m, ang, cl = clock(px, i, DEF)
+        prev, dstate["prev"] = dstate["prev"], ang
+        if ang is None: return {"SPY": 1.0}
+        ph = phase_of(ang)
+        if prev is not None and ((ang - prev + 540) % 360) - 180 > 15: ph = NEXTP[ph]
+        home = [s for s in z if phase_of(ANG[s]) == ph]
+        return {CFG["sectors"][s]: 1.0 / len(home) for s in home} if home else {"SPY": 1.0}
+    add("D-dir", "Owl D: needle direction", "Owl model", model_dir, "Needle's phase, but when the needle moved forward more than 15 degrees last month, hold the next phase's sectors.")
+    # 3-month horizon: Owl B, rebalanced every 3 months
+    qstate = {"w": None}
+    def model_q(k, i, st):
+        if k % 3 == 0 or qstate["w"] is None: qstate["w"] = model_phase(px, i, DEF)
+        return qstate["w"]
+    add("B-q", "Owl B: needle's phase, held 3 months", "Owl model", model_q, "Same as Owl B (trend blend) but rebalanced only every third month.")
+    # macro filters on Owl B (separate rows; v2 inputs). When the filter trips, hold SPY instead of tilting.
+    if MAC.k:
+        def mf(name, test):
+            def f(k, i, st):
+                d = px.dates[i]
+                return {"SPY": 1.0} if test(d) else model_phase(px, i, DEF)
+            return f
+        def credit_widening(d):
+            a, b = MAC.at("BAMLH0A0HYM2", d), MAC.at("BAMLH0A0HYM2", d, 21)
+            return a is not None and b is not None and a - b > 0.5
+        add("M-credit", "Owl B + credit filter", "Macro test", mf("credit", credit_widening), "Hold SPY instead of tilting while high-yield spreads widened more than 0.5 points over the past month.")
+        add("M-vix", "Owl B + VIX filter", "Macro test", mf("vix", lambda d: (MAC.at("VIXCLS", d) or 0) > 30), "Hold SPY instead of tilting while VIX is above 30.")
+        add("M-curve", "Owl B + curve filter", "Macro test", mf("curve", lambda d: (MAC.at("T10Y2Y", d) or 1) < 0), "Hold SPY instead of tilting while the 10-year minus 2-year curve is inverted.")
+    # risk tiers: Owl B sleeve (trend blend) + building blocks, drawdown guard and a volatility target per tier
+    def sleeve(i, n=3): return model_phase(px, i, DEF)
     def mix(parts):
         w = {}
         for share, ws in parts:
             for s, x in ws.items(): w[s] = w.get(s, 0) + share * x
         return w
     def div(i): return {"SCHD": 0.5, "VIG": 0.5} if px.c("SCHD", i) else {"VIG": 1.0}
-    tiers = [("t1", "Highest risk", 1.0, None, lambda i: sleeve(i, 2), {}),
+    VT = {"t1": None, "t2": None, "t3": 0.16, "t4": 0.12, "t5": 0.10, "t6": 0.08, "t7": 0.07}
+    tiers = [("t1", "Highest risk", 1.0, None, lambda i: model_top(px, i, DEF, 2), {}),
              ("t2", "Aggressive", 1.0, None, lambda i: sleeve(i), {}),
              ("t3", "Moderately aggressive", 0.8, 0.20, lambda i: sleeve(i), {"AGG": 0.2}),
              ("t4", "Moderate", 0.6, 0.15, lambda i: sleeve(i), {"AGG": 0.3, "GLD": 0.1}),
              ("t5", "Conservatively moderate", 0.45, 0.12, lambda i: sleeve(i), {"AGG": 0.35, "SHY": 0.1, "GLD": 0.1}),
              ("t6", "Conservative", 0.3, 0.08, lambda i: sleeve(i), {"AGG": 0.4, "SHY": 0.2, "GLD": 0.1}),
-             ("t7", "Retirement income", 0.15, 0.10, lambda i: model_defensive(px, i, "base"), {"AGG": 0.4, "SHY": 0.1, "_DIV": 0.35})]
+             ("t7", "Retirement income", 0.15, 0.10, lambda i: model_defensive(px, i, DEF), {"AGG": 0.4, "SHY": 0.1, "_DIV": 0.35})]
     for tid, nm, sl, guard, sfn, rest in tiers:
         def build(i, s, sl=sl, rest=rest):
             parts = [(sl, s)]
@@ -380,30 +478,50 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
         for d, r in shadow:
             eq *= 1 + r; peak = max(peak, eq); sdd[d] = 1 - eq / peak
         gstate = {"on": False}
-        def tf(k, i, st, guard=guard, sfn=sfn, build=build, gstate=gstate):
+        def tf(k, i, st, guard=guard, sfn=sfn, build=build, gstate=gstate, vt=VT.get(tid)):
             s = sfn(i)
             if guard:
                 dd = sdd.get(px.dates[i], 0.0)
                 if dd > guard: gstate["on"] = True
                 elif dd < guard / 2: gstate["on"] = False
                 if gstate["on"]: s = {"SHY": 1.0}
-            return build(i, s)
+            w = build(i, s)
+            if vt:
+                v = realized_vol(px, w, i)
+                if v > vt:
+                    sc = vt / v; w = {a: x * sc for a, x in w.items()}; w["SHY"] = w.get("SHY", 0) + 1 - sc
+            return w
         add(tid, nm, "Risk tier", tf, f"{int(sl * 100)}% clock sleeve" + (f", sleeve to short Treasuries while the tier is down more than {int(guard * 100)}% from its high (back on below {int(guard * 50)}%)" if guard else "") +
-            "; " + ", ".join(f"{int(x * 100)}% {'dividend ETFs' if a == '_DIV' else a}" for a, x in rest.items()))
+            "; " + ", ".join(f"{int(x * 100)}% {'dividend ETFs' if a == '_DIV' else a}" for a, x in rest.items()) +
+            (f"; volatility capped near {int(VT[tid] * 100)}% a year (excess to short Treasuries)" if VT.get(tid) else "") + ". Sleeve = Owl B (needle's phase).")
     # hard assets
     MIXES = {"Recovery": (0.40, 0.35, 0.25), "Expansion": (0.35, 0.35, 0.30), "Late cycle": (0.60, 0.25, 0.15), "Contraction": (0.70, 0.20, 0.10)}
     def h1(k, i, st):
-        z, m, ang, cl = clock(px, i, "base")
+        z, m, ang, cl = clock(px, i, DEF)
         g, s, mi = MIXES[phase_of(ang)] if ang is not None else (0.6, 0.3, 0.1)
         return {"GLD": g, "SLV": s, "GDX": mi}
     def h2(k, i, st):
-        z, m, ang, cl = clock(px, i, "base")
+        z, m, ang, cl = clock(px, i, DEF)
         return {"GLD": 0.6, "SLV": 0.3, ("GDX" if z.get("GOLD", 0) > 0 else "SHY"): 0.1}
     gld, _ = run(px, rebal, lambda k, i, st: {"GLD": 1.0})
     add("gld", "Gold buy and hold", "Hard assets", lambda k, i, st: {"GLD": 1.0}, "GLD held the whole time.", gld)
     add("gs50", "50/50 gold and silver", "Hard assets", lambda k, i, st: {"GLD": 0.5, "SLV": 0.5}, "Half GLD, half SLV, rebalanced monthly.", gld)
     add("h1", "Clock-steered metals mix", "Hard assets", h1, "More gold in Dusk/Night, more silver and miners in Dawn/Midday.", gld)
     add("h2", "Metals core + miners switch", "Hard assets", h2, "60% gold, 30% silver; 10% miners when the gold-miner sector scores positive, else short Treasuries.", gld)
+    def h3(k, i, st):
+        r = [px.c("GLD", j) / px.c("SLV", j) for j in range(max(0, i - 756), i + 1) if px.c("GLD", j) and px.c("SLV", j)]
+        if len(r) < 250: return {"GLD": 0.5, "SLV": 0.5}
+        now = r[-1]; pct = sum(1 for x in r if x < now) / len(r)
+        return {"GLD": 0.4, "SLV": 0.6} if pct > 0.8 else {"GLD": 0.8, "SLV": 0.2} if pct < 0.2 else {"GLD": 0.5, "SLV": 0.5}
+    add("h3", "Gold/silver ratio rule", "Hard assets", h3, "More silver when the gold/silver price ratio is in its top 20% of the last 3 years (silver cheap), more gold in its bottom 20%.", gld)
+    if MAC.k:
+        def h4(k, i, st):
+            d = px.dates[i]
+            ry, ry1 = MAC.at("DFII10", d), MAC.at("DFII10", d, 21)
+            dx, dx1 = MAC.at("DTWEXBGS", d), MAC.at("DTWEXBGS", d, 21)
+            good = (ry is not None and ry1 is not None and ry < ry1) or (dx is not None and dx1 is not None and dx < dx1)
+            return {"GLD": 0.65, "SLV": 0.35} if good else {"GLD": 0.35, "SLV": 0.15, "SHY": 0.5}
+        add("h4", "Real-yield + dollar rule", "Hard assets", h4, "Full metals when real 10-year yields or the dollar fell over the past month; half in short Treasuries otherwise.", gld)
     # experiments
     def rt(k, i, st):
         w = sleeve(i)
@@ -422,7 +540,7 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
             if len(feats_all) >= 24: cents = kmeans(feats_all, 4)
         if cents:
             lab = min(range(4), key=lambda c: (f[0] - cents[c][0]) ** 2 * 25 + (f[1] - cents[c][1]) ** 2)
-            z, m, ang, cl = clock(px, i, "base")
+            z, m, ang, cl = clock(px, i, DEF)
             a, b = i + 1, rebal[k + 1] + 1
             if b < len(px.dates) and ang is not None:
                 reg_rows.append((lab, cents[lab], phase_of(ang), period_ret(px, "SPY", a, b)))
@@ -447,7 +565,14 @@ def main(opener=urllib.request.urlopen, sleep=time.sleep, raw=None):
     rank = sum(1 for x in rnd_cagrs if (best["metrics"].get("cagr") or -99) > x) / len(rnd_cagrs) * 100
     verdict = {"best": best["id"], "bestName": best["name"], "beatsSharpe": beats, "randomPercentile": round(rank),
                "caution": "Best-of-many results flatter the winner. Judge the walk-forward rows and the phase study, not the single best line."}
+    research = {}
+    try:
+        import bt_stats
+        research = bt_stats.run(px, rebal, results, clock, DEF, PHASES)
+    except Exception as e:
+        warnings.append(f"Research add-ons skipped: {str(e)[:120]}")
     data = {"asOf": datetime.now(timezone.utc).isoformat(timespec="seconds"), "start": px.dates[rebal[0]], "end": px.dates[rebal[-1]],
+            "directionStudy": direction_study, "research": research, "defaultBlend": DEF,
             "months": len(rebal) - 1, "cost": COST, "verdict": verdict, "phaseStudy": phase_study, "regimes": regimes,
             "randomCagr": {"median": rnd_cagrs[100], "p10": rnd_cagrs[20], "p90": rnd_cagrs[180]},
             "results": results, "data": data_info, "notes": notes, "warnings": warnings, "seconds": round(time.time() - t0)}
