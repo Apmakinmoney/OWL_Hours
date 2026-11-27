@@ -305,6 +305,33 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 
 
 
+
+
+/* ---- Layer 3.75b ---- */
+.tkWrap{margin:14px 0 18px}
+.ticker{overflow:hidden;background:#05080d;border:1px solid #1d2535;border-radius:10px;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.tkTrack{display:flex;width:max-content;animation:tkRun 60s linear infinite}
+.ticker:active .tkTrack{animation-play-state:paused}
+@keyframes tkRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.tkTrack{animation:none}.ticker{overflow-x:auto}}
+.tkItem{display:flex;align-items:center;gap:6px;padding:9px 14px;background:none;border:0;border-right:1px solid #1d2535;border-radius:0;color:#d7e2ff;font:500 13px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;width:auto;height:auto}
+.tkItem b{color:#ff9f1c;font-weight:700}.tkP{color:#fff}.tkUp{color:#7dffc0}.tkDn{color:#ff9a8a}
+.tkChip{font:600 10.5px var(--sans);padding:1px 6px;border-radius:999px;border:1px solid #2f3d6e;color:#c9d3f0}.tkChip.up{border-color:#2c8c73;color:#a8f0d6}.tkChip.dn{border-color:#a14b47;color:#ffc2b6}.tkChip.wn{border-color:#8a6a2a;color:#f3d9a0}
+.tkNote{font-size:12px;color:var(--muted);margin:6px 2px 0}
+body .fbBtn{width:38px;height:38px;right:10px;bottom:calc(150px + env(safe-area-inset-bottom,0px));opacity:.92}
+body .fbBtn svg{width:18px;height:18px}
+.pane[data-pane="clock"]>section.dial{padding-bottom:22px}
+
+/* ---- Layer 3.75 ---- */
+body[data-mode="customer"] #mgrid .pips.mp button:not(.on){display:none}
+body[data-mode="customer"] #mgrid .pips.mp button.on{width:auto;padding:0 10px;border-radius:999px}
+body[data-mode="customer"] #mgrid .mval:placeholder-shown{display:none}
+body[data-mode="customer"] #quadBox .qcell:not(.hit){display:none}
+body[data-mode="customer"] #quadBox .quad{grid-template-columns:1fr}
+.metU{display:block;color:var(--muted);font-size:10.5px}
+.pane[data-pane="clock"]>section.dial{margin-top:0}
+.pane[data-pane="clock"]>#owlCallCard{margin-top:16px}
+
 /* ---- Layer 3.5 ---- */
 body[data-mode="customer"] .ownerOnly{display:none!important}
 body[data-mode="owner"] .customerOnly{display:none!important}
@@ -608,7 +635,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       <button id="rsBtn" class="small">Restore</button>
       <input type="file" id="rsFile" accept="application/json,.json" hidden>
     </div>
-    <div class="scroll"><table>
+    <div class="scroll playOnly"><table>
       <thead><tr><th>Date</th><th>Leaning</th><th>Angle</th><th>Biggest moves</th><th>Note</th><th></th></tr></thead>
       <tbody id="histBody"></tbody>
     </table></div>
@@ -1032,7 +1059,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var sc=$("scrub");sc.max=String(Math.max(0,history.length-1));
     if(viewing){var i=history.findIndex(function(x){return x.date===viewing.date});if(i>=0)sc.value=String(i)}
     else sc.value=sc.max;
-    $("scrubLabel").textContent=history.length?(viewing?viewing.date:"Live, latest save "+history[history.length-1].date):"No snapshots yet";
+    $("scrubLabel").textContent=history.length?(viewing?viewing.date:"Live, latest save "+history[history.length-1].date):(view!=="mine"?"Live":"No snapshots yet");
     $("playBtn").disabled=history.length<2;sc.disabled=history.length<2;
   }
   var timer=null;
@@ -1277,8 +1304,8 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     if(e.angle==null){addP(box,"Set some sector momentum to compare this with the wheel.","m")}
     else{
       var dist=Math.abs(((e.angle-G.c+540)%360)-180);
-      if(dist<=G.h)addP(box,"Your wheel points to "+phaseOf(e.angle)+" ("+Math.round(e.angle)+"°), which fits this macro backdrop. Your sector calls and the macro signals are telling a consistent story.");
-      else addP(box,"Your wheel points to "+phaseOf(e.angle)+" ("+Math.round(e.angle)+"°), which does not line up with this backdrop. That divergence is worth explaining: either sector prices are running ahead of the macro data, or the macro data has not confirmed the move yet.");
+      if(dist<=G.h)addP(box,"The wheel points to "+phaseOf(e.angle)+(document.body.dataset.mode==="customer"?"":" ("+Math.round(e.angle)+"°)")+", which fits this macro backdrop. The sector read and the macro signals are telling a consistent story.");
+      else addP(box,"The wheel points to "+phaseOf(e.angle)+(document.body.dataset.mode==="customer"?"":" ("+Math.round(e.angle)+"°)")+", which does not line up with this backdrop. That divergence is worth explaining: either sector prices are running ahead of the macro data, or the macro data has not confirmed the move yet.");
     }
     addP(box,"This is a rough rules-based read from the signals you have marked, not a forecast. It is a starting point for your own analysis.","m");
   }
@@ -1570,7 +1597,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       var n=document.createElement("h5");n.textContent=Q.n;var s=document.createElement("div");s.className="qs";s.textContent=Q.s;
       var p=document.createElement("p");p.textContent=Q.t;cell.appendChild(n);cell.appendChild(s);cell.appendChild(p);
       if(k===r.key){var t1=document.createElement("span");t1.className="qtag";t1.textContent="Macro signals point here";cell.appendChild(t1)}
-      if(k===wheelKey){var t2=document.createElement("span");t2.className="qtag w";t2.textContent="My sector calls lean here";cell.appendChild(t2)}
+      if(k===wheelKey){var t2=document.createElement("span");t2.className="qtag w";t2.textContent="The wheel leans here";cell.appendChild(t2)}
       grid.appendChild(cell);
     });
     box.appendChild(grid);
@@ -1648,7 +1675,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
 
   /* ---------- owl mascot ---------- */
   var owlSeq=0, owls=[], owlMood="curious", owlNeedle=null, owlExtra="", owlTopApi=null;
-  var OWLSAY={sleepy:"Zzz. Mark a few sectors and I\u2019ll wake up.",alert:"Hoot! The sector moves and the macro data disagree. That gap is worth explaining.",calm:"Steady. Your sector calls and the macro data tell the same story.",curious:"Still sorting it out. Signal clarity is low, so the market hasn\u2019t picked a side."};
+  var OWLSAY={sleepy:"Zzz. Mark a few sectors and I\u2019ll wake up.",alert:"Hoot! The sector moves and the macro data disagree. That gap is worth explaining.",calm:"Steady. The sector read and the macro data tell the same story.",curious:"Still sorting it out. Signal clarity is low, so the market hasn\u2019t picked a side."};
   /* Owl styles. Each style draws into the svg and returns its moving parts; the behaviour (look, blink, moods, speech)
      is shared. Add a style by adding an entry here; the picker on the Record tab lists them all. */
   function drawScholar(s,id){
@@ -2201,7 +2228,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     if(!market||viewing){ml.hidden=true;return}
     ml.hidden=false;ml.textContent="";
     var em=estimate(market),ey=estimate(live);
-    function part(lbl,x){var sp=document.createElement("span");sp.appendChild(document.createTextNode(lbl+" "));var b=document.createElement("b");b.textContent=x.angle==null?"no signal":HOUR[phaseOf(x.angle)]+", "+Math.round(x.angle)+"\u00b0";sp.appendChild(b);return sp}
+    function part(lbl,x){var sp=document.createElement("span");sp.appendChild(document.createTextNode(lbl+" "));var b=document.createElement("b");b.textContent=x.angle==null?"no signal":HOUR[phaseOf(x.angle)]+(document.body.dataset.mode==="customer"?"":", "+Math.round(x.angle)+"\u00b0");sp.appendChild(b);return sp}
     var showMine=typeof playing!=="function"||playing();if(!showMine&&owlCall)ey=estimate(owlCall.m);
     ml.appendChild(part("Market:",em));if(showMine||owlCall){ml.appendChild(document.createTextNode(" \u00b7 "));ml.appendChild(part(showMine?"Your calls:":"Owl\u2019s call:",ey))}
     if((showMine||owlCall)&&em.angle!=null&&ey.angle!=null)ml.appendChild(document.createTextNode(" \u00b7 "+Math.round(Math.abs(((em.angle-ey.angle+540)%360)-180))+"\u00b0 apart"));
@@ -2359,7 +2386,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     if(!D.length){b.hidden=true;return}b.hidden=false;
     var h=document.createElement("span");h.className="drH";h.textContent="Pulling the needle";b.appendChild(h);
     D.forEach(function(d){var c=document.createElement("button");c.type="button";c.className="drC "+(d.v>0?"up":"dn");
-      var r=relToday(d.s.id);c.textContent=d.s.s+" "+SYMV[String(d.v)]+(r!=null&&view==="market"?"  "+fmtP(r):"");
+      var r=relToday(d.s.id);c.textContent=d.s.n+" "+(d.v>0?"\u25b2":"\u25bc");
       c.addEventListener("click",function(){select(d.s.id)});b.appendChild(c)});
   }
   function paintTip(){
@@ -2468,12 +2495,10 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
 
   /* ---- tour ---- */
   var TOUR=[
-    {t:"#wheel",s:"Hoot! I’m your guide. This wheel is the market’s clock: Dawn is recovery, Midday is expansion, Dusk is late cycle, Night is contraction."},
-    {t:"#wheel",s:"Each dot is a sector. Green means it’s beating the S&P 500, red means it’s lagging. The brighter the glow, the stronger the move."},
-    {t:".readouts",s:"The gold needle points to the hour the market is keeping. Clarity tells you how much the sectors agree with each other."},
-    {t:"#drivers",s:"These are the sectors pulling the needle hardest right now. Tap one to see why it matters."},
-    {t:"#viewbar",s:"Market is my read from real prices, updated all day. My calls is yours. Tap any dot to make your own call."},
-    {t:"#tabbar",s:"Sectors to make calls, Macro for rates, metals and crypto, Record for your scoreboard, Learn for lessons and the newsletter. Tap ? on the clock anytime to replay this."}
+    {t:"#wheel",s:"Hoot! I\u2019m your guide. This wheel is the market\u2019s clock: Dawn is recovery, Midday is expansion, Dusk is late cycle, Night is contraction. Each dot is a sector: green is beating the S&P 500, red is lagging."},
+    {t:".readouts",s:"The gold needle points to the hour the market is keeping. The sectors pulling it hardest are listed right under the clock. Tap one to see why it matters."},
+    {t:"#viewbar",s:"Market is my read from real prices, updated all day. The Owl\u2019s call is our published read. Want to test yourself? Start playing on the Sectors tab."},
+    {t:"#tabbar",s:"Sectors for the market map, Macro for the calendar, rates, metals and crypto, Record for the weekly recap, Learn for lessons. Tap \u201cHow to read it\u201d anytime to replay this."}
   ];
   var tourOn=false;
   function startTour(){
@@ -2520,7 +2545,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     paintLesson();
     if(lsGet("oh_tour")!=="1")setTimeout(startTour,1400);else setTimeout(sayLessonOnce,9800);
   }
-  function phaseB(){paintDrivers();paintTip();paintScore();if($("heatSec"))layer3Paint();if($("proG"))paintPro();if($("owlCallCard"))paintOwlCallCard();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
+  function phaseB(){paintDrivers();paintTip();paintScore();if($("heatSec"))layer3Paint();if($("proG"))paintPro();if($("ticker")){plainClock();paintTicker()}if($("owlCallCard"))paintOwlCallCard();if(typeof paintRecap==="function"&&$("recapRec"))paintRecap()}
   /* ================= Phase B2: crypto strip, calendar, latest prints, weekly recap ================= */
   var calData=null,cryData=null;
   var CALKIND={fed:"Fed",cpi:"CPI",jobs:"Jobs",pce:"PCE",gdp:"GDP",retail:"Retail",earnings:"Earnings"};
@@ -2595,9 +2620,10 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   function recapNode(r){
     var b=mkEl("div","recap");b.appendChild(mkEl("div","lsHead","Weekly recap · "+fmtDay(r.w.mon).replace(/^\w+, /,"")+" to "+fmtDay(r.w.fri).replace(/^\w+, /,"")));
     var pa=phaseOf(r.a.angle),pz=phaseOf(r.z.angle);
-    b.appendChild(mkEl("p","lsText",pa===pz?"The needle stayed in "+HOUR[pz]+" ("+pz.toLowerCase()+"), moving "+Math.abs(Math.round(r.dd))+"° "+(r.dd>=0?"forward":"back")+".":"The needle moved from "+HOUR[pa]+" to "+HOUR[pz]+": "+Math.abs(Math.round(r.dd))+"° "+(r.dd>=0?"forward":"back")+" through the cycle."));
+    var cu=document.body.dataset.mode==="customer",deg=cu?"":Math.abs(Math.round(r.dd))+"° ";
+    b.appendChild(mkEl("p","lsText",pa===pz?"The needle stayed in "+HOUR[pz]+" ("+pz.toLowerCase()+")"+(Math.abs(r.dd)<5?".":", drifting "+deg+(r.dd>=0?"forward":"back")+"."):"The needle moved from "+HOUR[pa]+" to "+HOUR[pz]+": "+deg+(r.dd>=0?"forward":"back")+" through the cycle."));
     if(r.flips.length)b.appendChild(mkEl("p","rcL","Biggest flips: "+r.flips.map(function(f){return f.s.s+" "+SYMV[String(f.from)]+" → "+SYMV[String(f.to)]}).join(", ")+"."));
-    b.appendChild(mkEl("p","rcL",r.mine.total?"Your calls this week: "+r.mine.right+" of "+r.mine.total+" right ("+Math.round(r.mine.right/r.mine.total*100)+"%).":"You didn’t have graded calls this week. Save a snapshot on Sectors to get on the board."));
+    if(r.mine.total||typeof playing!=="function"||playing())b.appendChild(mkEl("p","rcL",r.mine.total?"Your calls this week: "+r.mine.right+" of "+r.mine.total+" right ("+Math.round(r.mine.right/r.mine.total*100)+"%).":"You didn’t have graded calls this week. Save a snapshot on Sectors to get on the board."));
     b.appendChild(mkEl("small",null,"Based on "+r.days+" market closes this week."));
     var sh=mkEl("button","small","Share recap");sh.type="button";sh.style.marginTop="10px";sh.style.display="block";sh.addEventListener("click",function(){recapCard(r)});b.appendChild(sh);
     return b;
@@ -2783,8 +2809,8 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     b.appendChild(mkEl("h3",null,"Precious metals"));
     var list=mkEl("div","metList");
     MET.forEach(function(k){var m=M[k[0]];if(!m)return;var r=mkEl("button","metRow");r.type="button";
-      var a=mkEl("div","metA");a.appendChild(mkEl("b",null,k[1]));a.appendChild(mkEl("small",null,m.src==="spot"?"Spot, per oz":m.sym+" ETF (spot unavailable)"));r.appendChild(a);
-      var pr=mkEl("div","metP");pr.appendChild(mkEl("b",null,(m.src==="spot"?"$":"")+fmtNum(m.price)));
+      var a=mkEl("div","metA");a.appendChild(mkEl("b",null,k[1]));a.appendChild(mkEl("small",null,m.src==="spot"?"Spot price":"Tracked with the "+m.sym+" ETF"));r.appendChild(a);
+      var pr=mkEl("div","metP");pr.appendChild(mkEl("b",null,"$"+fmtNum(m.price)));pr.appendChild(mkEl("small","metU",m.src==="spot"?"per oz":"per ETF share"));
       if(typeof m.chg1==="number")pr.appendChild(mkEl("small",m.chg1>=0?"up":"dn",fmtP(m.chg1)+" day"));r.appendChild(pr);
       var ch=mkEl("div","lchips");levelInfo(m.price,m).slice(0,2).forEach(function(c){ch.appendChild(mkEl("span","lchip "+c.c,c.t))});
       if(typeof m.chg20==="number")ch.appendChild(mkEl("span","lchip",fmtP(m.chg20)+" 20d"));r.appendChild(ch);
@@ -3185,7 +3211,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var p=mkt&&mkt.pcts,showPct=view!=="mine"&&p&&typeof p.SPY==="number";
     SECTORS.forEach(function(s){var n=nodeEls[s.id];if(!n)return;var v=m[s.id]||0;
       n.c.style.filter=v?"drop-shadow(0 0 "+(4+Math.abs(v)*4)+"px "+(v>0?"rgba(79,209,165,.9)":"rgba(255,123,102,.9)")+")":"";
-      if(showPct){var r=relToday(s.id);if(r==null)return;var q=pt(s.a,204),t=el("text",{x:q[0],y:q[1],"text-anchor":"middle","dominant-baseline":"central","font-size":"12.5","font-weight":"700","font-family":"ui-monospace, SFMono-Regular, Menlo, monospace",fill:r>=0?"#7dffc0":"#ff9a8a"},pg);t.textContent=(r>=0?"+":"")+r.toFixed(1)}});
+      if(false){var r=relToday(s.id);if(r==null)return;var q=pt(s.a,204),t=el("text",{x:q[0],y:q[1],"text-anchor":"middle","dominant-baseline":"central","font-size":"12.5","font-weight":"700","font-family":"ui-monospace, SFMono-Regular, Menlo, monospace",fill:r>=0?"#7dffc0":"#ff9a8a"},pg);t.textContent=(r>=0?"+":"")+r.toFixed(1)}});
     var ts=$("termStrip");if(ts){ts.textContent="";
       var up=0,dn=0,fl=0;SECTORS.forEach(function(s){var v=m[s.id]||0;if(v>0)up++;else if(v<0)dn++;else fl++});
       var e=estimate(m),bits=[["BREADTH",up+"▲ "+dn+"▼ "+fl+"="],["PULL",e.angle==null?"—":(e.clarity*100).toFixed(0)+"%"]];
@@ -3216,7 +3242,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     markOwnerOnly();
     var cp=document.querySelector('.pane[data-pane="clock"]');
     if(cp&&!$("owlCallCard")){var oc=mkEl("div","recap owlCallCard");oc.id="owlCallCard";oc.hidden=true;var dial=cp.querySelector("section.dial");cp.insertBefore(oc,dial)}
-    var ro=document.querySelector(".readouts");if(ro&&!$("termStrip")){var ts=mkEl("div","termStrip");ts.id="termStrip";ro.parentNode.insertBefore(ts,ro.nextSibling)}
+
     var wheel=$("wheel");if(wheel&&!$("proG")){var g=el("g",{id:"proG","pointer-events":"none"},wheel)}
     if(typeof needleG!=="undefined"&&needleG)needleG.style.filter="drop-shadow(0 0 6px rgba(224,178,91,.75))";
     var sp=document.querySelector('.pane[data-pane="sectors"]'),hs=$("heatSec");
@@ -3227,6 +3253,8 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     if(!$("fbBtn")){var fb=mkEl("button","fbBtn");fb.type="button";fb.id="fbBtn";fb.setAttribute("aria-label","Send feedback");fb.innerHTML='<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>';fb.addEventListener("click",openFeedback);document.body.appendChild(fb)}
     var top=$("owlTop");if(top)top.addEventListener("click",ownerTap);
     window.addEventListener("hashchange",function(){track("tab-"+location.hash.slice(1))});
+    if(cp){["section.dial","#owlCallCard","#recapClock","#dayWrap","#liveStrip","#liveNote","#fearMeter","#nextUp","#lesson"].forEach(function(q){var n=cp.querySelector(q)||document.querySelector(q);if(n&&n.closest(".pane")===cp)cp.appendChild(n)})}
+    var sc=$("scoreSec");if(sc)sc.classList.add("playOnly");
     applyMode();loadOwlCall();paintPro();
   }
   async function loadIssues(){
@@ -3237,6 +3265,58 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var L=items[0],card=mkEl("a","issueCard");card.href=L.pdf;card.target="_blank";card.rel="noopener";
     card.appendChild(mkEl("div","lsHead","Latest issue · "+fmtDay(L.date)));card.appendChild(mkEl("p","lsText",L.headline||"The Market Talks"));if(L.dek)card.appendChild(mkEl("small",null,L.dek));b.appendChild(card);
     if(items.length>1){var ar=mkEl("div","issueList");items.slice(1,13).forEach(function(i){var a=mkEl("a",null,fmtDay(i.date)+" · "+(i.headline||"Issue"));a.href=i.pdf;a.target="_blank";a.rel="noopener";ar.appendChild(a)});b.appendChild(mkEl("small","sub","Archive"));b.appendChild(ar)}
+  }
+
+  /* ================= Layer 3.75: plain words, ticker, clock-first ================= */
+  function cust(){return document.body.dataset.mode==="customer"}
+  function clarityWord(c){return c>=0.6?"Clear":c>=0.35?"Moderate":"Mixed"}
+  var TICK_ORDER=["SPY","QQQ","DIA","IWM","XLK","XLF","XLY","XLC","XLV","XLI","XLP","XLE","XLU","XLRE","XLB","SMH","CIBR","GDX","GLD","SLV"];
+  var TICK_NAME={SPY:"S&P 500",QQQ:"Nasdaq 100",DIA:"Dow",IWM:"Russell 2000",GLD:"Gold ETF",SLV:"Silver ETF"};
+  var tickQ=null,tickSig="";
+  async function loadTicker(){try{tickQ=await getJSON("quotes.json")}catch(e){}paintTicker()}
+  function paintTicker(){
+    var b=$("ticker");if(!b)return;var Q=tickQ&&tickQ.quotes;if(!Q){b.hidden=true;return}
+    var items=[];
+    TICK_ORDER.forEach(function(sym){var q=Q[sym];if(!q||typeof q.price!=="number")return;
+      var it={sym:sym,name:TICK_NAME[sym]||"",price:q.price,pct:q.pct,chip:null};
+      if(/^(SPY|QQQ|DIA|IWM)$/.test(sym)&&latData&&latData.etf&&latData.etf[sym]){var lv=levelInfo(q.price,latData.etf[sym]);if(lv.length)it.chip=lv[0]}
+      if(sym==="GLD"&&latData&&latData.metals2&&latData.metals2.gold&&latData.metals2.gold.src==="spot"){var g=latData.metals2.gold;items.push({sym:"GOLD",name:"Spot, per oz",price:g.price,pct:g.chg1})}
+      else items.push(it)});
+    if(cryData&&cryData.coins&&cryData.coins.btc){var c=cryData.coins.btc;items.push({sym:"BTC",name:"Bitcoin",price:c.price,pct:c.chg24})}
+    if(!items.length){b.hidden=true;return}b.hidden=false;
+    var sig=JSON.stringify(items);if(sig===tickSig)return;tickSig=sig;
+    b.textContent="";var track=mkEl("div","tkTrack");
+    for(var copy=0;copy<2;copy++){items.forEach(function(it){
+      var d=mkEl("button","tkItem");d.type="button";if(copy)d.setAttribute("aria-hidden","true"),d.tabIndex=-1;
+      d.appendChild(mkEl("b",null,it.sym));d.appendChild(mkEl("span","tkP",(it.price>=1000?Math.round(it.price).toLocaleString():it.price.toFixed(2))));
+      if(typeof it.pct==="number")d.appendChild(mkEl("span",it.pct>=0?"tkUp":"tkDn",(it.pct>=0?"▲":"▼")+Math.abs(it.pct).toFixed(2)+"%"));
+      if(it.chip)d.appendChild(mkEl("span","tkChip "+it.chip.c,it.chip.t.replace("-day","d")));
+      if(/^(SPY|QQQ|DIA|IWM)$/.test(it.sym))d.addEventListener("click",function(){window.OH_chart(it.sym,it.name,it.price)});
+      track.appendChild(d)})}
+    track.style.animationDuration=Math.max(30,items.length*3.4)+"s";
+    b.appendChild(track);
+    var t=tickQ.asOf?new Date(tickQ.asOf):null,note=$("tickNote");
+    if(note)note.textContent=t?(/[Oo]pen/.test(session().state)?"Live prices, refreshed every 15 minutes. ":"Last prices from ")+t.toLocaleString([],{weekday:"short",hour:"numeric",minute:"2-digit"})+". Tap SPY, QQQ, DIA or IWM for its chart.":"";
+  }
+  function plainClock(){
+    if(!cust())return;var e=estimate(currentMap());
+    if(e.angle!=null){var cv=$("clarityVal");if(cv)cv.textContent=clarityWord(e.clarity);
+      if(typeof centerAngle!=="undefined"&&centerAngle)centerAngle.textContent=HOUR[phaseOf(e.angle)]+" · "+clarityWord(e.clarity).toLowerCase()+" signals"}
+    var tx=$("driftText"),H0=curHist().filter(function(h){return h.angle!=null});
+    if(tx&&H0.length>1){var a=H0[0],z=H0[H0.length-1],pa=phaseOf(a.angle),pz=phaseOf(z.angle);
+      tx.textContent=pa===pz?"Over the last "+Math.round((dms(z.date)-dms(a.date))/86400000)+" days the market has stayed in "+HOUR[pz]+" ("+pz.toLowerCase()+").":"Over the last "+Math.round((dms(z.date)-dms(a.date))/86400000)+" days the market moved from "+HOUR[pa]+" ("+pa.toLowerCase()+") into "+HOUR[pz]+" ("+pz.toLowerCase()+")."}
+  }
+  function layer375Init(){
+    var cp=document.querySelector('.pane[data-pane="clock"]'),dial=cp&&cp.querySelector("section.dial");
+    if(dial&&!$("ticker")){var tw=mkEl("div","tkWrap");var tk=mkEl("div","ticker");tk.id="ticker";tk.hidden=true;tw.appendChild(tk);var tn=mkEl("p","tkNote");tn.id="tickNote";tw.appendChild(tn);dial.parentNode.insertBefore(tw,dial.nextSibling)}
+    ["liveStrip","liveNote"].forEach(function(id){var n=$(id);if(n)n.classList.add("ownerOnly")});
+    var av=$("angleVal");if(av&&av.parentNode)av.parentNode.classList.add("ownerOnly");
+    var cb=$("clarityVal");if(cb&&cb.previousElementSibling)cb.previousElementSibling.textContent=cust()?"Signal":"Signal clarity";
+    var se=$("sess");if(se)se.classList.add("ownerOnly");var ds=$("driftSeg");if(ds)ds.classList.add("ownerOnly");
+    var dh=document.querySelector(".driftHead span");if(dh)dh.textContent="Where it’s been";
+    var mp=document.querySelector('.pane[data-pane="macro"]'),cal=$("calSec"),cs=$("cryptoStrip");
+    if(mp&&cal&&cs)mp.insertBefore(cal,cs);
+    loadTicker();setInterval(loadTicker,5*60000);
   }
 
   function phaseB2Init(){
@@ -3267,7 +3347,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();paintRecap();
+  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();layer375Init();paintRecap();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */
