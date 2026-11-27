@@ -1,0 +1,45 @@
+name: Owl office
+
+on:
+  schedule:
+    # Chief of Staff reports. 7:00 am Central = 12:00 UTC (summer) / 13:00 UTC (winter).
+    # 4:30 pm Central = 21:30 UTC (summer) / 22:30 UTC (winter). The script skips whichever run isn't the right Central time.
+    - cron: "0 12 * * 1-5"
+    - cron: "0 13 * * 1-5"
+    - cron: "30 21 * * 1-5"
+    - cron: "30 22 * * 1-5"
+    # Saturday review (HR + innovation), after the Saturday backtest
+    - cron: "30 16 * * 6"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "report or weekly"
+        default: "report"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  office:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run the office
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -z "$MODE" ]; then
+            if [ "$(date -u +%u)" = "6" ]; then MODE=weekly; else MODE=report; fi
+          fi
+          python office_job.py "$MODE"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          READ_TO: ${{ secrets.READ_TO }}
+      - name: Save office.json
+        run: bash .github/push.sh "Owl office report" office.json

@@ -1,0 +1,28 @@
+name: Owl office inbox
+
+on:
+  schedule:
+    # Every 30 minutes, 6 am to 11 pm Central. Answers only emails from your READ_TO address.
+    - cron: "*/30 11-23,0-4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Answer the CEO's emails
+        run: python office_job.py inbox
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          READ_TO: ${{ secrets.READ_TO }}
+      - name: Save approvals
+        run: bash .github/push.sh "Owl office - CEO decision" approvals.json
