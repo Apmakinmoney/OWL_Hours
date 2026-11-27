@@ -11,15 +11,18 @@ permissions:
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Run the backtest (about 4 minutes of downloads)
+      - name: Install research tools
+        run: pip install numpy scikit-learn arch mapie
+      - name: Run the backtest (about 8 minutes of downloads)
         run: python backtest_job.py
         env:
           TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
       - name: Save backtest.json
         run: bash .github/push.sh "Weekly backtest" backtest.json
