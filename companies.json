@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-27T21:11:37+00:00",
+ "asOf": "2026-11-27T22:11:16+00:00",
  "detailDate": "2026-11-27",
  "featured": [
   "NVDA",
@@ -2036,6 +2036,12 @@
    ],
    "news": [
     {
+     "title": "AI Chip Stocks Swung Wildly\u2014While Warren Buffett\u2019s Apple Climbed 26%",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=dc91559ee9ae23aba325f5aa93ab40862e6b6bcce93b8b7d76986c08d0a009c2",
+     "t": "2026-11-27T20:41+00:00"
+    },
+    {
      "title": "New $799 smart glasses challenge Apple, but with a major catch",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=df3420d27b98f5d43714b8aae10b4aad058833a88850c06784ee14ab7c50ec45",
@@ -2046,12 +2052,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=82a2afb0830760585c89b97c5dd6a62b95fb7e4ac487ad399956bbc6a3265a4b",
      "t": "2026-11-27T15:18+00:00"
-    },
-    {
-     "title": "Apple gains smartphone share as memory crunch squeezes budget Android phones",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=2cc22750c7b4595676e3948b4d05ac33ec98a980def0f3cf87fe93a237b367dc",
-     "t": "2026-11-27T13:41+00:00"
     }
    ]
   },
@@ -2377,22 +2377,22 @@
    ],
    "news": [
     {
+     "title": "Can Record Black Friday Spending Lift Amazon Stock?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=7aa445f3c05f8dbd715315f2c351988e8a2e6eb98f4c2803720b3f3d8d50d033",
+     "t": "2026-11-27T20:35+00:00"
+    },
+    {
+     "title": "Amazon, Target and Walmart Chase Holiday Toy Spending",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=840977565a9d89c2455920404316fc6aa754f0743a6e22669d2000a694ad2ec1",
+     "t": "2026-11-27T19:53+00:00"
+    },
+    {
      "title": "Amazon\u2019s AWS Profit Rose 55%. Can It Absorb a $220 Billion Capex Bill?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=67220fba4fdf78ca107db2fd963b605d7d1d72851bf5de1d0ac28c5cfa22c77e",
      "t": "2026-11-27T19:18+00:00"
-    },
-    {
-     "title": "Amazon Stocks Climb 2.96% as Thanksgiving Online Spending Hits $7.1 Billion",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=874e6051410d724886c815fd1c0fdb6b4cbe8bbb5d334d4bed15e7d0e222b358",
-     "t": "2026-11-27T19:09+00:00"
-    },
-    {
-     "title": "Jeff Bezos makes a $200 million move involving Amazon stock",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=bd39d2b1f9ee4be651d573db133622aa8410e006a3c5db91bbeb715b75da08b5",
-     "t": "2026-11-27T19:03+00:00"
     }
    ]
   },
@@ -3400,22 +3400,22 @@
    ],
    "news": [
     {
+     "title": "What Broadcom Stock's Google Chip Order Cut Means For Shareholders",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=c8f5f95fc63fc316f75b9d4695688e2a37b2434e4526f82c35927bf19445e53d",
+     "t": "2026-11-27T20:10+00:00"
+    },
+    {
+     "title": "Broadcom Stocks Climb 2.19% as $1 Billion Anthropic Stake Turns Positive",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=76fbfc1539fe3992c078ece25fec3d76d551350d3d5ad86ba50e688609563f48",
+     "t": "2026-11-27T19:46+00:00"
+    },
+    {
      "title": "Prediction: Broadcom Stock Could Have Another Big Year as AI Chip Revenue Accelerates",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=d55804588a75331af14e534a186514d9faa7a2f16d44e3b42d62500ce05abb0d",
      "t": "2026-11-27T14:33+00:00"
-    },
-    {
-     "title": "Broadcom\u2019s 2027 Bull Case: AI Revenue Doubles to $115B and $230B\u2014Here\u2019s What Finally Unlocks the Stock",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=1ad595a249cfe3154a5e9f9dacd2553cdd42f836f5366bfe2f9ca3d4d6e35d3e",
-     "t": "2026-11-27T12:15+00:00"
-    },
-    {
-     "title": "Broadcom Makes More AI Money Than AMD\u2014So Why Is AMD\u2019s Stock Crushing It?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=960a5e5e176f0bbd74b7fcb536a59ad1d8fb3e4359c0f2003b22c04f9fa5c027",
-     "t": "2026-11-27T12:15+00:00"
     }
    ]
   },
