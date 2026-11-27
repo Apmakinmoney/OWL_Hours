@@ -8,7 +8,7 @@
 Writes office.json for the app. Emails the CEO when GMAIL_USER, GMAIL_APP_PASSWORD and READ_TO are set.
 Only mail FROM the READ_TO address is answered: nobody else can talk to the office.
 """
-import email as emaillib, imaplib, json, os, re, smtplib, sys, time, urllib.request
+import email as emaillib, imaplib, json, os, re, smtplib, sys, time, urllib.error, urllib.request
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -374,9 +374,120 @@ def inbox():
     M.logout(); print(f"Answered {answered} email(s).", flush=True)
 
 
+# ---------------- Discord office (free) ----------------
+DAPI = "https://discord.com/api/v10"
+DCH = [("chief-of-staff", "Morgan's 7:00 am and 4:30 pm reports"), ("ask-the-office", "Text the office here: status, watchlist, metals, clock, risk, website, engineering, or a ticker"),
+       ("watchlist", "Jules: your names, movers, earnings"), ("metals", "Sterling: gold, silver, platinum, palladium"), ("risk", "Ray: paper portfolios and drawdowns"),
+       ("website-and-data", "Webb + Ada: site checks and data QA"), ("engineering", "Atlas: change requests. Reply APPROVED or DENIED"), ("hr-and-innovation", "Harper + Nova: Saturday reviews")]
+
+
+def dapi(method, path, body=None):
+    tok = os.environ.get("DISCORD_BOT_TOKEN", "").strip()
+    for _ in range(4):
+        req = urllib.request.Request(DAPI + path, method=method, data=json.dumps(body).encode() if body is not None else None,
+                                     headers={"Authorization": "Bot " + tok, "Content-Type": "application/json", "User-Agent": "DiscordBot (https://github.com/Apmakinmoney/OWL_Hours, 1.0)"})
+        try:
+            r = urllib.request.urlopen(req, timeout=30).read()
+            return json.loads(r) if r else None
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                time.sleep(float(json.loads(e.read() or b"{}").get("retry_after", 2)) + 0.5); continue
+            raise RuntimeError(f"Discord {method} {path}: {e.code} {e.read()[:200]}")
+    raise RuntimeError("Discord rate limit")
+
+
+def discord_setup():
+    """Find your server and make the office channels (once). Saves channel ids in discord.json."""
+    if not os.environ.get("DISCORD_BOT_TOKEN", "").strip(): return None
+    st = load("discord.json", {}) or {}
+    gs = dapi("GET", "/users/@me/guilds") or []
+    if not gs: print("The bot isn't in a server yet. Use the invite link.", flush=True); return None
+    g = gs[0]["id"]
+    if st.get("guild") == g and all(n in st.get("ch", {}) for n, _ in DCH): return st
+    guild = dapi("GET", f"/guilds/{g}")
+    chans = dapi("GET", f"/guilds/{g}/channels") or []
+    cat = next((c for c in chans if c["type"] == 4 and c["name"].lower() == "owl hours hq"), None) or dapi("POST", f"/guilds/{g}/channels", {"name": "OWL HOURS HQ", "type": 4})
+    ids = {}
+    for n, topic in DCH:
+        c = next((c for c in chans if c["type"] == 0 and c["name"] == n), None) or dapi("POST", f"/guilds/{g}/channels", {"name": n, "type": 0, "topic": topic, "parent_id": cat["id"]})
+        ids[n] = c["id"]
+    st = {"guild": g, "owner": guild.get("owner_id"), "ch": ids, "last": st.get("last", {})}
+    json.dump(st, open(os.path.join(HERE, "discord.json"), "w"), indent=1)
+    dapi("POST", f"/channels/{ids['chief-of-staff']}/messages", {"content": "**Owl Hours HQ is open.** Morgan here, your Chief of Staff. Reports land in this channel at 7:00 am and 4:30 pm CT. Text me anytime in #ask-the-office."})
+    print("Discord office set up.", flush=True)
+    return st
+
+
+def dsay(st, ch, text, ref=None):
+    for i in range(0, len(text), 1900):
+        body = {"content": text[i:i + 1900], "allowed_mentions": {"parse": []}}
+        if ref and i == 0: body["message_reference"] = {"message_id": ref}
+        dapi("POST", f"/channels/{st['ch'][ch]}/messages", body)
+
+
+def discord_report(o):
+    st = discord_setup()
+    if not st: return
+    cos = o["cos"]
+    t = [f"**{cos['headline']}**"] + (["**Needs your eyes:**"] + ["• " + n for n in cos["needs"]] if cos["needs"] else []) + cos["lines"]
+    dsay(st, "chief-of-staff", "\n".join(t))
+    w = o.get("watch") or {}
+    if w.get("rows"): dsay(st, "watchlist", f"**{w['line']}**\n" + "\n".join(f"• {r['sym']} ${r['price']:,.2f} {r['pct']:+.2f}%" + (f" ({r['tag']})" if r.get("tag") else "") for r in w["rows"] if r.get("pct") is not None) + ("\nEarnings: " + "; ".join(w["earnings"]) if w.get("earnings") else ""))
+    m = o.get("metals") or {}
+    if m.get("rows"): dsay(st, "metals", f"**{m['line']}**\n" + "\n".join(f"• {r['name']} ${r['price']:,.2f}" + (f", 20d {r['chg20']:+.1f}%" if r.get("chg20") is not None else "") + f", {r['trend']} its 50/200-day averages" for r in m["rows"]))
+    k = o.get("risk") or {}
+    if k.get("rows"): dsay(st, "risk", f"**{k['line']}**\n" + ("\n".join("⚑ " + x for x in k["warn"]) if k["warn"] else "No drawdown alarms."))
+    dsay(st, "website-and-data", f"**{(o.get('site') or {}).get('line', '')}**\n" + "\n".join(("✅ " if c["ok"] else "❌ ") + c["name"] + ": " + c["note"] for c in (o.get("qa") or {}).get("checks", [])))
+    e = o.get("eng") or {}
+    if e.get("pending"):
+        for c in [c for c in ((load("changes.json", {}) or {}).get("changes") or []) if c.get("status") == "pending"]:
+            dsay(st, "engineering", f"**Change request {c['id']}: {c['title']}**\n**What I'm updating:**\n" + "\n".join("• " + x for x in c.get("what", [])) +
+                 f"\n**Why:** {c.get('why', '')}\n**Files:** {', '.join(c.get('files', []))}\n**Risk:** {c.get('risk', '')}\nReply **APPROVED** or **DENIED**.")
+    if cos.get("slot") == "weekly":
+        h, n = o.get("hr") or {}, o.get("innovation") or {}
+        dsay(st, "hr-and-innovation", f"**HR weekly review:** {h.get('line', '')}\n" + "\n".join(f"• {r['person']}: {r['rate']}% ({r['grade']})" for r in h.get("rows", [])) +
+             "\n\n**Innovation weekly:**\n" + "\n".join("• " + l for l in n.get("lines", [])))
+    print("Posted to Discord.", flush=True)
+
+
+def discord_inbox():
+    st = discord_setup()
+    if not st: return
+    o = load("office.json", {}) or {}
+    n = 0
+    for ch in ("ask-the-office", "engineering"):
+        last = st["last"].get(ch)
+        q = f"/channels/{st['ch'][ch]}/messages?limit=50" + (f"&after={last}" if last else "")
+        msgs = sorted(dapi("GET", q) or [], key=lambda m: int(m["id"]))
+        for m in msgs:
+            st["last"][ch] = m["id"]
+            if m["author"].get("bot") or not last: continue  # first run: just mark where we are
+            if m["author"]["id"] != st.get("owner"):
+                dsay(st, ch, "Only the CEO can give the office orders.", m["id"]); continue
+            text = (m.get("content") or "").strip()
+            if not text: continue
+            w = text.lower().split()[0].strip(".,!*")
+            if w in ("approved", "approve", "yes", "denied", "deny", "no"):
+                dec = "approved" if w in ("approved", "approve", "yes") else "denied"
+                pend = [c for c in ((load("changes.json", {}) or {}).get("changes") or []) if c.get("status") == "pending"]
+                target = pend[0]["id"] if pend else "latest"
+                appr = load("approvals.json", {"decisions": []}); appr["decisions"].insert(0, {"id": target, "decision": dec, "note": text[:200], "at": iso(), "via": "discord"})
+                json.dump(appr, open(os.path.join(HERE, "approvals.json"), "w"), indent=1)
+                reply = f"Logged: **{target} {dec.upper()}**. Atlas will see it before the next build."
+            else:
+                reply = answer(text, o)
+            dsay(st, ch, reply, m["id"]); n += 1
+    json.dump(st, open(os.path.join(HERE, "discord.json"), "w"), indent=1)
+    print(f"Answered {n} Discord message(s).", flush=True)
+
+
 def main(mode):
     prev = load("office.json", {}) or {}
-    if mode == "inbox": return inbox()
+    if mode == "inbox":
+        for f in (discord_inbox, inbox):
+            try: f()
+            except Exception as e: print(f"{f.__name__} failed: {e}", flush=True)
+        return
     local = NOW.astimezone(CT)
     sched = os.environ.get("GITHUB_EVENT_NAME") == "schedule"
     o = dict(prev); o["asOf"] = iso()
@@ -395,6 +506,8 @@ def main(mode):
     if mode in ("report", "weekly"):
         try: report_email(o)
         except Exception as e: print(f"Email failed: {e}", flush=True)
+        try: discord_report(o)
+        except Exception as e: print(f"Discord failed: {e}", flush=True)
 
 
 if __name__ == "__main__":

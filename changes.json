@@ -1,21 +1,121 @@
-{"note": "Atlas (lead engineer) logs every change here. pending = waiting for the CEO. shipped = the CEO approved and uploaded it.",
+{
+ "note": "Atlas (lead engineer) logs every change here. pending = waiting for the CEO. shipped = the CEO approved and uploaded it.",
  "changes": [
-  {"id": "3.97", "date": "2026-11-27", "status": "pending", "title": "Owl Hours HQ: rooms, departments, engineering team, office chat",
-   "what": ["The Lab's bot office becomes Owl Hours HQ: 7 rooms you swipe between (Open floor, Exec suite, Trading floor, Research lab, Web & data, People & CRM, Engineering).",
-            "34 people with mixed brown, tan, yellow and white skin. You are the CEO in the Exec suite, with a crown. Nobody outranks you.",
-            "New robot office_job.py with 7 real jobs: Chief of Staff, Watchlist desk, Metals desk, Risk officer, Website director, Data QA, plus HR reviews and Innovation on Saturdays.",
-            "Reports emailed to you at 7:00 am and 4:30 pm Central on weekdays, plus a Saturday review.",
-            "Office chat in the Lab: ask Morgan (Chief of Staff) status, watchlist, metals, clock, risk, website, engineering, or a ticker. Free, instant, stays on your phone.",
-            "Email the office: reply to any report with one word and Morgan answers by email within about 30 minutes. Only your address is answered.",
-            "Engineering room: Atlas (lead) with 5 engineers and 10 coders. Every change shows up as a request with what, why and which files, marked pending until you approve."],
+  {
+   "id": "3.98",
+   "date": "2026-11-27",
+   "status": "pending",
+   "title": "Discord office: a channel per department, text the office",
+   "what": [
+    "The office bot makes its own channels in your Discord server: #chief-of-staff, #ask-the-office, #watchlist, #metals, #risk, #website-and-data, #engineering, #hr-and-innovation.",
+    "Each 7:00 am and 4:30 pm report posts to the right department channel. Saturday reviews post to #hr-and-innovation.",
+    "Text #ask-the-office (status, watchlist, metals, clock, risk, website, engineering, or a ticker) and Morgan replies within about 10 minutes.",
+    "Change requests post in #engineering. Reply APPROVED or DENIED and it's logged.",
+    "Only the server owner (you) gets answers."
+   ],
+   "why": "Gmail app passwords aren't available on your account yet. Discord is free, pushes to your phone, and feels like a real office.",
+   "files": [
+    "office_job.py",
+    "changes.json",
+    ".github/workflows/office.yml",
+    ".github/workflows/inbox.yml"
+   ],
+   "areas": [
+    "robots",
+    "infra"
+   ],
+   "risk": "Low. Nothing posts until you add the DISCORD_BOT_TOKEN secret. Email still works later when Gmail is ready."
+  },
+  {
+   "id": "3.97",
+   "date": "2026-11-27",
+   "status": "shipped",
+   "title": "Owl Hours HQ: rooms, departments, engineering team, office chat",
+   "what": [
+    "The Lab's bot office becomes Owl Hours HQ: 7 rooms you swipe between (Open floor, Exec suite, Trading floor, Research lab, Web & data, People & CRM, Engineering).",
+    "34 people with mixed brown, tan, yellow and white skin. You are the CEO in the Exec suite, with a crown. Nobody outranks you.",
+    "New robot office_job.py with 7 real jobs: Chief of Staff, Watchlist desk, Metals desk, Risk officer, Website director, Data QA, plus HR reviews and Innovation on Saturdays.",
+    "Reports emailed to you at 7:00 am and 4:30 pm Central on weekdays, plus a Saturday review.",
+    "Office chat in the Lab: ask Morgan (Chief of Staff) status, watchlist, metals, clock, risk, website, engineering, or a ticker. Free, instant, stays on your phone.",
+    "Email the office: reply to any report with one word and Morgan answers by email within about 30 minutes. Only your address is answered.",
+    "Engineering room: Atlas (lead) with 5 engineers and 10 coders. Every change shows up as a request with what, why and which files, marked pending until you approve."
+   ],
    "why": "You asked for real departments with real jobs, two-way talk with the office, and a CEO approval gate on all code.",
-   "files": ["index.html", "office_job.py", "changes.json", ".github/workflows/office.yml", ".github/workflows/inbox.yml", "SPEC.md"],
-   "areas": ["app", "robots", "infra"], "risk": "Low. Lab only, customers never see it. Email stays off until you add the Gmail secrets."},
-  {"id": "3.95b", "date": "2026-11-27", "status": "shipped", "title": "Clock-first redesign, macro cards, Sims office, 27-year backtest",
-   "what": ["Accordion clock page, swipe and pull-to-refresh, macro cards with sparklines, momentum arc, tap-the-needle why.", "Backtest from 1999 with luck test, confidence cone, direction and macro tests."],
-   "why": "Make the clock the main thing and prove it over a longer history.", "files": ["index.html", "backtest_job.py", "bt_stats.py", "daily_job.py"], "areas": ["app", "charts", "backtest"]},
-  {"id": "guard-fix", "date": "2026-11-27", "status": "shipped", "title": "Drawdown guard releases when the tier recovers",
-   "what": ["Shadow equity with hysteresis so the guard turns back off."], "why": "Moderately aggressive was stuck in cash.", "files": ["backtest_job.py", "paper_job.py"], "areas": ["backtest", "robots"]},
-  {"id": "3.95a", "date": "2026-11-27", "status": "shipped", "title": "Backtest engine, paper portfolios, daily read, Client/Boss/Engineering modes, Lab",
-   "what": ["13 paper portfolios, 7:30 am daily read, three modes, the Lab tab."], "why": "Start the 6-month live proof.", "files": ["index.html", "backtest_job.py", "paper_job.py", "read_job.py"], "areas": ["app", "backtest", "robots"]}
- ]}
+   "files": [
+    "index.html",
+    "office_job.py",
+    "changes.json",
+    ".github/workflows/office.yml",
+    ".github/workflows/inbox.yml",
+    "SPEC.md"
+   ],
+   "areas": [
+    "app",
+    "robots",
+    "infra"
+   ],
+   "risk": "Low. Lab only, customers never see it. Email stays off until you add the Gmail secrets."
+  },
+  {
+   "id": "3.95b",
+   "date": "2026-11-27",
+   "status": "shipped",
+   "title": "Clock-first redesign, macro cards, Sims office, 27-year backtest",
+   "what": [
+    "Accordion clock page, swipe and pull-to-refresh, macro cards with sparklines, momentum arc, tap-the-needle why.",
+    "Backtest from 1999 with luck test, confidence cone, direction and macro tests."
+   ],
+   "why": "Make the clock the main thing and prove it over a longer history.",
+   "files": [
+    "index.html",
+    "backtest_job.py",
+    "bt_stats.py",
+    "daily_job.py"
+   ],
+   "areas": [
+    "app",
+    "charts",
+    "backtest"
+   ]
+  },
+  {
+   "id": "guard-fix",
+   "date": "2026-11-27",
+   "status": "shipped",
+   "title": "Drawdown guard releases when the tier recovers",
+   "what": [
+    "Shadow equity with hysteresis so the guard turns back off."
+   ],
+   "why": "Moderately aggressive was stuck in cash.",
+   "files": [
+    "backtest_job.py",
+    "paper_job.py"
+   ],
+   "areas": [
+    "backtest",
+    "robots"
+   ]
+  },
+  {
+   "id": "3.95a",
+   "date": "2026-11-27",
+   "status": "shipped",
+   "title": "Backtest engine, paper portfolios, daily read, Client/Boss/Engineering modes, Lab",
+   "what": [
+    "13 paper portfolios, 7:30 am daily read, three modes, the Lab tab."
+   ],
+   "why": "Start the 6-month live proof.",
+   "files": [
+    "index.html",
+    "backtest_job.py",
+    "paper_job.py",
+    "read_job.py"
+   ],
+   "areas": [
+    "app",
+    "backtest",
+    "robots"
+   ]
+  }
+ ]
+}
