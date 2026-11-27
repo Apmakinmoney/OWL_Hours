@@ -1,0 +1,25 @@
+name: Weekly backtest
+
+on:
+  schedule:
+    - cron: "10 15 * * 6"     # Saturdays, mid-morning Central
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run the backtest (about 4 minutes of downloads)
+        run: python backtest_job.py
+        env:
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+      - name: Save backtest.json
+        run: bash .github/push.sh "Weekly backtest" backtest.json

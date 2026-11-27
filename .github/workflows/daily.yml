@@ -29,7 +29,12 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      - name: Paper portfolios
+        continue-on-error: true
+        run: python paper_job.py
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       - name: Build the draft files
         run: python build_draft.py
       - name: Save results
-        run: bash .github/push.sh "Daily data and draft" latest.json history.json calendar.json snapshots draft
+        run: bash .github/push.sh "Daily data and draft" latest.json history.json calendar.json paper.json snapshots draft

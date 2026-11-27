@@ -1,0 +1,29 @@
+name: Owl daily read
+
+on:
+  schedule:
+    # 7:30 am Central: 13:30 UTC in winter, 12:30 UTC in summer. The script skips whichever run isn't 7 am Central.
+    - cron: "30 12 * * 1-5"
+    - cron: "30 13 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Write (and email) the daily read
+        run: python read_job.py
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          READ_TO: ${{ secrets.READ_TO }}
+      - name: Save dailyread.json
+        run: bash .github/push.sh "Owl daily read" dailyread.json
