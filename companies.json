@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-27T22:11:16+00:00",
+ "asOf": "2026-11-27T23:11:14+00:00",
  "detailDate": "2026-11-27",
  "featured": [
   "NVDA",
@@ -343,22 +343,22 @@
    ],
    "news": [
     {
+     "title": "Jensen Huang Is Back. Nvidia\u2019s (NVDA) Bull Case Remains",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=a3adb5dfaf174dffb6f21e2a31c6eadd3eb5208d57c2c682d0a5fd92dc772fb4",
+     "t": "2026-11-27T21:06+00:00"
+    },
+    {
+     "title": "Nvidia Stocks Slip 1.66% as S&P Weighs Downgrade Over Key-Man Risk",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6e3204be59ea37f81ad7a186dc63f1972f26ae9d79b0bd5267c3f24444d438ca",
+     "t": "2026-11-27T19:49+00:00"
+    },
+    {
      "title": "Should You Buy Nvidia Stock Before CEO Jensen Huang Testifies in Front of Congress on Dec. 1 and Dec. 3?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=6485c9afc0ccda7c8349157b048306d43cc7dfa4db44f087308da73de51263b5",
      "t": "2026-11-27T19:48+00:00"
-    },
-    {
-     "title": "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=daa551d96a3a7a3a1f9668075bf933140959befbc52062dc93c5be0e73509c6f",
-     "t": "2026-11-27T18:48+00:00"
-    },
-    {
-     "title": "US Equity Indexes Rise as Jensen Huang's Return to Nvidia Guardrails AI Trade While Investors Slice Growth Exposure This Week",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=66986135b4c9b220e8424e7e29a498a77e30ab6eba64cf17c5162d5d5eeee730",
-     "t": "2026-11-27T18:39+00:00"
     }
    ]
   },
@@ -2718,6 +2718,12 @@
    ],
    "news": [
     {
+     "title": "Alphabet Down Nearly 20%: What Would Its CEO Say?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=29855fa31f3e1aeb9b90a71c6ac4405c1d0fe62c74956217a16b9e1ffff9d6c3",
+     "t": "2026-11-27T20:25+00:00"
+    },
+    {
      "title": "Alphabet Stocks Move Lower as Record Credit Spreads Shadow AI Spending",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=c4f248232a08a6eeada46dedfc8efb6cc06860300056a0f6da493d69ad558f9f",
@@ -2728,12 +2734,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=f91b2d3ba76cb8fb0419b65518914d1a60d5f0a1610c8c71cda29eab59fb8c9a",
      "t": "2026-11-27T18:41+00:00"
-    },
-    {
-     "title": "What Does Alphabet (GOOGL) Need To Prove After The Air Force Cloud Breach?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=09420bdb8738b20d8df31ee16ba375a402049e78b854c752e3203a8091b3651f",
-     "t": "2026-11-27T18:10+00:00"
     }
    ]
   },
@@ -3059,6 +3059,12 @@
    ],
    "news": [
     {
+     "title": "Can Meta's Business Pay For Its Spending?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=d710d9383dd9f54f4dce4ab2f8a23d21703b039faecf2916fcfe668dfadd1a7a",
+     "t": "2026-11-27T20:15+00:00"
+    },
+    {
      "title": "Top Stock Reports for Alphabet, Meta & Bank of America",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=f91b2d3ba76cb8fb0419b65518914d1a60d5f0a1610c8c71cda29eab59fb8c9a",
@@ -3069,12 +3075,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=b037b9e29cbf5524ff7543f693b7884973d6912b2a0db4b8d19d7eaf03b4242f",
      "t": "2026-11-27T17:11+00:00"
-    },
-    {
-     "title": "Meta, Anthropic in Talks to Build AI Data Centers in Japan",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=70739c7fb3a3a00b96a3f72bc76d09bdd583d1666368b27fd95fe90cd0add5ab",
-     "t": "2026-11-27T17:09+00:00"
     }
    ]
   },
@@ -4082,22 +4082,22 @@
    ],
    "news": [
     {
+     "title": "Palantir Stock (PLTR) Has No Room for Error at This Valuation",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=880b24404ec7be039dae5e8cfbe5834bea43956d51076033b662206fb8233216",
+     "t": "2026-11-27T21:38+00:00"
+    },
+    {
+     "title": "Should You Pick Palantir Over Its Big Tech Rivals?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=4a7f034c51c2d80d968bb3d780789e526e2b17a6b2394b32564dc556666c53c0",
+     "t": "2026-11-27T19:59+00:00"
+    },
+    {
      "title": "Palantir Stocks Climb 3.72% on $300 Million Poland Defense AI Deal",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=7f713f76ed3f459f7a733b1f06414f6728a646a5d99604592097787e65720be4",
      "t": "2026-11-27T19:23+00:00"
-    },
-    {
-     "title": "PLTR Stock Sees Best Week In 4 Months: Palantir Bags Reported $300M Defense Deal With Poland",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=4858721cd24be67d2629e6726ffad93affc6023211e6f054cf2c35f7ecf81c32",
-     "t": "2026-11-27T18:41+00:00"
-    },
-    {
-     "title": "Peter Thiel Takes $122M of Palantir Off the Market",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=d3f877c40f153d11ecae3739e51ae6ae1973154b099236a96e1e002422fdc4a1",
-     "t": "2026-11-27T18:29+00:00"
     }
    ]
   },
@@ -4423,6 +4423,12 @@
    ],
    "news": [
     {
+     "title": "Oracle is Living on a Prayer and It\u2019s Not Even Halfway There",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=a87056164f7827bd4b80de52abc3968777f6dfb755c11454ff542cd875e508f5",
+     "t": "2026-11-27T21:12+00:00"
+    },
+    {
      "title": "Oracle Has Frustrated Me, but Even With Zero AI Revenue the Stock Is Worth $133\u2014So I\u2019m Buying at $104",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=3f399fcf14a2962c86a6bd2df47d240a7e43b501d9610241b203ea886a39f926",
@@ -4433,12 +4439,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=eb9d9066d9a3db6a399429683ce0a97745760627727005ec4f0cc60049fd28cf",
      "t": "2026-11-27T14:36+00:00"
-    },
-    {
-     "title": "Blockchain in Retail Global Market Report 2026 | Capitalize on 26.1% CAGR to $2.39 Billion by 2030 as IBM, SAP, Oracle, AWS and Walmart Scale BaaS, Traceability and Web3 Loyalty",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b8bea3ea889392ee0f428010ed10176b7d1fd3a26937897776c069cbda0520cf",
-     "t": "2026-11-27T14:34+00:00"
     }
    ]
   },
@@ -5446,6 +5446,12 @@
    ],
    "news": [
     {
+     "title": "Why JPMorgan Chase Fans May Look To ETFs Right Now",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6fb50d7a78a2846338d8a66d50f8faf83f1c0e104570945b226f581bb6ccda61",
+     "t": "2026-11-27T21:13+00:00"
+    },
+    {
      "title": "JPMorgan Says Bitcoin \u2018Capitulation\u2019 Has Been Reached",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=c3ccabc6323d7889c64b69f508fba429329edf7d000565563d55c9c2afe013b7",
@@ -5456,12 +5462,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=27173e75c5dbb8a189b5d70fa0412467d6fb0db4e54ccff9d2b3cbe5c8267e76",
      "t": "2026-11-27T14:33+00:00"
-    },
-    {
-     "title": "JEPI Gets the Attention. JPMorgan\u2019s 0.12% Quality ETF Has Quietly Grown Past $9 Billion",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=778acdb5c6baf3199c32fbc44b98632c3c2b944a949c76f07a8e1e1886bf8328",
-     "t": "2026-11-27T13:03+00:00"
     }
    ]
   },
@@ -6810,6 +6810,12 @@
    ],
    "news": [
     {
+     "title": "Amazon, Target and Walmart Chase Holiday Toy Spending",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=840977565a9d89c2455920404316fc6aa754f0743a6e22669d2000a694ad2ec1",
+     "t": "2026-11-27T19:53+00:00"
+    },
+    {
      "title": "Walmart technical outlook amid Black Friday",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=a6fb5c115c5924e21a67c7555a252b3c0a9070948e40c8d476bfea316d8841cb",
@@ -6820,12 +6826,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=092383f556f3411e880d17b1e723e4530ec155faaea31473e4d120e69f47efc0",
      "t": "2026-11-27T15:42+00:00"
-    },
-    {
-     "title": "Walmart (WMT) Could Be 15% Undervalued Following Defensive Rotation And Holiday Momentum",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6fbc180d9e370eb7d2ea667b8d067fd2aa0d6943da1ba1ca27b2918218c04d84",
-     "t": "2026-11-27T15:10+00:00"
     }
    ]
   },
@@ -10219,6 +10219,12 @@
    ],
    "news": [
     {
+     "title": "How Firm Is Newmont Stock's Floor As Costs Rise?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=085c27800e4146acd6d2f7529cc2cc02ae436491e270d572894e8cae2cbc21ab",
+     "t": "2026-11-27T20:31+00:00"
+    },
+    {
      "title": "Stanley Druckenmiller and 10 Other Big Funds Bought Newmont Last Quarter. Ken Fisher and 5 Others Sold. Who\u2019s Right?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=fc7081345f7cb68a80dd67d68a13e7b934e5ab53c87c91b8a5fef86837f84e45",
@@ -10229,12 +10235,6 @@
      "source": "Benzinga",
      "url": "https://finnhub.io/api/news?id=ded7e0e6bab653e9be9d103abf2b937788c3103d87e7f79137ec87ea6fd6ec65",
      "t": "2026-11-25T14:18+00:00"
-    },
-    {
-     "title": "K2 Gold Drills 36.58m of 2.40 g/t Au Including 16.77m of 4.11 g/t Au at the Newmont Zone",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=60907a0c20797e29119f464375ac79863e66eafeccca26a6d68b1bd9806be3f1",
-     "t": "2026-11-25T12:00+00:00"
     }
    ]
   },
