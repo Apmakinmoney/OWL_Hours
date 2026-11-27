@@ -308,6 +308,21 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 
 
 
+
+/* ---- Layer 3.95 ---- */
+.labTab{display:none!important}
+body[data-eng="1"] .labTab{display:flex!important}
+body[data-eng="1"] .tabbar{grid-template-columns:repeat(6,1fr)}
+body[data-eng="1"] .tabbar button{font-size:10.5px}
+.modeBox{display:grid;gap:8px}
+.modeBtn{text-align:left;padding:12px 14px;border-radius:14px;background:#16224a;border:1px solid #2f3d6e;color:#e8ecf8}
+.modeBtn b{display:block;font:650 16px var(--serif)}.modeBtn small{color:#8d9ac0;font-size:12.5px}
+.modeBtn.on{border-color:#e0b25b;box-shadow:0 0 0 1px #e0b25b inset}
+.readCard{margin:0 0 16px}.readCard small{display:block;color:#8d9ac0;font-size:11.5px;margin-top:8px}
+.rdH{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#7fd6ff;margin:10px 0 2px}
+.labSec h3{font:650 17px var(--serif);margin:22px 0 8px}
+.labSec .board td.nm{max-width:170px}
+
 /* ---- Layer 3.8 ---- */
 .treemap{background:radial-gradient(120% 120% at 20% 0%,#132049 0%,#070b18 70%)!important;border:1px solid #1e2d5c;border-radius:14px!important;padding:6px!important;box-shadow:0 0 0 1px rgba(127,214,255,.05),0 20px 40px -24px rgba(61,255,176,.25)}
 .tmC rect{transition:stroke-opacity .3s}
@@ -691,6 +706,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   <button type="button" data-tab="macro"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>Macro</button>
   <button type="button" data-tab="record"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Record</button>
   <button type="button" data-tab="letter"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg>Letter</button>
+  <button type="button" data-tab="lab" class="labTab"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg>Lab</button>
 </nav>
 <script>
 (function(){
@@ -701,7 +717,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var wrap=document.querySelector(".wrap"),header=wrap.querySelector("header");
     function pane(name,title){var d=document.createElement("div");d.className="pane";d.dataset.pane=name;
       if(title){var h=document.createElement("h2");h.className="paneHead";h.textContent=title;d.appendChild(h)}wrap.appendChild(d);return d}
-    var P={clock:pane("clock"),sectors:pane("sectors"),macro:pane("macro","Macro"),record:pane("record"),letter:pane("letter","Letter desk")};
+    var P={clock:pane("clock"),sectors:pane("sectors"),macro:pane("macro","Macro"),record:pane("record"),letter:pane("letter","Letter desk"),lab:pane("lab","Lab")};
     var grid=wrap.querySelector(".grid"),dial=wrap.querySelector("section.dial"),controls=wrap.querySelector("section.controls");
     P.clock.appendChild(document.getElementById("liveStrip"));P.clock.appendChild(document.getElementById("liveNote"));P.clock.appendChild(dial);P.clock.appendChild(document.getElementById("lesson"));
     var mini=document.createElement("div");mini.className="mini";mini.id="miniRead";
@@ -3106,9 +3122,9 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   var REPO="Apmakinmoney/OWL_Hours",OWNER_HASH="8aa2f675dc1472569d6cc44c63671017b32ba9469b930659e066c34b2a4ec579";
   var FEEDBACK_EMAIL="Apalmerbmb20@gmail.com";
   var owlCall=null;
-  function isOwner(){return lsGet("oh_mode")==="owner"}
+  function isOwner(){var m=lsGet("oh_mode");return m==="owner"||m==="eng"}
   function playing(){return isOwner()||lsGet("oh_play")==="1"}
-  function applyMode(){document.body.dataset.mode=isOwner()?"owner":"customer";document.body.dataset.play=playing()?"1":"0";
+  function applyMode(){document.body.dataset.mode=isOwner()?"owner":"customer";document.body.dataset.eng=lsGet("oh_mode")==="eng"?"1":"0";if(lsGet("oh_mode")==="eng"&&typeof loadLab==="function")loadLab();if(lsGet("oh_mode")!=="eng"&&location.hash==="#lab")location.hash="#clock";document.body.dataset.play=playing()?"1":"0";
     var mb=document.querySelector('#viewSeg button[data-v="mine"]');if(mb)mb.textContent=isOwner()?"My calls":"My game";
     if(!playing()&&view==="mine")setView(owlCall?"owl":"market");paintOwnerDash();paintPlayCard();if(typeof paintWatch==="function"&&$("watchSec")){paintWatch();paintTicker()}}
   async function sha256(t){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return Array.prototype.map.call(new Uint8Array(b),function(x){return ("0"+x.toString(16)).slice(-2)}).join("")}
@@ -3116,11 +3132,11 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   function ownerTap(){
     var now=Date.now();taps=taps.filter(function(t){return now-t<5000});taps.push(now);if(taps.length<7)return;taps=[];
     var box=mkEl("div");
-    if(isOwner()){box.appendChild(mkEl("p","sub","Owner mode is on for this phone."));var out=mkEl("button",null,"Switch to customer view");out.type="button";out.addEventListener("click",function(){lsSet("oh_mode","customer");applyMode();closeSheet();owlTopApi&&owlTopApi.say("Customer view. Tap me 7 times to come back.")});box.appendChild(out);openSheet("Owner mode",box);return}
+    if(isOwner()){modePicker();return}
     var inp=mkEl("input");inp.type="password";inp.placeholder="Owner code";inp.autocomplete="off";inp.className="ownIn";
     var go=mkEl("button",null,"Unlock");go.type="button";var msg=mkEl("p","sub","");
     go.addEventListener("click",async function(){var h="";try{h=await sha256(inp.value.trim().toUpperCase())}catch(e){}
-      if(h===OWNER_HASH){lsSet("oh_mode","owner");applyMode();closeSheet();owlTopApi&&owlTopApi.say("Welcome back, boss. Owner tools are on.");location.hash="#record"}else msg.textContent="That code didn’t match."});
+      if(h===OWNER_HASH){closeSheet();modePicker()}else msg.textContent="That code didn’t match."});
     box.appendChild(inp);box.appendChild(go);box.appendChild(msg);openSheet("Owner mode",box);setTimeout(function(){inp.focus()},100);
   }
   function markOwnerOnly(){
@@ -3506,6 +3522,107 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     loadCompanies();setInterval(loadCompanies,15*60000);
   }
 
+  /* ================= Layer 3.95: Client / Boss / Engineering modes, Lab, daily read ================= */
+  function isEng(){return lsGet("oh_mode")==="eng"}
+  function modePicker(){
+    var box=mkEl("div","modeBox");
+    [["customer","Client","The clean view your customers and friends see."],["owner","Boss","Owner tools: dashboard, publishing, newsletter desk, your watchlist."],["eng","Engineering","Boss tools plus the Lab: backtests, paper portfolios, model data."]].forEach(function(m){
+      var cur=(lsGet("oh_mode")||"customer")===m[0],b=mkEl("button","modeBtn"+(cur?" on":""));b.type="button";
+      b.appendChild(mkEl("b",null,m[1]+(cur?" (current)":"")));b.appendChild(mkEl("small",null,m[2]));
+      b.addEventListener("click",function(){lsSet("oh_mode",m[0]);applyMode();closeSheet();
+        if(owlTopApi)owlTopApi.say(m[0]==="eng"?"Engineering mode. The Lab tab is open.":m[0]==="owner"?"Boss mode. Owner tools are on.":"Client view. Tap me 7 times to switch back.");
+        location.hash=m[0]==="eng"?"#lab":m[0]==="owner"?"#record":"#clock"});
+      box.appendChild(b)});
+    openSheet("Choose a mode",box);
+  }
+  /* daily read card */
+  var readData=null;
+  async function loadRead(){try{readData=await getJSON("dailyread.json")}catch(e){}paintRead()}
+  function paintRead(){
+    var b=$("readCard");if(!b)return;if(!readData||!readData.title){b.hidden=true;return}b.hidden=false;b.textContent="";
+    b.appendChild(mkEl("div","lsHead","Owl’s daily read · "+fmtDay(readData.date)));
+    b.appendChild(mkEl("p","lsText",readData.title.charAt(0).toUpperCase()+readData.title.slice(1)));
+    (readData.lines||[]).forEach(function(l){b.appendChild(mkEl("p","rcL",l))});
+    if((readData.watch||[]).length){b.appendChild(mkEl("div","rdH","What to watch"));(readData.watch||[]).forEach(function(l){b.appendChild(mkEl("p","rcL",l))})}
+    if((readData.events||[]).length){b.appendChild(mkEl("div","rdH","On the calendar today"));b.appendChild(mkEl("p","rcL",readData.events.join(" · ")))}
+    b.appendChild(mkEl("small",null,"Written before the open from the last close. Educational market commentary, not investment advice."));
+    Array.prototype.forEach.call(b.querySelectorAll(".rcL"),glossify);
+  }
+  /* Lab */
+  var btData=null,paperData=null,labGroup="Owl model";
+  async function loadLab(){if(!isEng())return;try{btData=await getJSON("backtest.json")}catch(e){btData=null}try{paperData=await getJSON("paper.json")}catch(e){paperData=null}paintLab()}
+  function pct(v,d){return v==null?"—":(v>0?"+":"")+v.toFixed(d==null?1:d)+"%"}
+  function multiChart(series){
+    var W=340,H=180,L=6,R=40,T=10,B=20,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"lchart"});
+    var all=[];series.forEach(function(s){s.rows.forEach(function(r){all.push(r[1])})});if(!all.length)return svg;
+    var lo=Math.min.apply(null,all),hi=Math.max.apply(null,all);if(hi===lo)hi=lo+1;var n=Math.max.apply(null,series.map(function(s){return s.rows.length}));
+    function X(i,len){return L+i*(W-L-R)/Math.max(1,len-1)}function Y(v){return T+(hi-v)*(H-T-B)/(hi-lo)}
+    el("rect",{x:0,y:0,width:W,height:H,rx:12,fill:"#0e1736"},svg);
+    series.forEach(function(s){var d="";s.rows.forEach(function(r,i){d+=(i?"L":"M")+X(i,s.rows.length).toFixed(1)+","+Y(r[1]).toFixed(1)});el("path",{d:d,fill:"none",stroke:s.c,"stroke-width":s.w||2,"stroke-opacity":s.o||1},svg);
+      var last=s.rows[s.rows.length-1];if(last){var t=el("text",{x:W-R+4,y:Y(last[1])+3,fill:s.c,"font-size":"9.5","font-weight":"700","font-family":"DM Sans, system-ui, sans-serif"},svg);t.textContent="$"+(last[1]*10000).toFixed(0)}});
+    var r0=series[0].rows;[0,r0.length-1].forEach(function(i){var t=el("text",{x:X(i,r0.length),y:H-6,fill:"#8d9ac0","font-size":"9","text-anchor":i?"end":"start","font-family":"DM Sans, system-ui, sans-serif"},svg);t.textContent=r0[i]?r0[i][0].slice(0,7):""});
+    return svg;
+  }
+  function openModel(r){
+    var box=mkEl("div"),spy=btData.results.filter(function(x){return x.id==="spy"})[0],bm=r.group==="Hard assets"?btData.results.filter(function(x){return x.id==="gld"})[0]:spy;
+    box.appendChild(multiChart([{rows:bm.metrics.curve||[],c:"#8d9ac0",w:1.5,o:.8},{rows:r.metrics.curve||[],c:"#e0b25b",w:2.4}]));
+    box.appendChild(mkEl("p","mshort","Gold: "+r.name+". Grey: "+bm.name+". Growth of $10,000, monthly, after 0.05% trading costs."));
+    var g=mkEl("div","coGrid"),m=r.metrics;[["CAGR",pct(m.cagr,2)],["Sharpe",m.sharpe==null?"—":m.sharpe],["Worst drawdown","−"+m.maxDD+"%"],["Beat "+(r.group==="Hard assets"?"gold":"SPY"),m.hit==null?"—":m.hit+"% of months"],["Excess vs "+(r.group==="Hard assets"?"gold":"SPY"),pct(m.excess,2)+" a year"],["Volatility",m.vol+"%"]].forEach(function(x){var d=mkEl("div","coStat");d.appendChild(mkEl("span",null,x[0]));d.appendChild(mkEl("b",null,String(x[1])));g.appendChild(d)});
+    box.appendChild(g);box.appendChild(mkEl("p","rcL",r.desc));
+    var now=Object.keys(r.now||{});if(now.length)box.appendChild(mkEl("p","rcL","Holding at the last test month: "+now.map(function(s){return s+" "+Math.round(r.now[s]*100)+"%"}).join(", ")+"."));
+    openSheet(r.name,box);
+  }
+  function paintLab(){
+    var b=$("labSec");if(!b)return;b.textContent="";
+    if(!isEng()){b.appendChild(mkEl("p","sub","The Lab is for Engineering mode."));return}
+    if(!btData){b.appendChild(mkEl("p","sub","No backtest results yet. In GitHub: Actions → Weekly backtest → Run workflow. It takes about 5 minutes, then reopen this tab."))}
+    else{
+      var v=btData.verdict||{},card=mkEl("div","recap");
+      card.appendChild(mkEl("div","lsHead","Backtest · "+btData.start+" to "+btData.end+" · "+btData.months+" months"));
+      card.appendChild(mkEl("p","lsText","Best Owl model: "+v.bestName));
+      card.appendChild(mkEl("p","rcL",v.beatsSharpe&&v.beatsSharpe.length?"Better risk-adjusted return (Sharpe) than: "+v.beatsSharpe.join(", ")+".":"Did not beat SPY, equal-weight or momentum on Sharpe."));
+      card.appendChild(mkEl("p","rcL","Beat "+v.randomPercentile+"% of 200 random 3-sector pickers on CAGR (random median "+btData.randomCagr.median+"%)."));
+      card.appendChild(mkEl("small",null,v.caution));b.appendChild(card);
+      b.appendChild(mkEl("h3",null,"Does the needle's phase mean anything?"));
+      var t=mkEl("div","board"),tb=mkEl("table"),hr=mkEl("tr");["PHASE","MOS","SPY NEXT","UP","EDGE","WIN"].forEach(function(h){hr.appendChild(mkEl("th",null,h))});tb.appendChild(hr);
+      (btData.phaseStudy||[]).forEach(function(p){var tr=mkEl("tr");tr.appendChild(mkEl("td","nm",p.hour));tr.appendChild(mkEl("td","dim",String(p.months)));
+        tr.appendChild(mkEl("td",p.spyNext>=0?"pos":"neg",pct(p.spyNext,2)));tr.appendChild(mkEl("td","dim",p.spyUp==null?"—":p.spyUp+"%"));
+        tr.appendChild(mkEl("td",p.homeEdge>=0?"pos":"neg",pct(p.homeEdge,2)));tr.appendChild(mkEl("td","dim",p.homeWin==null?"—":p.homeWin+"%"));tb.appendChild(tr)});
+      t.appendChild(tb);t.appendChild(mkEl("p","boardN","SPY NEXT: average S&P return the following month. UP: % of those months SPY rose. EDGE: how much the sectors that live in that phase beat SPY the next month, on average. WIN: % of months they did. Positive and consistent = the clock carries information."));b.appendChild(t);
+      b.appendChild(mkEl("h3",null,"Portfolios"));
+      var seg=mkEl("div","coSeg");["Owl model","Benchmark","Risk tier","Hard assets","Experiment"].forEach(function(gp){var bt=mkEl("button","small",gp==="Owl model"?"Owl models":gp==="Benchmark"?"Benchmarks":gp==="Risk tier"?"Risk tiers":gp==="Experiment"?"Experiments":gp);bt.type="button";bt.setAttribute("aria-pressed",String(labGroup===gp));bt.addEventListener("click",function(){labGroup=gp;paintLab()});seg.appendChild(bt)});b.appendChild(seg);
+      var t2=mkEl("div","board"),tb2=mkEl("table"),h2=mkEl("tr");["PORTFOLIO","CAGR","SHARPE","MAX DD","HIT"].forEach(function(h){h2.appendChild(mkEl("th",null,h))});tb2.appendChild(h2);
+      var rows=btData.results.filter(function(r){return r.group===labGroup});if(labGroup==="Owl model"||labGroup==="Experiment")rows=rows.concat(btData.results.filter(function(r){return r.id==="spy"||r.id==="mom"}));
+      rows.sort(function(a,c){return (c.metrics.sharpe||-9)-(a.metrics.sharpe||-9)});
+      rows.forEach(function(r){var tr=mkEl("tr"),m=r.metrics;var nm=mkEl("td","nm",r.name.replace(/^Owl /,""));nm.style.whiteSpace="normal";nm.style.fontWeight=r.group==="Benchmark"&&labGroup!=="Benchmark"?"400":"700";tr.appendChild(nm);
+        tr.appendChild(mkEl("td",m.cagr>=0?"pos":"neg",pct(m.cagr,1)));tr.appendChild(mkEl("td","dim",m.sharpe==null?"—":String(m.sharpe)));tr.appendChild(mkEl("td","neg","−"+m.maxDD+"%"));tr.appendChild(mkEl("td","dim",m.hit==null?"—":m.hit+"%"));
+        tr.addEventListener("click",function(){openModel(r)});tb2.appendChild(tr)});
+      t2.appendChild(tb2);t2.appendChild(mkEl("p","boardN","Tap a row for its growth chart vs the benchmark. HIT = % of months it beat SPY (gold for hard assets). After 0.05% costs."));b.appendChild(t2);
+      if((btData.regimes||[]).length){b.appendChild(mkEl("h3",null,"Statistical regimes vs the clock"));
+        var t3=mkEl("div","board"),tb3=mkEl("table"),h3=mkEl("tr");["REGIME","SPY 3M","VOL","MONTHS","SPY NEXT"].forEach(function(h){h3.appendChild(mkEl("th",null,h))});tb3.appendChild(h3);
+        btData.regimes.forEach(function(r){var tr=mkEl("tr");tr.appendChild(mkEl("td","nm",r.label));tr.appendChild(mkEl("td",r.spy3m>=0?"pos":"neg",pct(r.spy3m)));tr.appendChild(mkEl("td","dim",r.vol+"%"));tr.appendChild(mkEl("td","dim",String(r.months)));tr.appendChild(mkEl("td",r.spyNext>=0?"pos":"neg",pct(r.spyNext,2)));tb3.appendChild(tr);
+          var tr2=mkEl("tr"),td=mkEl("td","dim","Clock phases in this regime: "+Object.keys(r.clockPhases).map(function(k){return k+" "+r.clockPhases[k]}).join(", "));td.colSpan=5;td.style.whiteSpace="normal";td.style.textAlign="left";tr2.appendChild(td);tb3.appendChild(tr2)});
+        t3.appendChild(tb3);t3.appendChild(mkEl("p","boardN","Regimes found by k-means on SPY's 3-month return and volatility, refit each January on past data only."));b.appendChild(t3)}
+      var notes=(btData.notes||[]).concat(btData.warnings&&btData.warnings.length?["Data warnings: "+btData.warnings.join("; ")]:[]);
+      notes.push("Re-runs every Saturday. Tested "+btData.start+" to "+btData.end+" with "+Object.keys(btData.data||{}).length+" funds; each sector joins on the date its ETF existed. Adjustment: "+(((btData.data||{}).SPY||{}).adjust||"?")+".");
+      notes.forEach(function(n){b.appendChild(mkEl("p","ccN",n))});
+    }
+    b.appendChild(mkEl("h3",null,"Paper portfolios (live from their start)"));
+    if(!paperData||!paperData.models){b.appendChild(mkEl("p","sub","Starts with the next daily robot run (after 4:15 pm Central on a market day)."));return}
+    var t4=mkEl("div","board"),tb4=mkEl("table"),h4=mkEl("tr");["MODEL","VALUE","SINCE START","HOLDING"].forEach(function(h){h4.appendChild(mkEl("th",null,h))});tb4.appendChild(h4);
+    Object.keys(paperData.models).forEach(function(k){var P=paperData.models[k],tr=mkEl("tr");var nm=mkEl("td","nm",P.name);nm.style.whiteSpace="normal";tr.appendChild(nm);
+      tr.appendChild(mkEl("td","dim","$"+Math.round(P.nav||0).toLocaleString()));tr.appendChild(mkEl("td",(P.ret||0)>=0?"pos":"neg",pct(P.ret,2)));
+      var hd=mkEl("td","dim",Object.keys(P.weights||{}).map(function(s){return s+" "+Math.round(P.weights[s]*100)}).join(" ")+(P.guard?" · guard on":""));hd.style.whiteSpace="normal";hd.style.textAlign="left";tr.appendChild(hd);tb4.appendChild(tr)});
+    t4.appendChild(tb4);t4.appendChild(mkEl("p","boardN","$100,000 each, started "+(paperData.models.spy&&paperData.models.spy.start||"")+". Rebalanced on the first market day of each month at the close. Hypothetical, owner-only."));b.appendChild(t4);
+  }
+  function layer395Init(){
+    var cp=document.querySelector('.pane[data-pane="clock"]'),tw=document.querySelector(".pane[data-pane='clock'] .tkWrap");
+    if(cp&&!$("readCard")){var rc=mkEl("div","recap readCard");rc.id="readCard";rc.hidden=true;if(tw&&tw.nextSibling)cp.insertBefore(rc,tw.nextSibling);else cp.appendChild(rc)}
+    var lp=document.querySelector('.pane[data-pane="lab"]');if(lp&&!$("labSec")){var ls=mkEl("section","labSec");ls.id="labSec";lp.appendChild(ls)}
+    loadRead();setInterval(loadRead,30*60000);
+    window.addEventListener("hashchange",function(){if(location.hash==="#lab")loadLab()});if(location.hash==="#lab")loadLab();
+  }
+
   function phaseB2Init(){
     var mp=document.querySelector('.pane[data-pane="macro"]');
     if(mp&&!$("calSec")){var h=mp.querySelector(".paneHead");
@@ -3534,7 +3651,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();layer375Init();layer38Init();paintRecap();
+  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();layer375Init();layer38Init();layer395Init();paintRecap();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */
