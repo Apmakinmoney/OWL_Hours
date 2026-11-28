@@ -1,0 +1,433 @@
+{
+ "note": "Owl Hours HQ org chart (single source of truth). The CEO is at the top; nobody outranks him. Total 100 including the CEO.",
+ "ceo": "Anthony, CEO & Founder",
+ "rooms": {
+  "exec": [
+   {
+    "name": "You",
+    "role": "CEO & Founder"
+   },
+   {
+    "name": "Paige",
+    "role": "Executive assistant to the CEO"
+   },
+   {
+    "name": "Wren",
+    "role": "robot"
+   },
+   {
+    "name": "Morgan",
+    "role": "Chief of Staff"
+   }
+  ],
+  "invest": [
+   {
+    "name": "Grant",
+    "role": "CIO"
+   },
+   {
+    "name": "Nia",
+    "role": "CFO"
+   },
+   {
+    "name": "Rhea",
+    "role": "Head of Market Analysis"
+   },
+   {
+    "name": "Marcus",
+    "role": "Equity analyst"
+   },
+   {
+    "name": "Lena",
+    "role": "Macro analyst"
+   },
+   {
+    "name": "Dev",
+    "role": "Options analyst"
+   },
+   {
+    "name": "Kira",
+    "role": "Crypto + metals analyst"
+   },
+   {
+    "name": "Bea",
+    "role": "Risk analyst \u00b7 pre-trade checks"
+   },
+   {
+    "name": "Sofia",
+    "role": "Risk analyst \u00b7 exposure"
+   },
+   {
+    "name": "Malik",
+    "role": "Risk analyst \u00b7 stress tests"
+   },
+   {
+    "name": "Trent",
+    "role": "FP&A analyst"
+   },
+   {
+    "name": "Ray",
+    "role": "Risk lead"
+   }
+  ],
+  "people": [
+   {
+    "name": "Cruz",
+    "role": "CRM manager"
+   },
+   {
+    "name": "Harper",
+    "role": "HR director"
+   }
+  ],
+  "csuite": [
+   {
+    "name": "Calvin",
+    "role": "COO"
+   },
+   {
+    "name": "Ravi",
+    "role": "CTO"
+   },
+   {
+    "name": "Simone",
+    "role": "CMO"
+   },
+   {
+    "name": "Darius",
+    "role": "Chief Data Officer"
+   },
+   {
+    "name": "Kenji",
+    "role": "Chief Information Security Officer"
+   },
+   {
+    "name": "Celeste",
+    "role": "Head of Investor Relations"
+   },
+   {
+    "name": "Harold",
+    "role": "Board \u00b7 ex-hedge-fund PM"
+   },
+   {
+    "name": "Renee",
+    "role": "Board \u00b7 RIA founder"
+   },
+   {
+    "name": "Douglas",
+    "role": "Board \u00b7 fintech founder"
+   },
+   {
+    "name": "Amara",
+    "role": "Board \u00b7 former regulator"
+   },
+   {
+    "name": "Lionel",
+    "role": "Board \u00b7 ex-broker-dealer executive"
+   }
+  ],
+  "arcos": [
+   {
+    "name": "Adam",
+    "role": "President of ARCOS"
+   },
+   {
+    "name": "Nathan",
+    "role": "Head Portfolio Manager"
+   },
+   {
+    "name": "Elena",
+    "role": "Fundamental analyst"
+   },
+   {
+    "name": "Tomas",
+    "role": "Technical analyst"
+   },
+   {
+    "name": "Andre",
+    "role": "Futures & macro reader"
+   },
+   {
+    "name": "Zara",
+    "role": "Macro strategist"
+   },
+   {
+    "name": "Rafael",
+    "role": "Head of Trading"
+   },
+   {
+    "name": "Luis",
+    "role": "Execution trader"
+   },
+   {
+    "name": "Viktor",
+    "role": "Options strategist"
+   },
+   {
+    "name": "Mei",
+    "role": "Volatility analyst"
+   },
+   {
+    "name": "Soren",
+    "role": "Head of Quant & Systematic"
+   },
+   {
+    "name": "Sanjay",
+    "role": "Quant"
+   },
+   {
+    "name": "Ines",
+    "role": "Machine-learning researcher"
+   },
+   {
+    "name": "Jonah",
+    "role": "Portfolio analytics"
+   },
+   {
+    "name": "Hana",
+    "role": "Chief Risk Officer, ARCOS"
+   },
+   {
+    "name": "Ola",
+    "role": "Risk analyst"
+   },
+   {
+    "name": "Vivian",
+    "role": "Head of Broker-Dealer & Operations"
+   },
+   {
+    "name": "Owen",
+    "role": "Trade records & journal"
+   },
+   {
+    "name": "Kofi",
+    "role": "Settlement & operations"
+   },
+   {
+    "name": "Bianca",
+    "role": "Prime & client services"
+   },
+   {
+    "name": "Sal",
+    "role": "Veteran advisor \u00b7 30-year floor trader"
+   }
+  ],
+  "quant": [
+   {
+    "name": "Iris",
+    "role": "Head Quant"
+   },
+   {
+    "name": "Felix",
+    "role": "Quant researcher"
+   },
+   {
+    "name": "Noor",
+    "role": "Quant researcher"
+   },
+   {
+    "name": "Pavel",
+    "role": "Quant researcher"
+   },
+   {
+    "name": "Tara",
+    "role": "Quant researcher"
+   }
+  ],
+  "compliance": [
+   {
+    "name": "Diane",
+    "role": "Chief Compliance Officer"
+   },
+   {
+    "name": "Marco",
+    "role": "Compliance analyst"
+   },
+   {
+    "name": "Yuki",
+    "role": "Compliance analyst"
+   },
+   {
+    "name": "Gloria",
+    "role": "General Counsel"
+   }
+  ],
+  "planning": [
+   {
+    "name": "Elias",
+    "role": "Head of Research"
+   },
+   {
+    "name": "Grace",
+    "role": "CFA"
+   },
+   {
+    "name": "Hugo",
+    "role": "CFA"
+   },
+   {
+    "name": "Imani",
+    "role": "CFA"
+   },
+   {
+    "name": "Julian",
+    "role": "CFA"
+   },
+   {
+    "name": "Keisha",
+    "role": "CFA"
+   },
+   {
+    "name": "Lauren",
+    "role": "CFP"
+   },
+   {
+    "name": "Andrea",
+    "role": "CFP"
+   },
+   {
+    "name": "Boone",
+    "role": "CTA"
+   },
+   {
+    "name": "Wes",
+    "role": "CTA"
+   }
+  ],
+  "growth": [
+   {
+    "name": "Maya",
+    "role": "Head of Product"
+   },
+   {
+    "name": "Jordan",
+    "role": "Head of Client Success"
+   },
+   {
+    "name": "Brooke",
+    "role": "Head of Partnerships"
+   }
+  ],
+  "eng": [
+   {
+    "name": "Atlas",
+    "role": "Lead engineer"
+   },
+   {
+    "name": "Kai",
+    "role": "Engineer \u00b7 App screens"
+   },
+   {
+    "name": "Mina",
+    "role": "Engineer \u00b7 Data robots"
+   },
+   {
+    "name": "Theo",
+    "role": "Engineer \u00b7 Charts & visuals"
+   },
+   {
+    "name": "Priya",
+    "role": "Engineer \u00b7 Backtest & models"
+   },
+   {
+    "name": "Omar",
+    "role": "Engineer \u00b7 Speed, safety & workflows"
+   },
+   {
+    "name": "Zoe",
+    "role": "Coder"
+   },
+   {
+    "name": "Leo",
+    "role": "Coder"
+   },
+   {
+    "name": "Ivy",
+    "role": "Coder"
+   },
+   {
+    "name": "Sam",
+    "role": "Coder"
+   },
+   {
+    "name": "Rio",
+    "role": "Coder"
+   },
+   {
+    "name": "Jada",
+    "role": "Coder"
+   },
+   {
+    "name": "Nico",
+    "role": "Coder"
+   },
+   {
+    "name": "Ava",
+    "role": "Coder"
+   },
+   {
+    "name": "Eli",
+    "role": "Coder"
+   },
+   {
+    "name": "Tess",
+    "role": "Coder"
+   }
+  ],
+  "trade": [
+   {
+    "name": "Quinn",
+    "role": "robot"
+   },
+   {
+    "name": "Coco",
+    "role": "robot"
+   },
+   {
+    "name": "Penny",
+    "role": "robot"
+   },
+   {
+    "name": "Jules",
+    "role": "Watchlist desk"
+   },
+   {
+    "name": "Sterling",
+    "role": "Metals desk"
+   }
+  ],
+  "research": [
+   {
+    "name": "Dana",
+    "role": "robot"
+   },
+   {
+    "name": "Cal",
+    "role": "robot"
+   },
+   {
+    "name": "Sage",
+    "role": "robot"
+   },
+   {
+    "name": "Nova",
+    "role": "Innovation director"
+   }
+  ],
+  "web": [
+   {
+    "name": "Rex",
+    "role": "robot"
+   },
+   {
+    "name": "Webb",
+    "role": "Website director"
+   },
+   {
+    "name": "Ada",
+    "role": "Data QA inspector"
+   }
+  ]
+ },
+ "count": 100
+}

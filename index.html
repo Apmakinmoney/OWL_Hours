@@ -4052,10 +4052,16 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     {id:"floor",n:"Open floor",cap:"Everyone at once. Swipe for each room, or tap a room name."},
     {id:"exec",n:"Exec suite",cap:"You run the company. Morgan, your Chief of Staff, reports only to you. Wren writes your morning read."},
     {id:"trade",n:"Trading floor",cap:"Prices, crypto, paper money, your watchlist, metals and risk."},
+    {id:"csuite",n:"C-suite & board",cap:"Your executive team and the 5-member advisory board. They weigh in at the Friday exec meeting. You outrank everyone."},
     {id:"invest",n:"Investment office",cap:"Grant (CIO) vets every trade. Nia (CFO) tracks the money. Rhea leads 4 market specialists. Ray's risk team can veto any trade that breaks a rule."},
+    {id:"arcos",n:"ARCOS floor",cap:"Adam runs ARCOS 2.0: Nathan (investments), Rafael (trading), Soren (quant), Hana (risk), Vivian (broker-dealer ops). Sal challenges every trade."},
+    {id:"quant",n:"Quant lab",cap:"Iris and 4 quants: daily 3:25 pm research note, 0DTE backtests, the signal library and Owl clock upgrades."},
     {id:"research",n:"Research lab",cap:"Scores the sectors, keeps the calendar, runs the backtest, hunts for the next idea."},
     {id:"web",n:"Web & data",cap:"Company research, the website and the data checks."},
     {id:"people",n:"People & CRM",cap:"HR reviews every robot on Saturdays. CRM opens when customer accounts launch."},
+    {id:"planning",n:"Planning & research",cap:"Elias leads the charterholder bench: 5 CFAs, 2 CFPs and 2 CTAs."},
+    {id:"compliance",n:"Compliance",cap:"Diane (CCO), Marco, Yuki and Gloria (General Counsel). Compliance can veto any trade."},
+    {id:"growth",n:"Product & growth",cap:"Maya (product), Jordan (client success), Brooke (partnerships)."},
     {id:"eng",n:"Engineering",cap:"Atlas leads 5 engineers and 10 coders. Every change comes to you as a request first."}];
   function hqBot(id){return BOTS.filter(function(b){return b.id===id})[0]}
   var DEPT={
@@ -4086,6 +4092,62 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       {bot:"daily",room:"research"},{bot:"cal",room:"research"},{bot:"bt",room:"research"},{dept:"innovation",room:"research"},
       {bot:"co",room:"web"},{dept:"site",room:"web"},{dept:"qa",room:"web"},
       {dept:"hr",room:"people"},{n:"Cruz",role:"CRM manager",room:"people",kind:"hold",col:"#ff9bd0",job:"Will track customers, trials and renewals. Opens with customer accounts (Layer 4)."},
+      {n:"Paige",role:"Executive assistant to the CEO",room:"exec",kind:"desk",hrs:"am",col:"#ff9bd0",every:"weekdays",job:"Keeps your calendar of reports and decisions straight; first stop for anything you need."},
+      {n:"Trent",role:"FP&A analyst",room:"invest",kind:"desk",hrs:"fri",col:"#4fd1a5",every:"Sunday CFO report",job:"Builds the numbers behind Nia's Sunday report: P&L, costs, revenue model."},
+      {n:"Calvin",role:"COO",room:"csuite",kind:"desk",hrs:"fri",col:"#e0b25b",every:"Friday exec meeting",job:"Runs daily operations across every team; makes sure each report ships on time.",exec:true},
+      {n:"Ravi",role:"CTO",room:"csuite",kind:"desk",hrs:"fri",col:"#3dffb0",every:"Friday exec meeting",job:"Over Atlas and engineering: architecture, the 4.0 lean app, security with Kenji.",exec:true},
+      {n:"Simone",role:"CMO",room:"csuite",kind:"desk",hrs:"fri",col:"#ff5e7a",every:"Friday exec meeting",job:"The Market Talks, the beta launch and the first testers.",exec:true},
+      {n:"Darius",role:"Chief Data Officer",room:"csuite",kind:"desk",hrs:"fri",col:"#7fd6ff",every:"Friday exec meeting",job:"Owns data quality and sources: Finnhub, Twelve Data, FRED, Robinhood, flow.",exec:true},
+      {n:"Kenji",role:"Chief Information Security Officer",room:"csuite",kind:"desk",hrs:"fri",col:"#a58bff",every:"Friday exec meeting",job:"Keeps keys, secrets and accounts safe; reviews every new connection.",exec:true},
+      {n:"Celeste",role:"Head of Investor Relations",room:"csuite",kind:"desk",hrs:"fri",col:"#ffd166",every:"Friday exec meeting",job:"Prepares the track-record story for future funds and partners.",exec:true},
+      {n:"Harold",role:"Board · ex-hedge-fund PM",room:"csuite",kind:"desk",hrs:"fri",col:"#c9d3f0",every:"Friday exec meeting",job:"Advisory board. Pressure-tests strategy and risk. Advises only; the CEO decides.",exec:true},
+      {n:"Renee",role:"Board · RIA founder",room:"csuite",kind:"desk",hrs:"fri",col:"#c9d3f0",every:"Friday exec meeting",job:"Advisory board. The advisor and RIA client angle.",exec:true},
+      {n:"Douglas",role:"Board · fintech founder",room:"csuite",kind:"desk",hrs:"fri",col:"#c9d3f0",every:"Friday exec meeting",job:"Advisory board. Product, growth and scaling.",exec:true},
+      {n:"Amara",role:"Board · former regulator",room:"csuite",kind:"desk",hrs:"fri",col:"#c9d3f0",every:"Friday exec meeting",job:"Advisory board. Regulatory and compliance perspective.",exec:true},
+      {n:"Lionel",role:"Board · ex-broker-dealer executive",room:"csuite",kind:"desk",hrs:"fri",col:"#c9d3f0",every:"Friday exec meeting",job:"Advisory board. Broker-dealer build-out and operations.",exec:true},
+      {n:"Adam",role:"President of ARCOS",room:"arcos",kind:"desk",hrs:"arcos",col:"#e0b25b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Runs the whole ARCOS project. Signs off on the chain of command; reports only to you.",exec:true},
+      {n:"Nathan",role:"Head Portfolio Manager",room:"arcos",kind:"desk",hrs:"arcos",col:"#e0b25b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Builds ARCOS trade ideas. Leads Elena, Tomas, Andre and Zara.",exec:true},
+      {n:"Elena",role:"Fundamental analyst",room:"arcos",kind:"desk",hrs:"arcos",col:"#5b8cff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Earnings, valuation and catalysts for every ARCOS idea."},
+      {n:"Tomas",role:"Technical analyst",room:"arcos",kind:"desk",hrs:"arcos",col:"#5b8cff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"VWAP, opening range, prior-day levels, 20/50-day trends."},
+      {n:"Andre",role:"Futures & macro reader",room:"arcos",kind:"desk",hrs:"arcos",col:"#5b8cff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Reads ES, NQ and GC futures for direction (analysis only)."},
+      {n:"Zara",role:"Macro strategist",room:"arcos",kind:"desk",hrs:"arcos",col:"#5b8cff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Rates, Fed and dollar context for ARCOS trades."},
+      {n:"Rafael",role:"Head of Trading",room:"arcos",kind:"desk",hrs:"arcos",col:"#ff8a5b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Owns execution. Leads Luis, Viktor and Mei.",exec:true},
+      {n:"Luis",role:"Execution trader",room:"arcos",kind:"desk",hrs:"arcos",col:"#ff8a5b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Places orders: limit at mid, walk-ups, take-profits; runs the 12:50 close-out."},
+      {n:"Viktor",role:"Options strategist",room:"arcos",kind:"desk",hrs:"arcos",col:"#ff8a5b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Picks strikes and expiries: delta 0.30–0.40 for 0DTE, 0.40–0.60 for swings."},
+      {n:"Mei",role:"Volatility analyst",room:"arcos",kind:"desk",hrs:"arcos",col:"#ff8a5b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Implied volatility and option pricing checks."},
+      {n:"Soren",role:"Head of Quant & Systematic",room:"arcos",kind:"desk",hrs:"arcos",col:"#3dffb0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Systematic research for ARCOS. Leads Sanjay, Ines and Jonah.",exec:true},
+      {n:"Sanjay",role:"Quant",room:"arcos",kind:"desk",hrs:"arcos",col:"#3dffb0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Signal math and rule backtests."},
+      {n:"Ines",role:"Machine-learning researcher",room:"arcos",kind:"desk",hrs:"arcos",col:"#3dffb0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Pattern research on intraday SPY/QQQ."},
+      {n:"Jonah",role:"Portfolio analytics",room:"arcos",kind:"desk",hrs:"arcos",col:"#3dffb0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Risk analytics and exposure, BlackRock-consultant style."},
+      {n:"Hana",role:"Chief Risk Officer, ARCOS",room:"arcos",kind:"desk",hrs:"arcos",col:"#ff5e7a",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Can veto any ARCOS trade. Watches the daily −50% stop and kill switch.",exec:true},
+      {n:"Ola",role:"Risk analyst",room:"arcos",kind:"desk",hrs:"arcos",col:"#ff5e7a",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Checks limits, open positions and day-trade counts."},
+      {n:"Vivian",role:"Head of Broker-Dealer & Operations",room:"arcos",kind:"desk",hrs:"arcos",col:"#a58bff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Records, settlement and client services. Leads Owen, Kofi and Bianca.",exec:true},
+      {n:"Owen",role:"Trade records & journal",room:"arcos",kind:"desk",hrs:"arcos",col:"#a58bff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Logs every trade: entry, exit, why, result."},
+      {n:"Kofi",role:"Settlement & operations",room:"arcos",kind:"desk",hrs:"arcos",col:"#a58bff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Confirms fills, cash and settlement."},
+      {n:"Bianca",role:"Prime & client services",room:"arcos",kind:"desk",hrs:"arcos",col:"#a58bff",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Account setup, transfers and the future client side."},
+      {n:"Sal",role:"Veteran advisor · 30-year floor trader",room:"arcos",kind:"desk",hrs:"arcos",col:"#e0b25b",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Challenges every trade. Two objections and it doesn't happen.",exec:true},
+      {n:"Iris",role:"Head Quant",room:"quant",kind:"desk",hrs:"quant",col:"#3dffb0",every:"3:25 pm weekdays",job:"Runs the daily 3:25 pm research note and the 0DTE backtest.",exec:true},
+      {n:"Felix",role:"Quant researcher",room:"quant",kind:"desk",hrs:"quant",col:"#3dffb0",every:"3:25 pm weekdays",job:"0DTE SPY/QQQ pattern research."},
+      {n:"Noor",role:"Quant researcher",room:"quant",kind:"desk",hrs:"quant",col:"#3dffb0",every:"3:25 pm weekdays",job:"Signal library: momentum, mean-reversion, volatility."},
+      {n:"Pavel",role:"Quant researcher",room:"quant",kind:"desk",hrs:"quant",col:"#3dffb0",every:"3:25 pm weekdays",job:"Backtests every ARCOS rule on past data."},
+      {n:"Tara",role:"Quant researcher",room:"quant",kind:"desk",hrs:"quant",col:"#3dffb0",every:"3:25 pm weekdays",job:"Owl clock model upgrades."},
+      {n:"Diane",role:"Chief Compliance Officer",room:"compliance",kind:"desk",hrs:"arcos",col:"#c9d3f0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Reports to you. Can veto trades: restricted list (HOOD), wash sales, order size.",exec:true},
+      {n:"Marco",role:"Compliance analyst",room:"compliance",kind:"desk",hrs:"arcos",col:"#c9d3f0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Pre-trade checks and the trade log."},
+      {n:"Yuki",role:"Compliance analyst",room:"compliance",kind:"desk",hrs:"arcos",col:"#c9d3f0",every:"8:45 · 11:45 · 12:50 ARCOS runs",job:"Reviews app and newsletter content for claims."},
+      {n:"Gloria",role:"General Counsel",room:"compliance",kind:"desk",hrs:"fri",col:"#c9d3f0",every:"Friday exec meeting",job:"Legal: terms, disclaimers, future entity and fund structure.",exec:true},
+      {n:"Elias",role:"Head of Research",room:"planning",kind:"desk",hrs:"am",col:"#7fd6ff",every:"7:45 am brief",job:"Owns the Owl clock model and leads the charterholder bench.",exec:true},
+      {n:"Grace",role:"CFA",room:"planning",kind:"desk",hrs:"am",col:"#5b8cff",every:"7:45 am brief",job:"Valuation and sector checks on the calls."},
+      {n:"Hugo",role:"CFA",room:"planning",kind:"desk",hrs:"am",col:"#5b8cff",every:"7:45 am brief",job:"Equity research on the watchlist."},
+      {n:"Imani",role:"CFA",room:"planning",kind:"desk",hrs:"am",col:"#5b8cff",every:"7:45 am brief",job:"Fixed income and rates view."},
+      {n:"Julian",role:"CFA",room:"planning",kind:"desk",hrs:"am",col:"#5b8cff",every:"7:45 am brief",job:"Portfolio construction and risk tiers."},
+      {n:"Keisha",role:"CFA",room:"planning",kind:"desk",hrs:"am",col:"#5b8cff",every:"7:45 am brief",job:"Performance measurement for the paper and live records."},
+      {n:"Lauren",role:"CFP",room:"planning",kind:"desk",hrs:"am",col:"#4fd1a5",every:"7:45 am brief",job:"Financial-planning angle for lessons and advisors."},
+      {n:"Andrea",role:"CFP",room:"planning",kind:"desk",hrs:"am",col:"#4fd1a5",every:"7:45 am brief",job:"Retirement income and the advisor/RIA use case."},
+      {n:"Boone",role:"CTA",room:"planning",kind:"desk",hrs:"am",col:"#ffd166",every:"7:45 am brief",job:"Futures and managed-futures view for ARCOS and metals."},
+      {n:"Wes",role:"CTA",room:"planning",kind:"desk",hrs:"am",col:"#ffd166",every:"7:45 am brief",job:"Commodities and trend-following view."},
+      {n:"Maya",role:"Head of Product",room:"growth",kind:"desk",hrs:"fri",col:"#ff9bd0",every:"Friday exec meeting",job:"The app roadmap: what ships next and why.",exec:true},
+      {n:"Jordan",role:"Head of Client Success",room:"growth",kind:"desk",hrs:"fri",col:"#4fd1a5",every:"Friday exec meeting",job:"Beta testers and their feedback.",exec:true},
+      {n:"Brooke",role:"Head of Partnerships",room:"growth",kind:"desk",hrs:"fri",col:"#ffd166",every:"Friday exec meeting",job:"Data deals and future fund partners.",exec:true},
       {n:"Atlas",role:"Lead engineer",room:"eng",kind:"eng",area:"all",col:"#3dffb0",job:"Plans every change, splits it across the team, and sends you the approval request: what, why, which files."}];
     ENG.forEach(function(e,i){S.push({n:e.n,role:"Engineer · "+e.role,room:"eng",kind:"eng",area:e.area,col:"#5b8cff",lead:true,job:"Owns "+e.role.toLowerCase()+". Reports to Atlas. Two coders under him or her: "+CODERS[i].join(" and ")+"."});
       CODERS[i].forEach(function(c){S.push({n:c,role:"Coder · "+e.role,room:"eng",kind:"eng",area:e.area,col:"#8d9ac0",boss:e.n,job:"Writes and tests code for "+e.n+"’s "+e.role.toLowerCase()+" work."})})});
@@ -4107,7 +4169,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       if(s.ok===false||(s.needs&&s.needs.length)||(s.warn&&s.warn.length))return "late";
       if(p.weekly)return t.dow===6&&t.mins>=600&&t.mins<720?"working":"asleep";
       return t.dow>0&&t.dow<6&&t.mins>=390&&t.mins<=1050?"working":"asleep"}
-    if(p.kind==="desk"){var wd=t.dow>0&&t.dow<6,m=t.mins,on=p.hrs==="am"?wd&&m>=455&&m<=735:p.hrs==="desk"?wd&&m>=520&&m<=735:p.hrs==="cio"?(wd&&m>=520&&m<=735)||(t.dow===0&&m>=1100&&m<=1160):p.hrs==="cfo"?t.dow===0&&m>=1100&&m<=1160:false;
+    if(p.kind==="desk"){var wd=t.dow>0&&t.dow<6,m=t.mins,on=p.hrs==="am"?wd&&m>=455&&m<=735:p.hrs==="desk"?wd&&m>=520&&m<=735:p.hrs==="cio"?(wd&&m>=520&&m<=735)||(t.dow===0&&m>=1100&&m<=1160):p.hrs==="cfo"?t.dow===0&&m>=1100&&m<=1160:p.hrs==="arcos"?wd&&m>=520&&m<=790:p.hrs==="quant"?wd&&m>=900&&m<=965:p.hrs==="fri"?t.dow===5&&m>=1020&&m<=1075:false;
       return on?"working":wd&&m>=420&&m<=1050?"idle":"asleep"}
     if(p.kind==="eng"){var pc=pendingChanges();if(!pc.length)return "idle";if(p.area==="all")return "working";
       return pc.some(function(c){return (c.areas||[]).indexOf(p.area)>=0})?"working":"idle"}
@@ -4157,20 +4219,20 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   function hqGrid(n,x0,x1,y0,y1,mc){var cols=Math.max(1,Math.min(mc||4,Math.ceil(Math.sqrt(n*1.6)))),rows=Math.ceil(n/cols),out=[];
     for(var i=0;i<n;i++){var r=Math.floor(i/cols),c=i%cols,inRow=Math.min(cols,n-r*cols);out.push([x0+(x1-x0)*(c+.5)/inRow,y0+(y1-y0)*(r+.5)/rows])}return out}
   function drawRoom(room,members,openSheetFn){
-    var W=360,H=room.id==="floor"?700:room.id==="eng"?280:room.id==="invest"?270:230,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"room hqRoom"}),list=[];
+    var W=360,nM=members.length,H=room.id==="floor"?1380:room.id==="eng"?280:nM>8?110+Math.ceil(nM/6)*58:230,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"room hqRoom"}),list=[];
     walls(svg,W,H,room.id==="floor"?"Owl Hours HQ · open floor":room.n);
     var spots=[[W-30,H-30],[40,H-40],[W/2,48]],sc=1.3,homes=[];
     if(room.id==="floor"){
-      sc=0.95;var zones=ROOMS.slice(1),ZB={exec:[0,38,180,150],trade:[180,38,180,150],research:[0,188,180,150],web:[180,188,180,150],people:[0,338,180,150],invest:[180,338,180,150],eng:[0,488,360,206]};
+      sc=0.95;var zones=ROOMS.slice(1),ZB={exec:[0,38,180,150],invest:[180,38,180,150],csuite:[0,188,180,150],trade:[180,188,180,150],research:[0,338,180,150],web:[180,338,180,150],people:[0,488,180,150],growth:[180,488,180,150],quant:[0,638,180,150],compliance:[180,638,180,150],planning:[0,788,360,150],arcos:[0,938,360,230],eng:[0,1168,360,206]};
       zones.forEach(function(z,k){var B=ZB[z.id],zx=B[0],zy=B[1],zw=B[2],zh=B[3];el("rect",{x:zx+4,y:zy+4,width:zw-8,height:zh-8,rx:10,fill:"#0e1736","fill-opacity":".55",stroke:"#2f3d6e","stroke-dasharray":"3 3"},svg);
         var zt=el("text",{x:zx+12,y:zy+18,fill:"#7fd6ff","font-size":"7.5","font-weight":"700","letter-spacing":"1"},svg);zt.textContent=z.n.toUpperCase();
-        var mem=members.filter(function(p){return p.room===z.id}),pos=hqGrid(mem.length,zx+12,zx+zw-12,zy+30,zy+zh-14,z.id==="eng"?8:4);
+        var mem=members.filter(function(p){return p.room===z.id}),pos=hqGrid(mem.length,zx+12,zx+zw-12,zy+30,zy+zh-14,(z.id==="eng"||z.id==="arcos"||z.id==="planning")?8:4);
         mem.forEach(function(p,j){hqDesk(svg,pos[j][0],pos[j][1]-6,p.col,p.kind==="ceo");homes.push({p:p,h:[pos[j][0],pos[j][1]+10],zone:[zx+14,zy+24,zx+zw-14,zy+zh-12]})})});
       
     }else if(room.id==="exec"){
       hqProp(svg,180,140,"rug");hqProp(svg,300,70,"trophy");hqProp(svg,40,205,"plant");hqProp(svg,300,200,"couch");hqProp(svg,336,206,"plant");
       [[130,8],[205,8],[280,8]].forEach(function(w){el("rect",{x:w[0],y:w[1],width:64,height:16,rx:3,fill:"#223566",stroke:"#2f3d6e"},svg);[0,1,2,3,4].forEach(function(k){el("rect",{x:w[0]+6+k*13,y:w[1]+16-(4+((k*7+w[0])%9)),width:7,height:4+((k*7+w[0])%9),fill:"#0a1022"},svg)})});
-      var ex=[[180,92],[80,150],[280,150]];members.forEach(function(p,j){hqDesk(svg,ex[j][0],ex[j][1],p.col,p.kind==="ceo");homes.push({p:p,h:[ex[j][0],ex[j][1]+16]})});
+      var ex=[[180,92],[70,150],[290,150],[180,190]];members.forEach(function(p,j){hqDesk(svg,ex[j][0],ex[j][1],p.col,p.kind==="ceo");homes.push({p:p,h:[ex[j][0],ex[j][1]+16]})});
       spots=[[300,186],[300,90],[180,140],[60,120]];
     }else if(room.id==="eng"){
       hqProp(svg,60,62,"sprint");hqProp(svg,320,64,"server");hqProp(svg,338,264,"coffee");hqProp(svg,18,266,"plant");
@@ -4181,18 +4243,18 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
         cods.filter(function(c){return c.boss===e.n}).forEach(function(c,m){var cx=x+(m?17:-17);hqDesk(svg,cx,210,c.col);homes.push({p:c,h:[cx,226]});el("path",{d:"M"+x+" 158 L"+cx+" 198",stroke:"#5b8cff","stroke-opacity":".14","stroke-dasharray":"2 3"},svg)})});
       sc=1.1;spots=[[330,250],[60,92],[300,90],[180,250]];
     }else{
-      var P={invest:["plant","plant","wallscreen"],trade:["coffee","plant","board"],research:["board","server","plant"],web:["server","server","plant"],people:["couch","plant","board"]}[room.id]||[];
+      var P={csuite:["plant","plant","wallscreen"],arcos:["coffee","server","wallscreen"],quant:["server","server","board"],compliance:["plant","plant","board"],planning:["plant","coffee","board"],growth:["couch","plant","board"],invest:["plant","plant","wallscreen"],trade:["coffee","plant","board"],research:["board","server","plant"],web:["server","server","plant"],people:["couch","plant","board"]}[room.id]||[];
       hqProp(svg,336,206,P[0]);hqProp(svg,24,208,P[1]);hqProp(svg,46,64,P[2]);if(room.id==="web")hqProp(svg,300,66,"server");
       if(room.id==="trade"){var tk=el("text",{x:120,y:22,fill:"#7fd6ff","font-size":"8","font-family":"ui-monospace,monospace","class":"wallTick"},svg);var qs=(officeData.quotes&&officeData.quotes.quotes)||{};tk.textContent=["SPY","QQQ","GLD","SLV","NVDA","TSLA"].map(function(s){var q=qs[s];return s+(q&&q.pct!=null?" "+(q.pct>0?"+":"")+q.pct.toFixed(1)+"%":"")}).join(" · ");tk.textContent+=" · "+tk.textContent;
         el("rect",{x:0,y:0,width:122,height:34,rx:14,fill:"#0b1430"},svg);el("rect",{x:60,y:0,width:62,height:34,fill:"#0b1430"},svg);var t2=el("text",{x:12,y:22,fill:"#e0b25b","font-size":"9","font-weight":"800","letter-spacing":"1.5","font-family":"DM Sans,system-ui,sans-serif"},svg);t2.textContent="TRADING FLOOR"}
-      var pos=hqGrid(members.length,40,W-40,96,H-46);members.forEach(function(p,j){hqDesk(svg,pos[j][0],pos[j][1],p.col);homes.push({p:p,h:[pos[j][0],pos[j][1]+16]})});
+      var pos=hqGrid(members.length,30,W-30,96,H-46,members.length>8?6:4);members.forEach(function(p,j){hqDesk(svg,pos[j][0],pos[j][1],p.col);homes.push({p:p,h:[pos[j][0],pos[j][1]+16]})});
       spots=[[320,200],[46,96],[40,190],[180,60]];
     }
     var ct=ctNow(),lm=ct.mins,tint=lm<360||lm>=1170?["#050a28",.34]:lm>=1050?["#ff8a3c",.08]:lm<450?["#ffd28a",.06]:null;
     if(tint)el("rect",{x:0,y:0,width:W,height:H,rx:14,fill:tint[0],"fill-opacity":tint[1],"pointer-events":"none"},svg);
     if(tint&&tint[0]==="#050a28")homes.forEach(function(hm){el("ellipse",{cx:hm.h[0],cy:hm.h[1]-24,rx:14,ry:9,fill:"#ffd166","fill-opacity":".10","pointer-events":"none"},svg)});
     homes.forEach(function(hm,i){var p=hm.p,state=stateOf(p),g=personSvg(svg,p,i,state);
-      var start=state==="asleep"&&room.id!=="floor"?spots[i%spots.length].slice():hm.h.slice();
+      var start=hm.h.slice();
       var o={g:g,p:p,state:state,x:start[0]+(i%3)*5-5,y:start[1],tx:null,ty:null,wait:Math.random()*60,home:hm.h,zone:hm.zone,spots:spots,sc:sc,svg:svg,room:room.id};
       g.setAttribute("transform","translate("+o.x+","+o.y+") scale("+sc+")");
       g.addEventListener("click",function(){openPerson(p,state)});
@@ -4278,6 +4340,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       Grant:["Vetting trades…","Stick to the plan"],Nia:["P&L reconciled","Costs: $0/mo"],Rhea:["Brief at 7:45","Clock: "+((o.clock&&o.clock.hour)||"…")],Marcus:[pc("AAPL"),pc("MSFT"),"Earnings check"],Lena:["10Y "+(L.macro&&L.macro.y10?L.macro.y10.level+"%":"…"),"Fed watch"],Dev:["IV scan…","Chains loaded"],Kira:[pc("GLD"),"BTC watch"],
       Bea:["2% rule ✓","Limits OK"],Sofia:["Exposure OK","Cash check"],Malik:["SPY −10% test","Stress OK"],Morgan:["Report ready, boss","All on schedule"],Wren:["Drafting the read"],Dana:["Scoring sectors"],Cal:["Fed date logged"],Sage:["Backtest queued"],Nova:["Next test: Night rebound"],
       Rex:["News filtered"],Webb:["Site is up ✓"],Ada:["Data clean ✓"],Harper:["Reviews Saturday"],Atlas:["Plan → CEO approval","Ship it clean"]}[n];
+    if(!opts&&p.kind==="desk"){var r=p.role;opts=/CFA/.test(r)?["Valuation check ✓","Sector call reviewed"]:/CFP/.test(r)?["Planning angle","Retirement view"]:/CTA/.test(r)?["ES/NQ trend","Futures read"]:/Board/.test(r)?["Long-term view","Pressure-testing"]:/Compliance|Counsel/.test(r)?["Compliance ✓","HOOD restricted"]:/Quant/.test(r)?["Backtest running","Signal found?"]:p.room==="arcos"?(n==="Sal"?["Show me the edge","Two objections…"]:n==="Adam"?["ARCOS on plan","Chain of command ✓"]:["SPY 0DTE scan","VWAP check","Flow lean?"]):["On it","Reviewing…"]}
     if(!opts)opts=p.kind==="ceo"?["Let's work 🦉","Nobody outranks me"]:p.kind==="eng"?["Tests passing ✓","Pushing a fix","Code review…"]:["On it"];return opts[Math.floor(Math.random()*opts.length)]}
   function hqSay(o){var t=hqLine(o.p),w=Math.min(110,t.length*4.1+12),g=el("g",{"class":"bub","pointer-events":"none",transform:"translate("+o.x.toFixed(1)+","+(o.y-34*o.sc/1.1).toFixed(1)+")"},o.svg);
     el("rect",{x:-w/2,y:-13,width:w,height:13,rx:6,fill:"#e8ecf8"},g);el("path",{d:"M-3 0 L0 4 L3 0Z",fill:"#e8ecf8"},g);var tx=el("text",{x:0,y:-4,"text-anchor":"middle",fill:"#151a2e","font-size":"7","font-weight":"700","font-family":"DM Sans,system-ui,sans-serif"},g);tx.textContent=t;
@@ -4319,7 +4382,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
           else if(p.state==="working"||p.state==="ceo")spot=Math.random()<.75?p.home:p.spots[Math.floor(Math.random()*p.spots.length)];
           else if(p.state==="late")spot=[p.home[0]+(Math.random()*40-20),p.home[1]+Math.random()*10];
           else if(p.state==="idle")spot=Math.random()<.5?p.home:p.spots[Math.floor(Math.random()*p.spots.length)];
-          else spot=p.spots[Math.floor(Math.random()*p.spots.length)];
+          else spot=Math.random()<.85?[p.home[0]+(Math.random()*16-8),p.home[1]+Math.random()*5]:p.spots[Math.floor(Math.random()*p.spots.length)];
           p.tx=spot[0]+(Math.random()*12-6);p.ty=spot[1]+(Math.random()*6-3)}
         var dx=p.tx-p.x,dy=p.ty-p.y,dist=Math.hypot(dx,dy),spd=(p.state==="late"?1.4:p.state==="asleep"?.6:1.05)*(p.sc<1?.8:1);
         if(dist<spd){p.x=p.tx;p.y=p.ty;p.tx=null;p.g.classList.remove("walk");var atDesk=Math.hypot(p.x-p.home[0],p.y-p.home[1])<10;

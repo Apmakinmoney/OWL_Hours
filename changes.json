@@ -2,6 +2,28 @@
  "note": "Atlas (lead engineer) logs every change here. pending = waiting for the CEO. shipped = the CEO approved and uploaded it.",
  "changes": [
   {
+   "id": "3.99.2",
+   "date": "2026-11-28",
+   "status": "shipped",
+   "title": "HQ grows to 100: ARCOS floor, C-suite & board, Quant, Compliance, Planning & research, Growth",
+   "what": [
+    "56 new people across 6 new rooms (14 tabs): C-suite & 5-member advisory board, ARCOS floor (Adam + 5 leaders + 14 + Sal), Quant lab, Planning & research (5 CFAs, 2 CFPs, 2 CTAs), Compliance (CCO, 2 analysts, General Counsel), Product & growth.",
+    "Open floor now shows all 100 by department.",
+    "Off-shift people nap at their own desks instead of crowding together.",
+    "team.json: the single org chart every report reads."
+   ],
+   "why": "CEO wants a 100-person firm modeled on top asset managers and trading firms.",
+   "files": [
+    "index.html",
+    "team.json",
+    "changes.json"
+   ],
+   "areas": [
+    "app"
+   ],
+   "risk": "Low. Lab only."
+  },
+  {
    "id": "3.98b",
    "date": "2026-11-28",
    "status": "shipped",
