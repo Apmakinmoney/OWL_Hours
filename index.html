@@ -318,7 +318,7 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 .room .pp.late .gem{animation:gemL .5s ease-in-out infinite alternate}@keyframes gemL{to{opacity:.35}}
 .room .pp.walk .lg.l{animation:legA .3s ease-in-out infinite alternate}.room .pp.walk .lg.r{animation:legB .3s ease-in-out infinite alternate}
 @keyframes legA{to{transform:translateY(-1.6px)}}@keyframes legB{from{transform:translateY(-1.6px)}to{transform:none}}
-.room .pp.typing .ppi{animation:tp .25s ease-in-out infinite alternate}@keyframes tp{to{transform:translateY(-.8px)}}
+.room .pp.typing .ppi{animation:typB .25s ease-in-out infinite alternate}@keyframes typB{to{transform:translateY(-.8px)}}
 .room .zz{animation:zz 2.4s ease-in-out infinite}
 .room .blink{animation:bl 1.2s infinite}.room .b1{animation-delay:.3s}.room .b2{animation-delay:.6s}.room .b3{animation-delay:.9s}@keyframes bl{50%{opacity:.2}}
 .room .steam{animation:stm 2s ease-in-out infinite}@keyframes stm{50%{opacity:.2;transform:translateY(-2px)}}
@@ -347,6 +347,13 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 .lpRow.wide{flex-direction:column;gap:8px}.lpRow.wide .lpOwl{width:64px;flex-basis:auto}.lpRow.wide .lpVis{width:100%}
 .lpChart{width:100%}.lpChart svg{width:100%;height:auto;display:block}.lpCap{display:block;margin-top:4px;color:#8d9ac0;font-size:11.5px;text-align:center}
 /* ---- 3.97 Owl Hours HQ ---- */
+.room .pp.walk .arm.l{animation:legA .3s ease-in-out infinite alternate}.room .pp.walk .arm.r{animation:legB .3s ease-in-out infinite alternate}
+.room .pp.typing .arm{animation:typA .2s ease-in-out infinite alternate}@keyframes typA{to{transform:translateY(-1px)}}
+.room .eyes{animation:blinkB 4.5s infinite;transform-box:fill-box;transform-origin:center}
+.room .monLn{stroke-dasharray:14;animation:monLn 2.4s linear infinite}@keyframes monLn{from{stroke-dashoffset:28}to{stroke-dashoffset:0}}
+.room .needleSpin{animation:nsp 6s ease-in-out infinite;transform-origin:0 0;transform-box:fill-box}@keyframes nsp{50%{transform:rotate(40deg)}}
+.room .bub{animation:bubIn .25s ease-out}@keyframes bubIn{from{opacity:0}to{opacity:1}}
+
 .ofTabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}.ofTabs::-webkit-scrollbar{display:none}
 .ofTabs .chip,.ofChips .chip{flex:none;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font:600 12.5px/1 var(--sans,system-ui);cursor:pointer}
 .ofTabs .chip.on{background:#e0b25b;color:#151a2e;border-color:#e0b25b}
@@ -4045,6 +4052,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     {id:"floor",n:"Open floor",cap:"Everyone at once. Swipe for each room, or tap a room name."},
     {id:"exec",n:"Exec suite",cap:"You run the company. Morgan, your Chief of Staff, reports only to you. Wren writes your morning read."},
     {id:"trade",n:"Trading floor",cap:"Prices, crypto, paper money, your watchlist, metals and risk."},
+    {id:"invest",n:"Investment office",cap:"Grant (CIO) vets every trade. Nia (CFO) tracks the money. Rhea leads 4 market specialists. Ray's risk team can veto any trade that breaks a rule."},
     {id:"research",n:"Research lab",cap:"Scores the sectors, keeps the calendar, runs the backtest, hunts for the next idea."},
     {id:"web",n:"Web & data",cap:"Company research, the website and the data checks."},
     {id:"people",n:"People & CRM",cap:"HR reviews every robot on Saturdays. CRM opens when customer accounts launch."},
@@ -4054,7 +4062,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     cos:{n:"Morgan",role:"Chief of Staff",col:"#ff5e7a",every:"7:00 am and 4:30 pm CT, weekdays",job:"Rolls up every robot into your report and flags what needs your eyes. Answers your office chat."},
     watch:{n:"Jules",role:"Watchlist desk",col:"#4fd1a5",every:"with each report",job:"Your names: biggest movers, 52-week highs and lows, earnings this week, top headline."},
     metals:{n:"Sterling",role:"Metals desk",col:"#c9d3f0",every:"with each report",job:"Gold, silver, platinum and palladium: price, 20-day move, and trend vs the 50/200-day averages."},
-    risk:{n:"Ray",role:"Risk officer",col:"#ff8a5b",every:"with each report",job:"Watches the 13 paper portfolios for drawdowns and drawdown-guard switches."},
+    risk:{n:"Ray",role:"Risk lead",col:"#ff8a5b",every:"with each report and every desk run",job:"Leads Bea, Sofia and Malik. Watches the paper and real portfolios for drawdowns and can veto any trade that breaks a rule."},
     site:{n:"Webb",role:"Website director",col:"#5b8cff",every:"with each report",job:"Loads the live site and its data files, and checks the site shows the newest data."},
     qa:{n:"Ada",role:"Data QA inspector",col:"#a58bff",every:"with each report",job:"Catches missing prices, missing sector trends, missing company detail and new robot warnings."},
     hr:{n:"Harper",role:"HR director",col:"#ffd166",every:"Saturdays",weekly:true,job:"Grades every robot on its last 7 days of runs from GitHub: success rate and failures."},
@@ -4063,7 +4071,18 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   var CODERS=[["Zoe","Leo"],["Ivy","Sam"],["Rio","Jada"],["Nico","Ava"],["Eli","Tess"]];
   function hqStaff(){
     var S=[{n:"You",role:"CEO & Founder",room:"exec",kind:"ceo",col:"#e0b25b"},{dept:"cos",room:"exec"},{bot:"read",room:"exec"},
-      {bot:"quotes",room:"trade"},{bot:"crypto",room:"trade"},{bot:"paper",room:"trade"},{dept:"watch",room:"trade"},{dept:"metals",room:"trade"},{dept:"risk",room:"trade"},
+      {bot:"quotes",room:"trade"},{bot:"crypto",room:"trade"},{bot:"paper",room:"trade"},{dept:"watch",room:"trade"},{dept:"metals",room:"trade"},
+      {n:"Grant",role:"CIO",room:"invest",kind:"desk",exec:true,hrs:"cio",col:"#e0b25b",every:"8:45 and 11:45 am desk runs, Sunday 6:37 pm memo",job:"Chief Investment Officer. Vets every trade before it reaches you and writes the Sunday investment memo."},
+      {n:"Nia",role:"CFO",room:"invest",kind:"desk",exec:true,hrs:"cfo",col:"#4fd1a5",every:"Sunday 6:37 pm",job:"Chief Financial Officer. Real vs paper P&L, realized gains and tax lots, app costs, and the revenue plan."},
+      {n:"Rhea",role:"Head of Market Analysis",room:"invest",kind:"desk",exec:true,hrs:"am",col:"#7fd6ff",every:"7:45 am pre-market brief",job:"Rolls up the 4 specialists into your 7:45 am pre-market brief."},
+      {n:"Marcus",role:"Equity analyst",room:"invest",kind:"desk",hrs:"am",col:"#5b8cff",every:"7:45 am brief + desk runs",job:"Watchlist companies and earnings. Reports to Rhea."},
+      {n:"Lena",role:"Macro analyst",room:"invest",kind:"desk",hrs:"am",col:"#a58bff",every:"7:45 am brief + desk runs",job:"Rates, the Fed, the dollar and yields. Reports to Rhea."},
+      {n:"Dev",role:"Options analyst",room:"invest",kind:"desk",hrs:"am",col:"#ff9bd0",every:"7:45 am brief + desk runs",job:"Implied volatility, option chains and setups. Reports to Rhea."},
+      {n:"Kira",role:"Crypto + metals analyst",room:"invest",kind:"desk",hrs:"am",col:"#ffd166",every:"7:45 am brief + desk runs",job:"Bitcoin, Ethereum, gold and silver. Reports to Rhea."},
+      {dept:"risk",room:"invest"},
+      {n:"Bea",role:"Risk analyst · pre-trade checks",room:"invest",kind:"desk",hrs:"desk",col:"#ff8a5b",every:"8:45 and 11:45 am desk runs",job:"Checks every trade against your hard limits: 2% risk, 10% max position, no margin. Reports to Ray."},
+      {n:"Sofia",role:"Risk analyst · exposure",room:"invest",kind:"desk",hrs:"desk",col:"#ff8a5b",every:"8:45 and 11:45 am desk runs",job:"Checks sector concentration and cash levels. Reports to Ray."},
+      {n:"Malik",role:"Risk analyst · stress tests",room:"invest",kind:"desk",hrs:"desk",col:"#ff8a5b",every:"8:45 and 11:45 am desk runs",job:"Estimates the hit if the S&P 500 fell 10%. Reports to Ray."},
       {bot:"daily",room:"research"},{bot:"cal",room:"research"},{bot:"bt",room:"research"},{dept:"innovation",room:"research"},
       {bot:"co",room:"web"},{dept:"site",room:"web"},{dept:"qa",room:"web"},
       {dept:"hr",room:"people"},{n:"Cruz",role:"CRM manager",room:"people",kind:"hold",col:"#ff9bd0",job:"Will track customers, trials and renewals. Opens with customer accounts (Layer 4)."},
@@ -4088,6 +4107,8 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       if(s.ok===false||(s.needs&&s.needs.length)||(s.warn&&s.warn.length))return "late";
       if(p.weekly)return t.dow===6&&t.mins>=600&&t.mins<720?"working":"asleep";
       return t.dow>0&&t.dow<6&&t.mins>=390&&t.mins<=1050?"working":"asleep"}
+    if(p.kind==="desk"){var wd=t.dow>0&&t.dow<6,m=t.mins,on=p.hrs==="am"?wd&&m>=455&&m<=735:p.hrs==="desk"?wd&&m>=520&&m<=735:p.hrs==="cio"?(wd&&m>=520&&m<=735)||(t.dow===0&&m>=1100&&m<=1160):p.hrs==="cfo"?t.dow===0&&m>=1100&&m<=1160:false;
+      return on?"working":wd&&m>=420&&m<=1050?"idle":"asleep"}
     if(p.kind==="eng"){var pc=pendingChanges();if(!pc.length)return "idle";if(p.area==="all")return "working";
       return pc.some(function(c){return (c.areas||[]).indexOf(p.area)>=0})?"working":"idle"}
     return "idle"}
@@ -4096,9 +4117,16 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var g=el("g",{"class":"pp "+state,role:"button",tabindex:"0"},parent),inner=el("g",{"class":"ppi"},g),h=hqHash(p.n);
     el("ellipse",{cx:0,cy:9,rx:6,ry:2,fill:"#000","fill-opacity":".3"},inner);
     el("rect",{x:-3,y:1,width:2.4,height:7,rx:1,fill:"#1d2650","class":"lg l"},inner);el("rect",{x:.6,y:1,width:2.4,height:7,rx:1,fill:"#1d2650","class":"lg r"},inner);
-    el("rect",{x:-5,y:-8,width:10,height:11,rx:3.5,fill:p.col},inner);
-    if(p.kind==="ceo"){el("rect",{x:-5,y:-8,width:10,height:11,rx:3.5,fill:"#151a2e"},inner);el("path",{d:"M-1 -8 L1 -8 L1.4 -1 L0 1 L-1.4 -1Z",fill:"#e0b25b"},inner)}
-    el("circle",{cx:0,cy:-12,r:4.6,fill:SKIN[h%SKIN.length]},inner);
+    el("rect",{x:-3.4,y:7,width:3,height:1.8,rx:.8,fill:"#0a0f20"},inner);el("rect",{x:.5,y:7,width:3,height:1.8,rx:.8,fill:"#0a0f20"},inner);
+    var suit=p.kind==="ceo"||p.exec,skin=SKIN[h%SKIN.length];
+    el("rect",{x:-7,y:-7,width:2.2,height:8,rx:1.1,fill:suit?"#151a2e":p.col,"class":"arm l"},inner);el("rect",{x:4.8,y:-7,width:2.2,height:8,rx:1.1,fill:suit?"#151a2e":p.col,"class":"arm r"},inner);
+    el("circle",{cx:-5.9,cy:1.6,r:1.1,fill:skin},inner);el("circle",{cx:5.9,cy:1.6,r:1.1,fill:skin},inner);
+    el("rect",{x:-5,y:-8,width:10,height:11,rx:3.5,fill:suit?"#151a2e":p.col},inner);
+    if(suit){el("path",{d:"M-2.2 -8 L2.2 -8 L0 -3Z",fill:"#e8ecf8"},inner);el("path",{d:"M-.8 -7 L.8 -7 L1.2 -1 L0 1 L-1.2 -1Z",fill:p.kind==="ceo"?"#e0b25b":p.col},inner)}
+    else el("path",{d:"M-2 -8 L0 -5.6 L2 -8",stroke:"#0a1022","stroke-opacity":".35","stroke-width":.8,fill:"none"},inner);
+    el("circle",{cx:0,cy:-12,r:4.6,fill:skin},inner);
+    var ey=el("g",{"class":"eyes"},inner);el("circle",{cx:-1.6,cy:-11.8,r:.65,fill:"#0a0f20"},ey);el("circle",{cx:1.6,cy:-11.8,r:.65,fill:"#0a0f20"},ey);
+    if(state==="working"||state==="ceo")el("path",{d:"M-1.3 -9.9 Q0 -8.9 1.3 -9.9",stroke:"#5a2a1a","stroke-width":.5,fill:"none"},inner);
     var hair=HAIR[(h>>3)%HAIR.length];
     if(h%3===0)el("path",{d:"M-4.8 -12 Q-5.4 -18.5 0 -18 Q5.4 -18.5 4.8 -12 Q3 -16 -4.8 -12Z",fill:hair},inner);
     else if(h%3===1){el("path",{d:"M-4.6 -13 Q0 -19 4.6 -13 Q2 -15 -4.6 -13Z",fill:hair},inner);el("rect",{x:-5.2,y:-14,width:2,height:7,rx:1,fill:hair},inner);el("rect",{x:3.2,y:-14,width:2,height:7,rx:1,fill:hair},inner)}
@@ -4117,24 +4145,23 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     if(kind==="sprint"){el("rect",{x:-30,y:-18,width:60,height:30,rx:3,fill:"#e8ecf8"},g);[["#ffd166",-24],["#4fd1a5",-8],["#ff9bd0",8]].forEach(function(c){[0,1,2].forEach(function(k){el("rect",{x:c[1],y:-13+k*8,width:13,height:6,rx:1,fill:c[0]},g)})});var t=el("text",{x:0,y:16,"text-anchor":"middle",fill:"#8d9ac0","font-size":"5"},g);t.textContent="TO DO · DOING · DONE"}
     if(kind==="server"){el("rect",{x:-10,y:-22,width:20,height:34,rx:2,fill:"#0a1022",stroke:"#2f3d6e"},g);[0,1,2,3].forEach(function(k){el("circle",{cx:-4,cy:-16+k*8,r:1.6,fill:k%2?"#3dffb0":"#7fd6ff","class":"blink b"+k},g)})}
     if(kind==="trophy"){el("rect",{x:-22,y:-2,width:44,height:5,rx:1,fill:"#3a4772"},g);el("path",{d:"M-6 -2 L6 -2 L4 -12 L-4 -12Z",fill:"#e0b25b"},g);el("rect",{x:-14,y:-9,width:5,height:7,fill:"#5b8cff"},g);el("rect",{x:10,y:-10,width:5,height:8,fill:"#ff5e7a"},g)}
+    if(kind==="wallscreen"){el("rect",{x:-30,y:-20,width:60,height:34,rx:3,fill:"#0a1022",stroke:"#e0b25b","stroke-opacity":".6"},g);el("circle",{cx:-14,cy:-3,r:10,fill:"none",stroke:"#7fd6ff","stroke-width":1.2},g);el("line",{x1:-14,y1:-3,x2:-8,y2:3,stroke:"#e0b25b","stroke-width":1.4,"class":"needleSpin"},g);el("polyline",{points:"2,6 8,0 13,3 19,-8 26,-5",fill:"none",stroke:"#3dffb0","stroke-width":1.2,"class":"monLn"},g)}
     if(kind==="rug"){el("ellipse",{cx:0,cy:0,rx:60,ry:18,fill:"#3a2a5a","fill-opacity":".55",stroke:"#e0b25b","stroke-opacity":".35"},g)}
     return g}
   function walls(svg,W,H,title){
     var defs=el("defs",{},svg),pid="tl"+Math.random().toString(36).slice(2,7),pat=el("pattern",{id:pid,width:24,height:24,patternUnits:"userSpaceOnUse"},defs);el("rect",{width:24,height:24,fill:"#16224a"},pat);el("path",{d:"M0 0H24V24",fill:"none",stroke:"#1e2d5c","stroke-width":1},pat);
     el("rect",{x:0,y:0,width:W,height:H,rx:14,fill:"url(#"+pid+")"},svg);el("rect",{x:0,y:0,width:W,height:34,rx:14,fill:"#0b1430"},svg);el("rect",{x:0,y:26,width:W,height:8,fill:"#0b1430"},svg);
     var t=el("text",{x:12,y:22,fill:"#e0b25b","font-size":"9","font-weight":"800","letter-spacing":"1.5","font-family":"DM Sans,system-ui,sans-serif"},svg);t.textContent=title.toUpperCase()}
-  function hqDesk(svg,x,y,col,big){var w=big?64:34;el("rect",{x:x-w/2,y:y-4,width:w,height:big?14:11,rx:3,fill:big?"#4a3420":"#2a3566",stroke:big?"#e0b25b":"#3a4772","stroke-opacity":big?".6":"1"},svg);
-    el("rect",{x:x-7,y:y-15,width:14,height:10,rx:1.5,fill:"#0a1022",stroke:col||"#5b8cff","stroke-width":.8,"class":"mon"},svg);if(big)el("rect",{x:x+10,y:y-13,width:12,height:8,rx:1.5,fill:"#0a1022",stroke:"#e0b25b","stroke-width":.8,"class":"mon"},svg)}
+  function hqDesk(svg,x,y,col,big){var w=big?64:34;el("rect",{x:x-5.5,y:y+8,width:11,height:8,rx:2.5,fill:"#2a1f4a",stroke:"#3a2a5a"},svg);el("rect",{x:x-w/2,y:y-4,width:w,height:big?14:11,rx:3,fill:big?"#4a3420":"#2a3566",stroke:big?"#e0b25b":"#3a4772","stroke-opacity":big?".6":"1"},svg);
+    el("rect",{x:x-7,y:y-15,width:14,height:10,rx:1.5,fill:"#0a1022",stroke:col||"#5b8cff","stroke-width":.8,"class":"mon"},svg);el("polyline",{points:(x-5)+","+(y-8)+" "+(x-2)+","+(y-11)+" "+(x+1)+","+(y-9)+" "+(x+5)+","+(y-13),fill:"none",stroke:col||"#3dffb0","stroke-width":.8,"class":"monLn"},svg);if(big)el("rect",{x:x+10,y:y-13,width:12,height:8,rx:1.5,fill:"#0a1022",stroke:"#e0b25b","stroke-width":.8,"class":"mon"},svg)}
   function hqGrid(n,x0,x1,y0,y1,mc){var cols=Math.max(1,Math.min(mc||4,Math.ceil(Math.sqrt(n*1.6)))),rows=Math.ceil(n/cols),out=[];
     for(var i=0;i<n;i++){var r=Math.floor(i/cols),c=i%cols,inRow=Math.min(cols,n-r*cols);out.push([x0+(x1-x0)*(c+.5)/inRow,y0+(y1-y0)*(r+.5)/rows])}return out}
   function drawRoom(room,members,openSheetFn){
-    var W=360,H=room.id==="floor"?700:room.id==="eng"?280:230,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"room hqRoom"}),list=[];
+    var W=360,H=room.id==="floor"?700:room.id==="eng"?280:room.id==="invest"?270:230,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"room hqRoom"}),list=[];
     walls(svg,W,H,room.id==="floor"?"Owl Hours HQ · open floor":room.n);
     var spots=[[W-30,H-30],[40,H-40],[W/2,48]],sc=1.3,homes=[];
     if(room.id==="floor"){
-      sc=0.95;var zones=ROOMS.slice(1),ZB={exec:[0,38,180,150],trade:[180,38,180,150],research:[0,188,180,150],web:[180,188,180,150],people:[0,338,180,150],eng:[0,488,360,206]};
-      var lz=el("rect",{x:184,y:342,width:172,height:142,rx:10,fill:"#0e1736","fill-opacity":".35",stroke:"#2f3d6e","stroke-dasharray":"3 3"},svg);var lt=el("text",{x:192,y:356,fill:"#7fd6ff","font-size":"7.5","font-weight":"700","letter-spacing":"1"},svg);lt.textContent="LOUNGE";
-      hqProp(svg,250,440,"couch");hqProp(svg,330,430,"coffee");hqProp(svg,200,470,"plant");
+      sc=0.95;var zones=ROOMS.slice(1),ZB={exec:[0,38,180,150],trade:[180,38,180,150],research:[0,188,180,150],web:[180,188,180,150],people:[0,338,180,150],invest:[180,338,180,150],eng:[0,488,360,206]};
       zones.forEach(function(z,k){var B=ZB[z.id],zx=B[0],zy=B[1],zw=B[2],zh=B[3];el("rect",{x:zx+4,y:zy+4,width:zw-8,height:zh-8,rx:10,fill:"#0e1736","fill-opacity":".55",stroke:"#2f3d6e","stroke-dasharray":"3 3"},svg);
         var zt=el("text",{x:zx+12,y:zy+18,fill:"#7fd6ff","font-size":"7.5","font-weight":"700","letter-spacing":"1"},svg);zt.textContent=z.n.toUpperCase();
         var mem=members.filter(function(p){return p.room===z.id}),pos=hqGrid(mem.length,zx+12,zx+zw-12,zy+30,zy+zh-14,z.id==="eng"?8:4);
@@ -4154,13 +4181,16 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
         cods.filter(function(c){return c.boss===e.n}).forEach(function(c,m){var cx=x+(m?17:-17);hqDesk(svg,cx,210,c.col);homes.push({p:c,h:[cx,226]});el("path",{d:"M"+x+" 158 L"+cx+" 198",stroke:"#5b8cff","stroke-opacity":".14","stroke-dasharray":"2 3"},svg)})});
       sc=1.1;spots=[[330,250],[60,92],[300,90],[180,250]];
     }else{
-      var P={trade:["coffee","plant","board"],research:["board","server","plant"],web:["server","server","plant"],people:["couch","plant","board"]}[room.id]||[];
+      var P={invest:["plant","plant","wallscreen"],trade:["coffee","plant","board"],research:["board","server","plant"],web:["server","server","plant"],people:["couch","plant","board"]}[room.id]||[];
       hqProp(svg,336,206,P[0]);hqProp(svg,24,208,P[1]);hqProp(svg,46,64,P[2]);if(room.id==="web")hqProp(svg,300,66,"server");
       if(room.id==="trade"){var tk=el("text",{x:120,y:22,fill:"#7fd6ff","font-size":"8","font-family":"ui-monospace,monospace","class":"wallTick"},svg);var qs=(officeData.quotes&&officeData.quotes.quotes)||{};tk.textContent=["SPY","QQQ","GLD","SLV","NVDA","TSLA"].map(function(s){var q=qs[s];return s+(q&&q.pct!=null?" "+(q.pct>0?"+":"")+q.pct.toFixed(1)+"%":"")}).join(" · ");tk.textContent+=" · "+tk.textContent;
         el("rect",{x:0,y:0,width:122,height:34,rx:14,fill:"#0b1430"},svg);el("rect",{x:60,y:0,width:62,height:34,fill:"#0b1430"},svg);var t2=el("text",{x:12,y:22,fill:"#e0b25b","font-size":"9","font-weight":"800","letter-spacing":"1.5","font-family":"DM Sans,system-ui,sans-serif"},svg);t2.textContent="TRADING FLOOR"}
       var pos=hqGrid(members.length,40,W-40,96,H-46);members.forEach(function(p,j){hqDesk(svg,pos[j][0],pos[j][1],p.col);homes.push({p:p,h:[pos[j][0],pos[j][1]+16]})});
       spots=[[320,200],[46,96],[40,190],[180,60]];
     }
+    var ct=ctNow(),lm=ct.mins,tint=lm<360||lm>=1170?["#050a28",.34]:lm>=1050?["#ff8a3c",.08]:lm<450?["#ffd28a",.06]:null;
+    if(tint)el("rect",{x:0,y:0,width:W,height:H,rx:14,fill:tint[0],"fill-opacity":tint[1],"pointer-events":"none"},svg);
+    if(tint&&tint[0]==="#050a28")homes.forEach(function(hm){el("ellipse",{cx:hm.h[0],cy:hm.h[1]-24,rx:14,ry:9,fill:"#ffd166","fill-opacity":".10","pointer-events":"none"},svg)});
     homes.forEach(function(hm,i){var p=hm.p,state=stateOf(p),g=personSvg(svg,p,i,state);
       var start=state==="asleep"&&room.id!=="floor"?spots[i%spots.length].slice():hm.h.slice();
       var o={g:g,p:p,state:state,x:start[0]+(i%3)*5-5,y:start[1],tx:null,ty:null,wait:Math.random()*60,home:hm.h,zone:hm.zone,spots:spots,sc:sc,svg:svg,room:room.id};
@@ -4243,6 +4273,15 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     host.appendChild(mkEl("p","sub","Atlas logs every change here: what, why and which files. Pending ones wait for you, the CEO."));
     var ch=(HQ.changes&&HQ.changes.changes)||[];if(!ch.length){host.appendChild(mkEl("p","rcL","No changes logged yet."));return}
     ch.slice(0,8).forEach(function(c){var r=mkEl("button","ofReq "+c.status);r.type="button";r.appendChild(mkEl("i",null,c.status==="pending"?"⏳":c.status==="denied"?"✗":c.status==="parked"?"⏸":"✓"));var tx=mkEl("div");tx.appendChild(mkEl("b",null,c.id+" · "+c.title));tx.appendChild(mkEl("small",null,(c.status==="pending"?"Waiting for your approval":c.status==="shipped"?"Approved & shipped":c.status==="parked"?"Parked by the CEO":c.status)+(c.date?" · "+c.date:"")));r.appendChild(tx);r.addEventListener("click",function(){openChange(c)});host.appendChild(r)})}
+  function hqLine(p){var q=(officeData.quotes&&officeData.quotes.quotes)||{},o=HQ.office||{},L=latData||{};function pc(s){var v=q[s];return v&&v.pct!=null?s+" "+(v.pct>0?"+":"")+v.pct.toFixed(1)+"%":s}
+    var n=p.n,opts={Quinn:[pc("SPY"),pc("QQQ")],Coco:["BTC check ✓","Crypto updated"],Penny:["Paper P&L logged","13 portfolios ✓"],Jules:[pc("NVDA"),pc("TSLA"),pc("SPCX")],Sterling:[pc("GLD"),pc("SLV")],Ray:["Risk: no alarms","Guard check ✓"],
+      Grant:["Vetting trades…","Stick to the plan"],Nia:["P&L reconciled","Costs: $0/mo"],Rhea:["Brief at 7:45","Clock: "+((o.clock&&o.clock.hour)||"…")],Marcus:[pc("AAPL"),pc("MSFT"),"Earnings check"],Lena:["10Y "+(L.macro&&L.macro.y10?L.macro.y10.level+"%":"…"),"Fed watch"],Dev:["IV scan…","Chains loaded"],Kira:[pc("GLD"),"BTC watch"],
+      Bea:["2% rule ✓","Limits OK"],Sofia:["Exposure OK","Cash check"],Malik:["SPY −10% test","Stress OK"],Morgan:["Report ready, boss","All on schedule"],Wren:["Drafting the read"],Dana:["Scoring sectors"],Cal:["Fed date logged"],Sage:["Backtest queued"],Nova:["Next test: Night rebound"],
+      Rex:["News filtered"],Webb:["Site is up ✓"],Ada:["Data clean ✓"],Harper:["Reviews Saturday"],Atlas:["Plan → CEO approval","Ship it clean"]}[n];
+    if(!opts)opts=p.kind==="ceo"?["Let's work 🦉","Nobody outranks me"]:p.kind==="eng"?["Tests passing ✓","Pushing a fix","Code review…"]:["On it"];return opts[Math.floor(Math.random()*opts.length)]}
+  function hqSay(o){var t=hqLine(o.p),w=Math.min(110,t.length*4.1+12),g=el("g",{"class":"bub","pointer-events":"none",transform:"translate("+o.x.toFixed(1)+","+(o.y-34*o.sc/1.1).toFixed(1)+")"},o.svg);
+    el("rect",{x:-w/2,y:-13,width:w,height:13,rx:6,fill:"#e8ecf8"},g);el("path",{d:"M-3 0 L0 4 L3 0Z",fill:"#e8ecf8"},g);var tx=el("text",{x:0,y:-4,"text-anchor":"middle",fill:"#151a2e","font-size":"7","font-weight":"700","font-family":"DM Sans,system-ui,sans-serif"},g);tx.textContent=t;
+    setTimeout(function(){g.remove()},3200)}
   loadOffice=async function(){var jobs=BOTS.map(function(b){return getJSON(b.f).then(function(d){officeData[b.id]=d}).catch(function(){officeData[b.id]=null})});
     jobs.push(getJSON("office.json").then(function(d){HQ.office=d}).catch(function(){HQ.office=null}));jobs.push(getJSON("changes.json").then(function(d){HQ.changes=d}).catch(function(){HQ.changes=null}));
     await Promise.all(jobs);paintOffice()};
@@ -4250,7 +4289,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var b=$("officeSec");if(!b)return;var keep=HQ.room;b.textContent="";
     b.appendChild(mkEl("h3",null,"Owl Hours HQ"));
     var S=hqStaff();
-    b.appendChild(mkEl("p","sub",S.length+" people, 7 rooms. Each one stands for a real robot job. Diamond: green on shift, amber needs a look, blue between jobs, grey off shift. You wear the crown. Tap anyone."));
+    b.appendChild(mkEl("p","sub",S.length+" people, "+(ROOMS.length-1)+" rooms. Each one stands for a real robot job. Diamond: green on shift, amber needs a look, blue between jobs, grey off shift. You wear the crown. Tap anyone."));
     var tabs=mkEl("div","ofTabs"),sc=mkEl("div","offRooms"),dots=mkEl("div","ofDots"),cap=mkEl("p","ofCap"),ros=mkEl("div","roster");
     HQ.people=[];
     ROOMS.forEach(function(r,i){var t=mkEl("button","chip",r.n);t.type="button";t.addEventListener("click",function(){sc.scrollTo({left:i*sc.clientWidth,behavior:reduce?"auto":"smooth"})});tabs.appendChild(t);
@@ -4258,7 +4297,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       dr.people.forEach(function(p){p.ri=i;HQ.people.push(p)});dots.appendChild(mkEl("i"))});
     b.appendChild(tabs);b.appendChild(sc);b.appendChild(dots);b.appendChild(cap);b.appendChild(ros);
     function setRoom(i){HQ.room=i;Array.prototype.forEach.call(tabs.children,function(t,k){t.classList.toggle("on",k===i)});Array.prototype.forEach.call(dots.children,function(d,k){d.classList.toggle("on",k===i)});
-      cap.textContent=ROOMS[i].cap;ros.textContent="";var rw=sc.children[i];if(rw)sc.style.height=rw.offsetHeight+"px";
+      cap.textContent=ROOMS[i].cap;ros.textContent="";var rw=sc.children[i];sc.style.height=rw&&rw.offsetHeight?rw.offsetHeight+"px":"";
       HQ.people.filter(function(p){return p.ri===i}).forEach(function(p){var r=mkEl("div","rRow");r.appendChild(mkEl("i","lamp "+(p.state==="ceo"?"working":p.state==="idle"?"idle":p.state)));
         var tx=mkEl("div"),d=p.p.kind==="bot"?officeData[p.p.bt.id]:null,s=p.p.kind==="dept"?hqSec(p.p.key):null;tx.appendChild(mkEl("b",null,(p.p.kind==="ceo"?"You":p.p.n)+" · "+p.p.role));
         tx.appendChild(mkEl("small",null,p.p.kind==="bot"?(d?p.p.bt.did(d):"No report yet")+" · "+agoTxt(d&&(d.asOf||d.date)):s?(s.line||s.headline||"Reported")+" · "+agoTxt(s.asOf):p.p.kind==="dept"?"Starts at the first office run":stLabel(p.state)));
@@ -4268,14 +4307,15 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var ch=mkEl("section","ofChat");ch.id="ofChat";b.appendChild(ch);paintChat(ch);
     var rq=mkEl("section","ofChanges");b.appendChild(rq);paintChanges(rq);
     if(HQ.timer)clearInterval(HQ.timer);if(reduce)return;
+    var tick=0;
     HQ.timer=setInterval(function(){
       if(!sc.isConnected){clearInterval(HQ.timer);return}
       if(!sc.getBoundingClientRect().height)return;
+      if(++tick%110===0){var act=HQ.people.filter(function(p){return p.ri===HQ.room&&(p.state==="working"||p.state==="ceo"||p.state==="idle")});if(act.length){var who=act[Math.floor(Math.random()*act.length)];hqSay(who)}}
       HQ.people.forEach(function(p){if(p.ri!==HQ.room)return;
         if(p.wait>0){p.wait--;p.g.classList.remove("walk");return}
         if(p.tx==null){var spot;
-          if(p.zone&&p.state==="asleep"&&Math.random()<.5)spot=[200+Math.random()*120,400+Math.random()*60];
-          else if(p.zone){var z=p.zone;spot=p.state==="working"||p.state==="ceo"?(Math.random()<.7?p.home:[z[0]+Math.random()*(z[2]-z[0]),z[1]+Math.random()*(z[3]-z[1])]):[z[0]+Math.random()*(z[2]-z[0]),z[1]+Math.random()*(z[3]-z[1])]}
+          if(p.zone){var z=p.zone;spot=p.state==="working"||p.state==="ceo"?(Math.random()<.7?p.home:[z[0]+Math.random()*(z[2]-z[0]),z[1]+Math.random()*(z[3]-z[1])]):[z[0]+Math.random()*(z[2]-z[0]),z[1]+Math.random()*(z[3]-z[1])]}
           else if(p.state==="working"||p.state==="ceo")spot=Math.random()<.75?p.home:p.spots[Math.floor(Math.random()*p.spots.length)];
           else if(p.state==="late")spot=[p.home[0]+(Math.random()*40-20),p.home[1]+Math.random()*10];
           else if(p.state==="idle")spot=Math.random()<.5?p.home:p.spots[Math.floor(Math.random()*p.spots.length)];

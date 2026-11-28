@@ -2,9 +2,32 @@
  "note": "Atlas (lead engineer) logs every change here. pending = waiting for the CEO. shipped = the CEO approved and uploaded it.",
  "changes": [
   {
+   "id": "3.99.1",
+   "date": "2026-11-27",
+   "status": "shipped",
+   "title": "Investment Office + sims visual upgrade",
+   "what": [
+    "New Investment Office room: Grant (CIO), Nia (CFO), Rhea (Head of Market Analysis) with Marcus, Lena, Dev and Kira, and Ray's risk team (Bea, Sofia, Malik). 44 people total.",
+    "Each new person maps to a real scheduled report: 7:45 am pre-market brief, 8:45 and 11:45 am trading desk, Sunday CIO memo + CFO report.",
+    "Sims upgrade: faces with blinking eyes and smiles, swinging arms and hands, shoes, suits and ties for execs, desk chairs, live charts on monitors.",
+    "Speech bubbles with real data (SPY move, 10-year yield, gold) pop over people while they work.",
+    "Day/night lighting: rooms dim at night with desk lamps, warm at dawn and dusk.",
+    "Engineering log: 4.0 marked on hold."
+   ],
+   "why": "CEO asked to expand the team and upgrade the office visuals.",
+   "files": [
+    "index.html",
+    "changes.json"
+   ],
+   "areas": [
+    "app"
+   ],
+   "risk": "Low. Lab only."
+  },
+  {
    "id": "4.0",
    "date": "2026-11-27",
-   "status": "pending",
+   "status": "denied",
    "title": "Faster app: split index.html into smaller files",
    "what": [
     "Break the 420 KB index.html into a small page plus separate script and style files the phone can cache.",
@@ -22,7 +45,7 @@
     "app",
     "infra"
    ],
-   "risk": "Medium: touches everything, so it ships alone and gets tested first."
+   "risk": "Medium: touches everything, so it ships alone and gets tested first. On hold: CEO denied for now (2026-11-27)."
   },
   {
    "id": "3.99",
