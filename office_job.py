@@ -481,6 +481,48 @@ def discord_inbox():
     print(f"Answered {n} Discord message(s).", flush=True)
 
 
+
+# ---------------- Discord webhooks (simple, no bot) ----------------
+def hook(env, text, name):
+    url = os.environ.get(env, "").strip() or os.environ.get(env.replace("DISCORD_", "OWL_"), "").strip()
+    if not url: return False
+    for i in range(0, len(text), 1900):
+        body = json.dumps({"content": text[i:i + 1900], "username": name, "allowed_mentions": {"parse": []}}).encode()
+        req = urllib.request.Request(url, data=body, method="POST", headers={"Content-Type": "application/json", "User-Agent": "OwlHours (https://github.com/Apmakinmoney/OWL_Hours, 1.0)"})
+        for _ in range(3):
+            try: urllib.request.urlopen(req, timeout=20); break
+            except urllib.error.HTTPError as e:
+                if e.code == 429: time.sleep(float(json.loads(e.read() or b"{}").get("retry_after", 2)) + .5); continue
+                raise
+        time.sleep(0.6)
+    return True
+
+
+def webhook_report(o, prev):
+    cos = o["cos"]
+    t = [f"**{cos['headline']}**"] + (["**Needs your eyes:**"] + ["• " + n for n in cos["needs"]] if cos["needs"] else []) + ["• " + l for l in cos["lines"]]
+    w = o.get("watch") or {}
+    if w.get("rows"): t += ["", "**Watchlist (Jules):** " + " · ".join(f"{r['sym']} {r['pct']:+.1f}%" for r in w["rows"][:12] if r.get("pct") is not None)]
+    m = o.get("metals") or {}
+    if m.get("rows"): t += ["**Metals (Sterling):** " + " · ".join(f"{r['name']} ${r['price']:,.2f}" + (f" ({r['chg20']:+.1f}% 20d)" if r.get("chg20") is not None else "") for r in m["rows"])]
+    if cos.get("slot") == "weekly":
+        h, n = o.get("hr") or {}, o.get("innovation") or {}
+        t += ["", f"**HR weekly (Harper):** {h.get('line', '')}"] + [f"• {r['person']}: {r['rate']}% ({r['grade']})" for r in h.get("rows", [])]
+        t += ["", "**Innovation (Nova):**"] + ["• " + l for l in n.get("lines", [])]
+    sent = hook("DISCORD_REPORTS", "\n".join(t), "Morgan · Chief of Staff")
+    alerts = [f"⚠️ {b['n']} ({b['job']}) is late: {b['note']}" for b in o.get("robots", []) if not b["ok"]]
+    if not (o.get("site") or {}).get("ok", True): alerts.append("🌐 " + o["site"]["line"])
+    if not (o.get("qa") or {}).get("ok", True): alerts.append("🧪 " + o["qa"]["line"])
+    alerts += ["📉 " + x for x in (o.get("risk") or {}).get("warn", [])]
+    c, pc = o.get("clock") or {}, (prev or {}).get("clock") or {}
+    if c.get("hour") and pc.get("hour") and c["hour"] != pc["hour"]:
+        alerts.append(f"🦉 Phase change: the clock moved from {pc['hour']} to **{c['hour']}** ({c['phase'].lower()}), {c['word']} signals.")
+    if alerts: hook("DISCORD_ALERTS", "\n".join(alerts), "Owl Alerts")
+    if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch" and not alerts:
+        hook("DISCORD_ALERTS", "✅ Owl Alerts is connected. You'll hear from me when a robot fails, the site or data breaks, a portfolio drawdown trips, or the clock changes phase.", "Owl Alerts")
+    if sent: print("Posted to Discord webhooks.", flush=True)
+
+
 def main(mode):
     prev = load("office.json", {}) or {}
     if mode == "inbox":
@@ -508,6 +550,8 @@ def main(mode):
         except Exception as e: print(f"Email failed: {e}", flush=True)
         try: discord_report(o)
         except Exception as e: print(f"Discord failed: {e}", flush=True)
+        try: webhook_report(o, prev)
+        except Exception as e: print(f"Discord webhook failed: {e}", flush=True)
 
 
 if __name__ == "__main__":

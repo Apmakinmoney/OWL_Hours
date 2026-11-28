@@ -2,6 +2,28 @@
  "note": "Atlas (lead engineer) logs every change here. pending = waiting for the CEO. shipped = the CEO approved and uploaded it.",
  "changes": [
   {
+   "id": "3.98b",
+   "date": "2026-11-28",
+   "status": "shipped",
+   "title": "Discord webhooks: #reports and #alerts",
+   "what": [
+    "Morgan's 7:00 am and 4:30 pm reports (plus watchlist and metals lines) post to #reports in Owl Hours HQ on Discord. Saturday HR + Innovation reviews too.",
+    "#alerts gets: late or failed robots, website or data problems, paper-portfolio drawdown warnings, and Owl clock phase changes.",
+    "A manual run of 'Owl office' sends a test message to #alerts so you know it's connected."
+   ],
+   "why": "CEO wants auto alerts in Discord channels; webhooks need no bot or developer portal.",
+   "files": [
+    "office_job.py",
+    ".github/workflows/office.yml",
+    "changes.json"
+   ],
+   "areas": [
+    "robots",
+    "infra"
+   ],
+   "risk": "Low. Posts only when the DISCORD_REPORTS / DISCORD_ALERTS secrets exist."
+  },
+  {
    "id": "3.99.1",
    "date": "2026-11-27",
    "status": "shipped",
