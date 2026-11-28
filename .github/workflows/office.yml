@@ -42,5 +42,9 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           READ_TO: ${{ secrets.READ_TO }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_REPORTS: ${{ secrets.DISCORD_REPORTS }}
+          DISCORD_ALERTS: ${{ secrets.DISCORD_ALERTS }}
+          OWL_REPORTS: ${{ secrets.OWL_REPORTS }}
+          OWL_ALERTS: ${{ secrets.OWL_ALERTS }}
       - name: Save office.json
         run: bash .github/push.sh "Owl office report" office.json discord.json
