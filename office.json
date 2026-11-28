@@ -1,14 +1,14 @@
 {
- "asOf": "2026-11-28T06:05:58+00:00",
+ "asOf": "2026-11-28T06:08:08+00:00",
  "robots": [
   {
    "n": "Quinn",
    "job": "prices",
    "file": "quotes.json",
-   "ageH": 7.4,
+   "ageH": 7.5,
    "ok": true,
    "warn": 0,
-   "note": "fresh, 7.4h old"
+   "note": "fresh, 7.5h old"
   },
   {
    "n": "Dana",
@@ -23,28 +23,28 @@
    "n": "Cal",
    "job": "calendar",
    "file": "calendar.json",
-   "ageH": 6.9,
+   "ageH": 7.0,
    "ok": true,
    "warn": 0,
-   "note": "fresh, 6.9h old"
+   "note": "fresh, 7.0h old"
   },
   {
    "n": "Penny",
    "job": "paper portfolios",
    "file": "paper.json",
-   "ageH": 6.9,
+   "ageH": 7.0,
    "ok": true,
    "warn": 0,
-   "note": "fresh, 6.9h old"
+   "note": "fresh, 7.0h old"
   },
   {
    "n": "Coco",
    "job": "crypto",
    "file": "crypto.json",
-   "ageH": 0.1,
+   "ageH": 0.2,
    "ok": true,
    "warn": 0,
-   "note": "fresh, 0.1h old"
+   "note": "fresh, 0.2h old"
   },
   {
    "n": "Rex",
@@ -68,10 +68,10 @@
    "n": "Sage",
    "job": "backtest",
    "file": "backtest.json",
-   "ageH": 8.8,
+   "ageH": 8.9,
    "ok": true,
    "warn": 0,
-   "note": "fresh, 8.8h old"
+   "note": "fresh, 8.9h old"
   }
  ],
  "clock": {
@@ -89,10 +89,12 @@
    "Semiconductors",
    "Tech",
    "Energy"
-  ]
+  ],
+  "moved": 0.0,
+  "movedTxt": "back 0\u00b0"
  },
  "watch": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "line": "12 of 12 names up last session. Biggest move: SLV +6.2%.",
   "rows": [
    {
@@ -182,7 +184,7 @@
   ]
  },
  "metals": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "line": "Gold $3,655, -10.1% over 20 days, below both its 50- and 200-day averages.",
   "rows": [
    {
@@ -220,7 +222,7 @@
   ]
  },
  "risk": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "line": "Since 2026-11-27: SPY buy and hold +0.00%, Owl B +0.00%, Moderately aggressive +0.00%",
   "rows": [
    {
@@ -331,24 +333,24 @@
   "warn": []
  },
  "site": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "checks": [
    {
     "name": "home page",
     "ok": true,
-    "ms": 162,
+    "ms": 87,
     "note": "loads"
    },
    {
     "name": "latest.json",
     "ok": true,
-    "ms": 55,
+    "ms": 52,
     "note": "loads"
    },
    {
     "name": "manifest.webmanifest",
     "ok": true,
-    "ms": 48,
+    "ms": 33,
     "note": "loads"
    }
   ],
@@ -356,7 +358,7 @@
   "line": "Website is up, data files load."
  },
  "qa": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "ok": true,
   "checks": [
    {
@@ -388,7 +390,7 @@
   "line": "All data checks pass."
  },
  "eng": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "pending": 0,
   "pendingTitles": [],
   "last": {
@@ -399,11 +401,11 @@
   "line": "No requests waiting. Last shipped: 3.98b Discord webhooks: #reports and #alerts."
  },
  "cos": {
-  "asOf": "2026-11-28T06:05:58+00:00",
+  "asOf": "2026-11-28T06:08:08+00:00",
   "slot": "am",
   "headline": "Good morning, CEO. 1 thing(s) need your eyes.",
   "lines": [
-   "Clock: Night (contraction), mixed signals.",
+   "Clock: Night (contraction), mixed signals, moved back 0\u00b0 since last report.",
    "Strongest: Communication, Staples, Discretionary. Weakest: Semiconductors, Tech, Energy.",
    "Robots: 7 of 8 on schedule. Late: Wren (no file yet)",
    "12 of 12 names up last session. Biggest move: SLV +6.2%.",
