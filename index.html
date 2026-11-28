@@ -328,6 +328,24 @@ body[data-tab]:not([data-tab="clock"]) header .owlTop{width:84px}
 .rRow{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
 .rRow b{display:block;font-size:13px}.rRow small{color:var(--muted);font-size:11.5px}
 .lamp.asleep{background:#8d9ac0}
+/* ---- 3.99 ---- */
+.wdBox{padding:4px 2px}.wdTable{display:grid;gap:3px;margin:8px 0}
+.wdRow{display:grid;grid-template-columns:1.6fr .8fr .8fr .9fr 1fr;gap:6px;align-items:center;font-size:12.5px;padding:5px 6px;border-radius:8px;background:var(--panel)}
+.wdHead{background:none;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.wdRow .up{color:#3dbf8a}.wdRow .dn{color:#ff5e7a}.wdN{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wdS{font-family:ui-monospace,monospace;font-size:11px;white-space:nowrap}.wdS.s2,.wdS.s1{color:#3dbf8a}.wdS.s-1,.wdS.s-2{color:#ff5e7a}
+.wdPull{display:block;height:8px;border-radius:4px;background:var(--line);overflow:hidden}.wdPull i{display:block;height:100%;border-radius:4px}.wdPull i.up{background:#3dffb0}.wdPull i.dn{background:#ff5e7a}
+.phaseBanner{position:relative;margin:0 0 12px;padding:12px 40px 12px 14px;border-radius:14px;background:linear-gradient(135deg,#1a2550,#2a1f4a);border:1px solid #e0b25b;color:#e8ecf8}
+.phaseBanner b{display:block;font-size:15px;margin-bottom:4px}.phaseBanner p{margin:0;font-size:13.5px;line-height:1.4;color:#c9d3f0}.phaseBanner .tipX{position:absolute;top:6px;right:8px}
+.recordCard,.gradeCard{margin-bottom:14px}.recGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.recCell{display:flex;flex-direction:column;gap:3px;padding:10px;border-radius:12px;border:1px solid var(--line);border-left-width:4px;background:var(--bg)}.recCell b{font-size:18px}.recCell b.up{color:#3dbf8a}.recCell b.dn{color:#ff5e7a}.recCell small{color:var(--muted);font-size:11.5px}
+.gradeList{display:grid;gap:6px;margin-top:8px}.gradeRow{display:flex;gap:12px;align-items:center;text-align:left;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.gradeRow div{display:flex;flex-direction:column;gap:2px}.gradeRow small{color:var(--muted)}
+.grL{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;font:800 16px/1 var(--serif,Georgia);background:var(--line);color:var(--muted)}
+.gA .grL,.lpGrade.gA{background:#3dffb0;color:#0a1022}.gB .grL,.lpGrade.gB{background:#7fd6ff;color:#0a1022}.gC .grL,.lpGrade.gC{background:#e0b25b;color:#0a1022}.gD .grL,.lpGrade.gD,.gF .grL,.lpGrade.gF{background:#ff5e7a;color:#fff}
+.lpGrade{width:74px;height:74px;margin:6px auto 10px;border-radius:50%;display:grid;place-items:center;font:800 40px/1 var(--serif,Georgia);animation:gemL .8s ease-in-out 2 alternate}
+.lpRow.wide{flex-direction:column;gap:8px}.lpRow.wide .lpOwl{width:64px;flex-basis:auto}.lpRow.wide .lpVis{width:100%}
+.lpChart{width:100%}.lpChart svg{width:100%;height:auto;display:block}.lpCap{display:block;margin-top:4px;color:#8d9ac0;font-size:11.5px;text-align:center}
 /* ---- 3.97 Owl Hours HQ ---- */
 .ofTabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}.ofTabs::-webkit-scrollbar{display:none}
 .ofTabs .chip,.ofChips .chip{flex:none;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font:600 12.5px/1 var(--sans,system-ui);cursor:pointer}
@@ -3104,11 +3122,11 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   function paintLearn(){
     var b=$("learnSec");if(!b)return;b.textContent="";
     var done=learnDone();
-    b.appendChild(mkEl("p","sub","Short lessons the owl reads to you, each with a 3-question quiz. "+done+" of "+MODS.length+" done."));
+    b.appendChild(mkEl("p","sub","Short lessons the owl reads to you, each with a graded quiz. "+done+" of "+MODS.length+" done."));
     var vb=mkEl("button","small",voiceOn()?"🔊 Owl voice on":"🔇 Owl voice off");vb.type="button";vb.addEventListener("click",function(){lsSet("oh_voice",voiceOn()?"0":"1");if(voiceOn())owlSpeak("Hoot! I'll read lessons out loud.",true);paintLearn();paintVoiceBtn()});b.appendChild(vb);
     var g=mkEl("div","modList");
     MODS.forEach(function(m,i){var sc=learnScore(m.id),c=mkEl("button","modCard"+(sc!=null?" done":""));c.type="button";
-      c.appendChild(mkEl("span","modN",String(i+1)));var tx=mkEl("div");tx.appendChild(mkEl("b",null,m.t));tx.appendChild(mkEl("small",null,m.lvl+" · "+m.slides.length+" cards + quiz"+(sc!=null?" · best "+sc+"/3":"")));c.appendChild(tx);
+      c.appendChild(mkEl("span","modN",String(i+1)));var tx=mkEl("div");tx.appendChild(mkEl("b",null,m.t));tx.appendChild(mkEl("small",null,m.lvl+" · "+m.slides.length+" cards + quiz"+(sc!=null?" · grade "+gradeOf(sc,quizN(m))+" ("+sc+"/"+quizN(m)+")":"")));c.appendChild(tx);
       c.appendChild(mkEl("span","modGo",sc!=null?"✓":"▶"));c.addEventListener("click",function(){openLesson(m.id)});g.appendChild(c)});
     b.appendChild(g);
     var gh=mkEl("h3",null,"Glossary");b.appendChild(gh);
@@ -3133,20 +3151,20 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var stage=mkEl("div","lpStage");card.appendChild(stage);
     var nav=mkEl("div","tourBtns"),bk=mkEl("button","small","Back"),nx=mkEl("button",null,"Next");bk.type="button";nx.type="button";nav.appendChild(bk);nav.appendChild(nx);card.appendChild(nav);
     var i=-1,tm=null,owlHost=mkEl("div","lpOwl owlWrap");owlHost.dataset.sky="night";var st=OWL_STYLES[owlStyle];owlHost.classList.add(st.cls);var os=el("svg",{viewBox:"0 0 140 150","class":"owl"},owlHost);var OP=st.draw(os,++owlSeq);
-    function end(){clearTimeout(tm);try{speechSynthesis.cancel()}catch(e){}ov.remove();paintLearn();paintScore()}
+    function end(){clearTimeout(tm);try{speechSynthesis.cancel()}catch(e){}ov.remove();paintLearn();paintScore();try{paintGrades()}catch(e){}}
     function setBars(k,dur){Array.prototype.forEach.call(bars.children,function(b,j){var f=b.firstChild;f.style.transition="none";f.style.width=j<k?"100%":"0%"});
       if(k<bars.children.length){var cur=bars.children[k].firstChild;void cur.offsetWidth;if(dur){cur.style.transition="width "+dur+"ms linear"}cur.style.width="100%"}}
     function show(k){
       clearTimeout(tm);i=k;if(i<0)i=0;
       if(i>=m.slides.length){quiz(0,0);return}
       var sl=m.slides[i];stage.textContent="";
-      var row=mkEl("div","lpRow");row.appendChild(owlHost);var vis=mkEl("div","lpVis");if(sl[1]!=null)vis.appendChild(miniClock(sl[1]));if(vis.childNodes.length)row.appendChild(vis);stage.appendChild(row);
+      var row=mkEl("div","lpRow"+(typeof sl[1]==="string"?" wide":""));row.appendChild(owlHost);var vis=mkEl("div","lpVis");if(typeof sl[1]==="number")vis.appendChild(miniClock(sl[1]));else if(typeof sl[1]==="string")vis.appendChild(lessonChart(sl[1]));if(vis.childNodes.length)row.appendChild(vis);stage.appendChild(row);
       var p=mkEl("p","lpText");stage.appendChild(p);
       var words=sl[0].split(" "),w=0;
       (function type(){if(i!==k)return;w++;p.textContent=words.slice(0,w).join(" ");if(w<words.length)setTimeout(type,reduce?0:55);else glossify(p)})();
       os.classList.remove("hoot");void os.getBoundingClientRect();os.classList.add("hoot");
       bk.disabled=i===0;nx.textContent="Next";
-      var dur=Math.max(5200,sl[0].length*62);setBars(i,voiceOn()?0:dur);
+      var dur=Math.max(typeof sl[1]==="string"?9000:5200,sl[0].length*(typeof sl[1]==="string"?90:62));setBars(i,voiceOn()?0:dur);
       if(voiceOn()){tm=setTimeout(function(){if(i===k)show(k+1)},dur*1.8);owlSpeak(sl[0],true,function(ok){if(i===k&&ok){clearTimeout(tm);tm=setTimeout(function(){show(k+1)},700)}})}
       else tm=setTimeout(function(){show(k+1)},dur);
     }
@@ -3156,7 +3174,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
       if(q>=m.quiz.length){
         var best=Math.max(score,learnScore(m.id)||0);lsSet("oh_learn_"+m.id,String(best));
         var row=mkEl("div","lpRow");row.appendChild(owlHost);stage.appendChild(row);
-        stage.appendChild(mkEl("p","lpText",score===3?"Perfect! 3 for 3. Hoot hoot!":score===2?"Nice work: 2 of 3. You've got this.":"You got "+score+" of 3. Run it back anytime."));
+        var nQ=m.quiz.length,gr=gradeOf(score,nQ);stage.appendChild(mkEl("div","lpGrade g"+gr,gr));stage.appendChild(mkEl("p","lpText",(score===nQ?"Perfect! "+score+" for "+nQ+". Hoot hoot!":score/nQ>=.8?"Nice work: "+score+" of "+nQ+". Badge earned! 🏅":score/nQ>=.6?"You got "+score+" of "+nQ+". Close: 80% earns the badge.":"You got "+score+" of "+nQ+". Run it back anytime.")+(best>score?" Your best is still "+best+"/"+nQ+".":"")));paintGrades();
         owlSpeak(stage.lastChild.textContent);
         var nxt=MODS[MODS.indexOf(m)+1];nx.textContent=nxt?"Next lesson":"Done";nx.onclick=function(){if(nxt){ov.remove();openLesson(nxt.id)}else end()};bk.disabled=false;bk.textContent="Replay";bk.onclick=function(){bk.textContent="Back";bk.onclick=function(){show(i-1)};nx.onclick=function(){show(i+1)};show(0)};
         return;
@@ -3226,8 +3244,8 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
     var op=$("owlPick");if(op&&!$("voiceBtn")){var vb=mkEl("button","small");vb.type="button";vb.id="voiceBtn";vb.style.marginTop="10px";vb.addEventListener("click",function(){lsSet("oh_voice",voiceOn()?"0":"1");paintVoiceBtn();paintLearn();if(voiceOn())owlSpeak("Hoot! Voice is on.",true)});op.parentNode.appendChild(vb);paintVoiceBtn()}
     var ni=$("noteIn");if(ni){ni.placeholder="Why this call? (optional) e.g. oil breaking out, yields falling";ni.setAttribute("aria-label","Why this call (optional)")}
     BADGES.push({id:"learn1",n:"Student",d:"Finish your first lesson",ok:function(){return learnDone()>=1}});
-    BADGES.push({id:"learnAll",n:"Professor",d:"Finish all 6 lessons",ok:function(){return learnDone()>=MODS.length}});
-    BADGES.push({id:"perfect",n:"Straight A",d:"Score 3/3 on any quiz",ok:function(){return MODS.some(function(m){return learnScore(m.id)===3})}});
+    BADGES.push({id:"learnAll",n:"Professor",d:"Finish every lesson",ok:function(){return learnDone()>=MODS.length}});
+    BADGES.push({id:"perfect",n:"Straight A",d:"Perfect score on any quiz",ok:function(){return MODS.some(function(m){return learnScore(m.id)===quizN(m)})}});
     Array.prototype.forEach.call(document.querySelectorAll(".mshort"),glossify);
     paintLearn();layer3Paint();
   }
@@ -4224,7 +4242,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   function paintChanges(host){host.textContent="";host.appendChild(mkEl("h3",null,"Engineering requests"));
     host.appendChild(mkEl("p","sub","Atlas logs every change here: what, why and which files. Pending ones wait for you, the CEO."));
     var ch=(HQ.changes&&HQ.changes.changes)||[];if(!ch.length){host.appendChild(mkEl("p","rcL","No changes logged yet."));return}
-    ch.slice(0,8).forEach(function(c){var r=mkEl("button","ofReq "+c.status);r.type="button";r.appendChild(mkEl("i",null,c.status==="pending"?"⏳":c.status==="denied"?"✗":"✓"));var tx=mkEl("div");tx.appendChild(mkEl("b",null,c.id+" · "+c.title));tx.appendChild(mkEl("small",null,(c.status==="pending"?"Waiting for your approval":c.status==="shipped"?"Approved & shipped":c.status)+(c.date?" · "+c.date:"")));r.appendChild(tx);r.addEventListener("click",function(){openChange(c)});host.appendChild(r)})}
+    ch.slice(0,8).forEach(function(c){var r=mkEl("button","ofReq "+c.status);r.type="button";r.appendChild(mkEl("i",null,c.status==="pending"?"⏳":c.status==="denied"?"✗":c.status==="parked"?"⏸":"✓"));var tx=mkEl("div");tx.appendChild(mkEl("b",null,c.id+" · "+c.title));tx.appendChild(mkEl("small",null,(c.status==="pending"?"Waiting for your approval":c.status==="shipped"?"Approved & shipped":c.status==="parked"?"Parked by the CEO":c.status)+(c.date?" · "+c.date:"")));r.appendChild(tx);r.addEventListener("click",function(){openChange(c)});host.appendChild(r)})}
   loadOffice=async function(){var jobs=BOTS.map(function(b){return getJSON(b.f).then(function(d){officeData[b.id]=d}).catch(function(){officeData[b.id]=null})});
     jobs.push(getJSON("office.json").then(function(d){HQ.office=d}).catch(function(){HQ.office=null}));jobs.push(getJSON("changes.json").then(function(d){HQ.changes=d}).catch(function(){HQ.changes=null}));
     await Promise.all(jobs);paintOffice()};
@@ -4269,6 +4287,184 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
         else{p.x+=dx/dist*spd;p.y+=dy/dist*spd;p.g.classList.add("walk");p.g.classList.remove("typing");p.g.querySelector(".ppi").setAttribute("transform",dx<0?"scale(-1,1)":"")}
         p.g.setAttribute("transform","translate("+p.x.toFixed(1)+","+p.y.toFixed(1)+") scale("+p.sc+")")})},50)};
 
+  /* ================= 3.99: wheel data, deep-dive lessons + grades, phase banner, track record, walkthrough ================= */
+  var L9={bt:null,co:null,paper:null,hist:null};
+  function l9get(k,f){if(!L9[k+"P"])L9[k+"P"]=getJSON(f).then(function(d){L9[k]=d;return d}).catch(function(){return null});return L9[k+"P"]}
+  function gradeOf(sc,n){if(sc==null||!n)return null;var p=sc/n;return p>=.9?"A":p>=.8?"B":p>=.7?"C":p>=.6?"D":"F"}
+  function quizN(m){return (m&&m.quiz&&m.quiz.length)||3}
+  /* ---- wheel data table (owner + engineering) ---- */
+  function paintWheelData(){
+    var acc=$("acc-wheel");if(!acc){var w=$("accWrap");if(!w)return;acc=document.createElement("details");acc.className="acc ownerOnly";acc.id="acc-wheel";var s=document.createElement("summary");s.textContent="Wheel data (owner)";acc.appendChild(s);var box=mkEl("div","wdBox");box.id="wheelData";acc.appendChild(box);w.insertBefore(acc,w.children[1]||null)}
+    var b=$("wheelData");if(!b)return;b.textContent="";
+    var m=currentMap(),e=estimate(m),S=(latData&&latData.sectors)||{};
+    if(e.angle==null){b.appendChild(mkEl("p","rcL","No reading yet."));return}
+    b.appendChild(mkEl("p","rcL","Needle "+Math.round(e.angle)+"° · "+HOUR[phaseOf(e.angle)]+" ("+phaseOf(e.angle).toLowerCase()+") · clarity "+Math.round(e.clarity*100)+"%. Score = 20% today + 80% of the 20-day trend, both vs SPY. Pull = how hard each sector drags the needle to where it points."));
+    var rows=SECTORS.map(function(s){var d=S[s.id]||{},v=m[s.id]||0,z=(d.rel1!=null&&d.rel20!=null)?0.2*d.rel1+0.8*d.rel20/3:null;return {s:s,d:d,v:v,z:z,pull:v*Math.cos((s.a-e.angle)*Math.PI/180)}}).sort(function(a,c){return c.pull-a.pull});
+    var t=mkEl("div","wdTable"),h=mkEl("div","wdRow wdHead");["Sector","Today","20 day","Score","Pull"].forEach(function(x){h.appendChild(mkEl("span",null,x))});t.appendChild(h);
+    function pc(x){return x==null?"—":(x>0?"+":"")+x.toFixed(1)+"%"}
+    rows.forEach(function(r){var row=mkEl("div","wdRow");row.appendChild(mkEl("span","wdN",r.s.n+" · "+r.s.a+"°"));
+      var a=mkEl("span",(r.d.rel1||0)>=0?"up":"dn",pc(r.d.rel1)),c=mkEl("span",(r.d.rel20||0)>=0?"up":"dn",pc(r.d.rel20));row.appendChild(a);row.appendChild(c);
+      row.appendChild(mkEl("span","wdS s"+r.v,SYMV[String(r.v)]+(r.z!=null?" "+r.z.toFixed(1):"")));
+      var pb=mkEl("span","wdPull"),bar=mkEl("i",r.pull>=0?"up":"dn");bar.style.width=Math.min(100,Math.abs(r.pull)*45)+"%";pb.appendChild(bar);row.appendChild(pb);t.appendChild(row)});
+    b.appendChild(t);
+    var hs=L9.hist;if(hs&&hs.length>2){var ph=hs.map(function(x){return HOUR[phaseOf(x.angle)]}),k=ph.length-1;while(k>0&&ph[k-1]===ph[k])k--;
+      b.appendChild(mkEl("p","rcL","In "+ph[ph.length-1]+" for "+(ph.length-k)+" trading day(s)"+(k>0?", since it moved over from "+ph[k-1]+" on "+hs[k].date:", the whole 90-day window")+"."))}
+    b.appendChild(mkEl("p","ccN","Source: latest.json (sector ETFs vs SPY) and history.json. Updated after each daily run."));
+  }
+  /* ---- phase-change banner ---- */
+  function paintPhaseBanner(){
+    var hs=L9.hist;if(!hs||hs.length<2)return;var a=hs[hs.length-1],p=hs[hs.length-2];if(a.angle==null||p.angle==null)return;
+    var now=phaseOf(a.angle),was=phaseOf(p.angle);if(now===was)return;if(lsGet("oh_pb_"+a.date)==="1")return;
+    var dial=document.querySelector('.pane[data-pane="clock"] section.dial');if(!dial||$("phaseBanner"))return;
+    var bn=mkEl("div","phaseBanner");bn.id="phaseBanner";var x=mkEl("button","tipX","×");x.type="button";x.setAttribute("aria-label","Dismiss");x.addEventListener("click",function(){lsSet("oh_pb_"+a.date,"1");bn.remove()});
+    bn.appendChild(mkEl("b",null,"🦉 The clock just entered "+HOUR[now]+" ("+now.toLowerCase()+")"));var tx=mkEl("p",null,"It moved over from "+HOUR[was]+" on "+a.date+".");bn.appendChild(tx);bn.appendChild(x);dial.parentNode.insertBefore(bn,dial);
+    l9get("bt","backtest.json").then(function(bt){var st=bt&&(bt.phaseStudy||[]).filter(function(s){return s.phase===now})[0];if(!st)return;
+      tx.textContent+=" In our backtest ("+String(bt.start).slice(0,4)+"–"+String(bt.end).slice(0,4)+"), after a "+HOUR[now]+" month the S&P 500 rose the next month "+Math.round(st.spyUp)+"% of the time, averaging "+(st.spyNext>0?"+":"")+st.spyNext.toFixed(2)+"%. History, not a promise."})}
+  /* ---- track record card (owner now, public at 6 months) ---- */
+  function paintRecord(){
+    var rp=document.querySelector('.pane[data-pane="record"]');if(!rp)return;var b=$("recordCard");if(!b){b=mkEl("section","calSec recordCard ownerOnly");b.id="recordCard";rp.insertBefore(b,rp.firstChild)}
+    var p=L9.paper;b.textContent="";b.appendChild(mkEl("h3",null,"Live track record"));
+    if(!p||!p.models){b.appendChild(mkEl("p","rcL","Waiting for the paper robot."));return}
+    var start=p.start,days=Math.max(0,Math.round((Date.now()-new Date(start+"T21:00:00Z").getTime())/864e5)),pub=new Date(start+"T12:00:00Z");pub.setMonth(pub.getMonth()+6);
+    b.appendChild(mkEl("p","sub","$100,000 paper portfolios, live since "+start+" ("+days+" days). Only you see this. It goes public "+pub.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})+", the 6-month mark."));
+    var g=mkEl("div","recGrid");[["B","Owl B · needle's phase","#e0b25b"],["spy","SPY buy & hold","#8d9ac0"],["t3","Moderately aggressive","#5b8cff"]].forEach(function(x){var mo=p.models[x[0]];if(!mo)return;var c=mkEl("div","recCell");c.style.borderColor=x[2];
+      c.appendChild(mkEl("small",null,x[1]));c.appendChild(mkEl("b",(mo.ret||0)>=0?"up":"dn",((mo.ret||0)>=0?"+":"")+(mo.ret||0).toFixed(2)+"%"));c.appendChild(mkEl("small",null,"$"+Math.round(mo.nav||0).toLocaleString()+(mo.guardOn?" · guard ON":"")));g.appendChild(c)});b.appendChild(g);
+    var B=p.models.B,Sp=p.models.spy;if(B&&Sp&&B.hist&&B.hist.length>2)b.appendChild(multiChart([{rows:Sp.hist,c:"#8d9ac0",n:"SPY"},{rows:B.hist,c:"#e0b25b",n:"Owl B"}]));
+    else b.appendChild(mkEl("p","ccN","The chart fills in as days pass. Day 1 is flat by design: everyone starts at $100,000."));
+    var ex=(B&&Sp)?((B.ret||0)-(Sp.ret||0)):null;if(ex!=null)b.appendChild(mkEl("p","rcL","Owl B vs SPY: "+(ex>=0?"+":"")+ex.toFixed(2)+" points."));
+  }
+  /* ---- lesson grades on Profile ---- */
+  function paintGrades(){
+    var rp=document.querySelector('.pane[data-pane="record"]');if(!rp)return;var b=$("gradeCard");if(!b){b=mkEl("section","calSec gradeCard");b.id="gradeCard";var rc=$("recordCard");rp.insertBefore(b,rc?rc.nextSibling:rp.firstChild)}
+    b.textContent="";b.appendChild(mkEl("h3",null,"Lesson grades"));var done=MODS.filter(function(m){return learnScore(m.id)!=null}).length,bad=MODS.filter(function(m){var s=learnScore(m.id);return s!=null&&s/quizN(m)>=.8}).length;
+    b.appendChild(mkEl("p","sub",done+" of "+MODS.length+" lessons taken · "+bad+" badge"+(bad===1?"":"s")+" earned (80% or better). Retake any lesson to raise your grade."));
+    var g=mkEl("div","gradeList");MODS.forEach(function(m){var s=learnScore(m.id),n=quizN(m),gr=gradeOf(s,n),r=mkEl("button","gradeRow"+(gr?" g"+gr:""));r.type="button";
+      r.appendChild(mkEl("span","grL",gr||"–"));var tx=mkEl("div");tx.appendChild(mkEl("b",null,m.t));tx.appendChild(mkEl("small",null,s==null?"Not taken yet":"Best "+s+"/"+n+(s/n>=.8?" · 🏅 badge":"")));r.appendChild(tx);
+      r.addEventListener("click",function(){openLesson(m.id)});g.appendChild(r)});b.appendChild(g)}
+  /* ---- charts for lessons ---- */
+  function barsSvg(items,opt){opt=opt||{};var W=340,rowH=opt.rowH||18,H=items.length*rowH+16,svg=el("svg",{viewBox:"0 0 "+W+" "+H,"class":"lchart"});el("rect",{x:0,y:0,width:W,height:H,rx:12,fill:"#0e1736"},svg);
+    var mx=Math.max.apply(null,items.map(function(i){return Math.abs(i.v)}))||1,lw=Math.max.apply(null,items.map(function(i){return String(i.lab!=null?i.lab:i.v).length}))*5.4+8,neg=opt.signed&&items.some(function(i){return i.v<0}),nameW=104,mid=neg?nameW+lw+(W-nameW-2*lw)/2:nameW+4,span=neg?(W-nameW-2*lw)/2-4:W-mid-lw-4;
+    if(neg)el("line",{x1:mid,y1:6,x2:mid,y2:H-6,stroke:"#2f3d6e"},svg);
+    items.forEach(function(it,k){var y=10+k*rowH,w=Math.abs(it.v)/mx*(opt.signed?span:span);var t=el("text",{x:8,y:y+rowH*.62,fill:"#c9d3f0","font-size":"10"},svg);t.textContent=it.n;
+      el("rect",{x:it.v>=0?mid:mid-w,y:y+3,width:Math.max(1,w),height:rowH-7,rx:3,fill:it.c||(it.v>=0?"#3dffb0":"#ff5e7a"),"fill-opacity":".85"},svg);
+      var vt=el("text",{x:it.v>=0?mid+w+4:mid-w-4,y:y+rowH*.62,fill:"#e8ecf8","font-size":"9.5","text-anchor":it.v<0?"end":"start"},svg);vt.textContent=it.lab!=null?it.lab:(it.v>0&&opt.signed?"+":"")+it.v});return svg}
+  function lessonChart(key){var box=mkEl("div","lpChart"),cap=mkEl("small","lpCap");
+    function put(svg,c){box.textContent="";box.appendChild(svg);if(c){cap.textContent=c;box.appendChild(cap)}}
+    function etf(s){return latData&&latData.etf&&latData.etf[s]}
+    function none(t){box.textContent="";box.appendChild(mkEl("p","ccN",t||"Chart fills in after the daily robot runs."))}
+    try{
+    if(key==="sectorsNow"){var S=(latData&&latData.sectors)||{};var it=SECTORS.filter(function(s){return S[s.id]&&S[s.id].rel20!=null}).map(function(s){return {n:s.n.split(" /")[0].replace("Consumer ",""),v:+S[s.id].rel20.toFixed(1)}}).sort(function(a,b){return b.v-a.v});if(!it.length)none();else put(barsSvg(it,{signed:true,rowH:15}),"Each sector's last 20 days vs the S&P 500 (live data).")}
+    else if(key==="spy"||key==="spyMA"||key==="spySR"){var e=etf("SPY");if(!e||!e.h)none();else put(lineChart(e.h,key==="spyMA"?[{n:"200d",v:e.m200,c:"#a58bff"},{n:"50d",v:e.m50,c:"#5b8cff"}]:key==="spySR"?[{n:"Res",v:e.r1,c:"#ff7b66"},{n:"Sup",v:e.s1,c:"#4fd1a5"},{n:"Sup 2",v:e.s2,c:"#2c8c73"}]:[],{price:e.c}),key==="spyMA"?"SPY with its 50- and 200-day averages (live).":key==="spySR"?"SPY with support and resistance levels from recent swings (live).":"SPY, the S&P 500 ETF, last ~3 months (live).")}
+    else if(key==="y10"||key==="curve"||key==="hy"){var M=latData&&latData.macro&&latData.macro[key];if(!M||!M.spark)none();else put(lineChart(M.spark,key==="curve"?[{n:"0",v:0,c:"#ff5e7a"}]:[]),{y10:"10-year Treasury yield, %",curve:"Yield curve: 10-year minus 2-year. Below 0 = inverted",hy:"High-yield credit spread, %"}[key]+" (FRED, live).")}
+    else if(key.indexOf("stock:")===0||key==="usd"||key==="drawdown"){var sym=key==="usd"?"UUP":key==="drawdown"?"TSLA":key.slice(6);none("Loading…");
+      l9get("co","companies.json").then(function(c){var u=c&&(c.universe||[]).filter(function(x){return x.sym===sym})[0];if(!u||!u.h||!u.h.length)return none();
+        if(key==="drawdown"){var pk=-1e9,dd=u.h.map(function(r){pk=Math.max(pk,r[1]);return [r[0],+((r[1]/pk-1)*100).toFixed(2)]});var worst=Math.min.apply(null,dd.map(function(r){return r[1]}));put(lineChart(dd,[{n:"0",v:0,c:"#8d9ac0"}]),"TSLA drawdown: % below its running high, last ~3 months. Worst: "+worst.toFixed(1)+"%.")}
+        else put(lineChart(u.h,[]),(key==="usd"?"UUP, the US dollar ETF":sym)+", last ~3 months (live).")})}
+    else if(key==="needle90"){none("Loading…");l9get("hist","history.json").then(function(h){if(!h||!h.length)return none();put(lineChart(h.filter(function(x){return x.angle!=null}).map(function(x){return [x.date,x.angle]}),[{n:"Dusk",v:180,c:"#e0b25b"},{n:"Night",v:270,c:"#5b8cff"},{n:"Midday",v:90,c:"#3dffb0"}]),"Needle angle, last 90 days. Lines mark where each hour starts.")})}
+    else if(key==="phaseStudy"){none("Loading…");l9get("bt","backtest.json").then(function(bt){var ps=bt&&bt.phaseStudy;if(!ps)return none("Run the weekly backtest to fill this in.");put(barsSvg(ps.map(function(p){return {n:p.hour+" ("+p.months+" mo)",v:+p.spyNext.toFixed(2),lab:(p.spyNext>0?"+":"")+p.spyNext.toFixed(2)+"% · up "+Math.round(p.spyUp)+"%"}}),{signed:true,rowH:22}),"S&P 500 the month after each hour, backtest "+String(bt.start).slice(0,4)+"–"+String(bt.end).slice(0,4)+".")})}
+    else if(key==="record"){none("Loading…");l9get("paper","paper.json").then(function(p){var B=p&&p.models&&p.models.B,S=p&&p.models&&p.models.spy;if(!B||!B.hist||B.hist.length<3)return none("Live paper results started "+(p&&p.start||"Nov 27, 2026")+". The chart fills in as days pass.");put(multiChart([{rows:S.hist,c:"#8d9ac0"},{rows:B.hist,c:"#e0b25b"}]),"Owl B (gold) vs SPY (grey), live paper money.")})}
+    else if(key==="recover")put(barsSvg([10,20,30,50,75].map(function(l){var g=100*(1/(1-l/100)-1);return {n:"Lose "+l+"%",v:+g.toFixed(0),lab:"needs +"+g.toFixed(0)+"%",c:l>=50?"#ff5e7a":"#e0b25b"}}),{rowH:22}),"The gain you need just to get back to even.");
+    else if(key==="sizing")put(barsSvg([.5,1,2,5].map(function(r){return {n:r+"% risk",v:r*500,lab:"$"+(r*500).toLocaleString()+" = "+Math.round(r*500/5)+" sh @ $5 stop",c:r>2?"#ff5e7a":"#3dffb0"}}),{rowH:22}),"On a $50,000 account with a $5 stop: risk per trade and shares to buy.");
+    else if(key==="coreTilt")put(barsSvg([{n:"Core (SPY)",v:80,lab:"80%",c:"#8d9ac0"},{n:"Tilt: strongest",v:15,lab:"15%",c:"#3dffb0"},{n:"Tilt: next",v:5,lab:"5%",c:"#4fd1a5"}],{rowH:24}),"Example: a small tilt on top of a broad core. Not a recommendation.");
+    else none();
+    }catch(err){none()}
+    return box}
+  /* ---- the 6 new lessons ---- */
+  var NEWMODS=[
+    {id:"wheel2",t:"Reading the wheel, phase by phase",lvl:"Intermediate",slides:[
+      ["Every dot on the wheel is a sector ETF. Each day we compare it with the S&P 500: today counts 20%, the last 20 trading days count 80%.","sectorsNow"],
+      ["That blend becomes a score from −2 to +2. Strong sectors pull the needle toward their spot on the wheel; weak ones push it away.",52],
+      ["Dawn is recovery. Banks, real estate and discretionary tend to lead as rates fall and confidence comes back.",45],
+      ["Midday is expansion. Tech, cybersecurity, chips and communication usually take over as earnings grow.",112],
+      ["Dusk is late cycle. Industrials, materials, energy and gold miners tend to lead as demand runs hot and inflation creeps in.",200],
+      ["Night is contraction. Staples, healthcare and utilities lead because people buy them no matter what.",300],
+      ["Here is the real needle over the last 90 days. It drifts, pauses and sometimes snaps back. One day rarely matters.","needle90"],
+      ["Clarity tells you how much the sectors agree. Clear (60% or more) is a strong reading. Mixed (under 35%) means don't lean hard on it.",null],
+      ["History beats any single day. Here is what the S&P 500 did the month after each hour in our backtest.","phaseStudy"]],
+     quiz:[["What counts most in a sector's score?",["The last 20 trading days","Today's move","The news headlines","Analyst ratings"],0,"The 20-day trend counts 80%, today only 20%."],
+       ["Which sectors usually lead at Night (contraction)?",["Staples, healthcare, utilities","Chips and tech","Banks and real estate","Energy and materials"],0,"Defensive sectors lead when growth slows."],
+       ["The needle sits at Dusk. Which group tends to lead?",["Energy, materials, industrials","Utilities","Real estate","Software"],0,"Late cycle favors things tied to hot demand and inflation."],
+       ["Clarity is 25%. What does that mean?",["Sectors disagree, so it's a low-conviction read","A very strong signal","The market fell 25%","25% of sectors are up"],0,"Low clarity means the sectors are pulling in different directions."],
+       ["Why look at the phase study instead of one day's needle?",["It shows what usually followed each hour over many years","It predicts tomorrow exactly","It's required by law","It shows today's prices"],0,"Many months of history tell you more than one day's reading."]]},
+    {id:"tilt",t:"The sector tilting playbook",lvl:"Intermediate",slides:[
+      ["Tilting means leaning a portfolio toward some sectors and away from others, without betting the whole thing.","sectorsNow"],
+      ["Start with a broad core, like an S&P 500 fund. The tilt is a smaller slice on top.","coreTilt"],
+      ["Lean toward the two or three strongest sectors near the needle. Trim the weakest ones on the far side of the wheel.",null],
+      ["Check clarity first. Mixed signals? Keep the tilt small. Clear signals? You can lean a little more.",null],
+      ["Rebalance on a schedule, weekly or monthly. Chasing every daily wiggle racks up costs and whipsaws you.",null],
+      ["Our Owl B model holds the needle's phase and rebalances monthly. Here is its live paper record against the S&P 500.","record"],
+      ["Set a guard. If the tilt falls a set amount below its high, step back to the core until it recovers.","drawdown"],
+      ["Write down why you tilted. A one-line note keeps you honest when you review it later.",null]],
+     quiz:[["What is a sector tilt?",["Leaning toward some sectors on top of a broad core","Selling everything","Buying only one stock","Shorting the market"],0,"A tilt is a slice on top of a diversified core."],
+       ["Clarity is mixed. What should the tilt do?",["Stay small","Get bigger","Go all in","Switch to crypto"],0,"Low agreement means lower conviction, so keep the lean small."],
+       ["Why rebalance on a schedule?",["To avoid chasing daily noise and extra costs","Because prices only change monthly","To pay more taxes","It guarantees profits"],0,"A schedule keeps you from overtrading."],
+       ["Which sectors does a tilt usually lean toward?",["The strongest ones near the needle","The weakest ones","Random sectors","Whatever is in the news"],0,"The needle points where strength is concentrated."],
+       ["What does a drawdown guard do?",["Steps back to the core after a set fall from the high","Doubles the bet after losses","Ignores losses","Sells the core"],0,"A guard limits how much a tilt can hurt you."]]},
+    {id:"markets",t:"How markets and sectors work",lvl:"Beginner",slides:[
+      ["A stock is a slice of a company. Its price moves when buyers and sellers change their view of future profits.","stock:NVDA"],
+      ["The S&P 500 holds about 500 large US companies. SPY is a fund that tracks it, so it works as the market's scoreboard.","spy"],
+      ["Companies are grouped into sectors. Each one reacts differently to the economy. Here is how they stack up right now.","sectorsNow"],
+      ["Sector ETFs like XLK for tech or XLE for energy let you own a whole sector in one ticker.",null],
+      ["Cyclical sectors such as tech, discretionary and industrials swing with growth. Defensive sectors such as staples, healthcare and utilities hold up better in slowdowns.",300],
+      ["Always compare with a benchmark. A sector up 3% while the S&P 500 is up 5% is actually lagging.",null],
+      ["Prices move on expectations, not headlines. Markets often turn before the economy does.",null]],
+     quiz:[["What does SPY track?",["The S&P 500","Gold","Bitcoin","10-year bonds"],0,"SPY is the classic S&P 500 ETF."],
+       ["Tech is up 3% and the S&P 500 is up 5%. Tech is…",["Lagging the market","Leading the market","Flat","Defensive"],0,"Relative to the benchmark, it's behind."],
+       ["Which is a defensive sector?",["Utilities","Semiconductors","Discretionary","Industrials"],0,"People pay utility bills in good times and bad."],
+       ["What does XLE hold?",["Energy companies","Tech companies","Banks","Gold"],0,"XLE is the energy sector ETF."],
+       ["Why do markets often turn before the economy?",["Prices reflect expectations about the future","Markets are slow","The Fed sets stock prices","Earnings are reported daily"],0,"Investors buy and sell on what they expect next."]]},
+    {id:"fed",t:"Rates, the Fed and the dollar",lvl:"Intermediate",slides:[
+      ["The Federal Reserve sets short-term interest rates. Cutting makes money cheaper. Raising cools the economy down.",null],
+      ["The 10-year Treasury yield is the market's own rate. It drives mortgage costs and how much future profits are worth today.","y10"],
+      ["The yield curve is the 10-year minus the 2-year. When it drops below zero (inverted), recessions have often followed.","curve"],
+      ["Credit spreads show how nervous lenders are. Rising spreads mean investors want extra pay to take risk.","hy"],
+      ["A stronger dollar can hurt US companies that sell abroad and often weighs on gold and commodities.","usd"],
+      ["Rate cuts tend to help Dawn sectors like banks, real estate and discretionary. Rate hikes tend to show up later in the cycle.",30],
+      ["Fed meeting dates (FOMC) are on the Macro calendar. Big moves often happen on announcement days.",null]],
+     quiz:[["What happens when the Fed cuts rates?",["Borrowing gets cheaper","Borrowing gets more expensive","Stocks must fall","The dollar must rise"],0,"Lower rates make money cheaper."],
+       ["The yield curve is the 10-year minus the…",["2-year","30-year","Fed funds rate","Inflation rate"],0,"We use 10-year minus 2-year."],
+       ["An inverted yield curve has often come before…",["Recessions","Booms","Stock splits","Holidays"],0,"Inversions have preceded many recessions, though timing varies."],
+       ["Credit spreads are widening. Lenders are feeling…",["More nervous","More confident","Nothing","Bullish on bonds"],0,"Wider spreads mean more pay is demanded for risk."],
+       ["A stronger dollar often weighs on…",["Gold and commodities","US utilities","The yield curve","Nothing"],0,"Commodities are priced in dollars, so a strong dollar tends to pressure them."]]},
+    {id:"charts",t:"Reading charts: trend, support, moving averages",lvl:"Beginner",slides:[
+      ["A price chart shows the closing price each day. The direction over weeks is the trend.","spy"],
+      ["A moving average smooths the noise. The 50-day shows the medium trend; the 200-day shows the long trend.","spyMA"],
+      ["Price above both averages usually means an uptrend. Price below both usually means a downtrend.","spyMA"],
+      ["Support is a level where buyers have stepped in before. Resistance is a level where sellers have.","spySR"],
+      ["A break above resistance is a breakout. Many fail, so wait for a close above the level before trusting it.","spySR"],
+      ["Charts show what happened, not what will happen. Use them alongside the clock, not instead of it.",null]],
+     quiz:[["What does the 200-day moving average show?",["The long-term trend","Today's move","Next week's price","Volume"],0,"200 days covers about 10 months of trading."],
+       ["Price is below both its 50- and 200-day averages. That usually means…",["A downtrend","An uptrend","A breakout","Nothing"],0,"Below both averages is a classic downtrend sign."],
+       ["Support is a level where…",["Buyers have stepped in before","Sellers always win","Price can never go","The Fed sets rates"],0,"Support is where demand has shown up in the past."],
+       ["Price closes above resistance. That's called a…",["Breakout","Breakdown","Dividend","Split"],0,"A close above resistance is a breakout."],
+       ["Why wait for a close above resistance?",["Many breakouts fail intraday","It's a rule from the SEC","Prices don't move after 4 pm","To avoid taxes"],0,"Confirmation filters out false breakouts."]]},
+    {id:"risk",t:"Risk and position sizing",lvl:"Intermediate",slides:[
+      ["Drawdown is how far something falls from its high. It's the pain number every investor feels.","drawdown"],
+      ["Losses are harder to recover than gains. Down 50% needs +100% just to get back to even.","recover"],
+      ["Position sizing decides how much goes into one idea. Many professionals risk only 1% to 2% of the account per trade.","sizing"],
+      ["Example: $50,000 account, 1% risk is $500. If your stop is $5 below your entry, that's 100 shares.","sizing"],
+      ["Spread money across sectors so one bad bet can't sink the whole account.","sectorsNow"],
+      ["Our risk tiers scale the clock from highest risk down to retirement income, each with its own volatility cap and drawdown guard.",null],
+      ["Decide your exit before you enter. Emotions run hottest right when you need a plan.",null]],
+     quiz:[["What is a drawdown?",["The fall from a high","A dividend","A type of order","A stock split"],0,"Drawdown measures the drop from the peak."],
+       ["You're down 50%. What gain gets you back to even?",["100%","50%","25%","75%"],0,"Half of what's left has to double."],
+       ["$50,000 account, 1% risk. How much can you lose on the trade?",["$500","$5,000","$50","$1,000"],0,"1% of $50,000 is $500."],
+       ["Risk is $500 and the stop is $5 away. How many shares?",["100","500","50","1,000"],0,"$500 ÷ $5 = 100 shares."],
+       ["When should you decide your exit?",["Before you enter","After it drops 30%","Never","When the news says so"],0,"Plan first, so emotions don't decide for you."]]}];
+  NEWMODS.forEach(function(m){if(!MODS.some(function(x){return x.id===m.id}))MODS.push(m)});
+  function layer399Init(){
+    TOUR.length=0;
+    [{t:"#wheel",s:"Hoot! This wheel is the market's clock. Each dot is a sector: green beats the S&P 500, red lags. Dawn is recovery, Midday expansion, Dusk late cycle, Night contraction."},
+     {t:"#wheel",s:"The gold needle points to the hour the market is keeping right now. Tap the needle anytime to see which sectors are pulling it."},
+     {t:"#momLine",s:"This line tells you if the needle is speeding up, slowing down or turning around."},
+     {t:"#accWrap",s:"Under the clock: the Owl's call, today's wrap, the weekly recap and more. Tap a bar to open it."},
+     {t:"#tabbar",s:"Sectors for the market map, Macro for rates and the calendar, Learn for lessons with graded quizzes, Profile for your record. Tap \"How to read it\" to replay this."}].forEach(function(x){if(document.querySelector(x.t))TOUR.push(x)});
+    if(lsGet("oh_tour2")!=="1"){lsSet("oh_tour2","1");if(lsGet("oh_tour")==="1")setTimeout(function(){try{startTour()}catch(e){}},2600)}
+    var oc=paintCallGrid;paintCallGrid=function(){oc.apply(this,arguments);try{paintWheelData()}catch(e){}};
+    l9get("hist","history.json").then(function(){try{paintWheelData();paintPhaseBanner()}catch(e){}});
+    l9get("paper","paper.json").then(function(){try{paintRecord();0}catch(e){}});
+    paintGrades();paintLearn();paintWheelData();syncAcc();
+  }
   function syncAcc(){document.querySelectorAll(".shimmer").forEach(function(n){if(!n.hidden&&n.childNodes.length)n.classList.remove("shimmer")});document.querySelectorAll(".acc").forEach(function(d){var any=Array.prototype.some.call(d.children,function(c){return c.tagName!=="SUMMARY"&&!c.hidden&&!(c.classList.contains("ownerOnly")&&document.body.dataset.mode==="customer")});d.hidden=!any})}
   function layer396Init(){document.body.dataset.eng=isEng()?"1":"0";
     initFeel();layoutClock();
@@ -4310,7 +4506,7 @@ body[data-mode="customer"] #mgrid .mval{pointer-events:none;border-color:transpa
   $("liveBtn").addEventListener("click",function(){stopPlay();viewing=null;refresh();syncScrub()});
   $("csvBtn").addEventListener("click",exportCsv);
   $("scrub").addEventListener("input",function(e){stopPlay();var h=history[Number(e.target.value)];if(h){viewing=h;refresh();syncScrub()}});
-  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();layer375Init();layer38Init();layer395Init();layer396Init();paintRecap();
+  renderHistory();refresh();phaseBInit();phaseB2Init();layer3Init();layer35Init();layer375Init();layer38Init();layer395Init();layer396Init();layer399Init();paintRecap();
   requestAnimationFrame(frame);
 
   /* Browser storage with the same shape as the claude.ai collection, so the rest of the page doesn't care where it runs. */

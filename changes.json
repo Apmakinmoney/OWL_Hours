@@ -2,9 +2,57 @@
  "note": "Atlas (lead engineer) logs every change here. pending = waiting for the CEO. shipped = the CEO approved and uploaded it.",
  "changes": [
   {
-   "id": "3.98",
+   "id": "4.0",
    "date": "2026-11-27",
    "status": "pending",
+   "title": "Faster app: split index.html into smaller files",
+   "what": [
+    "Break the 420 KB index.html into a small page plus separate script and style files the phone can cache.",
+    "No visible changes; the app should open faster, especially on cell data.",
+    "Required before customer accounts (Layer 4)."
+   ],
+   "why": "Speed and a cleaner base for accounts.",
+   "files": [
+    "index.html",
+    "app/*.js",
+    "app/*.css",
+    "sw.js"
+   ],
+   "areas": [
+    "app",
+    "infra"
+   ],
+   "risk": "Medium: touches everything, so it ships alone and gets tested first."
+  },
+  {
+   "id": "3.99",
+   "date": "2026-11-27",
+   "status": "shipped",
+   "title": "Wheel data, 6 graded lessons, phase banner, track record, walkthrough",
+   "what": [
+    "Wheel data table under the clock (owner and engineering only): each sector's today move, 20-day trend, score and pull on the needle, plus days in the current phase.",
+    "6 new deep-dive lessons with live charts: reading the wheel, sector tilting, how markets work, rates/Fed/dollar, reading charts, risk and position sizing. 5-question quizzes.",
+    "Grades A to F on every lesson, best score saved, \ud83c\udfc5 badge at 80%+. Lesson grades card on Profile.",
+    "Phase-change banner on the Clock when the needle enters a new hour, with what the S&P 500 did the next month in the backtest.",
+    "Live track record card on Profile (owner only until the 6-month mark): Owl B vs SPY vs Moderately aggressive.",
+    "Refreshed first-open walkthrough (5 steps) for the new clock layout.",
+    "Platinum/palladium: checked, not a bug. PPLT split 10-for-1 and PALL 5-for-1 in May 2026, so the lower ETF prices are correct."
+   ],
+   "why": "CEO round-2 grill: make the wheel's data visible, teach users, prove the record.",
+   "files": [
+    "index.html",
+    "changes.json"
+   ],
+   "areas": [
+    "app",
+    "charts"
+   ],
+   "risk": "Low to medium. Bigger app file; the speed-up comes in 4.0."
+  },
+  {
+   "id": "3.98",
+   "date": "2026-11-27",
+   "status": "parked",
    "title": "Discord office: a channel per department, text the office",
    "what": [
     "The office bot makes its own channels in your Discord server: #chief-of-staff, #ask-the-office, #watchlist, #metals, #risk, #website-and-data, #engineering, #hr-and-innovation.",
@@ -24,7 +72,7 @@
     "robots",
     "infra"
    ],
-   "risk": "Low. Nothing posts until you add the DISCORD_BOT_TOKEN secret. Email still works later when Gmail is ready."
+   "risk": "Low. Nothing posts until you add the DISCORD_BOT_TOKEN secret. Email still works later when Gmail is ready. Parked by the CEO on 2026-11-27 (Discord email issue). Code is in place and sleeps until a Discord key is added."
   },
   {
    "id": "3.97",
