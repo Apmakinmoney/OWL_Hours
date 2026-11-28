@@ -1,6 +1,6 @@
 {
- "asOf": "2026-11-27T23:11:14+00:00",
- "detailDate": "2026-11-27",
+ "asOf": "2026-11-28T15:59:10+00:00",
+ "detailDate": "2026-11-28",
  "featured": [
   "NVDA",
   "SPCX",
@@ -338,27 +338,27 @@
     ],
     [
      "2026-11-27",
-     150.6
+     150.49
     ]
    ],
    "news": [
     {
-     "title": "Jensen Huang Is Back. Nvidia\u2019s (NVDA) Bull Case Remains",
+     "title": "Nvidia Stock Rally Puts AI Semiconductor Shares Back On Retail Investor Watchlists",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=a3adb5dfaf174dffb6f21e2a31c6eadd3eb5208d57c2c682d0a5fd92dc772fb4",
-     "t": "2026-11-27T21:06+00:00"
+     "url": "https://finnhub.io/api/news?id=dec13071b8b2f6b2e6de2311d44ec2a1651610fe08f1d1068f5d01febd12ed08",
+     "t": "2026-11-28T13:10+00:00"
     },
     {
-     "title": "Nvidia Stocks Slip 1.66% as S&P Weighs Downgrade Over Key-Man Risk",
+     "title": "Dow Jones Futures: Tesla Leads 7 Buys After Bullish Market Move; Nvidia's Jensen Huang On Capitol Hill",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6e3204be59ea37f81ad7a186dc63f1972f26ae9d79b0bd5267c3f24444d438ca",
-     "t": "2026-11-27T19:49+00:00"
+     "url": "https://finnhub.io/api/news?id=110e0ddc90181dd918e65992d537e394a5fccf6b8538fa50f3c522edccc9b08b",
+     "t": "2026-11-28T13:02+00:00"
     },
     {
-     "title": "Should You Buy Nvidia Stock Before CEO Jensen Huang Testifies in Front of Congress on Dec. 1 and Dec. 3?",
+     "title": "Nvidia Faces Yet Another Risk. Here's What It Means for Investors.",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6485c9afc0ccda7c8349157b048306d43cc7dfa4db44f087308da73de51263b5",
-     "t": "2026-11-27T19:48+00:00"
+     "url": "https://finnhub.io/api/news?id=f83b5c0712920e0b2f26189194a90bb1790b1b6d9905a636904dfc590b101dbc",
+     "t": "2026-11-28T12:25+00:00"
     }
    ]
   },
@@ -667,27 +667,27 @@
     ],
     [
      "2026-11-27",
-     133.17
+     133.59
     ]
    ],
    "news": [
     {
-     "title": "SpaceX Stocks Climb 2.74% as FCC Clears One Million AI Satellites",
+     "title": "Elon Musk vows a SpaceX share for \u2018all kids in America every year\u2019\u2014and shareholders help foot the bill",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=ec36f66bfc106e89b0bcc4e6941d5f6963c5e43eb790bab6f2c551fe14fe7abb",
-     "t": "2026-11-27T19:22+00:00"
+     "url": "https://finnhub.io/api/news?id=962ea536833e4eb48c856ddad84b6833fd343c1c7dc68be4d61bf2de3ff55ec3",
+     "t": "2026-11-28T11:14+00:00"
     },
     {
-     "title": "ATEX Stock Jumps After SpaceX Reportedly Eyes 900 MHz Spectrum For Direct-To-Device Expansion; Alternative Target NN Climbs Double Digits",
+     "title": "Tech Stock Sell-Off: Down 36%, Is SpaceX a Buy Now?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=083b6874f1482b3f84e0ecb686567f71315bfb3910ed6e081d26f3381c281815",
-     "t": "2026-11-27T17:52+00:00"
+     "url": "https://finnhub.io/api/news?id=4930554e53e478f42ac19ecb27bcbf7200bc87bb3674869bf6f66b64b1c9509e",
+     "t": "2026-11-28T08:30+00:00"
     },
     {
-     "title": "Here's Why SpaceX\u2019s Starship Could Lift Linde\u2019s Space Revenue up to 700%",
+     "title": "Musk Will Give Every U.S. Child a SpaceX Share \u201cEvery Year.\u201d That\u2019s About $9 Billion a Year at Today\u2019s Price",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=9394e1b1429a001afe8e25cf755abf84132814c7e8bde1f08b5b1e8a61765e69",
-     "t": "2026-11-27T17:46+00:00"
+     "url": "https://finnhub.io/api/news?id=d78dbf01c4c1dbc75db6f7aacb8051a2f0fb305abe965bceda9437d4e5dc4f19",
+     "t": "2026-11-28T07:52+00:00"
     }
    ]
   },
@@ -696,10 +696,10 @@
    "name": "Tesla",
    "sector": "DISC",
    "kind": "stock",
-   "pe": 444.3,
-   "ps": 13.8,
+   "pe": 466.0,
+   "ps": 14.5,
    "pb": 15.7,
-   "mcap": 1430688.0,
+   "mcap": 1500408.0,
    "hi52": 498.83,
    "lo52": 297.38,
    "epsGrowth": -39.2,
@@ -1008,27 +1008,27 @@
     ],
     [
      "2026-11-27",
-     400.3
+     400.0
     ]
    ],
    "news": [
     {
-     "title": "TSLA Stock Clocks Best Week In 18 Months: Tesla Reportedly Eyes Buying German Toolmaker Amid Cybercab, Optimus Scaling Plans",
+     "title": "Dow Jones Futures: Tesla Leads 7 Buys After Bullish Market Move; Nvidia's Jensen Huang On Capitol Hill",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=ca84633dd52240b00db7b72a75d92570875cda4eec12ac7da9ffc80aa5298d64",
-     "t": "2026-11-27T19:55+00:00"
+     "url": "https://finnhub.io/api/news?id=110e0ddc90181dd918e65992d537e394a5fccf6b8538fa50f3c522edccc9b08b",
+     "t": "2026-11-28T13:02+00:00"
     },
     {
-     "title": "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill",
+     "title": "History Says What Tesla Stock Does After Its Annual Meeting. This Year's Is Dec. 3.",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=daa551d96a3a7a3a1f9668075bf933140959befbc52062dc93c5be0e73509c6f",
-     "t": "2026-11-27T18:48+00:00"
+     "url": "https://finnhub.io/api/news?id=287e33002071f747dcc2808dd9adc60f279be2591c31c58fffa795ce3777fa16",
+     "t": "2026-11-28T11:43+00:00"
     },
     {
-     "title": "Tesla Takes 1.2M SF at Houston\u2019s Cedar Port Industrial Park",
+     "title": "Tesla Stock And Other Tariff Protected Manufacturers Investors Are Watching",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=7fd8c6e6ffe50a23e4ca0f5932edfd10af5f0440eaba43b41f1d32c515f970df",
-     "t": "2026-11-27T18:11+00:00"
+     "url": "https://finnhub.io/api/news?id=68e64df142d41b14647de126ad70974ddf65262d768c15c9688a1cf371bbe7fa",
+     "t": "2026-11-28T05:15+00:00"
     }
    ]
   },
@@ -1349,10 +1349,16 @@
     ],
     [
      "2026-11-27",
-     1395.5
+     1392.38
     ]
    ],
    "news": [
+    {
+     "title": "Stocktwits Biotech Dealmaker: Sanofi\u2019s $41B Insmed Buyout Anchors Holiday Week As Lilly Continues Buying Spree",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=989e160efd9f9f3157ad1fc454cd1549788d89b1af5996a9d472c6a7558ab85b",
+     "t": "2026-11-28T00:10+00:00"
+    },
     {
      "title": "What Is The Biggest Threat To Eli Lilly Stock?",
      "source": "Yahoo",
@@ -1364,12 +1370,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=b9ee6dba4e0a6604c36d379115e3b9f53415922a447ef5ae0d65f7ad32333fa1",
      "t": "2026-11-27T14:42+00:00"
-    },
-    {
-     "title": "Prediction: Eli Lilly\u2019s $92 Billion Revenue Outlook Could Be Just the Beginning",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=01de780c7f5d57531e6c17622092814bbfabc311f0ced4f80b3d210d147a7823",
-     "t": "2026-11-27T13:03+00:00"
     }
    ]
   },
@@ -1690,7 +1690,7 @@
     ],
     [
      "2026-11-27",
-     492.66
+     492.85
     ]
    ],
    "news": [
@@ -1719,10 +1719,10 @@
    "name": "Apple",
    "sector": "TECH",
    "kind": "stock",
-   "pe": 39.1,
-   "ps": 10.8,
+   "pe": 39.5,
+   "ps": 10.9,
    "pb": 44.1,
-   "mcap": 5167353,
+   "mcap": 5219960.0,
    "hi52": 360.83,
    "lo52": 243.42,
    "epsGrowth": 20.3,
@@ -2031,27 +2031,27 @@
     ],
     [
      "2026-11-27",
-     358.69
+     358.54
     ]
    ],
    "news": [
     {
-     "title": "AI Chip Stocks Swung Wildly\u2014While Warren Buffett\u2019s Apple Climbed 26%",
+     "title": "Apple, Amgen Lead 5 Dow Jones Stocks Near Buy Points",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=dc91559ee9ae23aba325f5aa93ab40862e6b6bcce93b8b7d76986c08d0a009c2",
-     "t": "2026-11-27T20:41+00:00"
+     "url": "https://finnhub.io/api/news?id=861f71a3f1fb2a02015fcb4a8ed87f05672a5c88b9b85de57fb0b29ed70ad153",
+     "t": "2026-11-28T13:00+00:00"
     },
     {
-     "title": "New $799 smart glasses challenge Apple, but with a major catch",
+     "title": "OpenAI Countersues Apple, Accusing It of \u201cCoercing and Threatening\u201d Suppliers",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=df3420d27b98f5d43714b8aae10b4aad058833a88850c06784ee14ab7c50ec45",
-     "t": "2026-11-27T17:17+00:00"
+     "url": "https://finnhub.io/api/news?id=d4167528aa5a7ae082faf51149081335cd239205b9846c195eb9be630e8178c2",
+     "t": "2026-11-28T12:57+00:00"
     },
     {
-     "title": "Apple Stock Isn\u2019t Just an Anti-AI Haven. It\u2019s an All-Purpose Winner.",
+     "title": "Apple\u2019s COO Has Now Filed to Sell $39 Million of Stock in 3 Days",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=82a2afb0830760585c89b97c5dd6a62b95fb7e4ac487ad399956bbc6a3265a4b",
-     "t": "2026-11-27T15:18+00:00"
+     "url": "https://finnhub.io/api/news?id=3b146041f0b8237fe20a3f57183ee41bcc00645922b236cbc25fd034223ea174",
+     "t": "2026-11-28T12:18+00:00"
     }
    ]
   },
@@ -2372,27 +2372,27 @@
     ],
     [
      "2026-11-27",
-     254.21
+     254.12
     ]
    ],
    "news": [
     {
-     "title": "Can Record Black Friday Spending Lift Amazon Stock?",
+     "title": "Amazon may owe you money. Some Arizonans need to act soon",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=7aa445f3c05f8dbd715315f2c351988e8a2e6eb98f4c2803720b3f3d8d50d033",
-     "t": "2026-11-27T20:35+00:00"
+     "url": "https://finnhub.io/api/news?id=2c642dc829ed62fc24108ad1dba9adb497541d51782348d0e037fa4012ae4fa9",
+     "t": "2026-11-28T12:03+00:00"
     },
     {
-     "title": "Amazon, Target and Walmart Chase Holiday Toy Spending",
+     "title": "Jeff Bezos predicted Amazon would go bankrupt one day. Only one Fortune 500 No. 1 ever has",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=840977565a9d89c2455920404316fc6aa754f0743a6e22669d2000a694ad2ec1",
-     "t": "2026-11-27T19:53+00:00"
+     "url": "https://finnhub.io/api/news?id=e5877b8adc1df4274c61ac8b7ce355aab627e289f60c012c8cab30968738c69e",
+     "t": "2026-11-28T09:22+00:00"
     },
     {
-     "title": "Amazon\u2019s AWS Profit Rose 55%. Can It Absorb a $220 Billion Capex Bill?",
+     "title": "Amazon takes its car store abroad for the first time in 2027",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=67220fba4fdf78ca107db2fd963b605d7d1d72851bf5de1d0ac28c5cfa22c77e",
-     "t": "2026-11-27T19:18+00:00"
+     "url": "https://finnhub.io/api/news?id=a0b3f6dbce0d2b3b4c13d4d83bd6504c343efc3126735df44473767b6f6497df",
+     "t": "2026-11-28T03:03+00:00"
     }
    ]
   },
@@ -2404,7 +2404,7 @@
    "pe": 14.2,
    "ps": 7.1,
    "pb": 6.2,
-   "mcap": 3357492.0,
+   "mcap": 3358598.0,
    "hi52": 408.61,
    "lo52": 262.73,
    "epsGrowth": 91.9,
@@ -2713,27 +2713,27 @@
     ],
     [
      "2026-11-27",
-     274.83
+     274.96
     ]
    ],
    "news": [
     {
-     "title": "Alphabet Down Nearly 20%: What Would Its CEO Say?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=29855fa31f3e1aeb9b90a71c6ac4405c1d0fe62c74956217a16b9e1ffff9d6c3",
-     "t": "2026-11-27T20:25+00:00"
+     "title": "Elon Musk, In An X Post Saturday, Said \"Not Sure Who Will Buy More, But Google Has Expressed Interest In Renting More Compute From Us\"",
+     "source": "Benzinga",
+     "url": "https://finnhub.io/api/news?id=f8eafa63f587c984d4afbf0d25d9998a17f57867f99b278e7688c5bd2b069459",
+     "t": "2026-11-28T09:34+00:00"
     },
     {
-     "title": "Alphabet Stocks Move Lower as Record Credit Spreads Shadow AI Spending",
+     "title": "Elon Musk Says GOOGL Has \u2018Expressed Interest\u2019 In Renting More Compute From SPCX",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=c4f248232a08a6eeada46dedfc8efb6cc06860300056a0f6da493d69ad558f9f",
-     "t": "2026-11-27T19:18+00:00"
+     "url": "https://finnhub.io/api/news?id=3ee61dd21242fe7e628550dffcc31705602c3432cc700bb40a314931ae9b7e6a",
+     "t": "2026-11-28T07:48+00:00"
     },
     {
-     "title": "Top Stock Reports for Alphabet, Meta & Bank of America",
+     "title": "Warning for Alphabet Investors: MScience Data Show Q4 Search Revenue Tracking Below Consensus",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=f91b2d3ba76cb8fb0419b65518914d1a60d5f0a1610c8c71cda29eab59fb8c9a",
-     "t": "2026-11-27T18:41+00:00"
+     "url": "https://finnhub.io/api/news?id=8153645d613ea30a27601556b33d74a143425db59f257658d76f0f4af8743e36",
+     "t": "2026-11-27T23:21+00:00"
     }
    ]
   },
@@ -2752,7 +2752,7 @@
    "revGrowth": 27.5,
    "margin": 31.1,
    "divYield": 0.35,
-   "beta": 1.29,
+   "beta": 1.26,
    "profile": {
     "name": "Meta Platforms, Inc.",
     "finnhubIndustry": "Media",
@@ -3054,27 +3054,27 @@
     ],
     [
      "2026-11-27",
-     630.0
+     628.96
     ]
    ],
    "news": [
     {
-     "title": "Can Meta's Business Pay For Its Spending?",
+     "title": "CoreWeave Can Borrow at About 7% Against Meta\u2019s Contract. Its Unsecured Bonds Yield Nearly 18%",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=d710d9383dd9f54f4dce4ab2f8a23d21703b039faecf2916fcfe668dfadd1a7a",
-     "t": "2026-11-27T20:15+00:00"
+     "url": "https://finnhub.io/api/news?id=0c2b7d0e74bc43684aeaa2848b4b5303f64ecdcb7b146c0d181e5191284cb245",
+     "t": "2026-11-28T11:19+00:00"
     },
     {
-     "title": "Top Stock Reports for Alphabet, Meta & Bank of America",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=f91b2d3ba76cb8fb0419b65518914d1a60d5f0a1610c8c71cda29eab59fb8c9a",
-     "t": "2026-11-27T18:41+00:00"
+     "title": "Meta Platforms: Looking Beyond Capex, At Efficiency Gains For 2027 (Upgrade)",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=685e72c5b074ef6edd86498674bb355490a45f6c5b7a1507151479afe641abe0",
+     "t": "2026-11-27T23:50+00:00"
     },
     {
-     "title": "What Is Meta Platforms (META) Up Against With Australia And EU AI Rules?",
+     "title": "Meta\u2019s (META) Muse Could Unlock a New Revenue Stream",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b037b9e29cbf5524ff7543f693b7884973d6912b2a0db4b8d19d7eaf03b4242f",
-     "t": "2026-11-27T17:11+00:00"
+     "url": "https://finnhub.io/api/news?id=6c0b1d8a81b7a16611173daa81e760f9518d0e515d9496b2b0ffc6437b553dc5",
+     "t": "2026-11-27T23:23+00:00"
     }
    ]
   },
@@ -3083,16 +3083,16 @@
    "name": "Broadcom",
    "sector": "SEMI",
    "kind": "stock",
-   "pe": 37.5,
-   "ps": 16.1,
+   "pe": 38.8,
+   "ps": 16.6,
    "pb": 18.7,
-   "mcap": 1436194.0,
+   "mcap": 1483310,
    "hi52": 495,
    "lo52": 278,
    "epsGrowth": 100.1,
    "revGrowth": 48.7,
    "margin": 42.9,
-   "divYield": 0.84,
+   "divYield": 0.81,
    "beta": 1.49,
    "profile": {
     "name": "Broadcom Inc",
@@ -3395,7 +3395,7 @@
     ],
     [
      "2026-11-27",
-     312.06
+     312.34
     ]
    ],
    "news": [
@@ -3424,10 +3424,10 @@
    "name": "AMD",
    "sector": "SEMI",
    "kind": "stock",
-   "pe": 87.4,
-   "ps": 14.7,
+   "pe": 91.4,
+   "ps": 15.3,
    "pb": 14.5,
-   "mcap": 665925.0,
+   "mcap": 696283.0,
    "hi52": 658.52,
    "lo52": 188.22,
    "epsGrowth": 127.4,
@@ -3736,27 +3736,27 @@
     ],
     [
      "2026-11-27",
-     423.8
+     424.54
     ]
    ],
    "news": [
     {
-     "title": "AMD Stocks Rise Despite Erste Group Downgrade on Valuation",
+     "title": "\u201cDemand Is Higher Than Supply\u201d: AMD Just Dropped 24% in a Month. Is It Time to Sell, or Load Up?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=098ee2c774d0732b0376ef4eca591c1e8716eb3a65f85b006d31879eb25ce692",
-     "t": "2026-11-27T19:18+00:00"
+     "url": "https://finnhub.io/api/news?id=5473b238c299222d4ae43e923159a033115acebbaab6eaa32658d44741cb9bc3",
+     "t": "2026-11-28T12:50+00:00"
     },
     {
-     "title": "Dual AI Growth Catalysts Position Advanced Micro Devices (AMD) for Revenue Acceleration",
+     "title": "AMD Is Still Up 98% in a Year. Erste Group Says That\u2019s Enough",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=932f666baded5992c9e98478621fe9d26efbfcefb1ce1a5a57f18c5161532a85",
-     "t": "2026-11-27T16:49+00:00"
+     "url": "https://finnhub.io/api/news?id=095bcd41e36ac548bc14382a52691497a148d268665e4418eb65285e50fd874b",
+     "t": "2026-11-28T12:50+00:00"
     },
     {
-     "title": "AMD vs. ASML: As Wall Street Questions the AI Boom, Which Chip Stock Wins in 2027?",
+     "title": "OpenAI\u2019s 457 MW TensorWave Deal Could Be Worth Up To $9.1B, Say Analysts: What It Means For AMD Stock",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=316c0b78816efbd995197d8176953e20ca3dc099fc465421f8c048f2c048972f",
-     "t": "2026-11-27T16:46+00:00"
+     "url": "https://finnhub.io/api/news?id=bdce91b2e3f70ae05cedd1b7aea6a0d462a11fca80787f6708d8fb8f4617a275",
+     "t": "2026-11-28T08:29+00:00"
     }
    ]
   },
@@ -3765,10 +3765,10 @@
    "name": "Palantir",
    "sector": "TECH",
    "kind": "stock",
-   "pe": 107.4,
-   "ps": 54.1,
+   "pe": 113.1,
+   "ps": 56.9,
    "pb": 40.0,
-   "mcap": 394170.0,
+   "mcap": 414843.0,
    "hi52": 212.94,
    "lo52": 106.37,
    "epsGrowth": 233.7,
@@ -4077,27 +4077,27 @@
     ],
     [
      "2026-11-27",
-     172.08
+     172.17
     ]
    ],
    "news": [
+    {
+     "title": "Palantir Technologies (PLTR) Signed A Poland Defense Software Agreement",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=ff063b6f5816a9abdf1b2fc0f707db6f47333a40c54c4a7a3335ef7410f3f63f",
+     "t": "2026-11-28T02:09+00:00"
+    },
+    {
+     "title": "Palantir's new military AI deal has a surprising catch",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=3cd4c26ec9995848a25417202e35db02cb15fb58f04014522968d4279e75629d",
+     "t": "2026-11-28T01:37+00:00"
+    },
     {
      "title": "Palantir Stock (PLTR) Has No Room for Error at This Valuation",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=880b24404ec7be039dae5e8cfbe5834bea43956d51076033b662206fb8233216",
      "t": "2026-11-27T21:38+00:00"
-    },
-    {
-     "title": "Should You Pick Palantir Over Its Big Tech Rivals?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=4a7f034c51c2d80d968bb3d780789e526e2b17a6b2394b32564dc556666c53c0",
-     "t": "2026-11-27T19:59+00:00"
-    },
-    {
-     "title": "Palantir Stocks Climb 3.72% on $300 Million Poland Defense AI Deal",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=7f713f76ed3f459f7a733b1f06414f6728a646a5d99604592097787e65720be4",
-     "t": "2026-11-27T19:23+00:00"
     }
    ]
   },
@@ -4418,7 +4418,7 @@
     ],
     [
      "2026-11-27",
-     107.4
+     107.13
     ]
    ],
    "news": [
@@ -4759,10 +4759,16 @@
     ],
     [
      "2026-11-27",
-     198.32
+     198.21
     ]
    ],
    "news": [
+    {
+     "title": "Is Erste Group Wrong to Give Up on Salesforce? Wall Street Still Sees $282",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=ba83911a899fc673df39102955a3f2c084d8fbe61633c346fa03858bbbb9862f",
+     "t": "2026-11-28T07:51+00:00"
+    },
     {
      "title": "Salesforce, Snowflake, Four Security Software Leaders Headline Barrage Of Tech Earnings",
      "source": "Yahoo",
@@ -4774,12 +4780,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=6ba34779e15c5a3bcf6c896cfa4dd8978bbdf7839f16e9b33e5df7eed91eb53f",
      "t": "2026-11-27T12:57+00:00"
-    },
-    {
-     "title": "Why Is Salesforce Stock Rising Today?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=d67eedb348a999b3408c4d29e45e5efd4eb339b47bb7a365c095d83617854f1b",
-     "t": "2026-11-27T11:42+00:00"
     }
    ]
   },
@@ -4788,10 +4788,10 @@
    "name": "Netflix",
    "sector": "COMM",
    "kind": "stock",
-   "pe": 16.5,
-   "ps": 4.9,
+   "pe": 16.9,
+   "ps": 5.0,
    "pb": 9.9,
-   "mcap": 243957.0,
+   "mcap": 249624.0,
    "hi52": 109.73,
    "lo52": 56.56,
    "epsGrowth": 44.6,
@@ -5100,27 +5100,27 @@
     ],
     [
      "2026-11-27",
-     60.98
+     60.93
     ]
    ],
    "news": [
     {
-     "title": "Is Netflix Stock Underperforming the Nasdaq?",
+     "title": "Got $1,400? This 17%-Yielding Dividend Stock Could Pay for Your Netflix Subscription.",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b35d62160c600360790ef06d981e9dce48f998bcaf8337ee97b3b208041472af",
-     "t": "2026-11-27T08:51+00:00"
+     "url": "https://finnhub.io/api/news?id=5ce0baf1327337933ba819a52126bc7fa55500afe8d840d33293010f970e271b",
+     "t": "2026-11-28T13:50+00:00"
     },
     {
-     "title": "Here's What Would Prove Me Wrong About Netflix Stock",
+     "title": "Prediction: Here's the Netflix Stock Price I Expect at the End of 2030",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=5ec4e519a6d12a15cd7067504bb9247e4facdc94f515506016e6d34380f8c574",
-     "t": "2026-11-26T18:01+00:00"
+     "url": "https://finnhub.io/api/news?id=ebaae87aa6f8ecbef78e2ea8a3ab281b8c8708839a0dec1fe4dced3713f7dee4",
+     "t": "2026-11-28T10:07+00:00"
     },
     {
-     "title": "NFL's Thanksgiving Boom Raises Stakes for Disney, Netflix",
+     "title": "Netflix (NFLX) Beats Stock Market Upswing: What Investors Need to Know",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=1a19450f491fc7e50fdefa2d8aadf7130c37c8d20e81140d23582a9729d89a92",
-     "t": "2026-11-26T17:42+00:00"
+     "url": "https://finnhub.io/api/news?id=b3e6efdc618ffd4156d937a8f661033e957f5770a5c827c94c25e540524d013f",
+     "t": "2026-11-27T21:45+00:00"
     }
    ]
   },
@@ -5129,16 +5129,16 @@
    "name": "JPMorgan",
    "sector": "FIN",
    "kind": "stock",
-   "pe": 12.7,
+   "pe": 13.0,
    "ps": 2.9,
    "pb": 2.4,
-   "mcap": 841138.0,
+   "mcap": 860125.0,
    "hi52": 366.5,
    "lo52": 279.1,
    "epsGrowth": 17.9,
    "revGrowth": 109.0,
    "margin": 33.3,
-   "divYield": 2.08,
+   "divYield": 2.03,
    "beta": 1.06,
    "profile": {
     "name": "JPMorgan Chase & Co.",
@@ -5441,27 +5441,27 @@
     ],
     [
      "2026-11-27",
-     323.6
+     322.96
     ]
    ],
    "news": [
+    {
+     "title": "JPMorgan: A Sector Sell-Off Left It Priced At The Floor",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=903a45e94df70fdff981f301335333640aceefbdd188107ee9dd1eba34c0fb13",
+     "t": "2026-11-28T06:16+00:00"
+    },
+    {
+     "title": "JPMorgan Chase & Co. (JPM) Outpaces Stock Market Gains: What You Should Know",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=6336abef1daad9bdd622fcacbb0fcb6bf7fdb443b47309e1c2ef50ea2b16888d",
+     "t": "2026-11-27T21:45+00:00"
+    },
     {
      "title": "Why JPMorgan Chase Fans May Look To ETFs Right Now",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=6fb50d7a78a2846338d8a66d50f8faf83f1c0e104570945b226f581bb6ccda61",
      "t": "2026-11-27T21:13+00:00"
-    },
-    {
-     "title": "JPMorgan Says Bitcoin \u2018Capitulation\u2019 Has Been Reached",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=c3ccabc6323d7889c64b69f508fba429329edf7d000565563d55c9c2afe013b7",
-     "t": "2026-11-27T15:01+00:00"
-    },
-    {
-     "title": "JPMorgan Flags Major Turning Point for AI Stocks",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=27173e75c5dbb8a189b5d70fa0412467d6fb0db4e54ccff9d2b3cbe5c8267e76",
-     "t": "2026-11-27T14:33+00:00"
     }
    ]
   },
@@ -5782,27 +5782,27 @@
     ],
     [
      "2026-11-27",
-     813.08
+     812.87
     ]
    ],
    "news": [
+    {
+     "title": "Are Goldman Sachs and Morgan Stanley \u201cOver Earning\u201d on the AI Boom? Both Fell 20%+ in 3 Months",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=e3598cf7ae1ef38077ce22344627cfb3f42eac2d53ad05ad40151242fcefbb65",
+     "t": "2026-11-28T06:45+00:00"
+    },
+    {
+     "title": "Goldman Sachs (GS) Increases Yet Falls Behind Market: What Investors Need to Know",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=05e1a4043d609f247eb9192831bd150479311aca96a4d6dad776924f0f786861",
+     "t": "2026-11-27T21:45+00:00"
+    },
     {
      "title": "Goldman Sachs Names Top China Humanoid Robotics Stocks to Watch",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=8156d4ced55d1fb37ff57cd233251fd420230a54a8992275c330d026e2bd3a7a",
      "t": "2026-11-27T15:53+00:00"
-    },
-    {
-     "title": "Goldman Sachs Drops Stark Take on Year-End Stock Rally",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=00cf23372120481047f38b197ced9461d2828d7af25f609ce12f6189276c7914",
-     "t": "2026-11-27T14:36+00:00"
-    },
-    {
-     "title": "Implied Volatility Surging for Goldman Sachs BDC Stock Options",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=203f471a336cf95e397d42d448d580c9b3bb55b53dec812a1e135a50b455f667",
-     "t": "2026-11-27T12:21+00:00"
     }
    ]
   },
@@ -6123,10 +6123,16 @@
     ],
     [
      "2026-11-27",
-     430.59
+     429.56
     ]
    ],
    "news": [
+    {
+     "title": "Billionaire Andreas Halvorsen\u2019s Viking Opened an $818 Million Mastercard Stake While Cutting Its Visa Shares 32.6%",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=8b75c03a162da9df1a8f025785daa2daa5c49ad4db4a4f92ae7508558159e13b",
+     "t": "2026-11-27T21:59+00:00"
+    },
     {
      "title": "What Is The One Risk Facing Visa Stock Now?",
      "source": "Yahoo",
@@ -6134,16 +6140,10 @@
      "t": "2026-11-27T19:41+00:00"
     },
     {
-     "title": "Can Holiday Bargain Hunting Boost Visa's Cross-Border Business?",
+     "title": "Visa Stock: Is V Outperforming the Financial Sector?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=dff47fe5de14739f6882595a6e8d8ace6fcaac0d8b34342a734e54298b3284c0",
-     "t": "2026-11-27T12:56+00:00"
-    },
-    {
-     "title": "What Is Visa (V) Doing With Stablecoin Payments In Europe And Asia?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=b9b3c3d5bc0b0d486d665343d0f3e458b05408b49b1f1083901ab32106dd63f1",
-     "t": "2026-11-27T12:09+00:00"
+     "url": "https://finnhub.io/api/news?id=67ee2e63ece8183a8ae124c2c33d5a254bd12b373b6eb945513d7f31d235cd2a",
+     "t": "2026-11-27T17:51+00:00"
     }
    ]
   },
@@ -6152,15 +6152,15 @@
    "name": "Berkshire Hathaway",
    "sector": "FIN",
    "kind": "stock",
-   "pe": 14.4,
-   "ps": 3.2,
+   "pe": 16.1,
+   "ps": 3.1,
    "pb": 1.4,
-   "mcap": 1231339.0,
+   "mcap": 1237432.0,
    "hi52": 894950,
    "lo52": 698000,
-   "epsGrowth": 36.3,
-   "revGrowth": 3.9,
-   "margin": 22.3,
+   "epsGrowth": 14.6,
+   "revGrowth": 6.2,
+   "margin": 19.5,
    "divYield": null,
    "beta": 0.22,
    "profile": {
@@ -6464,27 +6464,27 @@
     ],
     [
      "2026-11-27",
-     581.07
+     580.79
     ]
    ],
    "news": [
     {
-     "title": "The Oracle Of OMAH Likely Beats Berkshire Hathaway In Round 3",
+     "title": "$1,000 Invested in Berkshire Hathaway Stock 10 Years Ago Is Worth About $3,650. Where Will It Be in 2036?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b2c4f60e8d12bc9dce57744825def3f07b2a374ea61173066c73c210b174080f",
+     "t": "2026-11-28T10:50+00:00"
+    },
+    {
+     "title": "Berkshire Hathaway: A Premium Built For The AI Credit Stress",
      "source": "SeekingAlpha",
-     "url": "https://finnhub.io/api/news?id=9be3ac4a57f62bb93bb6da64aa77d3ba36da392d760352b38674f0897fafbf80",
-     "t": "2026-11-27T11:27+00:00"
+     "url": "https://finnhub.io/api/news?id=a350f3a81c0262319c9548186f03702aa57f870f2e0f10ad7f03ec00b7387540",
+     "t": "2026-11-28T02:47+00:00"
     },
     {
-     "title": "Warren Buffett\u2019s Thanksgiving Message Names a Teacher Most Investors Have Never Heard Of. At 63 He Bought 300 Berkshire Shares That Would Be Worth $260 Million Today",
+     "title": "Berkshire Hathaway (BRK.A) Takes $930 Million Equity Stake In A Private Tech Company",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=695cee44a9134f254aab18158b5dbfe74d6c6f67fc4dfe8bb2d8e471300143ea",
-     "t": "2026-11-26T19:52+00:00"
-    },
-    {
-     "title": "The Buffett Indicator Is Flashing Red. These 2 Dividend Stocks Could Be Safe Havens.",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=e91ad80ce9e2e2dd78689b26b880581186c71552e0aabfda2f642e40a41e7a4a",
-     "t": "2026-11-26T19:25+00:00"
+     "url": "https://finnhub.io/api/news?id=1f0196964135be3bb6029bd91ac988209e154f543fef0c89ebfab63e97f1d76d",
+     "t": "2026-11-27T20:08+00:00"
     }
    ]
   },
@@ -6496,7 +6496,7 @@
    "pe": 49.9,
    "ps": 1.4,
    "pb": 10.1,
-   "mcap": 1041485.0,
+   "mcap": 1041722.0,
    "hi52": 135.16,
    "lo52": 102.15,
    "epsGrowth": -8.3,
@@ -6805,27 +6805,27 @@
     ],
     [
      "2026-11-27",
-     133.15
+     133.13
     ]
    ],
    "news": [
     {
-     "title": "Amazon, Target and Walmart Chase Holiday Toy Spending",
+     "title": "If You'd Invested $10,000 in Walmart Stock 20 Years Ago, Here's How Much You'd Have Today",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=840977565a9d89c2455920404316fc6aa754f0743a6e22669d2000a694ad2ec1",
-     "t": "2026-11-27T19:53+00:00"
+     "url": "https://finnhub.io/api/news?id=db22bd66ed594c28ad3f6cb559719b14f8a3e6bd85fdbae97f09c725c437fbe8",
+     "t": "2026-11-28T13:01+00:00"
     },
     {
-     "title": "Walmart technical outlook amid Black Friday",
+     "title": "Learn Why The Bull Case For Walmart (WMT) Could Change Following Earnings Beat",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=a6fb5c115c5924e21a67c7555a252b3c0a9070948e40c8d476bfea316d8841cb",
-     "t": "2026-11-27T15:52+00:00"
+     "url": "https://finnhub.io/api/news?id=f91882a455e6319acf78ef5753364b589c4d5729846f203c7f2898173fd48822",
+     "t": "2026-11-28T02:07+00:00"
     },
     {
-     "title": "Is Walmart Stock Priced Like 1999 Again?",
+     "title": "Walmart bets shoppers won't notice its holiday price increases",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=092383f556f3411e880d17b1e723e4530ec155faaea31473e4d120e69f47efc0",
-     "t": "2026-11-27T15:42+00:00"
+     "url": "https://finnhub.io/api/news?id=5548f8437507621a17dc3938925a6d0baaeccd6eda503cb8cfc7d3c0420732ed",
+     "t": "2026-11-28T00:17+00:00"
     }
    ]
   },
@@ -7146,27 +7146,27 @@
     ],
     [
      "2026-11-27",
-     1098.92
+     1097.81
     ]
    ],
    "news": [
     {
-     "title": "Costco: I'd Rather Spend $1,000 On Black Friday Than Buy Its Stock",
+     "title": "Costco: Full Cart, Stretched Multiple; Strong Sell",
      "source": "SeekingAlpha",
-     "url": "https://finnhub.io/api/news?id=d3682ec94adce090d0e1245ef139e2e0814086c96e7c5d92bea035820c08001e",
-     "t": "2026-11-27T15:04+00:00"
+     "url": "https://finnhub.io/api/news?id=005427416c54a34ab6f2a0623be7c16c5ddad3ba14e9cdecd4bb0ead3455d4d9",
+     "t": "2026-11-28T09:36+00:00"
     },
     {
-     "title": "12 Big Funds Bought Costco Wholesale Last Quarter, While 7 Sold. Who\u2019s Right?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=e983bf3282cc2e8799b9bd8b54ad23ac3a279b088e41883dea7993ad0a187017",
-     "t": "2026-11-27T13:35+00:00"
+     "title": "Costco Wholesale (NASDAQ:COST): A Quality Investing Case Study",
+     "source": "ChartMill",
+     "url": "https://finnhub.io/api/news?id=de9858dadf68c4576f183d9bd983939f42272af0480611515a4cbc7f03c902ca",
+     "t": "2026-11-28T09:10+00:00"
     },
     {
-     "title": "Costco Wholesale Corporation Stock: Is COST Outperforming the Consumer Staples Sector?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=2521af4c80465866fd57bac2e51ceef96914ca419c7baec1cb3b6e394c8f7ac8",
-     "t": "2026-11-27T12:34+00:00"
+     "title": "Costco's $30 Special Dividend Is Nice But Shares Are Priced For Perfection",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=9b5006b946d370af9b169541f1160280ae808448e75baae2d6ba79b35b3301cc",
+     "t": "2026-11-28T09:00+00:00"
     }
    ]
   },
@@ -7486,10 +7486,16 @@
     ],
     [
      "2026-11-27",
-     160.49
+     160.18
     ]
    ],
    "news": [
+    {
+     "title": "How Is ExxonMobil\u2019s Stock Performance Compared to Other Oil & Gas Stocks",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=b214b7435da705fecbd160297e0c340e62a2d18a29008a2550dee81d1a6acaf2",
+     "t": "2026-11-27T18:09+00:00"
+    },
     {
      "title": "XOM Boosts Angola Prospects With Kizomba Redevelopment & New Discovery",
      "source": "Yahoo",
@@ -7501,12 +7507,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=4f9bf4e12b8485bb5efea6dfacbf7e642dd772c69cb32e9a4112b5b0358bb813",
      "t": "2026-11-27T13:00+00:00"
-    },
-    {
-     "title": "$100 Invested In ExxonMobil Holdings 5 Years Ago Would Be Worth This Much Today",
-     "source": "Benzinga",
-     "url": "https://finnhub.io/api/news?id=3bc1cc96134c37cc28f44d6f12180461ef7ec19149adab2cde74edca4cd3d061",
-     "t": "2026-11-27T10:00+00:00"
     }
    ]
   },
@@ -7515,16 +7515,16 @@
    "name": "UnitedHealth",
    "sector": "HLTH",
    "kind": "stock",
-   "pe": 19.0,
+   "pe": 19.3,
    "ps": 0.7,
    "pb": 3.2,
-   "mcap": 301256.0,
+   "mcap": 305986.0,
    "hi52": 461.62,
    "lo52": 255.97,
    "epsGrowth": -8.6,
    "revGrowth": 3.3,
    "margin": 3.5,
-   "divYield": 2.71,
+   "divYield": 2.67,
    "beta": 0.55,
    "profile": {
     "name": "UnitedHealth Group Incorporated",
@@ -7827,27 +7827,27 @@
     ],
     [
      "2026-11-27",
-     352.18
+     351.41
     ]
    ],
    "news": [
+    {
+     "title": "UnitedHealth (UNH) Stock Still Looks Like A Bargain Despite CMS Rule Fears",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=1164b05a02d51dc3c3721f5f570e73b7b0affecbcf0a5037941b82ad52fe8499",
+     "t": "2026-11-28T10:08+00:00"
+    },
+    {
+     "title": "Is UnitedHealth Group Stock Underperforming the S&P 500?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=7b5809c7ace8395e7be238de5fd258bc0f33818a84613bfc0f10841c30533f83",
+     "t": "2026-11-27T18:00+00:00"
+    },
     {
      "title": "Down 15% in November, Is It Time to Buy the UnitedHealth Stock Dip?",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=d50e7646f65a08424bf95eb2a31d7c8499ad6481ce9f9b5c8c0564ab34e09f98",
      "t": "2026-11-27T16:07+00:00"
-    },
-    {
-     "title": "UnitedHealth Keeps Raising Guidance. Here's What a $10,000 Investment Could Be Worth If the Turnaround Sticks.",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=384d789d2b747983e8e6622ff991788bad1440d74c52164973b62bf6e5ce5154",
-     "t": "2026-11-27T13:15+00:00"
-    },
-    {
-     "title": "UnitedHealth: 2 New Headaches, 1 Buying Opportunity",
-     "source": "SeekingAlpha",
-     "url": "https://finnhub.io/api/news?id=f4c61045575c50117a1215d86774c1a8d14ff6dca48116fbdd844997277bacfa",
-     "t": "2026-11-26T19:54+00:00"
     }
    ]
   },
@@ -7856,16 +7856,16 @@
    "name": "Caterpillar",
    "sector": "IND",
    "kind": "stock",
-   "pe": 21.0,
-   "ps": 3.2,
+   "pe": 21.6,
+   "ps": 3.3,
    "pb": 17.3,
-   "mcap": 248789.0,
+   "mcap": 255987.0,
    "hi52": 1073.46,
    "lo52": 508.11,
    "epsGrowth": 30.8,
    "revGrowth": 20.3,
    "margin": 15.2,
-   "divYield": 1.15,
+   "divYield": 1.11,
    "beta": 1.66,
    "profile": {
     "name": "Caterpillar Inc",
@@ -8168,10 +8168,16 @@
     ],
     [
      "2026-11-27",
-     562.48
+     561.74
     ]
    ],
    "news": [
+    {
+     "title": "Caterpillar Soars 10% in a Week as Jensen Huang\u2019s Return Revives the AI Trade. Is It Still a Buy?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=4aaf584344f5c34c2a2a32f82c345d6d4ed1d4af05a2af2bd26b3db8021f1c42",
+     "t": "2026-11-28T10:39+00:00"
+    },
     {
      "title": "Caterpillar is quietly making plans for a bigger 2027",
      "source": "Yahoo",
@@ -8183,12 +8189,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=9433d566b50bc47bd123b072d2a21a70f4b0ad475d340c279d98a7dad4506c6d",
      "t": "2026-11-27T18:10+00:00"
-    },
-    {
-     "title": "How Record Backlog Will Impact Caterpillar Stock Investors",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=26ccac3f82aea897e0937f474da6c20802495002efa6f87cc46cb4924f2233f1",
-     "t": "2026-11-27T17:11+00:00"
     }
    ]
   },
@@ -8509,7 +8509,7 @@
     ],
     [
      "2026-11-27",
-     167.21
+     167.24
     ]
    ],
    "news": [
@@ -8538,16 +8538,16 @@
    "name": "Disney",
    "sector": "COMM",
    "kind": "stock",
-   "pe": 21.7,
+   "pe": 21.9,
    "ps": 2.1,
    "pb": 1.6,
-   "mcap": 214529.0,
+   "mcap": 216664.0,
    "hi52": 126.28,
    "lo52": 92.19,
    "epsGrowth": -17.8,
    "revGrowth": 8.4,
    "margin": 9.7,
-   "divYield": 1.23,
+   "divYield": 1.22,
    "beta": 1.33,
    "profile": {
     "name": "The Walt Disney Company",
@@ -8850,7 +8850,7 @@
     ],
     [
      "2026-11-27",
-     127.41
+     127.24
     ]
    ],
    "news": [
@@ -8867,10 +8867,10 @@
      "t": "2026-11-27T12:44+00:00"
     },
     {
-     "title": "Disney, Leidos, Anthropic and a Financial Stock on CNBC\u2019s \u2018Final Trades\u2019",
+     "title": "FCC Chair Carr Says Disney/ABC Case 'Continues,' Looking To Appeal Case",
      "source": "Benzinga",
-     "url": "https://finnhub.io/api/news?id=d8e4eb42c9ee10a5a749a3148329cb924122abb66bf4bbd53cdb5ab57bdf4e95",
-     "t": "2026-11-27T09:04+00:00"
+     "url": "https://finnhub.io/api/news?id=153872911ee97d4249b357cecadc2c1ced95171283eb58dee7e14fb71c2eead3",
+     "t": "2026-11-27T11:23+00:00"
     }
    ]
   },
@@ -9191,27 +9191,27 @@
     ],
     [
      "2026-11-27",
-     97.52
+     97.4
     ]
    ],
    "news": [
+    {
+     "title": "Coca-Cola: The Safe Haven For Dividends Now Trades At A Premium",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=bf4de9d3079bfc7b20b24771230e226c46e2cc968d28773d193d46bca2366ee4",
+     "t": "2026-11-28T04:43+00:00"
+    },
+    {
+     "title": "3 Reasons I\u2019d Be Nervous Buying Coca-Cola\u2019s Stock Today",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=0be7f60c375c291a0705b53e1f85f25e494ee7103b7f8f33ff33f7f2d5eae6d1",
+     "t": "2026-11-28T03:41+00:00"
+    },
     {
      "title": "Coca-Cola (KO) Hands 75% Of Its African Bottler To A Bigger Franchise Partner",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=dd96d1e10997a4ddd673013f22fa4aef9563669e152443b846a786a6fa3f7fa2",
      "t": "2026-11-27T16:10+00:00"
-    },
-    {
-     "title": "Coca-Cola Completes Major $2.6 Billion Africa Deal",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=2843cc69439779cab2243de0db6fbe97dae6ec250ac00ae64f26bc8c1b84d27b",
-     "t": "2026-11-27T14:27+00:00"
-    },
-    {
-     "title": "Is Coca-Cola Stock Outperforming the Dow?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=f913634d5fb4ea8e24f19f6394194569b98686c6562eee48fc31e3d0ea206e1f",
-     "t": "2026-11-27T08:17+00:00"
     }
    ]
   },
@@ -9229,7 +9229,7 @@
    "epsGrowth": 7.8,
    "revGrowth": 5.8,
    "margin": 32.4,
-   "divYield": 2.61,
+   "divYield": 2.64,
    "beta": 0.35,
    "profile": {
     "name": "McDonald's Corp",
@@ -9532,27 +9532,27 @@
     ],
     [
      "2026-11-27",
-     282.73
+     282.62
     ]
    ],
    "news": [
+    {
+     "title": "How Many Shares of Starbucks, Darden or McDonald\u2019s Pay $1,000 a Month in Dividends?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=92f2d9d187626d857824ad5de90fe3016fa5a23d58682d927a14550fc1900afc",
+     "t": "2026-11-28T11:21+00:00"
+    },
+    {
+     "title": "McDonald's: Not As Affordable For Customers, Not Good Value For Investors",
+     "source": "SeekingAlpha",
+     "url": "https://finnhub.io/api/news?id=1d782f2972ed45c8085c96f9905a956d60e2fc7ec5888cfabb0d6070ddb28b84",
+     "t": "2026-11-28T04:59+00:00"
+    },
     {
      "title": "McDonald's new deals take aim at Chili's and convenience stores",
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=2b83b97de929b6975c6d96805ebda6e79132ace752a1b17cfce8b0dbdb64950c",
      "t": "2026-11-27T16:07+00:00"
-    },
-    {
-     "title": "Can McDonald's (MCD) Command A Premium Despite Its Costly Makeover Plan?",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=03619b0b7980d399fd3d29a89ce1c8465511ed4aca71846a59f1bf2c5e0a1cea",
-     "t": "2026-11-27T14:09+00:00"
-    },
-    {
-     "title": "McDonald\u2019s Joined the Dividend Kings in September, but These 4 Have Been Kings for Decades",
-     "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6084e6adc33adf99b31d2150fae5929a0435ca36fd39f17e810a4547d4d1c742",
-     "t": "2026-11-27T14:03+00:00"
     }
    ]
   },
@@ -9562,16 +9562,16 @@
    "sector": "FIN",
    "kind": "stock",
    "pe": null,
-   "ps": 4.9,
+   "ps": 5.0,
    "pb": 3.5,
-   "mcap": 27461.0,
+   "mcap": 28340.0,
    "hi52": 284.74,
-   "lo52": 101.71,
+   "lo52": 94.88,
    "epsGrowth": null,
    "revGrowth": -26.6,
    "margin": -12.5,
    "divYield": null,
-   "beta": 3.52,
+   "beta": 3.51,
    "profile": {
     "name": "Coinbase Global, Inc.",
     "finnhubIndustry": "Financial Services",
@@ -9873,27 +9873,27 @@
     ],
     [
      "2026-11-27",
-     107.03
+     107.04
     ]
    ],
    "news": [
     {
-     "title": "Coinbase CEO issues bullish Bitcoin prediction as inflation fears grow",
+     "title": "Could Bitcoin Reach Brian Armstrong\u2019s $400,000 Target by 2030?",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=675f4eaee78c0f1691ae76de333aa65a84b38974e8356593a8cbba49d2498579",
-     "t": "2026-11-27T18:14+00:00"
+     "url": "https://finnhub.io/api/news?id=56fda9b423189b493e89eb6eb590da1756c866398fc38c9577ffc8da6516751e",
+     "t": "2026-11-28T13:27+00:00"
     },
     {
-     "title": "Coinbase Global vs. Upstart: Which Financial Stock Is a Better Buy for 2027?",
+     "title": "Coinbase CEO Brian Armstrong Scales Back Bitcoin Prediction, Still Sees Nearly 7x Upside By 2030",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=6a7c681898304c16a8a8e14f3261b982c80aec2812805ab43de1a8f7c16106d7",
-     "t": "2026-11-27T17:18+00:00"
+     "url": "https://finnhub.io/api/news?id=ea75b7924c3ec5b940b26a27b8a7cd3695f1d69058379009c900d54c1d2ca9a4",
+     "t": "2026-11-28T05:18+00:00"
     },
     {
-     "title": "Before the bell: Wall Street goes Black Friday shopping. Is Bitcoin on the list?",
+     "title": "Anthropic vs. Coinbase: One Stock Is Overhyped, One Is Oversold, Says Top Investor",
      "source": "Yahoo",
-     "url": "https://finnhub.io/api/news?id=44666a6f778d56642a82ade09871d9523580dd6efcd01d2d2330f25b71142aeb",
-     "t": "2026-11-27T16:00+00:00"
+     "url": "https://finnhub.io/api/news?id=bf5f78c12199f8db6d57543e9e4ce69603718db44e027e1af22026ed3014db44",
+     "t": "2026-11-27T22:12+00:00"
     }
    ]
   },
@@ -9902,16 +9902,16 @@
    "name": "Newmont",
    "sector": "GOLD",
    "kind": "stock",
-   "pe": 11.4,
-   "ps": 4.0,
+   "pe": 12.0,
+   "ps": 4.2,
    "pb": 3.4,
-   "mcap": 105416.0,
+   "mcap": 111059.0,
    "hi52": 135.29,
    "lo52": 85.26,
    "epsGrowth": 33.9,
    "revGrowth": 23.7,
    "margin": 34.7,
-   "divYield": 1.05,
+   "divYield": 0.99,
    "beta": 0.56,
    "profile": {
     "name": "Newmont Corporation",
@@ -10214,10 +10214,16 @@
     ],
     [
      "2026-11-27",
-     106.94
+     106.87
     ]
    ],
    "news": [
+    {
+     "title": "Is Newmont (NEM) Still Cheap After A 173% Three Year Gain?",
+     "source": "Yahoo",
+     "url": "https://finnhub.io/api/news?id=f466a56a27431450281385a070a19ac181ffaa93701449756c3ce943f87d92c6",
+     "t": "2026-11-28T01:09+00:00"
+    },
     {
      "title": "How Firm Is Newmont Stock's Floor As Costs Rise?",
      "source": "Yahoo",
@@ -10229,12 +10235,6 @@
      "source": "Yahoo",
      "url": "https://finnhub.io/api/news?id=fc7081345f7cb68a80dd67d68a13e7b934e5ab53c87c91b8a5fef86837f84e45",
      "t": "2026-11-26T18:15+00:00"
-    },
-    {
-     "title": "Why Is Newmont Stock Falling on Wednesday?",
-     "source": "Benzinga",
-     "url": "https://finnhub.io/api/news?id=ded7e0e6bab653e9be9d103abf2b937788c3103d87e7f79137ec87ea6fd6ec65",
-     "t": "2026-11-25T14:18+00:00"
     }
    ]
   },
@@ -10502,7 +10502,7 @@
     ],
     [
      "2026-11-27",
-     728.78
+     728.32
     ]
    ]
   },
@@ -10770,7 +10770,7 @@
     ],
     [
      "2026-11-27",
-     650.77
+     650.99
     ]
    ]
   },
@@ -11038,7 +11038,7 @@
     ],
     [
      "2026-11-27",
-     334.35
+     334.4
     ]
    ]
   },
@@ -11306,7 +11306,7 @@
     ],
     [
      "2026-11-27",
-     39.41
+     39.4
     ]
    ]
   },
@@ -11574,7 +11574,7 @@
     ],
     [
      "2026-11-27",
-     29.71
+     29.72
     ]
    ]
   }
