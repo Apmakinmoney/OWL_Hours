@@ -1,0 +1,420 @@
+{
+ "asOf": "2026-11-28T06:05:58+00:00",
+ "robots": [
+  {
+   "n": "Quinn",
+   "job": "prices",
+   "file": "quotes.json",
+   "ageH": 7.4,
+   "ok": true,
+   "warn": 0,
+   "note": "fresh, 7.4h old"
+  },
+  {
+   "n": "Dana",
+   "job": "sector scores",
+   "file": "latest.json",
+   "ageH": 7.0,
+   "ok": true,
+   "warn": 3,
+   "note": "fresh, 7.0h old, 3 warnings"
+  },
+  {
+   "n": "Cal",
+   "job": "calendar",
+   "file": "calendar.json",
+   "ageH": 6.9,
+   "ok": true,
+   "warn": 0,
+   "note": "fresh, 6.9h old"
+  },
+  {
+   "n": "Penny",
+   "job": "paper portfolios",
+   "file": "paper.json",
+   "ageH": 6.9,
+   "ok": true,
+   "warn": 0,
+   "note": "fresh, 6.9h old"
+  },
+  {
+   "n": "Coco",
+   "job": "crypto",
+   "file": "crypto.json",
+   "ageH": 0.1,
+   "ok": true,
+   "warn": 0,
+   "note": "fresh, 0.1h old"
+  },
+  {
+   "n": "Rex",
+   "job": "company research",
+   "file": "companies.json",
+   "ageH": 6.9,
+   "ok": true,
+   "warn": 0,
+   "note": "fresh, 6.9h old"
+  },
+  {
+   "n": "Wren",
+   "job": "daily read",
+   "file": "dailyread.json",
+   "ageH": null,
+   "ok": false,
+   "warn": 0,
+   "note": "no file yet"
+  },
+  {
+   "n": "Sage",
+   "job": "backtest",
+   "file": "backtest.json",
+   "ageH": 8.8,
+   "ok": true,
+   "warn": 0,
+   "note": "fresh, 8.8h old"
+  }
+ ],
+ "clock": {
+  "angle": 305.9,
+  "phase": "Contraction",
+  "hour": "Night",
+  "clarity": 0.15,
+  "word": "mixed",
+  "strong": [
+   "Communication",
+   "Staples",
+   "Discretionary"
+  ],
+  "weak": [
+   "Semiconductors",
+   "Tech",
+   "Energy"
+  ]
+ },
+ "watch": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "line": "12 of 12 names up last session. Biggest move: SLV +6.2%.",
+  "rows": [
+   {
+    "sym": "SLV",
+    "name": "Silver ETF",
+    "price": 39.4,
+    "pct": 6.2
+   },
+   {
+    "sym": "TSLA",
+    "name": "Tesla",
+    "price": 400,
+    "pct": 5.22,
+    "news": ""
+   },
+   {
+    "sym": "SPCX",
+    "name": "SpaceX",
+    "price": 133.59,
+    "pct": 4.83,
+    "news": ""
+   },
+   {
+    "sym": "AMZN",
+    "name": "Amazon",
+    "price": 254.12,
+    "pct": 3.96,
+    "news": ""
+   },
+   {
+    "sym": "QQQ",
+    "name": "Nasdaq 100 ETF",
+    "price": 650.99,
+    "pct": 2.69
+   },
+   {
+    "sym": "GLD",
+    "name": "Gold ETF",
+    "price": 334.4,
+    "pct": 2.12
+   },
+   {
+    "sym": "SPY",
+    "name": "S&P 500 ETF",
+    "price": 728.32,
+    "pct": 1.62
+   },
+   {
+    "sym": "AAPL",
+    "name": "Apple",
+    "price": 358.54,
+    "pct": 0.83,
+    "tag": "near high",
+    "news": ""
+   },
+   {
+    "sym": "NVDA",
+    "name": "NVIDIA",
+    "price": 150.49,
+    "pct": 0.8,
+    "news": ""
+   },
+   {
+    "sym": "MSFT",
+    "name": "Microsoft",
+    "price": 492.85,
+    "pct": 0.6,
+    "news": ""
+   },
+   {
+    "sym": "UUP",
+    "name": "US Dollar ETF",
+    "price": 29.72,
+    "pct": 0.41
+   },
+   {
+    "sym": "LLY",
+    "name": "Eli Lilly",
+    "price": 1392.38,
+    "pct": 0.01,
+    "news": ""
+   }
+  ],
+  "earnings": [],
+  "near": [
+   "AAPL is within 3% of its 52-week high"
+  ]
+ },
+ "metals": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "line": "Gold $3,655, -10.1% over 20 days, below both its 50- and 200-day averages.",
+  "rows": [
+   {
+    "name": "Gold",
+    "src": "XAU/USD",
+    "price": 3654.55,
+    "chg1": 0.0,
+    "chg20": -10.12,
+    "trend": "below both"
+   },
+   {
+    "name": "Silver",
+    "src": "SLV",
+    "price": 39.4,
+    "chg1": 6.2,
+    "chg20": -16.67,
+    "trend": "below both"
+   },
+   {
+    "name": "Platinum",
+    "src": "PPLT",
+    "price": 11.97,
+    "chg1": 3.55,
+    "chg20": -11.2,
+    "trend": "below both"
+   },
+   {
+    "name": "Palladium",
+    "src": "PALL",
+    "price": 16.15,
+    "chg1": 2.87,
+    "chg20": -11.36,
+    "trend": "below both"
+   }
+  ]
+ },
+ "risk": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "line": "Since 2026-11-27: SPY buy and hold +0.00%, Owl B +0.00%, Moderately aggressive +0.00%",
+  "rows": [
+   {
+    "id": "spy",
+    "name": "SPY buy and hold",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "A",
+    "name": "Owl A: top 3 strongest",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "B",
+    "name": "Owl B: needle's phase",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "C",
+    "name": "Owl C: defensive switch",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t1",
+    "name": "Highest risk",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t2",
+    "name": "Aggressive",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t3",
+    "name": "Moderately aggressive",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t4",
+    "name": "Moderate",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t5",
+    "name": "Conservatively moderate",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t6",
+    "name": "Conservative",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "t7",
+    "name": "Retirement income",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "h1",
+    "name": "Clock-steered metals mix",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   },
+   {
+    "id": "h2",
+    "name": "Metals core + miners switch",
+    "nav": 100000,
+    "ret": 0.0,
+    "dd": 0.0,
+    "guard": false
+   }
+  ],
+  "warn": []
+ },
+ "site": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "checks": [
+   {
+    "name": "home page",
+    "ok": true,
+    "ms": 162,
+    "note": "loads"
+   },
+   {
+    "name": "latest.json",
+    "ok": true,
+    "ms": 55,
+    "note": "loads"
+   },
+   {
+    "name": "manifest.webmanifest",
+    "ok": true,
+    "ms": 48,
+    "note": "loads"
+   }
+  ],
+  "ok": true,
+  "line": "Website is up, data files load."
+ },
+ "qa": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "ok": true,
+  "checks": [
+   {
+    "name": "prices",
+    "ok": true,
+    "note": "53 prices"
+   },
+   {
+    "name": "sector scores",
+    "ok": true,
+    "note": "14 sectors"
+   },
+   {
+    "name": "company detail",
+    "ok": true,
+    "note": "35 companies"
+   },
+   {
+    "name": "metals",
+    "ok": true,
+    "note": "gold, silver, platinum, palladium"
+   },
+   {
+    "name": "robot warnings",
+    "ok": true,
+    "note": "none new (3 known: free plan has no silver/platinum/palladium spot)"
+   }
+  ],
+  "line": "All data checks pass."
+ },
+ "eng": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "pending": 0,
+  "pendingTitles": [],
+  "last": {
+   "id": "3.98b",
+   "title": "Discord webhooks: #reports and #alerts",
+   "date": "2026-11-28"
+  },
+  "line": "No requests waiting. Last shipped: 3.98b Discord webhooks: #reports and #alerts."
+ },
+ "cos": {
+  "asOf": "2026-11-28T06:05:58+00:00",
+  "slot": "am",
+  "headline": "Good morning, CEO. 1 thing(s) need your eyes.",
+  "lines": [
+   "Clock: Night (contraction), mixed signals.",
+   "Strongest: Communication, Staples, Discretionary. Weakest: Semiconductors, Tech, Energy.",
+   "Robots: 7 of 8 on schedule. Late: Wren (no file yet)",
+   "12 of 12 names up last session. Biggest move: SLV +6.2%.",
+   "Gold $3,655, -10.1% over 20 days, below both its 50- and 200-day averages.",
+   "Since 2026-11-27: SPY buy and hold +0.00%, Owl B +0.00%, Moderately aggressive +0.00%",
+   "Website is up, data files load.",
+   "All data checks pass.",
+   "No requests waiting. Last shipped: 3.98b Discord webhooks: #reports and #alerts."
+  ],
+  "needs": [
+   "Wren (daily read) is late"
+  ]
+ }
+}
